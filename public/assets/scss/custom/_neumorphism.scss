@@ -81,3 +81,103 @@ html[data-theme="neumorphism-dark"] .form-control {
   border-radius: 12px;
   box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light);
 }
+
+/* Angular Material mappings */
+html[data-theme^="neumorphism"] {
+  /* Cards */
+  .mat-mdc-card, .mdc-card {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light) !important;
+  }
+
+  /* Buttons (raised/unelevated/FAB) */
+  .mat-mdc-raised-button, .mat-mdc-unelevated-button, .mat-mdc-fab, .mat-mdc-mini-fab {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light) !important;
+  }
+  .mat-mdc-raised-button:active, .mat-mdc-unelevated-button:active, .mat-mdc-fab:active, .mat-mdc-mini-fab:active {
+    box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light) !important;
+  }
+
+  /* Form fields */
+  .mat-mdc-form-field .mdc-text-field, .mdc-text-field {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
+    border: 0 !important;
+  }
+  .mat-mdc-input-element, .mdc-text-field__input {
+    color: var(--neu-text) !important;
+  }
+  .mat-mdc-select-panel, .mat-mdc-autocomplete-panel, .mat-mdc-menu-panel, .mdc-menu-surface,
+  .mat-datepicker-content, .cdk-overlay-pane .mat-mdc-tooltip-panel {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border: 0 !important;
+    box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important;
+  }
+
+  /* Tables & lists */
+  .mat-mdc-table, .mat-mdc-row, .mat-mdc-header-row, .mat-mdc-list-item {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border: 0 !important;
+  }
+
+  /* Dialogs, snackbars */
+  .mat-mdc-dialog-container .mdc-dialog__surface,
+  .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: var(--neu-surface) !important;
+    color: var(--neu-text) !important;
+    border: 0 !important;
+    box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important;
+  }
+}
+
+/* CDK Overlay base */
+html[data-theme^="neumorphism"] .cdk-overlay-container .cdk-overlay-pane {
+  color: var(--neu-text) !important;
+}
+
+/* ng-select */
+html[data-theme^="neumorphism"] .ng-select .ng-select-container {
+  background: var(--neu-surface) !important;
+  color: var(--neu-text) !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
+}
+html[data-theme^="neumorphism"] .ng-dropdown-panel {
+  background: var(--neu-surface) !important;
+  color: var(--neu-text) !important;
+  border: 0 !important;
+  box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important;
+}
+
+/* flatpickr */
+html[data-theme^="neumorphism"] .flatpickr-calendar {
+  background: var(--neu-surface) !important;
+  color: var(--neu-text) !important;
+  border: 0 !important;
+  box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important;
+}
+html[data-theme^="neumorphism"] .flatpickr-day.selected,
+html[data-theme^="neumorphism"] .flatpickr-day.startRange,
+html[data-theme^="neumorphism"] .flatpickr-day.endRange {
+  box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
+}
+
+/* ngx-toastr */
+html[data-theme^="neumorphism"] .toast-container .ngx-toastr {
+  background: var(--neu-surface) !important;
+  color: var(--neu-text) !important;
+  border: 0 !important;
+  box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important;
+}

@@ -1,0 +1,77 @@
+/* Light/Dark theme mappings to ensure all components reflect current theme */
+
+html[data-theme-mode="light"],
+html[data-theme-mode="dark"] {
+  /* Angular Material surfaces */
+  /* cards */
+  
+}
+
+html[data-theme-mode="light"],
+html[data-theme-mode="dark"] {
+  /* Angular Material cards */
+  .mat-mdc-card, .mdc-card {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 0 !important;
+  }
+  /* Buttons are mostly themed by Material palettes; keep readable text */
+  .mat-mdc-raised-button, .mat-mdc-unelevated-button, .mat-mdc-fab, .mat-mdc-mini-fab {
+    color: var(--default-text-color);
+  }
+  /* Form fields */
+  .mat-mdc-form-field .mdc-text-field, .mdc-text-field {
+    background: var(--form-control-bg) !important;
+    color: var(--default-text-color) !important;
+  }
+  .mat-mdc-input-element, .mdc-text-field__input {
+    color: var(--default-text-color) !important;
+  }
+  /* Overlay-based components */
+  .mat-mdc-select-panel, .mat-mdc-autocomplete-panel, .mat-mdc-menu-panel, .mdc-menu-surface,
+  .mat-datepicker-content, .cdk-overlay-pane .mat-mdc-tooltip-panel {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 1px solid var(--default-border) !important;
+  }
+  /* Tables & lists */
+  .mat-mdc-table, .mat-mdc-row, .mat-mdc-header-row, .mat-mdc-list-item {
+    background: var(--custom-white);
+    color: var(--default-text-color);
+  }
+  /* Dialogs & snackbars */
+  .mat-mdc-dialog-container .mdc-dialog__surface,
+  .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 0 !important;
+  }
+  /* ng-select */
+  .ng-select .ng-select-container {
+    background: var(--form-control-bg) !important;
+    color: var(--default-text-color) !important;
+    border-color: var(--input-border) !important;
+  }
+  .ng-dropdown-panel {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 1px solid var(--default-border) !important;
+  }
+  /* flatpickr */
+  .flatpickr-calendar {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 1px solid var(--default-border) !important;
+  }
+  .flatpickr-day.selected,
+  .flatpickr-day.startRange,
+  .flatpickr-day.endRange {
+    color: var(--default-text-color) !important;
+  }
+  /* ngx-toastr */
+  .toast-container .ngx-toastr {
+    background: var(--custom-white) !important;
+    color: var(--default-text-color) !important;
+    border: 1px solid var(--default-border) !important;
+  }
+}

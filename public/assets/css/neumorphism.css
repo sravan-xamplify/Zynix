@@ -56,6 +56,25 @@ html[data-theme^="neumorphism"] .form-select,
 html[data-theme^="neumorphism"] .input-group-text{
   background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:12px;box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light)
 }
+/* Angular Material mappings */
+html[data-theme^="neumorphism"] .mat-mdc-card,html[data-theme^="neumorphism"] .mdc-card{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:14px!important;box-shadow:8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .mat-mdc-raised-button,html[data-theme^="neumorphism"] .mat-mdc-unelevated-button,html[data-theme^="neumorphism"] .mat-mdc-fab,html[data-theme^="neumorphism"] .mat-mdc-mini-fab{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:14px!important;box-shadow:6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .mat-mdc-raised-button:active,html[data-theme^="neumorphism"] .mat-mdc-unelevated-button:active,html[data-theme^="neumorphism"] .mat-mdc-fab:active,html[data-theme^="neumorphism"] .mat-mdc-mini-fab:active{box-shadow:inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .mat-mdc-form-field .mdc-text-field,html[data-theme^="neumorphism"] .mdc-text-field{background:var(--neu-surface)!important;color:var(--neu-text)!important;border-radius:12px!important;box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light)!important;border:0!important}
+html[data-theme^="neumorphism"] .mat-mdc-input-element,html[data-theme^="neumorphism"] .mdc-text-field__input{color:var(--neu-text)!important}
+html[data-theme^="neumorphism"] .mat-mdc-select-panel,html[data-theme^="neumorphism"] .mat-mdc-autocomplete-panel,html[data-theme^="neumorphism"] .mat-mdc-menu-panel,html[data-theme^="neumorphism"] .mdc-menu-surface,html[data-theme^="neumorphism"] .mat-datepicker-content,html[data-theme^="neumorphism"] .cdk-overlay-pane .mat-mdc-tooltip-panel{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .mat-mdc-table,html[data-theme^="neumorphism"] .mat-mdc-row,html[data-theme^="neumorphism"] .mat-mdc-header-row,html[data-theme^="neumorphism"] .mat-mdc-list-item{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important}
+html[data-theme^="neumorphism"] .mat-mdc-dialog-container .mdc-dialog__surface,html[data-theme^="neumorphism"] .mat-mdc-snack-bar-container .mdc-snackbar__surface{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light)!important}
+/* CDK overlay base */
+html[data-theme^="neumorphism"] .cdk-overlay-container .cdk-overlay-pane{color:var(--neu-text)!important}
+/* ng-select */
+html[data-theme^="neumorphism"] .ng-select .ng-select-container{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:12px!important;box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .ng-dropdown-panel{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light)!important}
+/* flatpickr */
+html[data-theme^="neumorphism"] .flatpickr-calendar{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light)!important}
+html[data-theme^="neumorphism"] .flatpickr-day.selected,html[data-theme^="neumorphism"] .flatpickr-day.startRange,html[data-theme^="neumorphism"] .flatpickr-day.endRange{box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light)!important}
+/* ngx-toastr */
+html[data-theme^="neumorphism"] .toast-container .ngx-toastr{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light)!important}
 html[data-theme^="neumorphism"] .dropdown-menu,
 html[data-theme^="neumorphism"] .modal-content,
 html[data-theme^="neumorphism"] .offcanvas,
