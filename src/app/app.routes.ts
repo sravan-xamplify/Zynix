@@ -5,6 +5,7 @@ import { AuthenticationLayoutComponent } from './shared/layouts/authentication-l
 import { authen } from './shared/routes/auth.routes';
 import { LandingLayoutComponent } from './shared/layouts/landing-layout/landing-layout.component';
 import { landing } from './shared/routes/landing.routes';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -13,7 +14,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../app/authentication/login/login.component').then((m) => m.LoginComponent),
       },
-    { path: '', component: MainLayoutComponent, children: content},
+  { path: '', component: MainLayoutComponent, canActivate: [authGuard], children: content},
     { path: '', component: AuthenticationLayoutComponent, children: authen },
     { path: '', component: LandingLayoutComponent, children: landing },
     { path: '**', redirectTo: '/error/error404', pathMatch: 'full' },
