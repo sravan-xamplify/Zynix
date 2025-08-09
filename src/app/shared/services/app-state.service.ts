@@ -45,7 +45,8 @@ export class AppStateService {
   constructor() {
     const initialState: StateType = this.getInitialStateFromLocalStorage();
     this.initializeState();
-    this.stateSubject.next(initialState);
+  // Apply loaded state to DOM and persist
+  this.updateStateAndEmit(initialState);
   }
 
   private getInitialStateFromLocalStorage(): StateType {
@@ -102,9 +103,21 @@ export class AppStateService {
   }
   private applythemeSpecificChanges(theme: string) {
     let html = document.querySelector('html');
-    html?.setAttribute('data-theme-mode', theme);  //setting theme style
-    html?.setAttribute('data-header-styles', theme); //setting header style
-    html?.setAttribute('data-menu-styles', theme); //setting menu style
+    // Support standard and neumorphism themes
+    const isNeu = theme === 'neumorphism-light' || theme === 'neumorphism-dark';
+    if (isNeu) {
+      html?.setAttribute('data-theme', theme);
+      // Map to base mode for components that rely on data-theme-mode
+      const baseMode = theme === 'neumorphism-dark' ? 'dark' : 'light';
+      html?.setAttribute('data-theme-mode', baseMode);
+      html?.setAttribute('data-header-styles', baseMode);
+      html?.setAttribute('data-menu-styles', baseMode);
+    } else {
+      html?.removeAttribute('data-theme');
+      html?.setAttribute('data-theme-mode', theme);  //setting theme style
+      html?.setAttribute('data-header-styles', theme); //setting header style
+      html?.setAttribute('data-menu-styles', theme); //setting menu style
+    }
   }
   
   private applyNavigationStylesSpecificChanges(navigationStyles: string) {
@@ -204,6 +217,7 @@ export class AppStateService {
   public applyReset() {
     let html = document.querySelector('html');
     if(html){
+  html?.removeAttribute('data-theme');
       html?.style.removeProperty( '--body-bg-rgb');
       html?.style.removeProperty( '--body-bg-rgb2');
       html?.style.removeProperty( '--light-rgb');

@@ -75,6 +75,34 @@
                     />
                   </div>
                 </div>
+                <div class="col-4">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-neu-light">
+                      Neu Light
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-neu-light"
+                      (click)="updateTheme('neumorphism-light')"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mt-2">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-neu-dark">
+                      Neu Dark
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-neu-dark"
+                      (click)="updateTheme('neumorphism-dark')"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div class="">

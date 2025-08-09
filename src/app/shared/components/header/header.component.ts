@@ -120,6 +120,7 @@ export class HeaderComponent {
     if(theme=='light'){
       this.appStateService.updateState({ theme,themeBackground : '',headerColor:'light',menuColor:'light' });
       let html = document.querySelector('html');
+  html?.removeAttribute('data-theme');
         html?.style.removeProperty( '--body-bg-rgb');
         html?.style.removeProperty( '--body-bg-rgb2');
         html?.style.removeProperty( '--light-rgb');
@@ -131,6 +132,7 @@ export class HeaderComponent {
     if(theme=='dark'){
       this.appStateService.updateState({ theme,themeBackground : '',headerColor:'dark',menuColor:'dark' });
       let html = document.querySelector('html');
+  html?.removeAttribute('data-theme');
         html?.style.removeProperty( '--body-bg-rgb');
         html?.style.removeProperty( '--body-bg-rgb2');
         html?.style.removeProperty( '--light-rgb');
@@ -141,6 +143,13 @@ export class HeaderComponent {
       
         html?.setAttribute('data-toggled', 'close');
           html?.setAttribute('data-toggled', window.innerWidth <= 992 ? 'close' : '');
+    }
+    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
+      const html = document.querySelector('html');
+      html?.setAttribute('data-theme', theme);
+      // also align header/menu colors for consistency
+      const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
+      this.appStateService.updateState({ theme, headerColor: header, menuColor: header });
     }
   }
  

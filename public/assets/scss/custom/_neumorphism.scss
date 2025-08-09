@@ -1,0 +1,83 @@
+:root[data-theme="neumorphism-light"] {
+  --neu-bg: #e9eef5;
+  --neu-surface: #f0f4fa;
+  --neu-shadow-dark: rgba(163, 177, 198, 0.6);
+  --neu-shadow-light: rgba(255, 255, 255, 0.9);
+  --neu-text: #2c3e50;
+}
+
+:root[data-theme="neumorphism-dark"] {
+  --neu-bg: #1e222a;
+  --neu-surface: #232a34;
+  --neu-shadow-dark: rgba(0, 0, 0, 0.6);
+  --neu-shadow-light: rgba(255, 255, 255, 0.06);
+  --neu-text: #e6e9ef;
+}
+
+/* Generic helpers */
+.neu-surface {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+  border-radius: 14px;
+  box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+}
+
+.neu-inset {
+  box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light);
+}
+
+/* Apply to body background */
+html[data-theme="neumorphism-light"],
+html[data-theme="neumorphism-dark"] {
+  background: var(--neu-bg);
+}
+
+/* Button style */
+.btn.neu {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.btn.neu:active {
+  transform: translateY(1px);
+  box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+}
+
+/* Card style */
+.card.neu {
+  background: var(--neu-surface);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+}
+
+/* Global mappings when theme is active */
+html[data-theme="neumorphism-light"] .card,
+html[data-theme="neumorphism-dark"] .card {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+}
+
+html[data-theme="neumorphism-light"] .btn,
+html[data-theme="neumorphism-dark"] .btn {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+}
+
+html[data-theme="neumorphism-light"] .form-control,
+html[data-theme="neumorphism-dark"] .form-control {
+  background: var(--neu-surface);
+  color: var(--neu-text);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light);
+}

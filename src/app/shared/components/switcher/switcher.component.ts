@@ -28,6 +28,12 @@ export class SwitcherComponent {
 
   updateTheme(theme: string) {
     this.appStateService.updateState({ theme, menuColor: theme, headerColor: theme });
+    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
+      const html = document.querySelector('html');
+      html?.setAttribute('data-theme', theme);
+      const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
+      this.appStateService.updateState({ headerColor: header, menuColor: header });
+    }
     if (theme == 'light') {
       this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'light', menuColor: 'light' });
       let html = document.querySelector('html');
@@ -38,7 +44,7 @@ export class SwitcherComponent {
       html?.style.removeProperty('--form-control-bg');
       html?.style.removeProperty('--input-border');
     }
-    if (theme == 'dark') {
+  if (theme == 'dark') {
       this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'dark', menuColor: 'dark' });
       let html = document.querySelector('html');
       html?.style.removeProperty('--body-bg-rgb');

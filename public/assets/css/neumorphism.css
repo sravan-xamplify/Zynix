@@ -1,0 +1,75 @@
+:root[data-theme="neumorphism-light"]{
+  --neu-bg:#e9eef5;
+  --neu-surface:#f0f4fa;
+  --neu-shadow-dark:rgba(163,177,198,.6);
+  --neu-shadow-light:rgba(255,255,255,.9);
+  --neu-text:#2c3e50
+}
+:root[data-theme="neumorphism-dark"]{
+  --neu-bg:#1e222a;
+  --neu-surface:#232a34;
+  --neu-shadow-dark:rgba(0,0,0,.6);
+  --neu-shadow-light:rgba(255,255,255,.06);
+  --neu-text:#e6e9ef
+}
+/* Global surface + color tokens (also feed some Bootstrap variables if present) */
+html[data-theme="neumorphism-light"],
+html[data-theme="neumorphism-dark"]{background:var(--neu-bg)}
+html[data-theme^="neumorphism"] body{
+  background:var(--neu-bg)!important;
+  color:var(--neu-text)!important;
+}
+html[data-theme^="neumorphism"]{--bs-body-bg:var(--neu-bg);--bs-body-color:var(--neu-text)}
+
+/* App shell surfaces */
+html[data-theme^="neumorphism"] .app-header,
+html[data-theme^="neumorphism"] header.app-header{
+  background:var(--neu-surface)!important;
+  color:var(--neu-text)!important;
+  border:0!important;
+  box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light) !important;
+}
+html[data-theme^="neumorphism"] .app-sidebar,
+html[data-theme^="neumorphism"] .main-sidebar,
+html[data-theme^="neumorphism"] .main-sidebar-header{
+  background:var(--neu-surface)!important;
+  color:var(--neu-text)!important;
+  border:0!important;
+  box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
+}
+html[data-theme^="neumorphism"] .main-content,
+html[data-theme^="neumorphism"] .app-content{
+  background:var(--neu-bg)!important;
+}
+
+/* Common components */
+.neu-surface{background:var(--neu-surface);color:var(--neu-text);border-radius:14px;box-shadow:8px 8px 16px var(--neu-shadow-dark),-8px -8px 16px var(--neu-shadow-light)}
+.neu-inset{box-shadow:inset 6px 6px 12px var(--neu-shadow-dark),inset -6px -6px 12px var(--neu-shadow-light)}
+.btn.neu{background:var(--neu-surface);color:var(--neu-text);border:0;border-radius:14px;box-shadow:6px 6px 12px var(--neu-shadow-dark),-6px -6px 12px var(--neu-shadow-light);transition:transform .1s ease,box-shadow .1s ease}
+.btn.neu:active{transform:translateY(1px);box-shadow:inset 4px 4px 8px var(--neu-shadow-dark),inset -4px -4px 8px var(--neu-shadow-light)}
+.card.neu{background:var(--neu-surface);border:none;border-radius:16px;box-shadow:10px 10px 20px var(--neu-shadow-dark),-10px -10px 20px var(--neu-shadow-light)}
+html[data-theme^="neumorphism"] .card{background:var(--neu-surface)!important;color:var(--neu-text)!important;border:none!important;border-radius:14px;box-shadow:8px 8px 16px var(--neu-shadow-dark),-8px -8px 16px var(--neu-shadow-light)}
+html[data-theme^="neumorphism"] .btn:not(.btn-link){background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:14px;box-shadow:6px 6px 12px var(--neu-shadow-dark),-6px -6px 12px var(--neu-shadow-light)}
+html[data-theme^="neumorphism"] .btn:active{box-shadow:inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light) !important}
+html[data-theme^="neumorphism"] .form-control,
+html[data-theme^="neumorphism"] .form-select,
+html[data-theme^="neumorphism"] .input-group-text{
+  background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;border-radius:12px;box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light)
+}
+html[data-theme^="neumorphism"] .dropdown-menu,
+html[data-theme^="neumorphism"] .modal-content,
+html[data-theme^="neumorphism"] .offcanvas,
+html[data-theme^="neumorphism"] .toast{
+  background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important;box-shadow:10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light) !important
+}
+html[data-theme^="neumorphism"] .list-group-item,
+html[data-theme^="neumorphism"] .table{
+  background:var(--neu-surface)!important;color:var(--neu-text)!important;border:0!important
+}
+html[data-theme^="neumorphism"] .nav-link.active,
+html[data-theme^="neumorphism"] .page-link.active{
+  box-shadow:inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
+  background:var(--neu-surface)!important;
+  color:var(--neu-text)!important;
+}
+
