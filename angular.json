@@ -10,30 +10,13 @@
           "style": "scss",
           "skipTests": true
         },
-         "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:standalone": {
-          "skipTests": true
-        },
-        "@schematics/angulardirective": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
-        },
-        "@schematics/angularipe": {
-          "skipTests": true
-        }, 
-        "@schematics/angular:resolver": {
-          "skipTests": true
-        },
-        "@schematics/angularservice": {
-          "skipTests": true
-        }
+        "@schematics/angular:class": { "skipTests": true },
+        "@schematics/angular:standalone": { "skipTests": true },
+        "@schematics/angular:directive": { "skipTests": true },
+        "@schematics/angular:guard": { "skipTests": true },
+        "@schematics/angular:interceptor": { "skipTests": true },
+        "@schematics/angular:resolver": { "skipTests": true },
+        "@schematics/angular:service": { "skipTests": true }
       },
       "root": "",
       "sourceRoot": "src",
@@ -80,6 +63,12 @@
                   "inlineCritical": false
                 }
               },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -97,7 +86,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
