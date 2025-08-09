@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { dashboardRoutingModule } from '../../components/dashboards/dashboard.routes';
 import { salesRoutingModule } from '../../components/dashboards/sales/salesdashboard.routes';
 import { appsRoutingModule } from '../../components/apps/apps.routes';
@@ -43,10 +42,4 @@ export const content: Routes = [
       ...tablesRoutingModule.routes
     ],
   },
-]; 
-@NgModule({
-  imports: [RouterModule.forRoot(content)],
-  exports: [RouterModule],
-})
-export class SharedRoutingModule {}
- 
+];
