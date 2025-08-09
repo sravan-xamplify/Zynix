@@ -10,12 +10,11 @@ import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpkSchoolCardComponent } from '../../../@spk/reusable-dashboard/spk-school-card/spk-school-card.component';
 import { SpkReusableTablesComponent } from '../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
-import { SpkJobsCardComponent } from '../../../@spk/reusable-apps/spk-jobs-card/spk-jobs-card.component';
 import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 @Component({
     selector: 'app-jobs',
-    imports: [RouterModule, SharedModule, SpkApexchartsComponent, SpkReusableTablesComponent, SpkDropdownsComponent, CommonModule, NgbDropdownModule, SpkSchoolCardComponent, SpkJobsCardComponent],
+  imports: [RouterModule, SharedModule, SpkApexchartsComponent, SpkReusableTablesComponent, SpkDropdownsComponent, CommonModule, NgbDropdownModule, SpkSchoolCardComponent],
     templateUrl: './jobs.component.html',
     styleUrls: ['./jobs.component.scss']
 })

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
-import { SpkPopoversComponent } from '../../../@spk/reusable-ui-elements/spk-popovers/spk-popovers.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SharedModule } from '../../../shared/shared.module';
 import * as prismcodeData from '../../../shared/data/prismData/popovers'
 import { ShowcodeCardComponent } from '../../../shared/components/showcode-card/showcode-card.component';
 @Component({
     selector: 'app-popovers',
-    imports: [SharedModule, NgbPopoverModule, ShowcodeCardComponent, SpkPopoversComponent],
+  imports: [SharedModule, NgbPopoverModule, ShowcodeCardComponent],
     templateUrl: './popovers.component.html',
     styleUrls: ['./popovers.component.scss']
 })

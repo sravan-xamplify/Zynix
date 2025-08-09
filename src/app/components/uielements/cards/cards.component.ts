@@ -20,7 +20,6 @@ import { SpkTitleCardComponent } from '../../../@spk/reusable-ui-elements/spk-ca
 import { SpkFeaturedCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-featured-card/spk-featured-card.component';
 import { SpkBlockquoteCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-blockquote-card/spk-blockquote-card.component';
 import { SpkHeaderFooterCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-header-footer-card/spk-header-footer-card.component';
-import { SpkCalculationsCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-calculations-card/spk-calculations-card.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SpkCustomCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-custom-card/spk-custom-card.component';
 import { SpkReviewCardComponent } from '../../../@spk/reusable-ui-elements/spk-cards/spk-review-card/spk-review-card.component';
@@ -30,8 +29,8 @@ import { SpkMediaCardComponent } from '../../../@spk/reusable-ui-elements/spk-ca
 @Component({
     selector: 'app-cards',
     imports: [SharedModule, NgbModule, SpkImageCardComponent, CommonModule, SpkHorizontalCardComponent, SpkBgcolorCardComponent, SpkFeaturedCardComponent, SpkBlockquoteCardComponent,
-        SpkAlignmentCardComponent, SpkMountainsCardComponent, SpkGridmarkupCardComponent, SpkOverlayCardComponent, SpkTitleCardComponent, SpkNewsCardComponent, SpkMediaCardComponent,
-        SpkHeaderFooterCardComponent, SpkCalculationsCardComponent, SpkCustomCardComponent, SpkReviewCardComponent, SpkBorderCardComponent, SpkCardgroupsCardComponent, SpkGridcardComponent, SpkUtilitiesCardComponent, SpkNavigationCardComponent, SpkCollapseCardComponent, SpkListgroupCardComponent],
+  SpkAlignmentCardComponent, SpkMountainsCardComponent, SpkGridmarkupCardComponent, SpkOverlayCardComponent, SpkTitleCardComponent, SpkNewsCardComponent, SpkMediaCardComponent,
+  SpkHeaderFooterCardComponent, SpkCustomCardComponent, SpkReviewCardComponent, SpkBorderCardComponent, SpkCardgroupsCardComponent, SpkGridcardComponent, SpkUtilitiesCardComponent, SpkNavigationCardComponent, SpkCollapseCardComponent, SpkListgroupCardComponent],
     templateUrl: './cards.component.html',
     styleUrl: './cards.component.scss'
 })

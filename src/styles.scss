@@ -8,9 +8,8 @@
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
 
-@import url("../public/assets/css/styles.css");
-// -- Icons Css --
-@import url("../public/assets/css/icons.css");
+/* Moved vendor theme CSS (styles.css, icons.css) to index.html <link> tags
+  to avoid CSS optimizer warnings while building. */
 
 
 //flatepicker

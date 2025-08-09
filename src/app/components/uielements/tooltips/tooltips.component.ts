@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import * as prismcodeData from '../../../shared/data/prismData/tooltips'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { SpkTooltipComponent } from '../../../@spk/reusable-ui-elements/spk-tooltip/spk-tooltip.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../../shared/shared.module';
 import { ShowcodeCardComponent } from '../../../shared/components/showcode-card/showcode-card.component';
 @Component({
     selector: 'app-tooltips',
-    imports: [SharedModule, NgbModule, SpkTooltipComponent, CommonModule, ShowcodeCardComponent],
+  imports: [SharedModule, NgbModule, CommonModule, ShowcodeCardComponent],
     templateUrl: './tooltips.component.html',
     styleUrls: ['./tooltips.component.scss']
 })

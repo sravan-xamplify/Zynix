@@ -8,7 +8,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SpkApexchartsComponent } from '../../../@spk/spk-apexcharts/apexcharts.component';
 
 import { CommonModule } from '@angular/common';
-import { SpkProjectCardComponent } from '../../../@spk/reusable-dashboard/spk-project-card/spk-project-card.component';
 import { SpkSchoolCardComponent } from '../../../@spk/reusable-dashboard/spk-school-card/spk-school-card.component';
 import { SpkDashboardCardComponent } from '../../../@spk/reusable-dashboard/spk-dashboard-card/spk-dashboard-card.component';
 import { SpkReusableTablesComponent } from '../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
@@ -16,7 +15,7 @@ import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dr
 
 @Component({
     selector: 'app-ecommerce',
-    imports: [RouterModule, SharedModule, NgApexchartsModule, NgbModule, SpkDashboardCardComponent, SpkDropdownsComponent, SpkApexchartsComponent, SpkReusableTablesComponent, CommonModule, SpkProjectCardComponent, SpkSchoolCardComponent],
+  imports: [RouterModule, SharedModule, NgApexchartsModule, NgbModule, SpkDashboardCardComponent, SpkDropdownsComponent, SpkApexchartsComponent, SpkReusableTablesComponent, CommonModule, SpkSchoolCardComponent],
     templateUrl: './ecommerce.component.html',
     styleUrls: ['./ecommerce.component.scss']
 })

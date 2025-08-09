@@ -10,7 +10,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { SpkActivityCardComponent } from '../../../@spk/reusable-dashboard/spk-activity-card/spk-activity-card.component';
 import { SpkProjectCardComponent } from '../../../@spk/reusable-dashboard/spk-project-card/spk-project-card.component';
-import { SpkSalesCardsComponent } from '../../../@spk/reusable-dashboard/spk-sales-cards/spk-sales-cards.component';
 import { SpkSchoolCardComponent } from '../../../@spk/reusable-dashboard/spk-school-card/spk-school-card.component';
 import { SpkDashboardCardComponent } from '../../../@spk/reusable-dashboard/spk-dashboard-card/spk-dashboard-card.component';
 import { SpkReusableTablesComponent } from '../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
@@ -20,7 +19,7 @@ import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dr
 @Component({
     selector: 'app-sales',
     imports: [RouterModule, SharedModule, NgbModule, FormsModule, SpkFlatpickrComponent, SpkApexchartsComponent, SpkDashboardCardComponent, SpkActivityCardComponent,
-        SpkReusableTablesComponent, SpkProjectCardComponent, CommonModule, SpkSchoolCardComponent, SpkSalesCardsComponent, SpkDropdownsComponent],
+  SpkReusableTablesComponent, SpkProjectCardComponent, CommonModule, SpkSchoolCardComponent, SpkDropdownsComponent],
     templateUrl: './sales.component.html',
     styleUrls: ['./sales.component.scss']
 })

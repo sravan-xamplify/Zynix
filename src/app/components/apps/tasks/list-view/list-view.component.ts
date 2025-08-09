@@ -7,7 +7,6 @@ import { SharedModule } from '../../../../shared/shared.module';
 import { FlatpickrDefaults, FlatpickrModule } from 'angularx-flatpickr';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-import { SpkApexchartsComponent } from '../../../../@spk/spk-apexcharts/apexcharts.component';
 import { BounceRateData, ConversionRateData, ReviewChartData, SessionDurationData, TotalFollowersData } from '../../../../shared/data/dashboard_chartData/analyticscharts.data';
 import { CommonModule } from '@angular/common';
 import { SpkListviewCardComponent } from '../../../../@spk/reusable-apps/spk-listview-card/spk-listview-card.component';
@@ -20,9 +19,9 @@ import { SpkDropdownsComponent } from '../../../../@spk/reusable-ui-elements/spk
 
 @Component({
     selector: 'app-list-view',
-    imports: [SharedModule, NgApexchartsModule, NgbModule, RouterModule, SpkFlatpickrComponent,
-        FlatpickrModule, NgSelectModule, FormsModule, SpkNgSelectComponent, SpkDropdownsComponent,
-        SpkApexchartsComponent, CommonModule, SpkListviewCardComponent, SpkReusableTablesComponent],
+  imports: [SharedModule, NgApexchartsModule, NgbModule, RouterModule, SpkFlatpickrComponent,
+    FlatpickrModule, NgSelectModule, FormsModule, SpkNgSelectComponent, SpkDropdownsComponent,
+    CommonModule, SpkListviewCardComponent, SpkReusableTablesComponent],
     providers: [FlatpickrDefaults],
     templateUrl: './list-view.component.html',
     styleUrl: './list-view.component.scss'

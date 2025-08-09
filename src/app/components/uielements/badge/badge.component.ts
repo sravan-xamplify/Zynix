@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import * as PrismCode from '../../../shared/data/prismData/badge';
-import { SpkBadgesComponent } from '../../../@spk/reusable-ui-elements/spk-badges/spk-badges.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShowcodeCardComponent } from '../../../shared/components/showcode-card/showcode-card.component';
 import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
     selector: 'app-badge',
-    imports: [SharedModule, ShowcodeCardComponent, SpkBadgesComponent],
+  imports: [SharedModule, ShowcodeCardComponent],
     templateUrl: './badge.component.html',
     styleUrls: ['./badge.component.scss']
 })

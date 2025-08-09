@@ -12,14 +12,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SpkTagsComponent } from '../../../@spk/reusable-apps/spk-tags/spk-tags.component';
 import { SpkGalleryComponent } from '../../../@spk/spk-reusable-plugins/spk-gallery/spk-gallery.component';
-import { SpkBlogCategoryCardComponent } from '../../../@spk/spk-reusable-pages/spk-blog-category-card/spk-blog-category-card.component';
 import { SpkNgSelectComponent } from '../../../@spk/spk-ng-select/spk-ng-select.component';
 import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 @Component({
     selector: 'app-profile',
-    imports: [SharedModule, GalleryModule, SpkNgSelectComponent, SpkDropdownsComponent,
-        LightboxModule, NgbModule, LightgalleryModule, RouterModule, NgSelectModule, CommonModule, FormsModule, SpkTagsComponent, SpkGalleryComponent, SpkBlogCategoryCardComponent],
+  imports: [SharedModule, GalleryModule, SpkNgSelectComponent, SpkDropdownsComponent,
+    LightboxModule, NgbModule, LightgalleryModule, RouterModule, NgSelectModule, CommonModule, FormsModule, SpkTagsComponent, SpkGalleryComponent],
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.scss']
 })

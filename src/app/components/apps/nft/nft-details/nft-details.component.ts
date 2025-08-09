@@ -5,7 +5,6 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import Swiper from 'swiper'
 import { register } from 'swiper/element';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { SpkNftCardComponent } from '../../../../@spk/reusable-dashboard/spk-nft-card/spk-nft-card.component';
 import { CommonModule } from '@angular/common';
 import { SpkReusableTablesComponent } from '../../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
 import { SpkTeamCardComponent } from '../../../../@spk/reusable-apps/spk-team-card/spk-team-card.component';
@@ -14,7 +13,7 @@ register();
 
 @Component({
     selector: 'app-nft-details',
-    imports: [SharedModule, GalleryModule, NgbNavModule, SpkNftCardComponent, CommonModule, SpkReusableTablesComponent, SpkTeamCardComponent],
+  imports: [SharedModule, GalleryModule, NgbNavModule, CommonModule, SpkReusableTablesComponent, SpkTeamCardComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './nft-details.component.html',
     styleUrl: './nft-details.component.scss'
