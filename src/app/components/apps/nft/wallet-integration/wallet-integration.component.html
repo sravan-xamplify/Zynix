@@ -1,0 +1,155 @@
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xxl-3">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <h6 class="fw-semibold">Wallet Overview</h6>
+                    <a href="javascript:void(0);" class="text-primary text-decoration-underline fw-medium">View Wallet<i
+                            class="ri-arrow-right-line ms-1"></i></a>
+                </div>
+                <div class="d-flex gap-2 mb-3 align-items-center">
+                    <span class="avatar avatar-lg avatar-rounded p-1 bg-light border"><img
+                            src="./assets/images/faces/14.jpg" alt="img"></span>
+                    <div class="flex-fill">
+                        <p class="mb-0 text-muted">Your Blanace</p>
+                        <div class="d-flex align-items-center mt-1"> <span class="avatar avatar-xs">
+                                <img src="./assets/images/crypto-currencies/crypto-icons/ethereum-eth-logo.svg"
+                                    alt=""> </span>
+                            <span class="ms-1 fw-medium">5.76<span
+                                    class="ms-2 text-success">+$0.5645</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-2 bg-light border rounded">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <div class="lh-1">
+                            <span class="avatar avatar-sm avatar-rounded">
+                                <img src="./assets/images/crypto-currencies/square-color/Ethereum.svg"
+                                    alt="">
+                            </span>
+                        </div>
+                        <div class="flex-fill">
+                            <span class="fw-semibold fs-14">2.3892 ETH</span>
+                        </div>
+                        <div>
+                            <span class="text-danger">-$325.746</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header justify-content-between">
+                <div class="card-title mb-sm-0 mb-2"> Wallet Transactions </div>
+                <spk-dropdowns [Customclass]="'dropdown'" [title]="'Last 24 Hours'"
+                [class]="'p-2 py-2 bg-light text-default border rounded fs-12 '" [Icon]="true"
+                [Menuclass]="'dropdown-menu'">
+                <li><a class="dropdown-item" href="javascript:void(0);">Last 24 Hours</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Last 7 Days</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Last 30 Days</a></li>
+            </spk-dropdowns>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    @for (transaction of transactions; track $index) {
+                    <li class="list-group-item">
+                      <div class="d-flex gap-3 align-items-center flex-wrap">
+                        <div class="lh-1">
+                          <span class="avatar " [ngClass]="transaction.badgeClass">
+                            <i [ngClass]="transaction.iconClass + ' fs-25'"></i>
+                          </span>
+                        </div>
+                        <div class="flex-fill">
+                          <div class="mb-1 d-flex justify-content-between gap-1">
+                            <span class="fw-medium">{{ transaction.type }}</span>
+                            <span class="fs-12 text-muted ms-auto d-inline-block">{{ transaction.timeAgo }}</span>
+                          </div>
+                          <div class="fs-13">Amount: <span [ngClass]="transaction.amountClass">{{ transaction.amount }}</span></div>
+                        </div>
+                      </div>
+                    </li>
+                }
+                  </ul>
+                  
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-9">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title"> Choose Network </div>
+                <div> <button class="btn btn-primary btn-wave waves-effect waves-light">Add
+                        Network</button> </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    @for (wallet of Network; track $index) {
+                    <div class="">  
+                      <div class="nft-wallet {{wallet.ActiveClass}}">
+                        <div class="card-body p-2">
+                          <a href="javascript:void(0);" class="stretched-link"></a>
+                          <div class="d-flex align-items-center justify-content-center gap-3">
+                            <div class="lh-1">
+                              <span class="avatar avatar-sm avatar-rounded p-1" [ngClass]="wallet.bgClass">
+                                <img [src]="wallet.imgSrc" alt="">
+                              </span>
+                            </div>
+                            <div>
+                              <h6 class="fs-14 fw-medium mb-0 me-1">{{ wallet.name }}</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                }
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Choose Wallet
+                </div>
+                <div>
+                    <button class="btn btn-secondary btn-wave">Add New Wallet</button>
+                </div>
+            </div>
+            <div class="card-body p-4">
+                <div class="row justify-content-center gap-6">
+                    @for (wallet of wallets; track $index) {
+                    <div class="col-xxl-4">
+                      <div class="card custom-card nft-wallet{{wallet.activeCard}} active" [ngClass]="{ 'active': wallet.name === 'MetaMask' }">
+                        <div class="card-body">
+                          <a href="javascript:void(0);" class="stretched-link"></a>
+                          <div class="d-flex align-items-center justify-content-between flex-wrap">
+                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                              <span class="avatar avatar-lg avatar-rounded p-2 bg-light">
+                                <img [src]="wallet.imgSrc" alt="">
+                              </span>
+                              <div>
+                                <h6 class="fw-semibold mb-0">{{ wallet.name }}</h6>
+                              </div>
+                            </div>
+                            <div>
+                              <a href="javascript:void(0);" class="text-primary text-decoration-underline fw-medium">
+                                View More <i class="ri-arrow-right-line ms-1"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                }
+                  </div>
+            </div>
+            <div class="card-footer">
+                <div>
+                    <button class="btn btn-success float-end btn-wave">Connect</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

@@ -1,0 +1,931 @@
+ <!-- Start:: row-1 -->
+ <div class="row">
+    <div class="col-xxl-4">
+        <div class="card custom-card overflow-hidden medical-main-card">
+            <div class="card-body p-4">
+                <div class="row justify-content-between">
+                    <div class="col-xxl-9">
+                        <h4 class="fw-semibold text-fixed-white mb-2">Personalized Care Alerts</h4>
+                        <span class="fs-14 d-block mb-3 text-fixed-white op-7">Unlock detailed, actionable reports on patient well-being, facilitating informed decision-making for optimized care.</span>
+                        <button type="button" class="btn btn-success btn-w-md brn-wave mt-2">Book Appointment <i class="ti ti-arrow-narrow-right ms-1"></i></button>
+                    </div>
+                    <div class="col-xxl-3">
+                        <img src="./assets/images/media/backgrounds/3.png" class="img-fluid d-xxl-block d-none" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-5">
+        <!-- dashboard.component.html -->
+<div class="row">
+    @for (card of cardData; track $index) {
+    <div class="col-xl-6">
+      <div class="card custom-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="lh-1">
+              <span class="avatar avatar-lg {{ card.colorClass }}">
+               <div [innerHTML]="sanitizeIcon(card.icon)"></div>
+              </span>
+            </div>
+            <div class="flex-fill">
+              <h3 class="fw-semibold mb-1">{{ card.value }}</h3>
+              <span class="">{{ card.title }}</span>
+            </div>
+            <div class="text-end">
+              <span class="d-block text-muted fs-13 mb-1">{{ card.changePercentage }}</span>
+              <span class="badge bg-{{card.changeBg}}-transparent d-inline-flex align-items-center">
+                <i class="ti ti-arrow-{{ card.changeArrow}} me-1"></i>{{ card.change }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+  </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card"> 
+            <div class="card-header">
+                <div class="card-title">
+                    Avaialable Treatments
+                </div>
+            </div>
+            <div class="card-body p-4">
+                <div class="row gy-3"> 
+                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center"> 
+                        <a aria-label="anchor" href="javascript:void(0);" class="btn btn-primary-light btn-wave border-0 p-3 lh-1 rounded"> 
+                            <i class="ti ti-heartbeat fs-22"></i> 
+                        </a> 
+                        <a href="javascript:void(0);" class="d-block pt-3 fw-medium fs-12">Cardiology</a> 
+                    </div>
+                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center"> 
+                        <a aria-label="anchor" href="javascript:void(0);" class="btn btn-secondary-light btn-wave border-0 p-3 lh-1 rounded"> 
+                            <i class="ti ti-baby-carriage fs-22"></i> 
+                        </a> 
+                        <a href="javascript:void(0);" class="d-block pt-3 fw-medium fs-12">Pediatrics</a> 
+                    </div> 
+                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center"> 
+                        <a aria-label="anchor" href="javascript:void(0);" class="btn btn-success-light btn-wave border-0 p-3 lh-1 rounded"> 
+                            <i class="ti ti-bone fs-22"></i> 
+                        </a> 
+                        <a href="javascript:void(0);" class="d-block pt-3 fw-medium fs-12">Orthopedic</a> 
+                    </div> 
+                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center"> 
+                        <a aria-label="anchor" href="javascript:void(0);" class="btn btn-info-light btn-wave border-0 p-3 lh-1 rounded"> 
+                            <i class="bi bi-three-dots fs-22"></i> 
+                        </a> 
+                        <a href="javascript:void(0);" class="d-block pt-3 fw-medium fs-12">More</a> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xxl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Patients Analysis
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="patients-analysis">
+                    <spk-apexcharts [chartOptions]="chartOptions"></spk-apexcharts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Available Doctors
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled available-doctors-list">
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/1.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Smith
+                                </span>
+                                <span class="text-muted fs-13">Cardiology</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    14 Appointments
+                                </span>
+                                <span class="fw-medium">10:00AM - 6:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/2.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Johnson
+                                </span>
+                                <span class="text-muted fs-13">Orthopedics</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    18 Appointments
+                                </span>
+                                <span class="fw-medium">2:00PM - 4:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/3.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Davis
+                                </span>
+                                <span class="text-muted fs-13">Dermatology</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    16 Appointments
+                                </span>
+                                <span class="fw-medium">12:00AM - 2:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/4.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Miller
+                                </span>
+                                <span class="text-muted fs-13">Neurology</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    22 Appointments
+                                </span>
+                                <span class="fw-medium">4:00PM - 6:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/5.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Anderson
+                                </span>
+                                <span class="text-muted fs-13">Ophthalmology</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    27 Appointments
+                                </span>
+                                <span class="fw-medium">11:00AM - 2:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <div class="lh-1">
+                                <span class="avatar avatar-sm">
+                                    <img src="./assets/images/faces/doctors/6.jpg" alt="">
+                                </span>
+                            </div> 
+                            <div class="flex-fill">
+                                <span class="d-block fw-semibold lh-1">
+                                    Dr. Martinez
+                                </span>
+                                <span class="text-muted fs-13">Gastroenterology</span>
+                            </div>   
+                            <div class="text-end">
+                                <span class="d-block text-muted fs-13">
+                                    10 Appointments
+                                </span>
+                                <span class="fw-medium">11:00AM - 4:00PM</span>
+                            </div>                                        
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Patients Overview
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div id="patients-overview">
+                    <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+                </div>
+                <div class="border-top">
+                    <ul class="list-group list-group-flush top-categories">
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="lh-1">
+                                    <div class="fw-semibold mb-1">Male</div>
+                                    <div><span class="text-muted fs-13">Increased by <span class="text-success fw-medium ms-1 d-inline-flex align-items-center">0.64%<i class="ti ti-trending-up ms-1"></i></span></span></div>
+                                </div>
+                                <div class="lh-1 text-end">
+                                    <span class="d-block fw-semibold h6 mb-0">1,200</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="lh-1">
+                                    <div class="fw-semibold mb-1">Female</div>
+                                    <div><span class="text-muted fs-13">Decreased by <span class="text-danger fw-medium ms-1 d-inline-flex align-items-center">2.75%<i class="ti ti-trending-down ms-1"></i></span></span></div>
+                                </div>
+                                <div class="lh-1 text-end">
+                                    <span class="d-block fw-semibold h6 mb-0">750</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+    <div class="col-xxl-5">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Doctors List
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="doctorsColumn" tableClass="table text-nowrap"  [showCheckbox]="false">
+                        @for(doctor of doctorsData;track $index){ 
+                            <tr>
+                                <td>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <img [src]="doctor.imageUrl" alt="" class="avatar avatar-sm avatar-rounded">
+                                    <div>
+                                      <span class="d-block fw-semibold lh-1">{{ doctor.name }}</span>
+                                      <span class="text-muted fs-13">{{ doctor.specialization }}</span>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>{{ doctor.qualification }}</td>
+                                <td>{{ doctor.experience }}</td>
+                                <td>
+                                  <div class="btn-list">
+                                    <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" ngbTooltip="View" class="btn btn-icon btn-sm btn-primary-light"><i class="ti ti-eye align-middle"></i></a>
+                                    <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" ngbTooltip="Edit" class="btn btn-icon btn-sm btn-success-light"><i class="ti ti-pencil align-middle"></i></a>
+                                  </div>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Top Departments
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="top-departments">
+                    <spk-apexcharts [chartOptions]="chartOptions2"></spk-apexcharts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-4">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Upcoming Appointments
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="upcoming-shedule">
+                    <ul ngbNav #nav="ngbNav"[(activeId)]="active"  class="nav nav-pills mb-2" role="tablist">
+                        <li [ngbNavItem]="1" class="nav-item fw-medium mb-3" role="presentation">
+                            <a ngbNavLink  class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                                <p class="sh-dt mb-0">25</p>
+                                <span class="sh-day fw-semibold">Mon</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0" id="mon_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Post-Surgery Follow-up Appointment</p>
+                                                    <span class="text-muted">Orthopedics</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>09:35</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>10:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Asthma Management Consultation</p>
+                                                    <span class="text-muted">Pulmonology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>12:20</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>13:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Vision Check-up</p>
+                                                    <span class="text-muted">Ophthalmology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>15:40</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Pre-natal Check-up</p>
+                                                    <span class="text-muted">Obstetrics</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:45</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>17:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Mental Health Counseling</p>
+                                                    <span class="text-muted">Psychiatry</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:10</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:30</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="2" class="nav-item fw-medium mb-3" role="presentation">
+                            <a ngbNavLink  class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                                <p class="sh-dt mb-0">26</p>
+                                <span class="sh-day fw-semibold">Tue</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0" id="tue_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Allergy Testing</p>
+                                                    <span class="text-muted">Allergology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>10:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>11:30</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Diabetes Management Review</p>
+                                                    <span class="text-muted">Endocrinology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>13:45</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>14:45</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Mental Health Counseling</p>
+                                                    <span class="text-muted">Psychiatry</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:10</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:30</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Routine Immunization</p>
+                                                    <span class="text-muted">Vaccination</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:55</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>18:55</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Pre-natal Check-up</p>
+                                                    <span class="text-muted">Obstetrics</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:45</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>17:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="3" class="nav-item fw-medium mb-3" role="presentation">
+                            <a ngbNavLink class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="true" role="tab">
+                                <p class="sh-dt mb-0">27</p>
+                                <span class="sh-day fw-semibold">Wed</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0 active show" id="wed_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Digestive Disorder Consult</p>
+                                                    <span class="text-muted">Gastroenterology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>10:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>12:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Pre-operative Assessment</p>
+                                                    <span class="text-muted">Surgery</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>13:15</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>14:10</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Cancer Screening</p>
+                                                    <span class="text-muted">Oncology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>15:30</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Hypertension Management</p>
+                                                    <span class="text-muted">Cardiology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>17:30</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>18:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Routine Immunization</p>
+                                                    <span class="text-muted">Vaccination</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:55</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>18:55</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="4" class="nav-item fw-medium mb-3" role="presentation">
+                            <a ngbNavLink class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                                <p class="sh-dt mb-0">28</p>
+                                <span class="sh-day fw-semibold">Thu</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0" id="thu_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Dermatological Consultation</p>
+                                                    <span class="text-muted">Dermatology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>09:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>11:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Annual Wellness Exam</p>
+                                                    <span class="text-muted">Preventive Medicine</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>12:50</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>13:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Joint Pain Evaluation</p>
+                                                    <span class="text-muted">Rheumatology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>15:45</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Kidney Function Test</p>
+                                                    <span class="text-muted">Nephrology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>19:55</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>20:30</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Hypertension Management</p>
+                                                    <span class="text-muted">Cardiology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>17:30</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>18:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="5" class="nav-item fw-medium mb-3" role="presentation">
+                            <a ngbNavLink class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                                <p class="sh-dt mb-0">29</p>
+                                <span class="sh-day fw-semibold">Fri</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0" id="fri_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Audiological Assessment</p>
+                                                    <span class="text-muted">Audiology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>09:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>12:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Hormonal Imbalance Evaluation</p>
+                                                    <span class="text-muted">Reproductive Endocrinology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>12:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>13:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Eating Disorder Assessment</p>
+                                                    <span class="text-muted">Eating Disorders</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:00</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>17:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Sleep Disorder Consultation</p>
+                                                    <span class="text-muted">Sleep Medicine</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>18:15</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>19:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Kidney Function Test</p>
+                                                    <span class="text-muted">Nephrology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>19:55</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>20:30</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="6" class="nav-item fw-medium" role="presentation">
+                            <a ngbNavLink class="nav-link sh-link text-center b" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                                <p class="sh-dt mb-0">30</p>
+                                <span class="sh-day fw-semibold">Sat</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="p-0 border-0" id="sat_tab" role="tabpanel">
+                                    <ul class="list-unstyled mb-0 sh-shedule-container">
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Chronic Pain Management</p>
+                                                    <span class="text-muted">Pain Management</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>09:35</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>10:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Obesity Management Review</p>
+                                                    <span class="text-muted">Bariatrics</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>12:20</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>13:20</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Asthma Action Plan Review</p>
+                                                    <span class="text-muted">Allergy and Immunology</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>15:40</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>16:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Fertility Consultation</p>
+                                                    <span class="text-muted">Reproductive Medicine</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>16:45</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>17:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="sh-shedule d-sm-flex align-items-start justify-content-between">
+                                                <div>
+                                                    <p class="lh-1 mb-1 fw-semibold">Sleep Disorder Consultation</p>
+                                                    <span class="text-muted">Sleep Medicine</span>
+                                                </div>
+                                                <div class="min-w-fit-content d-flex align-items-center text-muted">
+                                                    <span><i class="fe fe-clock me-1 fs-13"></i></span>
+                                                    <span>18:15</span>
+                                                    <span class="mx-2 text-muted">-</span>
+                                                    <span>19:00</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                        </li>
+                    </ul>
+                    <div class="tab-content" [ngbNavOutlet]="nav">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->
+
+<!-- Start:: row-4 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Patients List
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <div>
+                        <input class="form-control" type="text" placeholder="Search Here" aria-label=".form-control-sm example">
+                    </div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                    [class]="'btn btn-primary btn-sm no-caret'" [Icon]="true"
+                    [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" href="javascript:void(0);">New</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Popular</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Relevant</a></li>
+                </spk-dropdowns>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="patientsColumn" tableClass="table text-nowrap"  [showCheckbox]="false">
+                        @for(patient of patientsData;track $index){ 
+                            <tr>
+                                <td class="text-center">{{ patient.id }}</td>
+                                <td>{{ patient.code }}</td>
+                                <td>
+                                  <div class="d-flex gap-2">
+                                    <span class="avatar avatar-xs avatar-rounded">
+                                      <img [src]="patient.avatar" alt="..." />
+                                    </span>
+                                    <div>
+                                      <span class="fw-medium mb-0 d-flex align-items-center">{{ patient.name }}</span>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>{{ patient.gender }}</td>
+                                <td>{{ patient.age }}</td>
+                                <td>{{ patient.doctor }}</td>
+                                <td>{{ patient.contact }}</td>
+                                <td>{{ patient.admissionDate }}</td>
+                                <td>
+                                  <span class="badge" [ngClass]="patient.conditionClass">{{ patient.condition }}</span>
+                                </td>
+                                <td>{{ patient.roomNumber }}</td>
+                                <td>
+                                  <div class="btn-list">
+                                    <button aria-label="button" type="button" class="btn btn-sm btn-icon btn-primary-light">
+                                      <i class="ri-eye-line"></i>
+                                    </button>
+                                    <button aria-label="button" type="button" class="btn btn-sm btn-icon btn-success-light">
+                                      <i class="ri-edit-line"></i>
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+            <div class="card-footer border-top-0">
+                <div class="d-flex align-items-center">
+                    <div> Showing 6 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i> </div>
+                    <div class="ms-auto">
+                    <nav aria-label="Page navigation" class="pagination-style-4">
+                        <ul class="pagination mb-0">
+                            <li class="page-item disabled"> <a class="page-link" href="javascript:void(0);"> Prev </a> </li>
+                                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                <li class="page-item"> <a class="page-link text-primary" href="javascript:void(0);"> next </a> </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-4 -->

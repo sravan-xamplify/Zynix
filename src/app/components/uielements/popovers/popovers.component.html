@@ -1,0 +1,107 @@
+
+<!-- Start:: row-1 -->
+<div class="row">
+    <div class="col-xl-5">
+        <app-showcode-card [title]="'Default Popovers'" [prism]="prismCode.popover1">
+            <div class="d-flex gap-2 flex-wrap">
+                @for(popover of defaultPopovers;track $index){
+                    <button type="button" class="btn btn-outline-{{popover.class}} me-2" placement="{{popover.placement}}"
+                        ngbPopover="{{popover.content}}"
+                        popoverTitle="{{popover.title}}">
+                        {{popover.buttonText}}
+                    </button>
+                }
+            </div>
+        </app-showcode-card>
+    </div>
+    <div class="col-xl-7">
+        <app-showcode-card [title]="'Colored Headers'" [prism]="prismCode.popover2">
+            <div class="d-flex gap-2 flex-wrap">
+                @for(popover of coloredPopovers;track $index){
+                    <button type="button" class="btn btn-outline-{{popover.class}} me-2" placement="top"
+                        popoverClass="{{popover.header}}"
+                        ngbPopover="{{popover.content}}"
+                        popoverTitle="{{popover.title}}">
+                       {{popover.title1}}
+                    </button>
+                }
+            </div>
+        </app-showcode-card>
+    </div>
+</div>
+<!-- End:: row-1 -->
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xl-6">
+        <app-showcode-card [title]="'Colored Popovers'" [prism]="prismCode.popover3">
+            <div class="d-flex gap-2 flex-wrap">
+                @for(popover of coloredBackground;track $index){
+                    <button type="button" class="btn btn-{{popover.class}} me-2" popoverTitle="{{popover.title}}" placement="top"
+                        [autoClose]="true" popoverClass="{{popover.popoverClass}}"
+                        ngbPopover="{{popover.content}}">
+                        {{popover.title}}
+                    </button>
+                }
+            </div>
+        </app-showcode-card>
+    </div>
+<!-- End:: row-2 -->
+    <div class="col-xl-6">
+        <app-showcode-card [title]="'Light Popovers'" [prism]="prismCode.popover4">
+            <div class="d-flex gap-2 flex-wrap">
+                @for(popover of lightPopovers;track $index){
+                    <button type="button" class="btn btn-{{popover.class}}-light btn-wave waves-effect waves-light" popoverTitle="{{popover.title}}" placement="top"
+                    popoverClass="popover-{{popover.class}}-light" [autoClose]="'outside'"
+                    ngbPopover="{{popover.content}}">
+                    {{popover.title}}
+                </button>
+
+                }
+            </div>
+        </app-showcode-card>
+    </div>
+</div>
+<!-- End:: row-3 -->
+<!-- Start:: row-4 -->
+<div class="row">
+    <div class="col-xl-6">
+        <app-showcode-card [title]="'Dismissible Popovers'" [prism]="prismCode.popover5"
+            classbody="d-flex flex-wrap justify-content-between">
+            @for(popover of DismisablePopover;track popover){
+                <a
+        tabindex="0"
+        class="btn btn-{{popover.color}} m-1"
+        role="button"
+        placement="auto"
+        popoverTitle="{{popover.title}}"
+        ngbPopover="{{popover.content}}"
+        >{{popover.title}}
+      </a>
+            }
+        </app-showcode-card>
+    </div>
+    <div class="col-xl-3">
+        <app-showcode-card [title]="'Disabled Popover'" [prism]="prismCode.popover6">
+            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" triggers="hover focus" placement="end"
+                ngbPopover="Disabled popover">
+                <button [class]="'btn btn-primary'" type="button" [disabled]="true">Disabled
+                    button</button>
+            </span>
+        </app-showcode-card>
+    </div>
+    <div class="col-xl-3">
+        <app-showcode-card [title]="'Icon Popovers'" [prism]="prismCode.popover7">
+            @for(popover of SvgPopover;track popover){
+                <a
+                class="me-4 svg-{{popover.color}}"
+                href="javascript:void(0);"
+                popoverClass="popover-{{popover.class}} only-body"
+                ngbPopover="{{popover.content}}"
+                [innerHTML]="getSanitizedSVG(popover.svg)"
+              >
+              </a>
+            }
+        </app-showcode-card>
+    </div>
+</div>
+<!-- End:: row-4 -->

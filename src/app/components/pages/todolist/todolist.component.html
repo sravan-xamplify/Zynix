@@ -1,0 +1,463 @@
+ <!-- Start::row-1 -->
+ <div class="row">
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header gap-3 align-items-center">
+                <div class="card-title"> To Do List <span class="text-muted d-block fs-12">
+                        Create new list</span> </div> <button   (click)="openWindowCustomClass(basicModal)"
+                    class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal"
+                    data-bs-target="#addtask"> <i class="ri-add-line me-1"></i>Add New List </button>
+                    <ng-template #basicModal let-modal>
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="mail-ComposeLabel">Create Task</h6>
+                                <a (click)="modal.dismiss('Cross click')" type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></a>
+                            </div>
+                            <div class="modal-body px-4">
+                                <div class="row gy-2">
+                                    <div class="col-xl-12">
+                                        <label for="task-name" class="form-label">Task Name</label>
+                                        <input type="text" class="form-control" id="task-name"
+                                            placeholder="Task Name">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label class="form-label">Assigned To</label>
+                                        <spk-ng-select 
+                                    [options]="tags"
+                                    [id]="'choices-multiple-remove-button'"
+                                    [selectClass]="''"
+                                    [multiple]="true"
+                                    [defaultValue]="selectedChoices"
+                                    [clearable]="true"
+                                    [searchable]="true"
+                                    [hideSelected]="true"
+                                    [additionalProperties]="{}">
+                                    </spk-ng-select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label">Assigned Date</label>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-text text-muted"> <i
+                                                        class="ri-calendar-line"></i> </div>
+                                                        <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"  
+                        [mode]="'single'" [altInput]="false" [convertModelValue]="true"  [enableTime]="true"
+                        [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label">Target Date</label>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-text text-muted"> <i
+                                                        class="ri-calendar-line"></i> </div>
+                                                        <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"  
+                                                        [mode]="'single'" [altInput]="false" [convertModelValue]="true"  [enableTime]="true"
+                                                        [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label">Status</label>
+                                        <spk-ng-select 
+                                        [options]="Status"
+                                        [id]="'choices-single-default'"
+                                        [selectClass]="''"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [hideSelected]="true"
+                                        [placeholder]="'Select'"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label">Priority</label>
+                                        <spk-ng-select 
+                                    [options]="Priority"
+                                    [id]="'choices-single-default'"
+                                    [selectClass]="''"
+                                    [clearable]="true"
+                                    [searchable]="true"
+                                    [hideSelected]="true"
+                                    [placeholder]="'Select'"
+                                    [additionalProperties]="{}">
+                                    </spk-ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a (click)="modal.dismiss('Cross click')" type="button" class="btn btn-light"
+                                    data-bs-dismiss="modal">Cancel</a>
+                                <button type="button" class="btn btn-primary">Create</button>
+                            </div>
+                        
+                </ng-template>
+            </div>
+            <div class="card-body p-0">
+                <div class="p-3 task-navigation border-bottom border-block-end-dashed">
+                    <ul class="list-unstyled task-main-nav mb-0">
+                            <li class="fs-11 text-muted op-7 mb-2 fw-medium">GENERAL</li>
+                        <li class="active mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="#000000" viewBox="0 0 256 256">
+                                            <path
+                                                d="M216,48V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H208A8,8,0,0,1,216,48Z"
+                                                opacity="0.2"></path>
+                                            <path
+                                                d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM224,48V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM208,208V48H48V208H208Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap fw-semibold">
+                                        All Tasks
+                                    </span>
+                                    <span class="badge bg-primary text-fixed-white">446</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="#000000" viewBox="0 0 256 256">
+                                            <path
+                                                d="M229.06,108.79l-48.7,42,14.88,62.79a8.4,8.4,0,0,1-12.52,9.17L128,189.09,73.28,222.74a8.4,8.4,0,0,1-12.52-9.17l14.88-62.79-48.7-42A8.46,8.46,0,0,1,31.73,94L95.64,88.8l24.62-59.6a8.36,8.36,0,0,1,15.48,0l24.62,59.6L224.27,94A8.46,8.46,0,0,1,229.06,108.79Z"
+                                                opacity="0.2"></path>
+                                            <path
+                                                d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                        Starred
+                                    </span>
+                                    <span class="badge bg-secondary">26</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="#000000" viewBox="0 0 256 256">
+                                            <path
+                                                d="M224,118.31V200a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V118.31h0A191.14,191.14,0,0,0,128,144,191.08,191.08,0,0,0,224,118.31Z"
+                                                opacity="0.2"></path>
+                                            <path
+                                                d="M104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112ZM232,72V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V72A16,16,0,0,1,40,56H80V48a24,24,0,0,1,24-24h48a24,24,0,0,1,24,24v8h40A16,16,0,0,1,232,72ZM96,56h64V48a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8ZM40,72v41.62A184.07,184.07,0,0,0,128,136a184,184,0,0,0,88-22.39V72ZM216,200V131.63A200.25,200.25,0,0,1,128,152a200.19,200.19,0,0,1-88-20.36V200H216Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                        Work
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M216,48V88H40V48a8,8,0,0,1,8-8H208A8,8,0,0,1,216,48Z" opacity="0.2"></path><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"></path></svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                      Today
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                       Completed
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="#000000" viewBox="0 0 256 256">
+                                            <path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56Z"
+                                                opacity="0.2"></path>
+                                            <path
+                                                d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                        Trash
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mail-type">
+                            <a href="javascript:void(0);">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2 lh-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="#000000" viewBox="0 0 256 256">
+                                            <path d="M136,108A52,52,0,1,1,84,56,52,52,0,0,1,136,108Z"
+                                                opacity="0.2"></path>
+                                            <path
+                                                d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="flex-fill text-nowrap">
+                                        Personal
+                                    </span>
+                                    <span class="badge bg-success">12</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fs-11 text-muted op-7 mb-3 fw-medium">WORK SPACE</li>
+                        <li class="border mb-2">
+                            <div
+                                class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-3 lh-1">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefault1">
+                                    </span>
+                                    <div class="lh-1">
+                                        <p class="fw-semibold mb-0">Organic Photo shoot</p>
+                                        <span class="fs-11 text-muted">Today</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="badge bg-light text-default fs-12 me-1">work</span>
+                                    <span class="badge bg-light text-default fs-12">Hooli</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="border mb-2">
+                            <div
+                                class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-3 lh-1">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckChecked" checked="">
+                                    </span>
+                                    <div class="lh-1">
+                                        <p class="fw-semibold mb-0">Bug Fixes and Issue Tracking..</p>
+                                        <span class="fs-11 text-muted">Tommorow</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="badge bg-light text-default fs-12">work</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="border mb-2">
+                            <div
+                                class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-3 lh-1">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckChecked1" checked="">
+                                    </span>
+                                    <div class="lh-1">
+                                        <p class="fw-semibold mb-0">Admin Template review...</p>
+                                        <span class="fs-11 text-muted">Today</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="badge bg-light text-default fs-12 me-1">work</span>
+                                    <span class="badge bg-light text-default fs-12">Design</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="border">
+                            <div
+                                class="d-flex align-items-center justify-content-between flex-wrap">
+                                <div class="d-flex align-items-center gap-1">
+                                    <span class="me-3 lh-1">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefault">
+                                    </span>
+                                    <div class="lh-1">
+                                        <p class="fw-semibold mb-0">New Feature Development...</p>
+                                        <span class="fs-11 text-muted">Tommorow</span>
+                                    </div>
+                                </div>
+                                <div class="ms-auto">
+                                    <span class="badge bg-light text-default fs-12">Development</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-3">
+                    <div class="card custom-card todolist-card overflow-hidden mb-0">
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-xl-8 col-8">
+                                    <h4 class="fw-semibold">
+                                        2/18 Tasks
+                                    </h4>
+                                    <p class="fs-14 mb-2">Today Completed Tasks</p>
+                                    <button
+                                        class="btn btn-primary btn-wave mt-1 waves-effect waves-light me-1">Continue<i
+                                            class="ti ti-arrow-narrow-right align-middle ms-1"></i></button>
+                                </div>
+                                <div class="col-xl-4 col-4">
+                                    <img src="./assets/images/media/media-76.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-9">
+        <div class="row">
+          @for (card of cardsData; track $index) {
+                <div class="col-xl-3">
+                  <div class="card custom-card position-relative rounded-md overflow-hidden border {{ card.borderClass }}">
+                    <div class="card-body p-4">
+                      <h5 class="mb-1ld">{{ card.taskCount }}</h5>
+                      <div class="fw-medium op-7">
+                        {{ card.taskType }}
+                        <span class="ms-1 badge {{ card.badgeClass }}">
+                          <i class="ri-circle-fill fs-7"></i> {{ card.percentage }}
+                        </span>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        class="svg-icon-med position-absolute svg-primary end-0 bottom-0 opacity-1 {{ card.svgClass }}"
+                        fill="#000000"
+                        viewBox="0 0 256 256"
+                      >  <path [attr.d]="card.iconPath1" ></path>
+                        <path [attr.d]="card.iconPath" ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+            }
+        </div>
+        <div class="col-sm-12">
+            <div class="card custom-card">
+                <div class="card-header">
+                    <div class="flex-grow-1">
+                        <input class="form-control" type="text" placeholder="Search Here"
+                            aria-label=".form-control-sm example">
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <spk-dropdowns [Customclass]="'dropdown'" [class]="'btn btn-light btn-wave no-caret'" [Icon]="true" [title]="'Sort By'"
+                          [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                          <li><a class="dropdown-item" href="javascript:void(0);">New</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0);">Popular</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0);">Relevant</a></li>
+                        </spk-dropdowns> 
+                    </div> 
+                </div>
+                <div class="card-body p-0 position-relative" id="todo-content">
+                    <div>
+                        <div class="table-responsive" cdkDropList (cdkDropListDropped)="drop($event)">  
+                                <spk-reusable-tables  [columns]="todolistColumn" tableClass=" text-nowrap"
+                                [showCheckbox]="true" >
+                                    @for (todo of todoData; track $index) {
+                                    <tr  class="todo-box" cdkDrag>
+                                      <td class="task-checkbox">
+                                        <input class="form-check-input" type="checkbox" [checked]="todo.checkboxState" />
+                                      </td>
+                                      <td>
+                                        <button class="btn btn-icon btn-sm btn-wave btn-light todo-handle waves-effect waves-light">: :</button>
+                                      </td>
+                                      <td>
+                                        <span class="fw-medium">{{ todo.task }}</span>
+                                      </td>
+                                      <td>
+                                        <span [ngClass]="todo.status.badgeClass" class="fw-semibold badge">
+                                          <i class="ri-circle-line fw-semibold fs-7 me-2 lh-1 align-middle"></i>{{ todo.status.label }}
+                                        </span>
+                                      </td>
+                                      <td>{{ todo.dueDate }}</td>
+                                      <td>
+                                        <span [ngClass]="todo.priority.badgeClass" class="badge ">{{ todo.priority.label }}</span>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex align-items-center">
+                                          <div
+                                            class="progress progress-animate progress-xs w-100"
+                                            role="progressbar"
+                                            [attr.aria-valuenow]="todo.progress.percentage"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                          >
+                                            <div
+                                              [ngClass]="todo.progress.progressBarClass"
+                                              class="progress-bar progress-bar-striped progress-bar-animated"
+                                              [style.width.%]="todo.progress.percentage"
+                                            ></div>
+                                          </div>
+                                          <div class="ms-2">{{ todo.progress.percentage }}%</div>
+                                        </div>
+                                      </td>
+                                      <td class="text-end">
+                                        <div ngbDropdown class="dropdown">
+                                          <a
+                                            ngbDropdownToggle
+                                            aria-label="anchor"
+                                            class="btn btn-light btn-icon btn-sm btn-wave no-caret"
+                                            href="javascript:void(0);"
+                                          >
+                                            <i class="ri-more-2-fill text-muted"></i>
+                                          </a>
+                                          <ul ngbDropdownMenu class="dropdown-menu" role="menu">
+                                            @for (action of todo.actions; track $index) {
+                                            <li>
+                                              <a class="dropdown-item" href="javascript:void(0);">
+                                                <i [class]="action.icon + ' me-2'"></i>{{ action.label }}
+                                              </a>
+                                            </li>
+                                        }
+                                          </ul>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                }
+                                </spk-reusable-tables>
+                      </div> 
+                    </div>
+                </div>
+                <div class="card-footer border-top-0">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <div> Showing 10 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i> </div>
+                        <div>
+                            <nav aria-label="Page navigation" class="pagination-style-4">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item disabled"> <a class="page-link"
+                                            href="javascript:void(0);"> Prev </a> </li>
+                                    <li class="page-item active"><a class="page-link"
+                                            href="javascript:void(0);">1</a></li>
+                                    <li class="page-item"><a class="page-link"
+                                            href="javascript:void(0);">2</a></li>
+                                    <li class="page-item"> <a class="page-link text-primary"
+                                            href="javascript:void(0);"> next </a> </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

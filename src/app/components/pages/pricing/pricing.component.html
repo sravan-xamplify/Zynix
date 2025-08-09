@@ -1,0 +1,211 @@
+<!-- Start:: row-1 -->
+<div class="row d-flex align-items-center justify-content-center mb-5">
+    <div class="p-3 pt-0 mb-3">
+        <div class="text-center">
+            <h3 class="text-primary fw-semibold">Pricing</h3>
+            <h5 class="d-block">Plans that flex with your needs.</h5>
+            <p class="text-muted mb-4">Stay agile with plans that seamlessly adjust to your changing
+                requirements, ensuring you always have the flexibility you need.</p>
+        </div>
+    </div>
+    @for (plan of pricingPlans; track $index) {
+                            <div class="col-lg-8 col-xl-4 col-xxl-3 col-md-8 col-sm-12">
+                                <spk-pricing-card 
+                                [title]="plan.title"
+                                [description]="plan.description"
+                                [price]="plan.price"
+                                [perMonth]="plan.perMonth"
+                                [additionalCost]="plan.additionalCost"
+                                [planType]="plan.planType"
+                                [buttonText]="plan.buttonText"
+                                [buttonClass]="plan.buttonClass"
+                                [iconPaths]="plan.iconPaths"
+                                [bgColor]="plan.bgColor"
+                                [features]="plan.features">
+              </spk-pricing-card>
+</div>
+                        }
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xl-12" id="convertable-pricing">
+        <div class="d-flex justify-content-center mb-4">
+            <div class="switcher-box">
+                <span>Monthly</span>
+                <div class="switcher-pricing text-center">
+                    <input (click)="isYearly = !isYearly; togglePrice()" type="checkbox" class="pricing-toggle">
+                </div>
+                <span>Yearly</span>
+            </div>
+        </div>
+        <div class="tab-content show" id="monthly1" [ngClass]="{'show': !isYearly}">
+            <div class="row d-flex align-items-center justify-content-center">
+                @for (plan of pricingPlans1; track $index) {
+                <div class="col-lg-8 col-xl-4 col-xxl-3 col-md-8 col-sm-12">
+                    <spk-pricing-switch-card
+                    [title]="plan.title"
+                    [description]="plan.description"
+                    [price]="plan.price"
+                    [perMonth]="plan.perMonth"
+                    [additionalCost]="plan.additionalCost"
+                    [planType]="plan.planType"
+                    [buttonText]="plan.buttonText"
+                    [buttonClass]="plan.buttonClass"
+                    [features]="plan.features"
+                    [vatTax]="plan.vatTax"
+                    [total]="plan.total"
+                    [isRecommended]="plan.isRecommended">
+            </spk-pricing-switch-card>
+                </div>
+            }
+            </div>
+        </div>
+        <div class="tab-content" id="yearly1" [ngClass]="{'show': isYearly}" >
+            <div class="row d-flex align-items-center justify-content-center">
+                @for (plan of pricingPlans1; track $index) {
+                    <div class="col-lg-8 col-xl-4 col-xxl-3 col-md-8 col-sm-12">
+                        <spk-pricing-switch-card
+                        [title]="plan.title"
+                        [description]="plan.description"
+                        [price]="plan.price"
+                        [perMonth]="plan.perMonth"
+                        [additionalCost]="plan.additionalCost"
+                        [planType]="plan.planType"
+                        [buttonText]="plan.buttonText"
+                        [buttonClass]="plan.buttonClass"
+                        [features]="plan.features"
+                        [vatTax]="plan.vatTax"
+                        [total]="plan.total"
+                        [isRecommended]="plan.isRecommended">
+      </spk-pricing-switch-card>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="text-center my-5">
+            <div class="tab-style-1 border py-1 px-2 bg-white shadow-sm rounded-pill d-inline-block">
+                <ul ngbNav #nav="ngbNav" class="nav nav-pills" [(activeId)]="activeTab">
+                    <li [ngbNavItem]="1" class="nav-item">
+                      <button ngbNavLink type="button" class="nav-link rounded-pill fw-medium">Monthly</button>
+                      <ng-template ngbNavContent>
+                        <div class="show p-0 border-0">
+                          <div class="row">
+                            @for (plan of displayedPlans; track $index) {
+                            <div class="col-xl-6" >
+                              <div class="card custom-card">
+                                <div class="card-body p-0">
+                                  <div class="row">
+                                    <div class="col-xl-6 border-end">
+                                      <div class="p-3 pe-2">
+                                        <div class="{{ plan.bgColor }} p-3 rounded border border-{{ plan.titlebg }} border-opacity-10">
+                                          <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <span
+                                              class="avatar avatar-md {{ plan.iconClass }} avatar-rounded border-2 border border-opacity-50 border-{{ plan.titlebg }}">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
+                                                viewBox="0 0 256 256">
+                                                <path [attr.d]="plan.iconPath"></path>
+                                              </svg>
+                                            </span>
+                                            <p class="h5 mb-0 fw-semibold text-{{ plan.titlebg }} text-center">{{ plan.title }}</p>
+                                          </div>
+                                          <span class="fs-13 mt-2 text-muted d-block text-center">{{ plan.description }}</span>
+                                          <p class="h4 mb-4 mt-2 fw-semibold text-center">
+                                            {{ plan.price }}<span class="fs-13 op-5 ms-1">{{ plan.priceLabel }}</span>
+                                          </p>
+                                          <button class="btn w-100" [ngClass]="plan.buttonClass">{{ plan.buttonText }}</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                      <div class="py-3 ps-2 pe-4">
+                                        <div class="text-center">
+                                          <span class="fs-18 fw-semibold text-center">Plan Features</span>
+                                          <div *ngFor="let feature of plan.features" class="d-flex align-items-center text-start mb-2 mt-3">
+                                            <i class="fe fe-check-circle text-success"></i>
+                                            <span class="ms-2 my-auto flex-fill">{{ feature.name }}:</span>
+                                            <span [ngClass]="feature.badgeClass">{{ feature.value }}</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        }
+                          </div>
+                        </div>
+                      </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2" class="nav-item">
+                      <button ngbNavLink type="button" class="nav-link rounded-pill fw-medium">Yearly</button>
+                      <ng-template ngbNavContent>
+                        <div class="p-0 border-0">
+                          <!-- Same content as Monthly -->
+                          <div class="row">
+                            @for (plan of displayedPlans; track $index) {
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-body p-0">
+                                      <div class="row">
+                                        <div class="col-xl-6 border-end">
+                                          <div class="p-3 pe-2">
+                                            <div class="{{ plan.bgColor }} p-3 rounded border border-{{ plan.titlebg }} border-opacity-10">
+                                              <div class="d-flex align-items-center justify-content-center gap-2">
+                                                <span
+                                                  class="avatar avatar-md {{ plan.iconClass }} avatar-rounded border-2 border border-opacity-50 border-{{ plan.titlebg }}">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
+                                                    viewBox="0 0 256 256">
+                                                    <path [attr.d]="plan.iconPath"></path>
+                                                  </svg>
+                                                </span>
+                                                <p class="h5 mb-0 fw-semibold text-{{ plan.titlebg }} text-center">{{ plan.title }}</p>
+                                              </div>
+                                              <span class="fs-13 mt-2 text-muted d-block text-center">{{ plan.description }}</span>
+                                              <p class="h4 mb-4 mt-2 fw-semibold text-center">
+                                                {{ plan.yearlyPrice }}<span class="fs-13 op-5 ms-1">{{ plan.priceLabel }}</span>
+                                              </p>
+                                              <button class="btn w-100" [ngClass]="plan.buttonClass">{{ plan.buttonText }}</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                          <div class="py-3 ps-2 pe-4">
+                                            <div class="text-center">
+                                              <span class="fs-18 fw-semibold text-center">Plan Features</span>
+                                              <div *ngFor="let feature of plan.features" class="d-flex align-items-center text-start mb-2 mt-3">
+                                                <i class="fe fe-check-circle text-success"></i>
+                                                <span class="ms-2 my-auto flex-fill">{{ feature.name }}:</span>
+                                                <span [ngClass]="feature.badgeClass">{{ feature.value }}</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        }
+                          </div>
+                        </div>
+                      </ng-template>
+                    </li>
+                  </ul>
+                  
+               
+            </div>
+        </div>
+        <div class="tab-content" [ngbNavOutlet]="nav">
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->

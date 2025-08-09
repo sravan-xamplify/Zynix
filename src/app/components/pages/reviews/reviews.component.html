@@ -1,0 +1,322 @@
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Reviews Style 1
+                </div>
+            </div>
+            <div class="card-body p-4 reviewscontainer">
+                <div class="swiper testimonialSwiperbasic">
+                    <div class="swiper-wrapper">
+                        <swiper-container
+                        #swiperContainer
+                        class="swiper mySwiper"
+                        [spaceBetween]="30"
+                        [slidesPerView]="5"
+                        [slidesPerGroup]="1"
+                        [autoplay]="{ delay: 1500, disableOnInteraction: false }">
+                        @for (user of users; track $index) {
+                        <div class="swiper-slide">
+                          <div class="card custom-card border p-3" [ngClass]="user.borderClass + ' border-opacity-25'">
+                            <div class="card-body p-4 rounded" [ngClass]="user.bgClass">
+                              <div class="d-flex align-items-center justify-content-between mb-3">
+                                <span class="badge" [ngClass]="user.badgeClass">{{ user.status }}</span>
+                                <p class="mb-0 fs-14">{{ user.percentage }}<span class="text-muted fs-12 mx-1">{{ user.match }}</span></p>
+                              </div>
+                              <p class="text-default">
+                                {{ user.description }}
+                              </p>
+                              <div class="d-flex justify-content-between flex-wrap gap-3">
+                                <div class="d-flex">
+                                  <img [src]="user.avatar" alt="img" class="avatar avatar-md avatar-rounded">
+                                  <div class="ms-2 my-auto mb-0">
+                                    <h6 class="mb-0 lh-1">{{ user.name }}</h6>
+                                    <p class="fs-14 mb-0 text-muted">{{ user.role }}</p>
+                                  </div>
+                                </div>
+                                <div class="mb-0 text-warning fs-12 my-auto">
+                                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                                    <i class="ri-star-fill" *ngIf="user.rating >= (i + 1)"></i>
+                                    <i class="ri-star-half-line" *ngIf="user.rating < (i + 1) && user.rating > i"></i>
+                                  </ng-container>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    }
+                      </swiper-container>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
+
+<!-- Start::row-2 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Reviews Style 2
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="swiper testimonialSwiper1">
+                    <div class="swiper-wrapper">
+                        <swiper-container
+                        #swiperContainer1
+                        class="swiper mySwiper"
+                        space-between="30"
+                        slides-per-view="5"
+                        slides-per-group="1"
+                        autoplay-delay="2000"
+                        autoplay-disable-on-interaction="false">
+                        @for (review of reviews; track $index) {
+                        <div class="swiper-slide">
+                          <div class="card mb-0">
+                            <i class="bx bxs-quote-alt-left review-quote review-quote1" [ngClass]="review.badgeClass"></i>
+                            <div class="card-body">
+                              <div class="d-flex p-2 mb-3 rounded bg-light align-items-center">
+                                <img [src]="review.avatar" alt="img" class="text-center avatar avatar-md rounded-circle border-5 border border-white-1 mb-2 mb-sm-0">
+                                <div>
+                                  <h6 class="mb-0">{{ review.name }}</h6>
+                                  <span class="fs-12 text-muted">{{ review.since }}</span>
+                                </div>
+                              </div>
+                              <span>{{ review.review }} -- 
+                                <a href="javascript:void(0);" class="fw-semibold text-primary fs-11"
+                                   data-bs-toggle="tooltip"
+                                   tooltipClass="tooltip-primary"
+                                   data-bs-placement="top"
+                                   ngbTooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit.">Read More</a>
+                              </span>
+                              <div class="d-flex align-items-center justify-content-between mt-2">
+                                <div>
+                                  <span class="op-8 d-block">Rating :</span>
+                                  <span class="text-warning d-block">
+                                    <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                                      <i class="ri-star-fill" *ngIf="review.rating >= (i + 1)"></i>
+                                      <i class="ri-star-half-line" *ngIf="review.rating < (i + 1) && review.rating > i"></i>
+                                    </ng-container>
+                                  </span>
+                                </div>
+                                <div>
+                                  <span class="text-primary fs-12">{{ review.date }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    }
+                      </swiper-container>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-2 -->
+
+<!-- Start::row-3 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Reviews Style 3
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="swiper testimonialSwiper2">
+                    <div class="swiper-wrapper">
+                        <swiper-container
+  #swiperContainer2
+  class="swiper mySwiper"
+  [spaceBetween]="30"
+  [slidesPerView]="4"
+  [slidesPerGroup]="1"
+  pagination="false"
+  [autoplay]="{ delay: 1400, disableOnInteraction: false }">
+  @for (review of reviews1; track $index) {
+  <div class="swiper-slide" *ngFor="let review of reviews">
+    <div class="card custom-card border reviws-section">
+      <div class="card-body p-4 img-card">
+        <span class="op-8 text-start">
+          <sup><i class="ri-double-quotes-l fs-5 me-1 text-primary"></i></sup>{{ review.review }}
+        </span>
+        <img [src]="review.avatar" alt="img" class="mx-auto text-center avatar avatar-xl p-1 bg-gray-300 rounded-circle">
+        
+        <div class="mb-2 text-warning fs-15 mt-2 text-center">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+            <i class="ri-star-fill" *ngIf="review.rating >= (i + 1)"></i>
+            <i class="ri-star-half-line" *ngIf="review.rating < (i + 1) && review.rating > i"></i>
+          </ng-container>
+        </div>
+        
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="flex-grow-1">
+            <h6 class="mb-1 text-center">{{ review.name }}</h6>
+            <div class="d-flex justify-content-center mt-3">
+                <a aria-label="anchor" href="javascript:void(0);"
+                    class="btn btn-icon btn-sm bg-primary rounded-circle text-fixed-white me-2 btn-wave waves-effect waves-light"><i
+                        class="ri-twitter-x-fill"></i></a>
+                <a aria-label="anchor" href="javascript:void(0);"
+                    class="btn btn-icon btn-sm bg-secondary rounded-circle text-fixed-white me-2 btn-wave waves-effect waves-light"><i
+                        class="ri-facebook-fill"></i></a>
+                <a aria-label="anchor" href="javascript:void(0);"
+                    class="btn btn-icon btn-sm bg-success rounded-circle text-fixed-white btn-wave waves-effect waves-light"><i
+                        class="ri-instagram-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+</swiper-container>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-3 -->
+
+<!-- Start::row-4 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Reviews Style 4
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="swiper testimonialSwiperService1">
+                    <div class="swiper-wrapper">
+                        <swiper-container
+                        #swiperContainer3
+                        class="swiper mySwiper"
+                        [spaceBetween]="30"
+                        [slidesPerView]="3"
+                        [slidesPerGroup]="1"
+                        [autoplay]="{ delay: 2000, disableOnInteraction: false }">
+                        @for (review of reviews2; track $index) {
+                        <div class="swiper-slide">
+                          <div class="card custom-card overflow-hidden border">
+                            <div class="card-body p-4">
+                                <div class="ribbon-5 {{review.ribbonClass}} top-right">{{review.ribbon}}</div>
+                              <div class="d-flex gap-2 mb-3">
+                                <div class="lh-1">
+                                  <span class="avatar rounded-circle p-1" [ngClass]="review.ribbonClass + '-transparent'">
+                                    <img [src]="review.avatar" alt="{{ review.name }}" class="img-fluid rounded-circle">
+                                  </span>
+                                </div>
+                                <div class="flex-fill">
+                                  <p class="mb-0 fw-semibold fs-14">{{ review.name }}</p>
+                                  <p class="mb-0 fs-11 fw-normal op-8">{{ review.role }}</p>
+                                </div>
+                              </div>
+                              <span class="op-8"><sup><i class="ri-double-quotes-l fs-5 me-1 text-primary"></i></sup>{{ review.review }} -- 
+                                <a href="javascript:void(0);" class="fw-semibold text-primary fs-11" data-bs-toggle="tooltip"
+                                   tooltipClass="tooltip-primary" data-bs-placement="top"
+                                   ngbTooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio">Read More</a>
+                              </span>
+                              <div class="d-flex align-items-center mt-2">
+                                <span class="op-8">Rating : </span>
+                                <span class="text-warning d-block">
+                                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                                    <i class="ri-star-fill" *ngIf="review.rating >= (i + 1)"></i>
+                                    <i class="ri-star-half-line" *ngIf="review.rating < (i + 1) && review.rating > i"></i>
+                                  </ng-container>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    }
+                      </swiper-container>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-4 -->
+
+<!-- Start::row-5 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card reviews-container">
+            <div class="card-header">
+                <div class="card-title">
+                    Reviews Style 5
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="swiper pagination-dynamic testimonialSwiperService">
+                    <div class="swiper-wrapper">
+                        <swiper-container
+  #swiperContainer4
+  class="swiper mySwiper"
+  [spaceBetween]="30"
+  [slidesPerView]="3"
+  [slidesPerGroup]=""
+  [autoplay]="{ delay: 1500, disableOnInteraction: false }">
+@for (review of reviews3; track $index) {
+  <div class="swiper-slide" >
+    <div class="card bg-{{review.ribbon}} text-fixed-white border-0">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+          <span class="avatar rounded-circle me-2 p-1 bg-light">
+            <img [src]="review.avatar" alt="{{ review.name }}" class="img-fluid rounded-circle">
+          </span>
+          <div>
+            <p class="mb-0 fw-semibold fs-14">{{ review.name }}</p>
+            <p class="mb-0 fs-11 fw-normal op-8">{{ review.email }}</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <span class="op-8">- {{ review.review }} -- 
+            <a href="javascript:void(0);" class="fw-semibold fs-11 text-fixed-white" data-bs-toggle="tooltip"
+               tooltipClass="tooltip-dark" data-bs-placement="top"
+               ngbTooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio">Read More</a>
+          </span>
+        </div>
+        <div class="d-flex align-items-center mt-2">
+          <span class="op-8">Rating : </span>
+          <span class="text-warning d-block ms-1">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+              <i class="ri-star-fill" *ngIf="review.rating >= (i + 1)"></i>
+              <i class="ri-star-half-line" *ngIf="review.rating < (i + 1) && review.rating > i"></i>
+            </ng-container>
+          </span>
+        </div>
+        <div class="float-end fs-12 fw-semibold op-8 text-end">
+          <span>{{ review.date }}</span>
+          <span class="d-block fs-12"><i>{{ review.role }}</i></span>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat the same for other ribbons -->
+  </div>
+}
+
+</swiper-container>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-5 -->

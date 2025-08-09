@@ -1,0 +1,219 @@
+ <!-- Start::row-1 -->
+ <div class="row">
+    <div class="col-xl-4">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    SIMPLE LIST
+                </div>
+            </div>
+            <div class="card-body">
+                <ol
+                (cdkDropListDropped)="onDrop($event)"
+                class="list-group sortable-list list-group-numbered" id="simple-list"
+                cdkDropList
+              >
+                @for (item of items; track $index) {
+                <li cdkDrag class="list-group-item">{{ item }}</li>
+                }
+              </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">SHARED LISTS</div>
+            </div>
+            <div class="card-body">
+                    <div class="row" cdkDropListGroup>
+                        <div class="col-xl-6">
+                          <ol
+                            cdkDropList
+                            [cdkDropListData]="leftItems"
+                            class="list-group sortable-list list-group-numbered"
+                            id="shared-left"
+                            (cdkDropListDropped)="onDrop1($event)"
+                          >
+                            @for (item of leftItems; track $index) {
+                            <li cdkDrag class="list-group-item">{{ item }}</li>
+                            }
+                          </ol>
+                        </div>
+                        <div class="col-xl-6">
+                          <ol
+                            cdkDropList
+                            [cdkDropListData]="rightItems"
+                            class="list-group sortable-list list-group-numbered"
+                            id="shared-right"
+                            (cdkDropListDropped)="onDrop1($event)"
+                          >
+                            @for (item of rightItems; track $index) {
+                            <li cdkDrag class="list-group-item">{{ item }}</li>
+                            }
+                          </ol>
+                        </div>
+                      </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
+
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xl-6">
+      <div class="card custom-card">
+        <div class="card-header">
+          <div class="card-title">Drag & Drop sort predicate</div>
+        </div>
+        <div class="card-body">
+          <ul
+            cdkDropList
+            (cdkDropListDropped)="onDrop5($event)"
+            [cdkDropListSortPredicate]="sortPredicate"
+            class="list-group sortable-list"
+            id="sortable-swap"
+          >
+            @for (number of numbers; track number) {
+            <li cdkDrag class="list-group-item" [cdkDragData]="number">
+              {{ number }}
+            </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="card custom-card">
+        <div class="top-left"></div>
+        <div class="top-right"></div>
+        <div class="bottom-left"></div>
+        <div class="bottom-right"></div>
+        <div class="card-header">
+          <div class="card-title">DISABLING SORTING</div>
+        </div>
+        <div class="card-body">
+          <div class="row" cdkDropListGroup>
+            <div class="col-xl-6">
+              <ol
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="list3"
+                [cdkDropListConnectedTo]="[doneList]"
+                (cdkDropListDropped)="onDrop1($event)"
+                class="list-group sortable-list list-group-numbered"
+                id="shared-left"
+              >
+                @for (item of list3; track item) {
+                <li class="list-group-item" cdkDrag>{{ item }}</li>
+                }
+              </ol>
+            </div>
+            <div class="col-xl-6">
+              <ol
+                cdkDropList
+                #doneList="cdkDropList"
+                [cdkDropListData]="list4"
+                [cdkDropListConnectedTo]="[todoList]"
+                (cdkDropListDropped)="onDrop1($event)"
+                class="list-group sortable-list list-group-numbered"
+                id="shared-right"
+              >
+                @for (item of list4; track item) {
+                <li class="list-group-item" disableHandle>{{ item }}</li>
+                }
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    SORTING WITH HANDLE
+                </div>
+            </div>
+            <div class="card-body">
+                <ol
+            class="list-group sortable-list list-item-numbered"
+            id="sorting-with-handle"
+            cdkDropList
+            (cdkDropListDropped)="onDrop2($event)"
+          >
+            @for (item of list1; track item) {
+            <li class="list-group-item" cdkDrag>
+              <i
+                class="ri-drag-move-2-fill me-2 text-dark fs-16 handle lh-1"
+                cdkDragHandle
+              ></i>
+              {{ item }}.
+            </li>
+            }
+          </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    SORTING WITH FILTER
+                </div>
+            </div>
+            <div class="card-body">
+                <ul
+            class="list-group sortable-list"
+            id="sorting-with-filter"
+            cdkDropList
+            (cdkDropListDropped)="onDrop3($event)"
+          >
+            @for (item of list2; track item) {
+            <li
+              cdkDrag
+              [cdkDragDisabled]="item.disabled"
+              class="list-group-item {{ item.class }}"
+            >
+              {{ item.value }}
+            </li>
+            }
+          </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->
+
+<!-- Start:: row-4 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    SORTABLE GRID
+                </div>
+            </div>
+            <div
+            class="card-body"
+            id="sortable-grid"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="onDrop4($event)"
+          >
+            @for (item of list5; track $index) {
+            <div class="grid-square" cdkDrag>
+              <span class="fw-medium">{{ item }}</span>
+            </div>
+            }
+          </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-4 -->

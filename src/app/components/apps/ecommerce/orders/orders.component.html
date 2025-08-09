@@ -1,0 +1,84 @@
+<!-- Start::row-1 -->
+<div class="card custom-card">
+    <div class="card-header justify-content-between">
+        <div class="card-title">
+            All Orders List
+        </div>
+    </div>
+    <div class="card-body p-0 all-orders-custom">
+        <ul ngbNav #nav="ngbNav" class="nav nav-tabs tab-style-8 scaleX mb-0 border-bottom d-flex" id="myTab1" role="tablist">
+            <li [ngbNavItem]="1" class="nav-item me-0" role="presentation">
+                <button ngbNavLink class="nav-link px-4 py-3 " id="allorders" data-bs-toggle="tab" data-bs-target="#allorders-pane" type="button" role="tab" aria-controls="allorders-pane" aria-selected="true">All Orders</button>
+                <ng-template ngbNavContent>
+                    <div class="border-0 show" id="allorders-pane" role="tabpanel" aria-labelledby="allorders" tabindex="0">
+                      <div class="row">
+                        <!-- Loop through each order in the orders array -->
+                         @for (order of orders; track $index) {
+                          <div class="col-xxl-3 col-xl-6" >
+                        <spk-order [id]="order.id" [image]="order.productImage" [title]="order.productName" [date]="order.date" [status]="order.status"
+                        [statusClass]="order.statusClass" [customerName]="order.customerName" [customerImage]="order.customerImage" [price]="order.price"
+                        ></spk-order>
+                        </div>
+                    }
+                      </div>
+                    </div>
+                  </ng-template>
+                  
+            </li>
+            <li [ngbNavItem]="2" class="nav-item me-0" role="presentation">
+                <button ngbNavLink class="nav-link px-4 py-3" id="pending" data-bs-toggle="tab" data-bs-target="#pending-pane" type="button" role="tab" aria-controls="pending-pane" aria-selected="false" tabindex="-1">Pending Orders</button>
+                <ng-template ngbNavContent>
+                  <div class="border-0 show" id="allorders-pane" role="tabpanel" aria-labelledby="allorders" tabindex="0">
+                    <div class="row">
+                      <!-- Use the filteredOrders array to display only 8 orders -->
+                       @for (order of randomOrders2; track $index) {
+                      <div class="col-xxl-3 col-xl-6" >
+                        <spk-order [id]="order.id" [image]="order.productImage" [title]="order.productName" [date]="order.date" [status]="order.status"
+                        [statusClass]="order.statusClass" [customerName]="order.customerName" [customerImage]="order.customerImage" [price]="order.price"
+                        ></spk-order>
+                      </div>
+                    }
+                    </div>
+                  </div>
+                </ng-template>
+                
+            <li [ngbNavItem]="3" class="nav-item" role="presentation">
+                <button ngbNavLink class="nav-link px-4 py-3" id="cancelled" data-bs-toggle="tab" data-bs-target="#cancelled-pane" type="button" role="tab" aria-controls="cancelled-pane" aria-selected="false" tabindex="-1">Cancelled Orders</button>
+                <ng-template ngbNavContent>
+                  <div class="border-0 show" id="cancelled-pane" role="tabpanel" aria-labelledby="allorders" tabindex="0">
+                    <div class="row">
+                      <!-- Use the filteredOrders array to display only 8 orders -->
+                       @for (order of randomOrders3; track $index) {
+                      <div class="col-xxl-3 col-xl-6" >
+                        <spk-order [id]="order.id" [image]="order.productImage" [title]="order.productName" [date]="order.date" [status]="order.status"
+                        [statusClass]="order.statusClass" [customerName]="order.customerName" [customerImage]="order.customerImage" [price]="order.price"
+                        ></spk-order>
+                      </div>
+                    }
+                    </div>
+                  </div> 
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="4" class="nav-item" role="presentation">
+                <button ngbNavLink class="nav-link px-4 py-3" id="shipping" data-bs-toggle="tab" data-bs-target="#shipping-pane" type="button" role="tab" aria-controls="shipping-pane" aria-selected="false" tabindex="-1">Shipping Orders</button>
+                <ng-template ngbNavContent>
+                  <div class="border-0 show" id="shipping-pane" role="tabpanel" aria-labelledby="allorders" tabindex="0">
+                    <div class="row">
+                      <!-- Use the filteredOrders array to display only 8 orders -->
+                       @for (order of randomOrders4; track $index) {
+                      <div class="col-xxl-3 col-xl-6" >
+                        <spk-order [id]="order.id" [image]="order.productImage" [title]="order.productName" [date]="order.date" [status]="order.status"
+                        [statusClass]="order.statusClass" [customerName]="order.customerName" [customerImage]="order.customerImage" [price]="order.price"
+                        ></spk-order>
+                      </div>
+                    }
+                    </div>
+                  </div>
+                </ng-template>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent"  [ngbNavOutlet]="nav">
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

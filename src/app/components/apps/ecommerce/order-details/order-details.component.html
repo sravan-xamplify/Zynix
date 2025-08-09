@@ -1,0 +1,383 @@
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-8">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="card-title">
+                            Item Summery
+                        </div>
+                        <div class="d-flex flex-wrap gap-2"> 
+                            <div> 
+                                <input class="form-control form-control-sm" type="text" placeholder="Search Here" aria-label=".form-control-sm example"> 
+                            </div> 
+                            <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'" [class]="'btn btn-primary btn-sm btn-wave waves-effect waves-light no-caret'" [Icon]="true" [IconClass]="'ri-arrow-down-s-line align-middle ms-1'" 
+                    [Menuclass]="'dropdown-menu'"  >
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Low Price</a></li> 
+                                    <li><a class="dropdown-item" href="javascript:void(0);">High Price</a></li> 
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Quantity</a></li> 
+                </spk-dropdowns>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <spk-reusable-tables  [columns]="orderHeader" tableClass=" text-nowrap" [showCheckbox]="false"> 
+                                    @for (item of orderData; track $index) {
+                                  <tr>
+                                    <td>
+                                      <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                          <span class="avatar avatar-lg bg-light">
+                                            <img [src]="item.imageUrl" alt="">
+                                          </span>
+                                        </div>
+                                        <div>
+                                          <div class="mb-1 fs-14 fw-semibold">
+                                            <a href="javascript:void(0);">{{ item.name }}</a>
+                                          </div>
+                                          <div class="mb-1">
+                                            <span class="text-muted">{{ item.brand }}</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <span>{{ item.category }}</span>
+                                    </td>
+                                    <td>
+                                      <a href="javascript:void(0);" class="text-primary">{{ item.trackingId }}</a>
+                                    </td>
+                                    <td>
+                                      <span class="fs-15 fw-semibold">${{ item.price }}</span>
+                                    </td>
+                                    <td>
+                                      <span class="badge" [ngClass]="{'bg-primary-transparent': item.color === 'Navy Blue', 'bg-secondary-transparent': item.color === 'Orange', 'bg-success-transparent': item.color === 'Light Green', 'bg-info-transparent': item.color === 'Purple', 'bg-warning-transparent': item.color === 'Yellow'}">{{ item.color }}</span>
+                                    </td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>${{ item.totalPrice }}</td>
+                                  </tr>
+                                }
+                               </spk-reusable-tables>
+                        </div>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="btn-list float-end">
+                            <button class="btn btn-secondary btn-wave btn-sm me-2"
+                                onclick="javascript:window.print();"><i
+                                    class="ri-printer-line me-1 align-middle d-inline-block"></i>Print</button>
+                            <button class="btn btn-primary btn-wave btn-sm"><i
+                                    class="ri-share-forward-line me-1 align-middle d-inline-block"></i>Share
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4">
+                <div class="card custom-card">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+                            <span class="fs-17 fw-semibold">Order Summary</span>
+                            <span class="avatar avatar-sm bg-light border"><i
+                                    class="ri-box-3-line text-default fs-18"></i></span>
+                        </div>
+                        <div class="table-responsive">
+                            <spk-reusable-tables > 
+                                @for(item of cartSummary;track $index){
+                                    <tr>
+                                        <td>
+                                          <div class="fw-semibold">{{ item.label }} :</div>
+                                        </td>
+                                        <td class="text-end" [innerHTML]="item.value"></td>
+                                    </tr>
+                                }
+                                </spk-reusable-tables>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4">
+                <div class="card custom-card">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+                            <span class="fs-17 fw-semibold">Delivery Address</span>
+                            <span class="avatar avatar-sm bg-light border"><i class="ri-map-pin-user-line text-default fs-18"></i></span>
+                        </div>
+                        <div class="table-responsive">
+                            <spk-reusable-tables class="table table-borderless"> 
+                                @for(item of Address;track $index){
+                                    <tr>
+                                        <td>
+                                          <div class="fw-semibold">{{ item.label }} :</div>
+                                        </td>
+                                        <td class="text-end" [innerHTML]="item.value"></td>
+                                    </tr>
+                                }
+                                </spk-reusable-tables>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4">
+                <div class="card custom-card">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+                            <span class="fs-17 fw-semibold">Customer Details</span>
+                            <span class="avatar avatar-sm bg-light border"><i class="ri-profile-line text-default fs-18"></i></span>
+                        </div>
+                        <div class="table-responsive">
+                            <spk-reusable-tables class="table table-borderless"> 
+                                @for(item of Details;track $index){
+                                    <tr>
+                                        <td>
+                                          <div class="fw-semibold">{{ item.label }} :</div>
+                                        </td>
+                                        <td class="text-end" [innerHTML]="item.value"></td>
+                                    </tr>
+                                }
+                                </spk-reusable-tables>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Order Tracking
+                </div>
+                <p class="mb-0">
+                    <span class="">Order ID : </span>   
+                    <span class="text-primary">#115876</span>
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="row border-bottom mb-2">
+                    <div class="col-md-12">
+                        <p class="mb-1 fs-17 fw-semibold">Out For Delivery</p>
+                        <p class="mb-3">
+                            <span class="text-muted">Estimated Delivery Date : </span>
+                            <span class="text-default fw-semibold">Monday, Jun 20</span>
+                        </p>
+                        <div class="p-3 rounded border mb-3">
+                            <div class="d-flex">
+                                <div class="progress progress-sm mb-3 w-25" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                                <div class="progress progress-sm mb-3 w-25" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar bg-secondary" style="width: 100%"></div>
+                                </div>
+                                <div class="progress progress-sm mb-3 w-25" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                                </div>
+                                <div class="progress progress-sm mb-3 w-25" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar bg-info" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="row gy-3">
+                                <div class="col-xl-6 d-flex flex-wrap">
+                                    <span class="mb-0 me-2 project-category category1">Preparing</span>
+                                    <span class="text-success fw-semibold fs-13">
+                                        <span class="">(Completed)</span>
+                                    </span>
+                                </div>
+                                <div class="col-xl-6 d-flex flex-wrap">
+                                    <span class="mb-0 me-2 project-category category2">Pickup</span>
+                                    <span class="text-success fw-semibold fs-13">
+                                        <span class="">(Completed)</span>
+                                    </span>
+                                </div>
+                                <div class="col-xl-6 d-flex flex-wrap">
+                                    <span class="mb-0 me-2 project-category category3">In Transit</span>
+                                    <span class="text-success fw-semibold fs-13">
+                                        <span class="">(Completed)</span>
+                                    </span>
+                                </div>
+                                <div class="col-xl-6 d-flex flex-wrap">
+                                    <span class="mb-0 me-2 project-category category4">Delivered</span>
+                                    <span class="text-info fw-semibold fs-13">
+                                        <span class="">(Pending)</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-1 fs-17 fw-semibold">Shipment Progress :</p>
+                <div class="order-track">
+                    <div ngbAccordion class="accordion mb-2 mt-3" id="basicAccordion">
+                        <div ngbAccordionItem  [collapsed]="false" class="aaccordion-item border-0 bg-transparent">
+                            <div ngbAccordionHeader class="accordion-header" id="headingOne">
+                                <button ngbAccordionButton class="px-0 py-0 d-block" href="javascript:void(0)" role="button" data-bs-toggle="collapse" data-bs-target="#basicOne" aria-expanded="true" aria-controls="basicOne">
+                                    <div class="d-flex align-items-center mb-0 lh-1">
+                                        <div
+                                            class="me-2 p-1 d-flex align-items-center justify-contet-center bg-primary-transparent rounded-pill">
+                                            <i class="ri-circle-fill fs-10"></i>
+                                        </div>
+                                        <div class="flex-fill ps-3">
+                                            <p class="fw-semibold mb-1 fs-15">June, 29 11:30 AM </p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div ngbAccordionCollapse id="basicOne" class="accordion-collapse collapse show border-top-0" aria-labelledby="headingOne" data-bs-parent="#basicAccordion">
+                                <div ngbAccordionBody class="accordion-body pt-0 ps-5">
+                                    <ng-template>
+                                        <div class="">
+                                            <p class="mb-0">Label Created At <a
+                                                    href="javascript:void(0);"
+                                                    class="font-weight-semibold text-primary">Hyderabad Office </a><span class="text-default fw-semibold">SDNWS-NSW</span></p>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordion class="accordion mb-2 mt-3" id="basicAccordion1">
+                        <div ngbAccordionItem  [collapsed]="false" class="aaccordion-item border-0 bg-transparent">
+                            <div ngbAccordionHeader class="accordion-header" id="headingTwo">
+                                <button ngbAccordionButton class="px-0 py-0 d-block" href="javascript:void(0)" role="button" data-bs-toggle="collapse" data-bs-target="#basicTwo" aria-expanded="true" aria-controls="basicTwo">
+                                    <div class="d-flex align-items-center mb-0 lh-1">
+                                        <div
+                                            class="me-2 p-1 d-flex align-items-center justify-contet-center bg-primary-transparent rounded-pill">
+                                            <i class="ri-circle-fill fs-10"></i>
+                                        </div>
+                                        <div class="flex-fill ps-3">
+                                            <p class="fw-semibold mb-1 fs-15">June, 30 12:43 AM</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div ngbAccordionCollapse id="basicTwo" class="accordion-collapse collapse show border-top-0" aria-labelledby="headingTwo" data-bs-parent="#basicAccordion">
+                                <div ngbAccordionBody class="accordion-body pt-0 ps-5">
+                                    <ng-template>
+                                        <div class="">
+                                            <p class="mb-0">Arrived at Hyderabad Local Fecility <span
+                                                    class="fw-semibold text-default">- SUNDAY LOCAL CENTER</span>
+                                            </p>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordion class="accordion mb-2 mt-3" id="basicAccordion2">
+                        <div ngbAccordionItem  [collapsed]="false" class="aaccordion-item border-0 bg-transparent">
+                            <div ngbAccordionHeader class="accordion-header" id="headingTwo">
+                                <button ngbAccordionButton class="px-0 py-0 d-block" href="javascript:void(0)" role="button" data-bs-toggle="collapse" data-bs-target="#basicTwo" aria-expanded="true" aria-controls="basicTwo">
+                                    <div class="d-flex align-items-center mb-0 lh-1">
+                                        <div
+                                            class="me-2 p-1 d-flex align-items-center justify-contet-center bg-primary-transparent rounded-pill">
+                                            <i class="ri-circle-fill fs-10"></i>
+                                        </div>
+                                        <div class="flex-fill ps-3">
+                                            <p class="fw-semibold mb-1 fs-15">June, 31 10:03 AM</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div ngbAccordionCollapse id="basicTwo" class="accordion-collapse collapse show border-top-0" aria-labelledby="headingTwo" data-bs-parent="#basicAccordion2">
+                                <div ngbAccordionBody class="accordion-body pt-0 ps-5">
+                                    <ng-template>
+                                        <div class="">
+                                            <p class="mb-0">Product Taken By Delivery Agent <span
+                                                    class="fw-semibold text-default">- Mr.Sudheerjan</span>
+                                            </p>
+                                            <span class="text-default">Ph No: +8736497847</span>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordion class="accordion mb-2 mt-3" id="basicAccordion3">
+                        <div ngbAccordionItem  [collapsed]="false" class="aaccordion-item border-0 bg-transparent">
+                            <div ngbAccordionHeader class="accordion-header" id="headingTwo">
+                                <button ngbAccordionButton class="px-0 py-0 d-block" href="javascript:void(0)" role="button" data-bs-toggle="collapse" data-bs-target="#basicTwo" aria-expanded="true" aria-controls="basicTwo">
+                                    <div class="d-flex align-items-center  lh-1">
+                                        <div
+                                            class="me-2 p-1 d-flex align-items-center justify-contet-center bg-primary-transparent rounded-pill">
+                                            <i class="ri-circle-fill fs-10"></i>
+                                        </div>
+                                        <div class="flex-fill ps-3">
+                                            <p class="fw-semibold mb-1 fs-15">July, 5 12:43 AM</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div ngbAccordionCollapse id="basicTwo" class="accordion-collapse collapse show border-top-0" aria-labelledby="headingTwo" data-bs-parent="#basicAccordion2">
+                                <div ngbAccordionBody class="accordion-body pt-0 ps-5">
+                                    <ng-template>
+                                        <div class="text-default mb-3">
+                                            <p class="mb-0">Arrived at Regional Hub <span
+                                                    class="font-weight-semibold">Phoenix, AZ</span></p>
+                                            <span class="text-muted fs-13">Hyedrabad</span>
+                                        </div>
+                                        <div class="text-default mb-3">
+                                            <p class="mb-0">Departed from FedEx Distribution Center<span
+                                                    class="font-weight-semibold">Memphis, TN</span> </p>
+                                            <span class="text-muted fs-13">Hyderbad</span>
+                                        </div>
+                                        <div class="text-default">
+                                            <p class="mb-0">Arrived Salisnagar Near to your location </p>
+                                            <span class="text-muted fs-13">Hyderabad</span>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordion class="accordion mb-2 mt-3" id="basicAccordion4">
+                        <div ngbAccordionItem  [collapsed]="false" class="aaccordion-item border-0 bg-transparent">
+                            <div ngbAccordionHeader class="accordion-header" id="headingTwo">
+                                <button ngbAccordionButton class="px-0 py-0 d-block" href="javascript:void(0)" role="button" data-bs-toggle="collapse" data-bs-target="#basicTwo" aria-expanded="true" aria-controls="basicTwo">
+                                    <div class="d-flex mb-2 lh-1">
+                                        <div
+                                            class="me-2 p-1 d-flex align-items-center justify-contet-center bg-primary-transparent rounded-pill">
+                                            <i class="ri-circle-fill fs-10"></i>
+                                        </div>
+                                        <div class="flex-fill ps-3">
+                                            <p class="fw-semibold mb-0 fs-15">Out For Delivery</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div ngbAccordionCollapse id="basicTwo" class="accordion-collapse collapse show border-top-0" aria-labelledby="headingTwo" data-bs-parent="#basicAccordion4">
+                                <div ngbAccordionBody class="accordion-body pt-0 ps-5">
+                                    <ng-template>
+                                        <div class="text-default">
+                                            <p class="mb-2">Your order is out for devlivery</p>
+                                            <span class="text-muted fs-13">Nov 03, 2024, 15:36
+                                                (expected)</span>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion" id="basicAccordion4">
+                        <div class="accordion-item border-0 bg-transparent next-step">
+                            <div class="accordion-header" id="headingsix">
+                                <a class="collapsed px-0 pt-0" href="javascript:void(0)" role="button"
+                                    data-bs-toggle="collapse" aria-expanded="true">
+                                    <div class="d-flex mb-2 lh-1">
+                                        <div
+                                        class="me-2 p-1 d-flex align-items-center justify-contet-center bg-gray-200 text-muted rounded-pill">
+                                        <i class="ri-circle-fill fs-10"></i>
+                                    </div>
+                                        <div class="flex-fill d-flex justify-content-between align-items-center ps-3">
+                                            <p class="fw-semibold mb-0 fs-15">Delivered</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

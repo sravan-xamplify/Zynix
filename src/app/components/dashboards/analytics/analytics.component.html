@@ -1,0 +1,293 @@
+
+  <!-- Start:: row-1 -->
+  <div class="row">
+    <div class="col-xxl-9">
+        <div class="row">
+            @for (data of cardData; track $index) {
+            <div class="col-xl-3">
+                <div class="card custom-card">
+                    <div class="card-body">
+                       <spk-analytics-card
+                       [title]="data.title"
+                       [value]="data.value"
+                       [linkText]="data.footerTitle"
+                       [percentageChange]="data.percentageChange"
+                       [textcolor]="data.textcolor"
+                       [Bgcolor]="data.Bgcolor"
+                       [direction]="data.direction"
+                       [icon]="sanitizeIcon(data.icon)"
+                       [chartOptions]="data.chartOptions"
+                       >
+                    </spk-analytics-card>
+                    </div>
+                </div>
+            </div>
+        }
+            <div class="col-xl-8">
+                <div class="card custom-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Session Duration By Users
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="session-users">
+                           <spk-apexcharts [chartOptions]="chartOptions4"></spk-apexcharts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card custom-card">
+                    <div class="card-header justify-content-between flex-wrap">
+                        <div class="card-title">
+                            Activity
+                        </div>
+                        <spk-dropdowns [Customclass]="'dropdown'" 
+                        [class]="'btn btn-light btn-icon btn-sm text-muted no-caret'" [Icon]="true"
+                        [IconClass]="'fe fe-more-vertical'" [Menuclass]="'dropdown-menu'">
+                        <li class=""><a class="dropdown-item" href="javascript:void(0);">Today</a></li>
+                        <li class=""><a class="dropdown-item" href="javascript:void(0);">This Week</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0);">Last Week</a></li>
+                    </spk-dropdowns>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled analytics-activity">
+                            @for (activity of analyticsActivity; track $index) {
+                                <spk-school-card
+                                [title]="activity.title"
+                                [fontIcon]="activity.iconClass"
+                                [svgBg]="activity.bgClass"
+                                [rightTitle]="activity.value"
+                                [description]="activity.changeType"
+                                [changePercentage]="activity.changePercentage"
+                                [arrowBg]="activity.changeClass"
+                                [direction]="activity.trend"
+                                [svgType]="activity.svgType"
+                                ></spk-school-card>
+                        }
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Visitors
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="visitors">
+                            <spk-apexcharts [chartOptions]="chartOptions5"></spk-apexcharts>
+                        </div>
+                        <div class="d-flex justify-content-center gap-5 mt-3">
+                            <div class="d-flex">
+                                <div class="text-center">
+                                    <p class="mb-1 text-muted"> <i class="bx bxs-circle text-primary fs-10 me-1"></i>Online visitors</p>
+                                    <h5 class="mb-0 fw-semibold">1,86,758 </h5>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="text-center">
+                                    <p class="mb-1 text-muted"> <i class="bx bxs-circle text-secondary fs-10 me-1"></i>Offline visitors</p>
+                                    <h5 class="mb-0 fw-semibold">32,389</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h6 class="fw-semibold mb-0">Audience Report</h6>
+                            <div>
+                                <span class="avatar avatar-md bg-primary"><i class="fe fe-activity"></i></span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end">
+                            <div class="flex-1 w-100">
+                                <h3 class="fw-semibold mb-1">12,890<span class="text-success fs-13 ms-2"><i class="fe fe-arrow-up-right me-2 fs-12"></i>10.5%</span></h3>
+                                <span class="d-block text-muted">Currently active now</span>
+                            </div>
+                        </div>
+                        <div id="audience-report">
+                            <spk-apexcharts [chartOptions]="chartOptions6"></spk-apexcharts>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                
+<!-- End:: row-1 -->      
+
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xxl-3 col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Sessions Duration By Time
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="sessions-time">
+                    <spk-apexcharts [chartOptions]="chartOptions7"></spk-apexcharts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-6">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Browser Usuage
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="BrowserTrafficColumn" tableClass="table text-nowrap"  [showCheckbox]="false">
+                        @for(browser of browserTrafficData;track $index){
+                            <tr>
+                                <td>
+                                  <div class="d-flex align-items-center">   
+                                    <div class="me-2">
+                                      <span [ngClass]="['avatar', 'avatar-sm', 'avatar-rounded', browser.iconBgClass]">
+                                        <i [ngClass]="[browser.iconClass, 'fs-18']"></i>
+                                      </span>
+                                    </div>
+                                    <p class="mb-0">{{ browser.name }}</p>
+                                  </div>
+                                </td>
+                                <td class="text-center">{{ browser.visitorCount }}</td>
+                                <td class="text-end">
+                                  <span [ngClass]="['fw-semibold', 'd-inline-flex', 'align-items-center', browser.changeColor]">
+                                    <i [ngClass]="[browser.changeIcon, 'me-1']"></i>{{ browser.changePercentage }}
+                                  </span>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Sessions By Country</div>
+            </div>
+            <div class="card-body pb-0">
+                <div id="sessionsCountry">
+                    <spk-apexcharts [chartOptions]="chartOptions8"></spk-apexcharts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Visitors By Countries
+                </div>
+                <button class="btn btn-sm btn-light border">View All</button>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0 analytics-visitors-countries">
+                    @for (countryData of analyticsVisitorsCountries; track $index) {
+                        <spk-school-card
+                        [title]="countryData.country"
+                        [imageSrc]="countryData.flagUrl"
+                        [rightTitle]="countryData.visitors"
+                        [avatarSize]="countryData.FlagBg"
+                        ></spk-school-card>
+                }
+                  </ul>
+                  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+    <div class="col-xl-8">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Visitors By Channel Report
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="trafficColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                        @for(source of trafficSources;track $index){
+                            <tr>
+                                <th scope="row" class="text-center">{{ source.id }}</th>
+                                <td>
+                                  <div class="d-flex align-items-center">
+                                    <span class="avatar avatar-sm bg-{{ source.iconColor }}-transparent avatar-rounded">
+                                      <i class="{{ source.sourceIcon }} fs-15 fw-semibiold text-{{ source.iconColor }}"></i>
+                                    </span>
+                                    <span class="ms-2">{{ source.source }}</span>
+                                  </div>
+                                </td>
+                                <td>{{ source.percentage }}</td>
+                                <td class="text-center">{{ source.visitors }}</td>
+                                <td class="text-center">
+                                  <span class="badge bg-{{ source.iconColor }}-transparent">{{ source.conversions }}</span>
+                                </td>
+                                <td class="text-center">{{ source.avgPagesPerSession }}</td>
+                                <td>{{ source.avgSessionDuration }}</td>
+                              </tr>
+                            }
+                            </spk-reusable-tables>
+                          
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Top Pages
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="WebsiteTrafficColumn" tableClass="text-nowrap"  [showCheckbox]="false">
+                        @for(site of WebsiteTraffic;track $index){
+                            <tr>
+                                <td>
+                                  <a href="javascript:void(0);" class="d-inline-flex align-items-center">
+                                    <i [ngClass]="[site.iconClass, 'me-2', 'fs-5', 'align-middle', site.iconColor]"></i>
+                                    {{ site.url }}
+                                  </a>
+                                </td>
+                                <td>{{ site.visitors }}</td>
+                                <td class="text-end">
+                                  <span
+                                    class="tx-12 font-weight-semibold d-inline-flex align-items-center"
+                                    [ngClass]="site.changeColor"
+                                  >
+                                    <i [ngClass]="[site.changeIcon, 'me-1']"></i>{{ site.changePercentage }}
+                                  </span>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->

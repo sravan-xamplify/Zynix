@@ -1,0 +1,174 @@
+
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Basic Line Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="line-chart">
+                    <!--The content below is only a placeholder and can be replaced.-->
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions"></spk-apexcharts>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Line Chart With Data Labels</div>
+            </div>
+            <div class="card-body">
+                <!--The content below is only a placeholder and can be replaced.-->
+                <div id="chart">
+                    <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Zoomable Time Series</div>
+            </div>
+            <div class="card-body">
+                <div id="zoom-chart">
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions11"></spk-apexcharts>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Line With Annotations</div>
+            </div>
+            <div class="card-body">
+                <div id="annotation-chart">
+                    <!--The content below is only a placeholder and can be replaced.-->
+                     <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions2"></spk-apexcharts>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Brush Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="wrapper">
+                    <div id="chart-line">
+                        <spk-apexcharts [chartOptions]="chartOptions3"></spk-apexcharts>
+
+                    </div>
+                    <div id="chart-line2">
+                        <spk-apexcharts [chartOptions]="chartOptions4"></spk-apexcharts>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">StepLine Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="stepline-chart">
+                    <!--The content below is only a placeholder and can be replaced.-->
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions5"></spk-apexcharts>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Gradient Line Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="gradient-chart">
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions6"></spk-apexcharts>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Missing/Null Values Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="null-chart">
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions7"></spk-apexcharts>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Dashed Line Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="dashed-chart">
+                    <!--The content below is only a placeholder and can be replaced.-->
+                    <div id="chart">
+                        <spk-apexcharts [chartOptions]="chartOptions9"></spk-apexcharts>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Syncing Charts</div>
+            </div>
+            <div class="card-body">
+                <apx-chart [series]="chart1options.series" [chart]="chart1options.chart" [colors]="chart1options.colors"
+                    [yaxis]="chart1options.yaxis" [dataLabels]="commonOptions1.dataLabels" 
+                    [markers]="commonOptions1.markers" [stroke]="commonOptions1.stroke" [grid]="commonOptions1.grid"
+                    [xaxis]="commonOptions1.xaxis" [tooltip]="commonOptions1.tooltip"></apx-chart>
+                <apx-chart [series]="chart2options.series" [chart]="chart2options.chart" [colors]="chart2options.colors"
+                    [yaxis]="chart2options.yaxis" [dataLabels]="commonOptions1.dataLabels"
+                    [markers]="commonOptions1.markers" [stroke]="commonOptions1.stroke" [grid]="commonOptions1.grid"
+                    [xaxis]="commonOptions1.xaxis" [tooltip]="commonOptions1.tooltip"></apx-chart>
+                <apx-chart [series]="chart3options.series" [chart]="chart3options.chart" [colors]="chart3options.colors"
+                    [yaxis]="chart3options.yaxis" [dataLabels]="commonOptions1.dataLabels"
+                    [markers]="commonOptions1.markers" [stroke]="commonOptions1.stroke" [grid]="commonOptions1.grid"
+                    [xaxis]="commonOptions1.xaxis" [tooltip]="commonOptions1.tooltip"></apx-chart>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--End::row-1 -->

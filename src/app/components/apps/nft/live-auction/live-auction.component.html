@@ -1,0 +1,156 @@
+   <!-- Start::row-1 -->
+   <div class="row">
+    <div class="col-xxl-9 col-xl-8 col-lg-12">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+            <div class="nft-tag nft-tag-primary active">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-world fs-20"></i></span>
+                <span class="nft-tag-text">All</span>
+            </div>
+            <div class="nft-tag nft-tag-secondary">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-flame fs-20"></i></span>
+                <span class="nft-tag-text">New Trends</span>
+            </div>
+            <div class="nft-tag nft-tag-info">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-palette fs-20"></i></span>
+                <span class="nft-tag-text">Art Work</span>
+            </div>
+            <div class="nft-tag nft-tag-success">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-device-gamepad-2 fs-20"></i></span>
+                <span class="nft-tag-text">Games</span>
+            </div>
+            <div class="nft-tag nft-tag-danger">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-tie fs-20"></i></span>
+                <span class="nft-tag-text">Fashion</span>
+            </div>
+            <div class="nft-tag nft-tag-warning">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-music fs-20"></i></span>
+                <span class="nft-tag-text">Music</span>
+            </div>
+            <div class="nft-tag nft-tag-primary">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-home fs-20"></i></span>
+                <span class="nft-tag-text">Real Estate</span>
+            </div>
+            <div class="nft-tag nft-tag-dark">
+                <a href="javascript:void(0);" class="stretched-link"></a>
+                <span class="nft-tag-icon"><i class="ti ti-gift fs-20"></i></span>
+                <span class="nft-tag-text">Others</span>
+            </div>
+        </div>
+        <div class="row">
+            <h6 class="fw-medium mb-3">Live Auction:</h6>
+            @for (nft of nftItems; track $index) {
+            <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <spk-nft-card [title]="nft.title"  [image]="nft.imgSrc" [bgColor]="nft.bgColor"
+                                                          [title1]="nft.creator" [value]="nft.topBid"></spk-nft-card>
+                    </div>
+                </div>
+            </div>
+        }
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end mb-4">
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0);">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-4 col-lg-12">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-header justify-content-between">
+                        <div class="card-title">
+                            Featured Creators
+                        </div>
+                        <div>
+                            <button class="btn btn-primary-light btn-sm btn-wave">View All</button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" *ngFor="let user of nftUsers">
+                              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div class="d-flex align-items-center">
+                                  <div class="lh-1">
+                                    <span class="avatar avatar-md p-1 bg-gray-300 me-2">
+                                      <img [src]="user.image" alt="">
+                                    </span>
+                                  </div>
+                                  <div class="align-items-center">
+                                    <p class="mb-0 fw-medium">{{ user.name }}</p>
+                                    <span class="fs-12 text-muted">{{ user.username }}</span>
+                                  </div>
+                                </div>
+                                <div class="text-end">
+                                  <span class="d-block fw-medium">{{ user.ethAmount }}</span>
+                                  <span class="d-block text-muted fs-11">{{ user.nfts }}</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-header justify-content-between">
+                        <div class="card-title">
+                            Recent Activity
+                        </div>
+                        <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+            [class]="'p-2 fs-12 text-muted no-caret'" [Icon]="true"
+            [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+            <li><a class="dropdown-item" href="javascript:void(0);">Today</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0);">This Week</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0);">Last Week</a></li>
+            </spk-dropdowns>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            @for (transaction of transactions; track $index) {
+                            <li class="list-group-item">
+                              <div class="d-flex gap-3 align-items-center flex-wrap">
+                                <div class="lh-1">
+                                  <span class="avatar avatar-lg">
+                                    <img [src]="transaction.imgSrc" alt="">
+                                  </span>
+                                </div>
+                                <div>
+                                  <div class="mb-1">
+                                    <a href="javascript:void(0);" class="fw-medium">{{ transaction.itemName }}</a>
+                                    <span class="fs-12 text-muted ms-2 d-inline-block">{{ transaction.timeAgo }}</span>
+                                  </div>
+                                  <div class="fs-13">
+                                    {{ transaction.action }} <a href="javascript:void(0);" class="text-decoration-underline">{{ transaction.buyer }}</a>
+                                    <span *ngIf="transaction.amount">
+                                      for <span [ngClass]="transaction.amountClass" class="fw-medium fs-12">{{ transaction.amount }}</span>.
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                        }
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

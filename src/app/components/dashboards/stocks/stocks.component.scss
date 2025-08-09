@@ -1,0 +1,15 @@
+::ng-deep {
+  .chart-container {
+    /* Make the chart container responsive */
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto; /* Optional: Center the container */
+  }
+
+  .mySwiper {
+    height: 500px; /* Set a height for the vertical swiper */
+    padding: 20px;
+  }
+
+}
+  

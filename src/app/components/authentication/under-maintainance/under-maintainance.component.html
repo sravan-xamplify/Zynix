@@ -1,0 +1,127 @@
+<div id="particles-js" class="row authentication coming-soon justify-content-center g-0 my-auto">
+  <div class="auth-main-bg">
+    <div class="auth-shape">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1440 120"
+      >
+        <path
+          d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-7 col-11 my-auto">
+    <div class="authentication-cover">
+      <div class="p-5 auth-bg-banner text-center">
+        <div class="row justify-content-center align-items-center mx-0 g-0">
+          <div
+            class="col-xxl-10 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12"
+          >
+            <div>
+              <div class="mb-2">
+                <a [routerLink]="['/sales']">
+                  <img
+                    src="./assets/images/brand-logos/desktop-logo.png"
+                    alt=""
+                    class="authentication-brand desktop-light"
+                  />
+                  <img
+                    src="./assets/images/brand-logos/desktop-dark.png"
+                    alt=""
+                    class="authentication-brand desktop-logodark"
+                  />
+                </a>
+              </div>
+              <p class="fs-12 mb-1 text-muted op-8">STAY TUNED</p>
+              <h1 class="mb-3 fw-semibold">Under Maintenance</h1>
+              <p class="mb-4 fs-16 text-muted">
+                Thank you for your patience as we polish up our site an improved
+                browsing adventure is coming your way soon!"
+              </p>
+              <div class="input-group mb-5">
+                <input
+                  type="email"
+                  class="form-control form-control-lg"
+                  placeholder="info@gmail.com"
+                  aria-label="info@gmail.com"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="button-addon2"
+                >
+                  Subscribe
+                </button>
+              </div>
+              <div
+                class="d-flex gap-4 flex-wrap mt-4 mb-0 gy-xxl-0 gy-3 justify-content-center"
+                id="timer"
+              >
+                <div>
+                  <div class="">
+                    <p class="mb-1 fs-12">DAYS</p>
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <h4
+                        class="mb-0 avatar d-block text-primary avatar-xxl hexagon"
+                      >
+                      {{days}}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="">
+                    <p class="mb-1 fs-12">HOURS</p>
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <h4
+                        class="mb-0 avatar d-block text-primary avatar-xxl hexagon"
+                      >
+                      {{hours}}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="">
+                    <p class="mb-1 fs-12">MINUTES</p>
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <h4
+                        class="mb-0 avatar d-block text-primary avatar-xxl hexagon"
+                      >
+                      {{minutes}}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="">
+                    <p class="mb-1 fs-12">SECONDS</p>
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <h4
+                        class="mb-0 avatar d-block text-primary avatar-xxl hexagon"
+                      >
+                      {{seconds}}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

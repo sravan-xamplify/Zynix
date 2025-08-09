@@ -1,0 +1,193 @@
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-medium fs-16 me-1">Deals</span><span class="badge bg-light text-default align-middle">16</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a  (click)="openWindowCustomClass(content)" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#create-contact"><i class="ri-add-line me-1 fw-medium align-middle"></i>New Deal</a>
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                                <h6 class="modal-title">Create Deal</h6>
+                                <a type="button" class="btn-close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')"></a>
+                            </div>
+                            <div class="modal-body px-4">
+                                <div class="row gy-3">
+                                    <div class="col-xl-12">
+                                        <div class="mb-0 text-center"> <span class="avatar avatar-xxl avatar-rounded">
+                                                <img [src]="url1 ? url1 : './assets/images/faces/9.jpg'" alt="" id="profile-img"> <span
+                                                    class="badge rounded-pill bg-primary avatar-badge"> <input
+                                                        type="file" name="photo" (change)="handleFileInput($event)"
+                                                        class="position-absolute w-100 h-100 op-0" id="profile-change">
+                                                    <i class="fe fe-camera"></i> </span> </span> </div>
+                                    </div>
+                                    <div class="col-xl-6"> <label for="deal-name" class="form-label">Contact
+                                            Name</label> <input type="text" class="form-control" id="deal-name"
+                                            placeholder="Contact Name"> </div>
+                                    <div class="col-xl-6"> <label for="deal-lead-score" class="form-label">Deal
+                                            Value</label> <input type="number" class="form-control" id="deal-lead-score"
+                                            placeholder="Deal Value"> </div>
+                                    <div class="col-xl-12"> <label for="company-name" class="form-label">Company
+                                            Name</label> <input type="text" class="form-control" id="company-name"
+                                            placeholder="Company Name"> </div>
+                                    <div class="col-xl-12"> <label class="form-label">Last Contacted</label>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i></div>
+                                                <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                                [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="true"
+                                                [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" class="btn btn-light"
+                                    (click)="modal.close('Close click')">Close</a>
+                                <button type="button" class="btn btn-primary">CreateDeal</button>
+                            </div>
+                        </ng-template>
+                        <button class="btn btn-success-light btn-sm">Export As CSV</button>
+                        <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                        [class]="'btn btn-light btn-sm btn-wave waves-effect waves-light no-caret'" [Icon]="true"
+                        [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                        <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Newest</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Date Added</a></li>
+                        <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">A - Z</a></li>
+                    </spk-dropdowns>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
+
+<!-- Start::row-2 -->
+<div class="row">
+    @for (card of statusCards; track $index) {
+    <div class="col-xxl-2 col-md-4">
+      <div class="card custom-card " [ngClass]="card.ngClass">
+        <div class="card-body p-2">
+          <div class="d-flex align-items-top flex-wrap justify-content-between p-3 rounded main-card">
+            <div>
+              <div class="fw-medium fs-15">
+                <i [ngClass]="card.iconClass + ' p-1 lh-1 fs-7 me-2 rounded-2 ' + card.colorClass" class="align-middle"></i>
+                {{ card.title }}
+              </div>
+            </div>
+            <div>
+              <span [ngClass]="card.textClass + ' fw-semibold fs-14 ms-4'">{{ card.amount }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+  </div>
+  
+<!-- End::row-2 -->
+
+<!-- Start::row-3 -->
+<div class="row">
+        <!-- Discovered Leads -->
+        <div class="col-xxl-2" id="leads-discovered"  [sortablejs]="normalList1"
+        [sortablejsOptions]="normalOptions">
+        @for (card of discoveredLeads; track $index) {
+          <spk-deals-card  
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="discovered">
+          </spk-deals-card >
+        }
+        </div>
+      
+        <!-- Qualified Leads -->
+        <div class="col-xxl-2" id="leads-qualified" [sortablejs]="normalList2"
+        [sortablejsOptions]="normalOptions1">
+        @for (card of qualifiedLeads; track $index) {
+          <spk-deals-card 
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="qualified">
+          </spk-deals-card >
+        }
+        </div>
+      
+        <!-- Contact Initiated Leads -->
+        <div  class="col-xxl-2" id="contact-initiated" [sortablejs]="normalList3"
+        [sortablejsOptions]="normalOptions2">
+        @for (card of contactInitiatedLeads; track $index) {
+          <spk-deals-card 
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="contact-initiated">
+          </spk-deals-card >
+        }
+    </div>
+      
+        <!-- Needs Identified Leads -->
+        <div class="col-xxl-2" id="needs-identified" [sortablejs]="normalList4"
+        [sortablejsOptions]="normalOptions3">
+        @for (card of needsIdentifiedLeads; track $index) {
+          <spk-deals-card 
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="needs-identified">
+          </spk-deals-card >
+        }
+    </div>
+      
+        <!-- Negotiation Leads -->
+        <div class="col-xxl-2" id="negotiation" [sortablejs]="normalList5"
+        [sortablejsOptions]="normalOptions4">
+        @for (card of negotiationLeads; track $index) {
+          <spk-deals-card 
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="negotiation">
+          </spk-deals-card >
+        }
+    </div>
+      
+        <!-- Deal Finalized Leads -->
+        <div class="col-xxl-2" id="deal-finalized" [sortablejs]="normalList6"
+        [sortablejsOptions]="normalOptions5">
+        @for (card of dealFinalizedLeads; track $index) {
+          <spk-deals-card 
+            [title]="card.title"
+            [companyName]="card.companyName"
+            [amount]="card.amount"
+            [date]="card.date"
+            [imgSrc]="card.imgSrc"
+            type="deal-finalized">
+          </spk-deals-card >
+        }
+    </div>
+    
+      </div>
+      
+   
+
+<!-- End::row-3 -->
+

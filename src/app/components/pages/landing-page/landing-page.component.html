@@ -1,0 +1,1007 @@
+ <!-- Start Switcher -->
+ <ng-template #content let-offcanvas>
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Switcher</h5>
+        <button type="button" (click)="offcanvas.dismiss('Cross click')" [class]="'btn-close'" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body switcher-canvas p-0" id="switcher-canvas">
+        <div class="">
+            <p class="switcher-style-head">Theme Color Mode:</p>
+            <div class="row switcher-style gx-0">
+                <div class="col-4">
+                    <div class="form-check switch-select">
+                        <label class="form-check-label" for="switcher-light-theme">
+                            Light
+                        </label>
+                        <input (click)="themeChange('light', 'light')"  class="form-check-input" type="radio" name="theme-style" id="switcher-light-theme"
+                            checked>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-check switch-select">
+                        <label class="form-check-label" for="switcher-dark-theme">
+                            Dark
+                        </label>
+                        <input (click)="themeChange('dark', 'dark')" class="form-check-input" type="radio" name="theme-style" id="switcher-dark-theme"
+                        [checked]="localdata['zynixdarktheme'] == 'dark'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <p class="switcher-style-head">Directions:</p>
+            <div class="row switcher-style gx-0">
+                <div class="col-4">
+                    <div class="form-check switch-select">
+                        <label class="form-check-label" for="switcher-ltr">
+                            LTR
+                        </label>
+                        <input class="form-check-input" (click)="DirectionsChange('ltr')" type="radio" name="direction" id="switcher-ltr" checked>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-check switch-select">
+                        <label class="form-check-label" for="switcher-rtl">
+                            RTL
+                        </label>
+                        <input class="form-check-input" (click)="DirectionsChange('rtl')" type="radio" name="direction" id="switcher-rtl" [checked]="localdata['dir'] == 'rtl'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="theme-colors">
+            <p class="switcher-style-head">Theme Primary:</p>
+            <div class="d-flex align-items-center switcher-style">
+                <div class="form-check switch-select me-3">
+                    <input class="form-check-input color-input color-primary-1" (click)="primary('106, 91, 204')"  [checked]="localdata['zynix-primary-mode'] == '106, 91, 204'"  type="radio" name="theme-primary"
+                        id="switcher-primary">
+                </div>
+                <div class="form-check switch-select me-3">
+                    <input class="form-check-input color-input color-primary-2" (click)="primary('48, 139, 211')"  [checked]="localdata['zynix-primary-mode'] == '48, 139, 211'" type="radio" name="theme-primary"
+                        id="switcher-primary1">
+                </div>
+                <div class="form-check switch-select me-3">
+                    <input class="form-check-input color-input color-primary-3" (click)="primary('0, 149, 140')"  [checked]="localdata['zynix-primary-mode'] == '0, 149, 140'" type="radio" name="theme-primary"
+                        id="switcher-primary2">
+                </div>
+                <div class="form-check switch-select me-3">
+                    <input class="form-check-input color-input color-primary-4" (click)="primary('138, 59, 203')"  [checked]="localdata['zynix-primary-mode'] == '138, 59, 203'" type="radio" name="theme-primary"
+                        id="switcher-primary3">
+                </div>
+                <div class="form-check switch-select me-3">
+                    <input class="form-check-input color-input color-primary-5" (click)="primary('97, 110, 7')"  [checked]="localdata['zynix-primary-mode'] == '97, 110, 7'" type="radio" name="theme-primary"
+                        id="switcher-primary4">
+                </div>
+                <div class="form-check switch-select me-3 ps-0 mt-1 color-primary-light">
+                    <div class="theme-container-primary"></div>
+                    <div class="pickr-container-primary">
+                        <div class="pickr">
+                            <button
+                              type="button"
+                              [class]="'pcr-button'"
+                              role="button"
+                              aria-label="toggle color picker dialog"
+                              id="lightPrimaryColorID"
+                              style="--pcr-color: rgba(132, 90, 223, 1)"
+                              [style.background]="color1"
+                              [cpAlphaChannel]="'disabled'"
+                              [cpOutputFormat]="'hex'"
+                              [(colorPicker)]="color1"
+                              (cpSliderDragEnd)="dynamicLightPrimary($event)"
+                            ></button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="switcher-style-head">reset:</p>
+            <div class="text-center">
+                <button id="reset-all" (click)="reset()" [class]="'btn btn-danger mt-3'">Reset</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- End Switcher -->
+
+<div class="landing-page-wrapper">
+
+    <!-- app-header -->
+    <header class="app-header">
+
+        <!-- Start::main-header-container -->
+        <div class="main-header-container container-fluid">
+
+            <!-- Start::header-content-left -->
+            <div class="header-content-left">
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <div class="horizontal-logo">
+                        <a [routerLink]="['/sales']"  class="header-logo">
+                            <img src="./assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
+                            <img src="./assets/images/brand-logos/toggle-dark.png" alt="logo" class="toggle-dark">
+                        </a>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <!-- Start::header-link -->
+                    <a  (click)="toggleSidebar()" href="javascript:void(0);" class="sidemenu-toggle header-link" data-bs-toggle="sidebar">
+                        <span class="open-toggle">
+                            <i class="ri-menu-3-line fs-20"></i>
+                        </span>
+                    </a>
+                    <!-- End::header-link -->
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-left -->
+
+            <!-- Start::header-content-right -->
+            <div class="header-content-right">
+
+                <!-- Start::header-element -->
+                <div class="header-element align-items-center">
+                    <!-- Start::header-link|switcher-icon -->
+                    <div class="btn-list d-lg-none d-flex">
+                        <a [routerLink]="['/authentication/sign-up/basic']" class="btn btn-primary-light">
+                            Sign Up
+                        </a>
+                        <button (click)="openSwitcher(content)" class="btn btn-icon btn-success switcher-icon d-flex align-items-center justify-content-center" data-bs-toggle="offcanvas"
+                            data-bs-target="#switcher-canvas">
+                            <i class="ri-settings-3-line"></i>
+                        </button>
+                    </div>
+                    <!-- End::header-link|switcher-icon -->
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-right -->
+
+        </div>
+        <!-- End::main-header-container -->
+
+    </header>
+    <!-- /app-header -->
+
+    <!-- Start::app-sidebar -->
+    <aside [ngClass]="{ 'data-toggled': isDataToggled }" class="app-sidebar sticky" id="sidebar"
+    [ngClass]="{ 'sticky-pin': scrolled }" style="margin-bottom: -64px">
+        <div class="container-xl">
+            <!-- Start::main-sidebar -->
+            <div class="main-sidebar">
+
+                <!-- Start::nav -->
+                <nav class="main-menu-container nav nav-pills sub-open">
+                    <div class="landing-logo-container">
+                        <div class="horizontal-logo">
+                            <a [routerLink]="['/sales']" class="header-logo">
+                                <img src="./assets/images/brand-logos/desktop-logo.png" alt="logo"
+                                    class="desktop-logo">
+                                <img src="./assets/images/brand-logos/desktop-dark.png" alt="logo"
+                                    class="desktop-dark">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide-left" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                            width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                        </svg></div>
+                    <ul class="main-menu">
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a class="side-menu__item" value="home" (click)="scroll(home)">
+                                <span class="side-menu__label">Home</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a value="about" (click)="scroll(about)" class="side-menu__item" >
+                                <span class="side-menu__label">About</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide has-sub" [ngClass]="expande ? 'open' : ''">
+                            <a href="javascript:void(0);" class="side-menu__item"  [class.active]="expande" [class.active]="isActive" 
+                                (click)="toggleExpand()">
+                                <span class="side-menu__label me-2">More</span>
+                                <i class="fe fe-chevron-right side-menu__angle op-8"></i>
+                            </a>
+                            <ul class="slide-menu child1" [class.active]="expande" 
+                                [ngStyle]="{ display: expande ? 'block' : 'none' }">
+                                <li class="slide">
+                                    <a (click)="scroll(services)" value="services" class="side-menu__item">Services</a>
+                                </li>
+                                <li class="slide">
+                                    <a (click)="scroll(expectations)" value="expectations"
+                                        class="side-menu__item">Expectations</a>
+                                </li>
+                                <li class="slide">
+                                    <a (click)="scroll(features)" value="features" class="side-menu__item">Features</a>
+                                </li>
+                             
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item" [class.active]="expande1" (click)="expande1 = !expande1"
+                                        [class.open]="expande1">Level-2
+                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                    <ul class="slide-menu child2" [class.active]="expande1"
+                                        [ngStyle]="{ 'display': expande1 ? 'block' : 'none' }">
+                                        <li class="slide">
+                                            <a href="javascript:void(0);" class="side-menu__item">Level-2-1</a>
+                                        </li>
+                                        <li class="slide has-sub" (click)="expande2 = !expande2"
+                                            [class.open]="expande2">
+                                            <a href="javascript:void(0);" class="side-menu__item" [class.active]="expande2">Level-2-2
+                                                <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                            <ul class="slide-menu child3" [class.active]="expande2"
+                                                [ngStyle]="{ 'display': expande2 ? 'block' : 'none' }">
+                                                <li class="slide">
+                                                    <a href="javascript:void(0);"
+                                                        class="side-menu__item">Level-2-2-1</a>
+                                                </li>
+                                                <li class="slide has-sub">
+                                                    <a href="javascript:void(0);"
+                                                        class="side-menu__item">Level-2-2-2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a (click)="scroll(pricing)" value="pricing" class="side-menu__item">
+                                <span class="side-menu__label">Pricing</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a (click)="scroll(team)" value="team" class="side-menu__item">
+                                <span class="side-menu__label">Team</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a  (click)="scroll(faqs)" value="faqs" class="side-menu__item">
+                                <span class="side-menu__label">FAQ's</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a (click)="scroll(testimonials)" value="testimonials" class="side-menu__item">
+                                <span class="side-menu__label">Testimonials</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a (click)="scroll(contact)" value="contact" class="side-menu__item">
+                                <span class="side-menu__label">Contact Us</span>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+
+                    </ul>
+                    <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                            width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                            </path>
+                        </svg></div>
+                    <div class="d-lg-flex d-none">
+                        <div class="btn-list d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
+                            <a [routerLink]="['/authentication/sign-up/basic']" class="btn btn-wave btn-primary">
+                                Sign Up
+                            </a>
+                            <button (click)="openSwitcher(content)" class="btn btn-wave btn-icon btn-secondary switcher-icon d-flex align-items-center justify-content-center" data-bs-toggle="offcanvas"
+                                data-bs-target="#switcher-canvas">
+                                <i class="ri-settings-3-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End::nav -->
+
+            </div>
+            <!-- End::main-sidebar -->
+        </div>
+
+    </aside>
+    <!-- End::app-sidebar -->
+
+    <!-- Start::app-content -->
+    <!-- Start::app-content -->
+    <div (click)="bodyclick()" class="main-content landing-main px-0">
+
+        <!-- Start:: Section-1 -->
+        <div class="landing-banner" id="home" #home>
+            <section class="section">
+                <div class="container main-banner-container pb-lg-0">
+                    <div class="row">
+                        <div class="col-xxl-8 col-xl-7 col-lg-7 col-md-8">
+                            <div class="pt-lg-5">
+                                <div class="mb-3">
+                                    <h6 class="fw-medium text-fixed-white op-9">Streamlined and Inclusive</h6>
+                                </div>
+                                <p class="landing-banner-heading mb-3 text-fixed-white fw-semibold">Streamlined Design, Intuitively Functional Discover the <span class="text-warning">Zynix</span> Template</p>
+                                <div class="fs-16 mb-5 text-fixed-white op-7">Experience seamless management with an admin template designed for optimal efficiency, featuring a sleek and contemporary interface that enhances task performance.</div>
+                                <a [routerLink]="['/sales']" class="m-1 btn btn-lg bg-success text-fixed-white">
+                                    View Demos
+                                    <i class="ri-eye-line ms-2 align-middle"></i>
+                                </a>
+                                <a [routerLink]="['/sales']"
+                                    class="m-1 btn btn-lg btn-secondary btn-wave waves-effect waves-light">
+                                    Learn More
+                                    <i class="ri-arrow-right-line ms-2 align-middle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-4 my-auto position-relative">
+                            <div class="text-end landing-main-image landing-heading-img">
+                                <img src="./assets/images/media/media-78.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="side-img-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 700" style="overflow: hidden; display: block;" width="700" height="700"><defs><linearGradient id="two-163" x1="350" y1="-350" x2="350" y2="350" spreadMethod="pad" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="hsl(1.4, 100%, 67%)" stop-opacity="1"></stop><stop offset="100%" stop-color="hsl(167, 52%, 78%)" stop-opacity="1"></stop></linearGradient></defs><g id="two-0" transform="matrix(1 0 0 1 0 0)" opacity="1"><path transform="matrix(1 0 0 1 350 350)" id="two-213" d="M 237.85514 98.522825 C 227.062517 131.662812 219.074086 169.801869 195.095167 195.095167 C 171.051113 220.45717 130.070898 224.158279 100.684106 243.072935 C 64.937066 266.081332 42.380709 320.101632 0 323.4352 C -41.034117 326.662848 -75.939076 287.066961 -108.451391 261.824818 C -136.725275 239.87334 -158.984007 209.593513 -183.732535 183.732534 C -208.039029 158.333458 -235.224881 134.012468 -257.107091 106.497244 C -283.326775 73.527975 -318.380622 41.129234 -327.481752 0 C -336.690408 -41.615158 -333.90373 -93.598788 -308.385856 -127.737604 C -281.519872 -163.679977 -216.430462 -152.974506 -185.093668 -185.093668 C -153.021223 -217.966846 -172.127834 -295.546588 -129.52009 -312.689158 C -86.559482 -329.973697 -44.807453 -270.381947 -0.000001 -258.691719 C 32.86618 -250.116959 68.360799 -249.221147 102.24339 -246.837381 C 148.692933 -243.569483 207.63395 -273.235515 243.30323 -243.303231 C 277.21985 -214.841712 267.600266 -156.010774 269.894333 -111.793894 C 271.81461 -74.781613 264.844751 -36.621516 259.147299 -0.000001 C 254.033847 32.867732 248.155407 66.894677 237.85514 98.522825 Z " fill="rgba(255,255,255,0.1)" stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path></g></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-shape">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 2400 800" opacity="1"><g fill="##f5f6fa" transform="matrix(1,0,0,1,4.3314208984375,317.0009536743164)"><path d="M-10,10C92.08333333333334,16.041666666666664,277.9166666666667,49.20833333333333,480,39C682.0833333333333,28.791666666666668,760,-39.416666666666664,960,-39C1160,-38.583333333333336,1240,40.166666666666664,1440,41C1640,41.833333333333336,1720,-38.125,1920,-35C2120,-31.875,2247.9166666666665,-34.625,2400,56C2552.0833333333335,146.625,3254.1666666666665,224.16666666666669,2650,400C2045.8333333333335,575.8333333333333,156.25,795.8333333333334,-500,900" transform="matrix(1,0,0,1,0,35)" opacity="0.05"></path><path d="M-10,10C92.08333333333334,16.041666666666664,277.9166666666667,49.20833333333333,480,39C682.0833333333333,28.791666666666668,760,-39.416666666666664,960,-39C1160,-38.583333333333336,1240,40.166666666666664,1440,41C1640,41.833333333333336,1720,-38.125,1920,-35C2120,-31.875,2247.9166666666665,-34.625,2400,56C2552.0833333333335,146.625,3254.1666666666665,224.16666666666669,2650,400C2045.8333333333335,575.8333333333333,156.25,795.8333333333334,-500,900" transform="matrix(1,0,0,1,0,70)" opacity="1.00"></path></g></svg>  
+                </div>
+            </section>
+        </div>
+        <!-- End:: Section-1 -->
+
+        <!-- Start:: Section-2 -->
+        <section class="section pt-5" id="about" #about>
+            <div class="container position-relative">
+                <div class="text-center">
+                    <span class="landing-text-heading">Glance</span>
+                    <h3 class="fw-semibold mb-2 mt-3">Why Opt for Our Services?</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">We are dedicated to supporting you in achieving your objectives.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @for (card of glanceCards; track $index) {
+                    <div class="col-xl-4">
+                        <spk-glance-cards
+                        [avatarBackground]="card.avatarBackground"
+                        [avatarIconBackground]="card.avatarIconBackground"
+                        [iconClass]="card.iconClass"
+                        [title]="card.title"
+                        [description]="card.description"
+                        [linkText]="card.linkText"
+                      ></spk-glance-cards>
+                    </div>
+                }
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-2 -->
+
+        <!-- Start:: Section-3 -->
+        <section class="section section-bg" id="expectations" #expectations>
+            <div class="container">
+                <div class="row gx-5 mx-0">
+                    <div class="col-xl-5">
+                        <div class="home-proving-image d-none d-xl-block">
+                            <img src="./assets/images/media/media-79.png" alt="" class="img-fluid] about-image">
+                        </div>
+                        <div class="proving-pattern-1"></div>   
+                    </div>
+                    <div class="col-xl-7 my-auto">
+                        <div class="heading-section text-start mb-4">
+                            <span class="landing-text-heading">About Us</span>
+                            <h3 class="mt-3 fw-semibold mb-2">Delivering More Than Expected!</h3>
+                            <div class="heading-description fs-16 text-muted">Welcome to Zynix, where we provide a unique and personalized experience designed to surpass your expectations. Choose us and discover what true excellence looks like.</div>
+                        </div>
+                        <div class="row gy-3 mb-0">
+                            @for (point of points; track $index) {
+                            <div class="col-xl-12">
+                              <div class="d-flex align-items-top">
+                                <div class="me-2 home-prove-svg">
+                                  <i class="ri-arrow-right-circle-line align-middle fs-16 text-primary d-inline-block"></i>
+                                </div>
+                                <div>
+                                  <span class="fs-15">{{ point }}</span>
+                                </div>
+                              </div>
+                            </div>
+                        }
+                          </div>
+                          
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-3 -->
+
+        <!-- Start:: Section-4 -->
+        <section class="section" id="services" #services>
+            <div class="container">
+                <div class="text-center">
+                    <span class="landing-text-heading">Services</span>
+                    <h3 class="fw-semibold mt-3 mb-2">Premium Services at Your Fingertips</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">enjoying top-tier services with ease and convenience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @for (card of cards; track $index) {
+                        <div class="col-xl-3">
+                        <spk-services-card
+                          [backgroundClass]="card.backgroundClass"
+                          [iconPaths]="card.iconPaths"
+                          [title]="card.title"
+                          [description]="card.description"
+                        ></spk-services-card>
+                        </div>
+                        }
+                  </div>
+            </div>
+        </section>
+        <!-- End:: Section-4 -->
+
+        <!-- Start:: Section-5 -->
+        <section class="section landing-Features" id="features" #features>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="heading-section text-center mb-0">
+                            <span class="landing-text-heading dark-text">Features</span>
+                            <h3 class="text-fixed-white text-center mt-3 fw-medium">Exceptional Features</h3>
+                            <div class="fs-16 text-fixed-white text-center op-8">offers unparalleled capabilities designed to meet global standards. With cutting-edge technology, innovative tools, and seamless integration.</div>
+                            <div class="mt-4 mb-5 d-flex align-items-center justify-content-center">
+                                <a [routerLink]="['/sales']" class="btn bg-white-transparent me-3 mb-sm-0">Get Started
+                                    Now</a>
+                                <a [routerLink]="['/sales']"
+                                    class="btn text-fixed-white border border-white border-opacity-25 btn-wave waves-effect waves-light">Discover
+                                    More<i class="fe fe-arrow-right fs-14 align-text-bottom ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 my-auto">
+                        <div
+                            class="d-flex align-items-center justify-content-center trusted-companies sub-card-companies flex-wrap mb-3 mb-xl-0 gap-4">
+                            <div class="trust-img"><img src="./assets/images/media/landing/web/1.png" alt="img"
+                                    ></div>
+                            <div class="trust-img"><img src="./assets/images/media/landing/web/2.png" alt="img"
+                                    ></div>
+                            <div class="trust-img"><img src="./assets/images/media/landing/web/4.png" alt="img"
+                                    ></div>
+                            <div class="trust-img"><img src="./assets/images/media/landing/web/5.png" alt="img"
+                                    ></div>
+                            <div class="trust-img"><img src="./assets/images/media/landing/web/6.png" alt="img"
+                                    ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-5 -->
+
+        <!-- Start:: Section-6 -->
+        <section class="section" id="team" #team>
+            <div class="container">
+                <div class="text-center">
+                    <span class="landing-text-heading">Our Team</span>
+                    <h3 class="fw-semibold mt-3 mb-2">The Team Behind Our Success</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">Our team consists of dedicated individuals who are truly passionate about their work.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @for (member of teamMembers; track $index) {
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-4">
+                        <spk-team-card
+                        [name]="member.name"
+                        [role]="member.role"
+                        [avatarClass]="member.avatarClass"
+                        [image]="member.image"
+                        [description]="member.description"
+                        [socialLinks]="member.socialLinks"
+  ></spk-team-card>
+</div>
+                        }
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-6 -->
+
+        <!-- Start:: Section-7 -->
+        <section class="section section-bg" id="pricing" #pricing>
+            <div class="container">
+                <div class="text-center">
+                    <span class="landing-text-heading">Pricing</span>
+                    <h3 class="fw-semibold mt-3 mb-2">We Provide the Most Competitive Pricing</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">Our plans are designed to be highly affordable, catering to every category with a focus on value and accessibility.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center justify-content-center mb-5">
+                    @for (card of pricingCards; track $index) {
+                            <div class="col-lg-8 col-xl-4 col-xxl-4 col-md-8 col-sm-12">
+                        <spk-pricing-card
+    [title]="card.title"
+    [subtitle]="card.subtitle"
+    [price]="card.price"
+    [planLabel]="card.planLabel"
+    [backgroundClass]="card.backgroundClass"
+    [borderClass]="card.borderClass"
+    [buttonClass]="card.buttonClass"
+    [iconPaths]="card.iconPaths"
+    [features]="card.features"
+  ></spk-pricing-card>
+</div>
+                        }
+                   
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-7 -->
+
+        <!-- Start:: Section-8 -->
+        <section class="section" id="faqs" #faqs>
+            <div class="container text-center">
+                <span class="landing-text-heading">F.A.Q 's</span>
+                <h3 class="fw-semibold mt-3 mb-2">Frequently asked questions ?</h3>
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <p class="text-muted fs-15 mb-5 fw-normal">We have shared some of the most frequently asked
+                            questions to help you out.</p>
+                    </div>
+                </div>
+                <div class="row text-start">
+                    <div class="col-xl-12">
+                        <div class="row gy-2">
+                            <div class="col-xl-6">
+                                <spk-ngb-accordion [accordionId]="'accordionExample'" [accodionClass]="'accordion accordion-customicon1 accordion-primary accordions-items-seperate'" [closeOthers]="true" [accordionItems]="basicAccordions"></spk-ngb-accordion>
+                               </div>
+                               <div class="col-xl-6">
+                                <spk-ngb-accordion [accordionId]="'accordionExample'" [accodionClass]="'accordion accordion-customicon1 accordion-primary accordions-items-seperate'" [closeOthers]="true" [accordionItems]="basicAccordions1"></spk-ngb-accordion>
+                               
+                               </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-8 -->
+
+        <!-- Start:: Section-9 -->
+        <section class="section landing-Features" id="testimonials" #testimonials>
+            <div class="container reviews-container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="text-center mb-0 mt-4 heading-section">
+                            <span class="landing-text-heading dark-text">Testimonals</span>
+                            <div class="h3 mt-3 text-fixed-white">See What People Are Saying About Us</div>
+                            <div class="fs-15 text-fixed-white mb-4 op-8">Customer satisfaction and experience are our top priorities.</div>
+                        </div>
+                    </div>
+                    <div class="col-xl-10">
+                        <div class="swiper pagination-dynamic testimonialSwiperService">
+                            <div class="swiper-wrapper">
+                                 <swiper-container #swiperContainer class="swiper mySwiper" space-between="30"
+                            slides-per-view="2" slides-per-group="2" autoplay-delay="2000" pagination-clickable="true"
+                            false="false" pagination="true" keyboard="true" autoplay-disable-on-interaction="false">
+                                <div class="swiper-slide">
+                                    <div class="card mb-0">
+                                        <i class="bx bxs-quote-alt-left review-quote review-quote1 primary"></i>
+                                        <div class="card-body">
+                                            <div class="d-flex  gap-3 p-2 mb-3 rounded bg-white-transparent align-items-center">
+                                                <img src="./assets/images/faces/1.jpg" alt="img"
+                                                    class="text-center avatar avatar-md rounded-circle mb-2 mb-sm-0">
+                                                <div>
+                                                    <h6 class="mb-0 text-fixed-white">
+                                                        Autumn Quinn</h6>
+                                                    <span class="fs-12 text-fixed-white">User since 2023</span>
+                                                </div>
+                                            </div>
+                                            <span class="">The sleek design immediately caught my eye, and the
+                                                functionality sealed the deal. It's not just eye candy; it
+                                                performs
+                                                exceptionally well -- <a href="javascript:void(0);"
+                                                    class="fw-semibold text-fixed-white op-6 fs-11"
+                                                   >Read
+                                                    More</a></span>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <div class="">
+                                                    <span class="op-8 d-block text-fiexd-white">Rating : </span>
+                                                    <span class="text-warning d-block">
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="">
+                                                    <span class="text-success fs-12">9 Days Ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card mb-0">
+                                        <i class="bx bxs-quote-alt-left review-quote review-quote1 primary"></i>
+                                        <div class="card-body">
+                                            <div class="d-flex  gap-3 p-2 mb-3 rounded bg-white-transparent align-items-center">
+                                                <img src="./assets/images/faces/2.jpg" alt="img"
+                                                    class="text-center avatar avatar-md rounded-circle mb-2 mb-sm-0">
+                                                <div>
+                                                    <h6 class="mb-0 text-fixed-white">
+                                                        Barina Silva</h6>
+                                                    <span class="fs-12 text-fixed-white">User since 2021</span>
+                                                </div>
+                                            </div>
+                                            <span class="">The sleek design immediately caught my eye, and the
+                                                functionality sealed the deal. It's not just eye candy; it
+                                                performs
+                                                exceptionally well -- <a href="javascript:void(0);"
+                                                    class="fw-semibold text-fixed-white op-6 fs-11"
+                                                   >Read
+                                                    More</a></span>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <div class="">
+                                                    <span class="op-8 d-block text-fiexd-white">Rating : </span>
+                                                    <span class="text-warning d-block">
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="">
+                                                    <span class="text-success fs-12">2 Days Ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card mb-0">
+                                        <i class="bx bxs-quote-alt-left review-quote review-quote1 primary"></i>
+                                        <div class="card-body">
+                                            <div class="d-flex  gap-3 p-2 mb-3 rounded bg-white-transparent align-items-center">
+                                                <img src="./assets/images/faces/3.jpg" alt="img"
+                                                    class="text-center avatar avatar-md rounded-circle mb-2 mb-sm-0">
+                                                <div>
+                                                    <h6 class="mb-0 text-fixed-white">
+                                                        Luna Park</h6>
+                                                    <span class="fs-12 text-fixed-white">User since 2023</span>
+                                                </div>
+                                            </div>
+                                            <span class="">The sleek design immediately caught my eye, and the
+                                                functionality sealed the deal. It's not just eye candy; it
+                                                performs
+                                                exceptionally well -- <a href="javascript:void(0);"
+                                                    class="fw-semibold text-fixed-white op-6 fs-11"
+                                                   >Read
+                                                    More</a></span>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <div class="">
+                                                    <span class="op-8 d-block text-fiexd-white">Rating : </span>
+                                                    <span class="text-warning d-block">
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="">
+                                                    <span class="text-success fs-12">Today</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card mb-0">
+                                        <i class="bx bxs-quote-alt-left review-quote review-quote1 primary"></i>
+                                        <div class="card-body">
+                                            <div class="d-flex  gap-3 p-2 mb-3 rounded bg-white-transparent align-items-center">
+                                                <img src="./assets/images/faces/4.jpg" alt="img"
+                                                    class="text-center avatar avatar-md rounded-circle mb-2 mb-sm-0">
+                                                <div>
+                                                    <h6 class="mb-0 text-fixed-white">
+                                                        Donovan Frost</h6>
+                                                    <span class="fs-12 text-fixed-white">User since 2001</span>
+                                                </div>
+                                            </div>
+                                            <span class="">The sleek design immediately caught my eye, and the
+                                                functionality sealed the deal. It's not just eye candy; it
+                                                performs
+                                                exceptionally well -- <a href="javascript:void(0);"
+                                                    class="fw-semibold text-fixed-white op-6 fs-11"
+                                                   >Read
+                                                    More</a></span>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <div class="">
+                                                    <span class="op-8 d-block text-fiexd-white">Rating : </span>
+                                                    <span class="text-warning d-block">
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-fill"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                        <i class="ri-star-half-line"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="">
+                                                    <span class="text-success fs-12">12 Days Ago</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-container>
+                            </div>
+                            <div
+                                class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-9 -->
+
+        <!-- Start:: Section-10 -->
+        <section class="section" id="contact" #contact>
+            <div class="container text-center">
+                <span class="landing-text-heading">Contact Us</span>
+                <h3 class="fw-semibold mt-3 mb-2">Have any questions? We’d be happy to hear from you.</h3>
+                <div class="row justify-content-center">
+                    <div class="col-xl-9">
+                        <p class="text-muted fs-15 mb-5 fw-normal">Feel free to contact us anytime with any questions or inquiries. Don’t hesitate to clear your doubts before trying our product.</p>
+                    </div>
+                </div>
+                <div class="card-body p-0 bg-white">
+                    <div class="row text-start">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 pe-0">
+                            <div class="p-5 border-end">
+                                <div class="row gy-3">
+                                    <div class="col-xl-6">
+                                        <div class="row gy-3">
+                                            <div class="col-xl-12">
+                                                <label for="contact-address-name" class="form-label ">Full Name
+                                                    :</label>
+                                                <input type="text" class="form-control"
+                                                    id="contact-address-name" placeholder="Enter Name">
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <label for="contact-address-phone" class="form-label ">Phone No
+                                                    :</label>
+                                                <input type="text" class="form-control"
+                                                    id="contact-address-phone" placeholder="Enter Phone No">
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <label for="contact-address-address" class="form-label ">Address
+                                                    :</label>
+                                                <textarea class="form-control" id="contact-address-address"
+                                                    rows="1"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="contact-address-message" class="form-label ">Message
+                                            :</label>
+                                        <textarea class="form-control" id="contact-address-message"
+                                            rows="8"></textarea>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="d-flex  mt-3">
+                                            <div class="">
+                                                <div class="btn-list">
+                                                    <button class="btn btn-icon btn-info-light btn-wave">
+                                                        <i class="ri-facebook-line fw-bold"></i>
+                                                    </button>
+                                                    <button class="btn btn-icon btn-secondary-light btn-wave">
+                                                        <i class="ri-twitter-x-line fw-bold"></i>
+                                                    </button>
+                                                    <button class="btn btn-icon btn-success-light btn-wave">
+                                                        <i class="ri-instagram-line fw-bold"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <button class="btn btn-primary  btn-wave">Send Message</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 pe-0">
+                            <div class="p-5 landing-contact-info">
+                                <div class="">
+                                    <div class="fs-18 fw-semibold mb-3">Contact Information</div>
+                                    <div class="mb-3 text-default"> <i class="ri-map-pin-fill me-2 text-muted"></i> 1352/A-12,
+                                        Abcd Street, KLM Town, Hyderabad. </div>
+                                    <div class="d-flex mb-3"> <i
+                                            class="ri-phone-fill me-2 d-inline-block text-muted"></i>
+                                        <div class="text-default">
+                                            <div>+122 1234 32422</div> <span>+121 1234 14511</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 text-default"><i class="ri-mail-fill me-2 d-inline-block text-muted"></i>
+                                        carolinahanasandy4424&#64;example.com</div>
+                                </div>
+                                <div class="">
+                                    <div class="card custom-card border mb-0 shadow-none overflow-hidden"> <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d30444.274596168965!2d78.54114692513858!3d17.48198883339408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d17.4886524!2d78.5495041!4m5!1s0x3bcb9c7ec139a15d%3A0x326d1c90786b2ab6!2sspruko%20technologies!3m2!1d17.474805099999998!2d78.570258!5e0!3m2!1sen!2sin!4v1670225507254!5m2!1sen!2sin"
+                                            height="100" style="border:0;width:100%" allowfullscreen=""
+                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-10 -->
+
+        <!-- Start:: Section-11 -->
+        <section class="section landing-footer text-fixed-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-12 mb-md-0 mb-3">
+                        <div class="px-4">
+                            <p class="fw-medium mb-3"><a [routerLink]="['/sales']"><img
+                                        src="./assets/images/brand-logos/desktop-dark.png" alt=""></a></p>
+                            <p class="mb-2 op-6 fw-normal">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit et magnam,
+                                fuga est mollitia eius, quo illum illo inventore optio aut quas omnis rem. Dolores
+                                accusantium aspernatur minus ea incidunt.
+                            </p>
+                            <p class="mb-0 op-6 fw-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Autem ea esse ad</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 col-12">
+                        <div class="px-4">
+                            <h6 class="fw-medium mb-3 text-fixed-white">PAGES</h6>
+                            <ul class="list-unstyled op-6 fw-normal landing-footer-list">
+                                <li>
+                                    <a [routerLink]="['/pages/email/mailapp']" class="text-fixed-white">Email</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/pages/profile']" class="text-fixed-white">Profile</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/pages/timeline']" class="text-fixed-white">Timeline</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/apps/ecommerce/products-list']" class="text-fixed-white">Projects</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white">Contacts</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white">Portfolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 col-12">
+                        <div class="px-4">
+                            <h6 class="fw-medium text-fixed-white">INFO</h6>
+                            <ul class="list-unstyled op-6 fw-normal landing-footer-list">
+                                <li>
+                                    <a [routerLink]="['/pages/team']" class="text-fixed-white">Our Team</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white">Contact US</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white">About</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white">Services</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/pages/blog/blog']" class="text-fixed-white">Blog</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/pages/terms-conditions']" class="text-fixed-white">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <div class="px-4">
+                            <h6 class="fw-medium text-fixed-white">CONTACT</h6>
+                            <ul class="list-unstyled fw-normal landing-footer-list">
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white op-6"><i
+                                            class="ri-home-4-line me-1 align-middle"></i> New York, NY 10012, US</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white op-6"><i
+                                            class="ri-mail-line me-1 align-middle"></i> info&#64;fmail.com</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white op-6"><i
+                                            class="ri-phone-line me-1 align-middle"></i> +(555)-1920 1831</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="text-fixed-white op-6"><i
+                                            class="ri-printer-line me-1 align-middle"></i> +(123) 1293 123</a>
+                                </li>
+                                <li class="mt-3">
+                                    <p class="mb-2 fw-medium op-8">FOLLOW US ON :</p>
+                                    <div class="mb-0">
+                                        <div class="btn-list">
+                                            <button
+                                                class="btn btn-sm btn-icon btn-primary-light btn-wave waves-effect waves-light">
+                                                <i class="ri-facebook-line fw-bold"></i>
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-icon btn-secondary-light btn-wave waves-effect waves-light">
+                                                <i class="ri-twitter-x-line fw-bold"></i>
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-icon btn-success-light btn-wave waves-effect waves-light">
+                                                <i class="ri-instagram-line fw-bold"></i>
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-icon btn-info-light btn-wave waves-effect waves-light">
+                                                <i class="ri-github-line fw-bold"></i>
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-icon btn-warning-light btn-wave waves-effect waves-light">
+                                                <i class="ri-youtube-line fw-bold"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End:: Section-11 -->
+
+        <div class="text-center landing-main-footer py-3">
+            <span class="text-muted fs-15"> Copyright © <span id="year"></span> <a href="javascript:void(0);"
+                    class="text-primary fw-medium"><u>Zynix</u></a>.
+                Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);"
+                    class="text-primary fw-medium"><u>
+                        Spruko</u>
+                </a> All
+                rights
+                reserved
+            </span>
+        </div>
+
+    </div>
+    <!-- End::app-content -->
+    <!-- End::app-content -->
+
+</div>

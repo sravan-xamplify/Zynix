@@ -1,0 +1,393 @@
+ <!-- Start:: row-1 -->
+ <div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div class="d-sm-flex gap-3 mb-4">
+                    <div class="input-group mb-2 mb-sm-0"> <input type="text" class="form-control"
+                            placeholder="Search Project Here" aria-describedby="button-addon2"> <button
+                            class="btn btn-light border" type="submit">Search</button> </div> <a (click)="openWindowCustomClass(content)"
+                        href="javascript:void(0);" class="btn btn-primary me-2 text-nowrap" data-bs-toggle="modal" data-bs-target="#add-board"><i
+                            class="ri-add-line me-1 fw-medium align-middle"></i>New Board</a>
+                </div>
+               <!-- tasks.component.html -->
+<div class="row row-cols-xxl-5 row-col-xl-3 row-cols-md-2 row-cols-1 gy-3">
+    @for (task of taskCards; track $index) {
+    <div class="col">
+      <div class="card custom-card border shadow-none mb-0">
+        <div class="card-body">
+          <spk-kanban-card  
+          [title]="task.title"
+          [value]="task.value" 
+          [iconClass]="task.iconClass"
+          [Bgcolor]="task.badgeClass" 
+          [textcolor]="task.percentageColor"
+          [direction]="task.changeDirection" 
+          [percentageChange]="task.percentageChange"
+          ></spk-kanban-card>
+        </div>
+      </div>
+    </div>
+}
+  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start::row-2 -->
+<div class="ZYNIX-kanban-board">
+    <div class="kanban-tasks-type new p-0 border bg-white rounded">
+        <div class="mb-3 p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center p-2 border border-primary border-opacity-25 rounded">
+                <span class="d-block fw-medium fs-14"><input class="form-check-input me-2" type="checkbox" value="" id="primaryChecked" checked="">New Task</span>
+                <div>
+                    <a  (click)="openWindowCustomClass1(content1)" aria-label="anchor" href="javascript:void(0)"
+                        class="btn btn-sm btn-light text-default border btn-wave" data-bs-toggle="modal"
+                        data-bs-target="#add-task">
+                        <i class="ri-add-line align-middle me-1 fw-medium"></i>Add Task
+                    </a>
+                </div>
+            </div>
+        </div>
+        <overlay-scrollbars class="p-3 pt-0" id="new-tasks">
+            <div class="kanban-tasks">
+                <div id="new-tasks-draggable" data-view-btn="new-tasks" [sortablejs]="normalList1"
+                [sortablejsOptions]="normalOptions">
+                @for (card of NewTaskData; track $index) {
+                  <spk-kanban-draggable-cards
+                   [id]="card.id"
+                  [badges]="card.badges"
+                  [title]="card.title"
+                  [description]="card.description"
+                  [image]="card.image"
+                  [subTask]="card.subTask"
+                  [actions]="card.actions"
+                  [likes]="card.likes"
+                  [comments]="card.comments"
+                  [avatars]="card.avatars">
+                  </spk-kanban-draggable-cards>
+                }
+                </div>
+            </div>
+        </overlay-scrollbars>
+        <div class="p-3 pt-0">
+            <div class="d-grid view-more-button mt-3" [ngClass]="{'d-none': isHidden}">
+                <button class="btn btn-primary-light btn-wave">View More</button>
+            </div>
+        </div>
+    </div>
+    <div class="kanban-tasks-type todo border bg-white rounded">
+        <div class="mb-3 p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center p-2 bg-white border border-secondary border-dashed border-opacity-25 rounded">
+                <span class="d-block fw-medium fs-14"><input class="form-check-input form-checked-secondary me-2" type="checkbox" value="" id="secondaryChecked" checked="">Todo Task</span>
+                <div>
+                    <a aria-label="anchor" href="javascript:void(0)" (click)="openWindowCustomClass1(content1)"
+                        class="btn btn-sm btn-light text-default border btn-wave" data-bs-toggle="modal"
+                        data-bs-target="#add-task">
+                        <i class="ri-add-line align-middle me-1 fw-medium"></i>Add Task
+                    </a>
+                </div>
+            </div>
+        </div>
+        <overlay-scrollbars class="p-3 pt-0" id="todo-tasks">
+            <div class="kanban-tasks">
+                <div id="todo-tasks-draggable" data-view-btn="todo-tasks"  [sortablejs]="normalList2"
+                [sortablejsOptions]="normalOptions">
+                @for (card of ToDotask; track $index) {
+                    <spk-kanban-draggable-cards  
+                     [id]="card.id"
+                    [badges]="card.badges"
+                    [title]="card.title"
+                    [description]="card.description"
+                    [image]="card.image"
+                    [subTask]="card.subTask"   
+                    [actions]="card.actions"
+                    [likes]="card.likes"
+                    [comments]="card.comments"
+                    [avatars]="card.avatars">
+                    </spk-kanban-draggable-cards>
+                  }
+                </div>
+            </div>
+        </overlay-scrollbars>
+        <div class="p-3 pt-0">
+          <div class="d-grid view-more-button mt-3" [ngClass]="{'d-none': isHidden}">
+            <button class="btn btn-primary-light btn-wave">View More</button>
+        </div>
+      </div>
+    </div>
+    <div class="kanban-tasks-type in-progress border bg-white rounded">
+        <div class="mb-3 p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center p-2 bg-white border border-info border-opacity-25 rounded">
+                <span class="d-block fw-medium fs-15"><input class="form-check-input form-checked-info me-2" type="checkbox" value="" id="secondaryChecked1" checked="">OnGoing Task</span>
+                <div>
+                    <a aria-label="anchor" href="javascript:void(0)" (click)="openWindowCustomClass1(content1)"
+                        class="btn btn-sm btn-light text-default border btn-wave" data-bs-toggle="modal"
+                        data-bs-target="#add-task">
+                        <i class="ri-add-line align-middle me-1 fw-medium"></i>Add Task
+                    </a>
+                </div>
+            </div>
+        </div>
+        <overlay-scrollbars class="p-3 pt-0" id="inprogress-tasks">
+            <div class="kanban-tasks">
+                <div id="inprogress-tasks-draggable" data-view-btn="inprogress-tasks" [sortablejs]="normalList3"
+                [sortablejsOptions]="normalOptions">
+                @for (card of OnGoingData; track $index) {
+                    <spk-kanban-draggable-cards  
+                    [id]="card.id"
+                    [badges]="card.badges"
+                    [title]="card.title"
+                    [description]="card.description"
+                    [subTask]="card.subTask"
+                    [actions]="card.actions"
+                    [likes]="card.likes"
+                    [comments]="card.comments"
+                    [avatars]="card.avatars">
+                    </spk-kanban-draggable-cards>
+                  }
+                </div>
+            </div>
+        </overlay-scrollbars>
+        <div class="p-3 pt-0">
+          <div class="d-grid view-more-button mt-3" [ngClass]="{'d-none': isHidden}">
+            <button class="btn btn-primary-light btn-wave">View More</button>
+        </div>
+        </div>
+    </div>
+    <div class="kanban-tasks-type inreview border bg-white rounded" >
+        <div class="mb-3 p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center p-2 bg-white border border-danger border-opacity-25 rounded">
+                <span class="d-block fw-medium fs-15"><input class="form-check-input form-checked-danger me-2" type="checkbox" value="" id="secondaryChecked2" checked="">In Review Task</span>
+                <div>
+                    <a aria-label="anchor" href="javascript:void(0)" (click)="openWindowCustomClass1(content1)"
+                        class="btn btn-sm btn-light text-default border btn-wave" data-bs-toggle="modal"
+                        data-bs-target="#add-task">
+                        <i class="ri-add-line align-middle me-1 fw-medium"></i>Add Task
+                    </a>
+                </div>
+            </div>
+        </div>
+        <overlay-scrollbars class="p-3 pt-0" id="inreview-tasks">
+            <div class="kanban-tasks">
+                <div id="inreview-tasks-draggable" data-view-btn="inreview-tasks"  [sortablejs]="normalList4"
+                [sortablejsOptions]="normalOptions">
+                @for (card of ReviewTaskData; track $index) {
+                    <spk-kanban-draggable-cards  
+                    [id]="card.id"
+                    [badges]="card.badges"
+                    [title]="card.title"
+                    [description]="card.description"
+                    [image]="card.image"
+                    [subTask]="card.subTask"
+                    [actions]="card.actions"
+                    [likes]="card.likes"
+                    [comments]="card.comments"
+                    [avatars]="card.avatars">
+                    </spk-kanban-draggable-cards>
+                  }
+                </div>
+            </div>
+        </overlay-scrollbars>
+        <div class="p-3 pt-0">
+          <div class="d-grid view-more-button mt-3" [ngClass]="{'d-none': isHidden}">
+            <button class="btn btn-primary-light btn-wave">View More</button>
+        </div>
+        </div>
+    </div>
+    <div class="kanban-tasks-type completed border bg-white rounded">
+        <div class="mb-3 p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center p-2 bg-white border border-success border-opacity-25 rounded">
+                <span class="d-block fw-medium fs-15"><input class="form-check-input form-checked-success me-2" type="checkbox" value="" id="secondaryChecked3" checked="">Completed Task</span>
+                <div>
+                    <a aria-label="anchor" href="javascript:void(0)" (click)="openWindowCustomClass1(content1)"
+                        class="btn btn-sm btn-light text-default border btn-wave" data-bs-toggle="modal"
+                        data-bs-target="#add-task">
+                        <i class="ri-add-line align-middle me-1 fw-medium"></i>Add Task
+                    </a>
+                </div>
+            </div>
+        </div>
+        <overlay-scrollbars class="p-3 pt-0" id="completed-tasks">
+            <div class="kanban-tasks">
+            <div id="completed-tasks-draggable" data-view-btn="completed-tasks" [sortablejs]="normalList5" [sortablejsOptions]="normalOptions">
+                @for (card of CompletedData; track $index) {
+                    <spk-kanban-draggable-cards  
+                    [id]="card.id"
+                    [badges]="card.badges"
+                    [title]="card.title"
+                    [description]="card.description"
+                    [image]="card.image"
+                    [subTask]="card.subTask"
+                    [actions]="card.actions"
+                    [likes]="card.likes"
+                    [comments]="card.comments"
+                    [avatars]="card.avatars">
+                    </spk-kanban-draggable-cards>
+                  }
+            </div>
+          </div>
+        </overlay-scrollbars>
+        <div class="p-3 pt-0">
+          <div class="d-grid view-more-button mt-3" [ngClass]="{'d-none': isHidden}">
+            <button class="btn btn-primary-light btn-wave">View More</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!--End::row-2 -->
+
+<!-- Start::add board modal -->
+
+   <ng-template #content let-modal>
+            <div class="modal-header">
+                <h6 class="modal-title">Add Board</h6>
+                <a (click)="modal.dismiss('Cross click')" type="button" class="btn-close"
+                    ></a>
+            </div>
+            <div class="modal-body px-4">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <label for="board-title" class="form-label">Task Board Title</label>
+                        <input type="text" class="form-control" id="board-title"
+                            placeholder="Board Title">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a (click)="modal.dismiss('Cross click')" type="button" class="btn btn-light">Cancel</a>
+                <a type="button" class="btn btn-primary">Add Board</a>
+            </div>
+   </ng-template>
+<!-- End::add board modal -->
+
+<ng-template #content1 let-modal>
+    <div class="modal-header">
+      <h6 class="modal-title">Add Task</h6>
+      <a
+        type="button"
+        class="btn-close"
+        (click)="modal.dismiss('Cross click')"
+      ></a>
+    </div>
+    <div class="modal-body px-4">
+      <div class="row gy-2">
+        <div class="col-xl-6">
+          <label for="task-name" class="form-label">Task Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="task-name"
+            placeholder="Task Name"
+          />
+        </div>
+        <div class="col-xl-6">
+          <label for="task-id" class="form-label">Task ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="task-id"
+            placeholder="Task ID"
+          />
+        </div>
+        <div class="col-xl-12">
+          <label for="text-area" class="form-label">Task Description</label>
+          <textarea
+            class="form-control"
+            id="text-area"
+            rows="2"
+            placeholder="Write Description"
+          ></textarea>
+        </div>
+        <div class="col-xl-12">
+          <label for="text-area" class="form-label">Task Images</label>
+          @if(type === 'component'){
+  
+            <dropzone
+              class=""OnSelect2
+              [config]="config"
+              [disabled]="disabled"
+              [message]="'Click or drag images here to upload'"
+              (init)="onUploadInit($event)"
+              (error)="onUploadError($event)"
+              (success)="onUploadSuccess($event)"
+            ></dropzone>
+            }
+        </div>
+        <div class="col-xl-12">
+          <label class="form-label">Assigned To</label>
+  
+          <div
+            class="choices"
+            data-type="select-multiple"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          <spk-ng-select 
+          [options]="simpleItems1"
+          [id]="'assigned-team-members'"
+          [selectClass]="''"
+          [clearable]="true"
+          [defaultValue]="selectedSimpleItem1"
+          [multiple]="true"
+          [searchable]="true"
+          [hideSelected]="true"
+          [additionalProperties]="{}">
+          </spk-ng-select>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <label class="form-label">Target Date</label>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-text text-muted">
+                <i class="ri-calendar-line"></i>
+              </div>
+              <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control flatpickr-input active"
+              [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="true"
+              [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <label class="form-label">Tags</label>
+          <div
+            class="choices"
+            data-type="select-multiple"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          <spk-ng-select 
+          [options]="cars"
+          [id]="'assigned-team-members'"
+          [selectClass]="''"
+          [clearable]="true"
+          [defaultValue]="selectedCars"
+          [multiple]="true"
+          [searchable]="true"
+          [hideSelected]="true"
+          [additionalProperties]="{}">
+          </spk-ng-select>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-footer">
+      <a
+        type="button"
+        class="btn btn-light"
+        (click)="modal.close('Close click')"
+      >
+        Cancel
+      </a>
+      <button type="button" class="btn btn-primary">Add Task</button>
+    </div>
+  </ng-template>

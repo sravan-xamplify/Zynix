@@ -1,0 +1,120 @@
+
+                <!-- Start:: row-2 -->
+                 <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="bg-white rounded overflow-hidden mb-4">
+                                    <div class="d-block faq-header p-3 border-bottom">
+                                        <div class="text-center">
+                                            <h3 class="text-primary text-decoration-underline fw-semibold mb-2">FAQs</h3>
+                                            <h4 class="mb-2 fw-semibold">Frequently Asked Questions</h4>
+                                            <p class="fs-14 mb-2 text-muted">Whenever you're facing technical issues, seeking advice, or simply looking for guidance, our platform is here to lend a helping hand.</p>
+                                        </div>
+                                    </div>
+                                    <div class="p-3">
+                                        <div class="row">
+                                            <!-- Sidebar for Tabs -->
+                                            <div class="col-xl-3">
+                                              <ul ngbNav #nav="ngbNav" class="nav nav-tabs flex-columns nav-tabs-header faq-tab w-100 d-inline-block p-0" role="tablist">
+                                                @for(tab of tabs;track $index){
+                                                    <li [ngbNavItem]="tab.id" class="nav-item m-1 mb-2" role="presentation">
+                                                      <a ngbNavLink class="nav-link px-3 py-2" [attr.aria-current]="tab.id === 1 ? 'page' : 'false'" aria-selected="false">
+                                                        {{ tab.title }}
+                                                      </a>
+                                                      <ng-template ngbNavContent>
+                                                        <div class="border-0 p-0" role="tabpanel">
+                                                          <div class="d-flex mb-3 align-items-center justify-content-between">
+                                                            <div class="d-flex align-items-center gap-3 lh-1">
+                                                              <span class="avatar avatar-md bg-{{tab.avatarBg}}-transparent text-{{tab.avatarBg}} border"><i class="ri" [ngClass]="tab.icon"></i></span>
+                                                              <div>
+                                                                <p class="mb-1 fs-15 fw-semibold">{{ tab.title }}</p>
+                                                                <span class="text-muted fs-13">Get help with {{ tab.title }}</span>
+                                                              </div>
+                                                            </div>
+                                                            <a href="javascript:void(0);" class="fw-medium text-decoration-underline text-primary">View All <i class="ri-arrow-right-line"></i></a>
+                                                          </div>
+                                                          <div ngbAccordion #accordion="ngbAccordion" class="accordion faq-accordion accordions-items-seperate" [closeOthers]="true">
+                                                            <div *ngFor="let item of tab.content" ngbAccordionItem>
+                                                              <h2 ngbAccordionHeader>
+                                                                <button ngbAccordionButton>{{ item.question }}</button>
+                                                              </h2>
+                                                              <div ngbAccordionCollapse>
+                                                                <div ngbAccordionBody>{{ item.answer }}</div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </ng-template>
+                                                    </li>
+                                                }
+                                              </ul>
+                                            </div>
+                                            <!-- Tab Content Area -->
+                                            <div class="col-xl-9 customtab">
+                                              <div class="tab-content" [ngbNavOutlet]="nav"></div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="card custom-card shadow-none bg-primary-transparent">
+                                        <div class="card-body p-4 text-center">
+                                                    <div>
+                                                        <div class="avatar-list-stacked mb-2">
+                                                            <span class="avatar avatar-rounded">
+                                                                <img src="./assets/images/faces/2.jpg" alt="img" class="p-1 bg-light">
+                                                            </span>
+                                                            <span class="avatar avatar-rounded">
+                                                                <img src="./assets/images/faces/8.jpg" alt="img" class="p-1 bg-light">
+                                                            </span>
+                                                            <span class="avatar avatar-rounded">
+                                                                <img src="./assets/images/faces/2.jpg" alt="img" class="p-1 bg-light">
+                                                            </span>
+                                                        </div>
+                                                        <h5 class="fw-semibold mb-2">Still Have Questions? We're Here to Help!</h5>
+                                                        <span class="d-block fs-13 text-muted">
+                                                            Contact our support team for personalized assistance. Your satisfaction is our priority!
+                                                            Write your question below and we'll get back to you shortly.
+                                                        </span>
+                                                        <button class="btn btn-primary mt-3">Chat With Us</button>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- End:: row-2 -->
+
+                 <!-- Contact Us Modal -->
+        <div class="modal fade" id="contactus-modal" tabindex="-1"
+        aria-hidden="true">
+       <div class="modal-dialog modal-dialog-centered">
+           <div class="modal-content">
+               <div class="modal-body">
+                   <div class="row gy-3"> 
+                       <div class="col-xl-6"> 
+                           <label for="user-name" class="form-label">Your Name</label> 
+                           <input type="text" class="form-control" id="user-name" placeholder="Enter Your Name"> 
+                       </div> 
+                       <div class="col-xl-6"> 
+                           <label for="user-email" class="form-label">Email Id</label> 
+                           <input type="text" class="form-control" id="user-email" placeholder="Enter Email"> 
+                       </div> 
+                       <div class="col-xl-12"> 
+                           <label for="text-area" class="form-label">Post Your Question</label> 
+                           <textarea class="form-control" placeholder="Enter your question here" id="text-area" rows="3"></textarea> 
+                       </div> 
+                   </div>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-success">Send</button>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- Contact Us Modal -->

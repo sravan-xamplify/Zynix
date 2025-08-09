@@ -1,0 +1,103 @@
+  <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-xl-12">
+        <div class="row row-cols-xxl-5 row-cols-xl-3 row-cols-md-2 row-cols-1">
+            @for(card of cards;track $index){
+                <div class="col">
+                    <spk-invoicelist-card 
+                    [title]="card.title"
+                    [amount]="card.amount"
+                    [unit]="card.unit"
+                    [badgeText]="card.badgeText"
+                    [percentageChange]="card.percentageChange"
+                    [percentageColor]="card.percentageColor"
+                    [trendIcon]="card.trendIcon"
+                    [bgColorClass]="card.bgColorClass"
+                    [chartOptions]="card.chartOptions"
+                    [iconPath]="card.iconPath">
+                </spk-invoicelist-card>
+                </div>
+            }
+             
+              
+        </div>
+    </div>
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Manage Invoices
+                </div>
+                <div class="d-flex">
+                    <a [routerLink]="['/pages/invoice/create-invoice']" class="btn btn-sm btn-primary btn-wave waves-light me-2"><i class="ri-add-line fw-medium align-middle me-1"></i> Create Invoice</a>
+                    <spk-dropdowns [Customclass]="'dropdown custom-dropdown-end'" [class]="'btn btn-secondary-light btn-sm btn-wave waves-light no-caret'" [Icon]="true"
+                    [IconClass]="'ti ti-dots-vertical'" [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" href="javascript:void(0);">All Invoices</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Paid Invoices</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Pending Invoices</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Overdue Invoices</a></li>
+                 </spk-dropdowns> 
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="InvoiceColumn" tableClass="text-nowrap table-hover">
+                            @for(invoice of Invoice;track $index; let i = $index){
+                                <tr  class="invoice-list">
+                                    <td>
+                                      <div class="d-flex align-items-center">
+                                        <div class="me-2 lh-1">
+                                          <span class="avatar avatar-sm avatar-rounded">
+                                            <img [src]="invoice.avatar" alt="">
+                                          </span>
+                                        </div>
+                                        <div>
+                                          <p class="mb-0 fw-medium">{{ invoice.customerName }}</p>
+                                          <p class="mb-0 fs-11 text-muted">{{ invoice.customerEmail }}</p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <a href="javascript:void(0);" class="fw-medium text-primary">{{ invoice.invoiceNumber }}</a>
+                                    </td>
+                                    <td>{{ invoice.dateIssued }}</td>
+                                    <td>{{ invoice.amount }}</td>
+                                    <td>
+                                      <span class="badge" [ngClass]="{
+                                        'bg-success-transparent': invoice.status === 'Paid',
+                                        'bg-warning-transparent': invoice.status === 'Pending',
+                                        'bg-danger-transparent': invoice.status === 'Overdue',
+                                        'bg-primary-transparent': invoice.status === 'Due By 1 Day'
+                                      }">{{ invoice.status }}</span>
+                                    </td>
+                                    <td>{{ invoice.dueDate }}</td>
+                                    <td>
+                                      <button class="btn btn-primary-light btn-icon btn-sm"><i class="ri-printer-line"></i></button>
+                                      <button (click)="deleteInvoice(i)" class="btn btn-danger-light btn-icon ms-1 btn-sm"><i class="ri-delete-bin-5-line"></i></button>
+                                    </td>
+                                  </tr>
+                            }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+            <div class="card-footer border-top-0">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0 float-end">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="javascript:void(0);">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0);">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

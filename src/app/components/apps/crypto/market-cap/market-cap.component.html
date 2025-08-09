@@ -1,0 +1,173 @@
+<!-- Start::row-1 -->
+<div class="row">
+  @for (card of cryptoCards; track $index) {
+  <div class="col-xxl-3 col-xl-6 col-lg-12">
+          <spk-crypto-marketcap-card
+          [title]="card.title"
+          [currency]="card.currency"
+          [icon]="card.icon"
+          [change]="card.change"
+          [amount]="card.amount"
+          [amountCurrency]="card.amountCurrency"
+          [chartId]="card.chartId"
+          [chartOptions]="card.chartOptions"
+          [changeClass]="card.changeClass"
+          [changeClass1]="card.changeClass1"
+          [iconViewBox]="card.iconViewBox"
+          [iconPath1]="card.iconPath1"
+          [iconPath]="card.iconPath">
+        </spk-crypto-marketcap-card>
+      </div>
+      }
+        
+</div>
+<!--End::row-1 -->
+
+<!-- Start::row-2  -->
+<div class="row">
+    <div class="col-xxl-9">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Crypto MarketCap
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <div>
+                        <input class="form-control form-control-sm" type="text"
+                            placeholder="Search Here" aria-label=".form-control-sm example">
+                    </div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'" [class]="'btn btn-primary btn-sm btn-wave waves-effect waves-light no-caret'" [Icon]="true" [IconClass]="'ri-arrow-down-s-line align-middle ms-1'" 
+                    [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Market Cap</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Price</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Trading Volume</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Price Change (24h)</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Rank</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">A - Z</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">All-Time High (ATH)</a></li>
+                </spk-dropdowns>
+                    <div>
+                        <button class="btn btn-secondary btn-sm btn-wave waves-effect waves-light">View
+                            All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">  
+                <div class="table-responsive">
+                    <spk-reusable-tables  [columns]="TaskColumn" tableClass=" text-nowrap">
+                                @for (crypto of CryptoTableRow; track $index) {
+                              <tr >
+                                <td>{{ crypto.id }}</td>
+                                <td>
+                                  <div class="d-flex align-items-center gap-2">
+                                    <div class="lh-1">
+                                      <span class="avatar avatar-xs avatar-rounded">
+                                        <img [src]="crypto.imageUrl" alt="{{ crypto.name }}">
+                                      </span>
+                                    </div>
+                                    <div class="fw-medium">
+                                      <a href="javascript:void(0);">{{ crypto.name }} ({{ crypto.symbol }})</a>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td><span class="fw-medium">{{ crypto.marketCap }}</span></td>
+                                <td>
+                                  <span class="fw-medium">
+                                    <a href="javascript:void(0);">{{ crypto.price }}</a>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="text-danger fw-medium">
+                                    <i class="ti ti-arrow-narrow-down fs-15 fw-medium"></i>{{ crypto.change24h }}
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="text-success fw-medium">
+                                    <i class="ti ti-arrow-narrow-up fs-15 fw-medium"></i>{{ crypto.change7d }}
+                                  </span>
+                                </td>
+                                <td>
+                                  <a href="javascript:void(0)">
+                                    <span class="d-block fw-medium">{{ crypto.volume }}</span>
+                                  </a>
+                                </td>
+                                <td>
+                                  <a href="javascript:void(0);">
+                                    <span class="fw-medium d-block mb-2">{{ crypto.circulatingSupply }} of {{ crypto.maxSupply }}</span>
+                                    <div class="progress-stacked progress-xs w-75">
+                                      <div class="progress-bar bg-primary op-5" role="progressbar" [style.width]="crypto.progress.primary + '%'"></div>
+                                      <div class="progress-bar bg-secondary op-5" role="progressbar" [style.width]="crypto.progress.secondary + '%'"></div>
+                                    </div>
+                                  </a>
+                                </td>
+                                <td>
+                                  <button class="btn btn-light btn-sm text-default">{{ crypto.buttonLabel }}</button>
+                                </td>
+                              </tr>
+                            }
+                           </spk-reusable-tables>
+                </div>
+            </div>
+            <div class="card-footer border-top-0">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0 float-end">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="javascript:void(0);">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0);">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    My Top Currencies
+                </div>
+                <div> <a href="javascript:void(0);"
+                        class="fw-medium text-primary tag-link fs-13 text-decoration-underline">View
+                        All</a> </div>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    @for (crypto of cryptoList; track $index) {
+                    <li class="list-group-item">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                          <div>
+                            <span class="avatar avatar-sm p-1 bg-light">
+                              <img [src]="crypto.image" alt="{{ crypto.name }}">
+                            </span>
+                          </div>
+                          <div>
+                            <span class="d-block fw-medium">{{ crypto.name }}</span>
+                            <span class="d-block text-muted fs-12 fw-normal">{{ crypto.price }}</span>
+                          </div>
+                        </div>
+                        <div>
+                          <span class="fs-12 text-muted">Max Limit</span>
+                          <span class="fw-medium d-block">{{ crypto.maxLimit }}</span>
+                        </div>
+                        <div>
+                          <span class="fs-12 text-muted">My Volume</span>
+                          <span class="fw-medium d-block">{{ crypto.volume }}</span>
+                        </div>
+                      </div>
+                    </li>
+                }
+                  </ul>
+                  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-2  -->

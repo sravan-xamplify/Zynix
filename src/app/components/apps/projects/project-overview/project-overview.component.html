@@ -1,0 +1,462 @@
+  <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-xxl-8">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Project Overview
+                </div>
+                <div>
+                    <a [routerLink]="['/apps/projects/create-project']" class="btn btn-sm btn-primary btn-wave"><i
+                            class="ri-add-line align-middle me-1 fw-medium"></i>Create Project</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-4 gap-2 flex-wrap"> <span
+                        class="avatar avatar-lg me-1 bg-primary-transparent"><i
+                            class="ri-stack-line fs-24 lh-1"></i></span>
+                    <div>
+                        <h6 class="fw-medium mb-2 task-title"> Blockchain-Based Voting System Development
+                        </h6> <span class="badge bg-success-transparent"> In progress</span> <span
+                            class="text-muted fs-12"><i
+                                class="ri-circle-fill text-success mx-2 fs-9"></i>Last Updated 1 Day
+                            Ago</span>
+                    </div>
+                    <div class="d-flex flex-wrap rightIcons float-end ms-auto"> <button
+                            aria-label="button" type="button"
+                            class="btn btn-icon btn-primary my-1 ms-2 btn-sm"> <i
+                                class="ri-edit-box-line"></i> </button> <button aria-label="button"
+                            type="button" class="btn btn-icon btn-secondary my-1 ms-2 btn-sm"> <i
+                                class="ri-links-fill"></i> </button>
+                                <spk-dropdowns [Customclass]="'dropdown ms-2'" 
+                        [class]="'btn btn-icon btn-success my-1 btn-sm no-caret'" [Icon]="true"
+                        [IconClass]="'ti ti-dots-vertical'" [Menuclass]="'dropdown-menu'">
+                        <li><a class="dropdown-item" href="javascript:void(0);">Download</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0);">Edit</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0);">Delete</a></li>
+                    </spk-dropdowns>
+                            </div>
+                </div>
+                <div class="d-flex gap-4 mb-3">
+                    <div class="d-flex gap-2"> <span class="d-block text-muted fs-13">Type :</span>
+                        <span class="text-primary">UI/UX Design</span>
+                    </div>
+                    <div class="d-flex gap-2"> <span class="d-block text-muted fs-13">Start Date
+                            :</span>
+                        <span class="text-default fw-semibold">02/10/2024</span>
+                    </div>
+                </div>
+                <div class="fs-15 fw-medium mb-2">Project Description :</div>
+                <p class="text-muted task-description">A secure and transparent voting platform that leverages blockchain technology to ensure the integrity of elections. This system allows voters to cast their ballots in a decentralized manner, where each vote is recorded on the blockchain, making it tamper-proof and verifiable.</p>
+                <div class="mb-3">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="fs-15 fw-medium">Key Tasks :</div> <a href="javascript:void(0);"
+                                class="btn btn-primary-light btn-wave btn-sm waves-effect waves-light">See
+                                More</a>
+                        </div>
+                        <div class="row">
+                            @for (group of listGroupData; track $index) {
+                            <div class="col-xl-6">
+                              <ul class="list-group">
+                                @for ( item of group.items; track $index) {
+                                <li class="list-group-item">
+                                  <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                      <i [class]="item.iconClass"></i>
+                                    </div>
+                                    <div class="fw-medium">{{ item.description }}</div>
+                                  </div>
+                                </li>
+                            }
+                              </ul>
+                            </div>
+                        }
+                          </div>
+                          
+                </div>
+                <div class="fs-15 fw-medium mb-2">Skills :</div>
+                <div class="d-flex gap-1 flex-wrap">
+                    @for (badge of badgeData; track $index) {
+                    <span  class="badge bg-light text-default border mb-1">
+                      {{ badge }}
+                    </span>
+                }
+                  </div>
+                  
+                <div class="fs-15 fw-medium mb-2 mt-3">Team :</div>
+                <div class="d-flex align-items-center flex-wrap gap-4">
+                    @for (person of teamData; track $index) {
+                    <div class="p-2 border rounded d-flex align-items-center">
+                      <span class="avatar avatar-sm avatar-rounded me-2">
+                        <img [src]="person.image" alt="img">
+                      </span>
+                      <div class="d-flex flex-column lh-1">
+                        <span class="mb-1">{{ person.name }}</span>
+                        <span class="fs-11 text-muted">{{ person.role }}</span>
+                      </div>
+                    </div>
+                }
+                  </div>
+            </div>
+        </div>
+        <div class="col-xl-12">
+            <div class="row">
+                <div class="col-xl-4">
+                    <spk-projectoverview-card
+                      [title]="'Project Categories'"
+                      [categories]="categories"
+                      [btnBg]="'-primary'"
+                      [bgColor]="'primary'"
+                      [category]="true"
+                      [addButton]="'Add More'"
+                      >
+                    </spk-projectoverview-card>
+                  </div>
+                
+                  <!-- Project Goals -->
+                  <div class="col-xl-4">
+                    <spk-projectoverview-card
+                      [title]="'Project Goals'"
+                      [btnBg]="'-light '"
+                      [bgColor]="'success'"
+                      [items]="goals"
+                      [addButton]="'Add Goal'"
+                      [goal]="true"
+                      (checkboxChange)="handleCheckboxChange($event)">
+                    </spk-projectoverview-card>
+                  </div>
+                     
+                <div class="col-xl-4">
+                    <div class="card custom-card overflow-hidden">
+                        <div class="card-header">
+                          <div class="card-title">Project Documents</div>
+                        </div>
+                        <div class="card-body p-0">
+                          <ul class="list-group list-group-flush">
+                            @for (doc of documents; track $index) {
+                            <li  class="list-group-item">
+                              <div class="d-flex align-items-center flex-wrap gap-2">
+                                <div class="lh-1">
+                                  <div class="avatar avatar-md bg-light">
+                                    <div class="avatar avatar-sm" [ngClass]="doc.iconClass">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+                                        <path [attr.d]="doc.svgPath"></path>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="flex-fill">
+                                  <a href="javascript:void(0);">
+                                    <span class="d-block fw-medium">{{ doc.fileName }}</span>
+                                  </a>
+                                  <span class="d-block text-muted fs-12 fw-normal">{{ doc.fileSize }}</span>
+                                </div>
+                                <div class="btn-list">
+                                  <button class="btn btn-sm btn-icon btn-primary-light btn-wave">
+                                    <i class="ri-edit-line"></i>
+                                  </button>
+                                  <button class="btn btn-sm btn-icon btn-danger-light btn-wave">
+                                    <i class="ri-delete-bin-line"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </li>
+                        }
+                          </ul>
+                        </div>
+                      </div>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-4">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Project Details
+                </div>
+                <div>
+                    <button class="btn btn-light btn-sm btn-wave"><i
+                            class="ri-add-line align-middle me-1 fw-medium"></i>Add New</button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span><i
+                                            class="ri-loop-right-line me-2 fs-15 lh-1 p-1 text-primary bg-primary-transparent rounded-pill"></i>Status</span>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <span class="badge bg-primary-transparent">Ongoing</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><i class="ri-group-line fs-15 lh-1 p-1 text-secondary bg-secondary-transparent rounded-pill me-2"></i>Assigned</span>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                        <div class="avatar-list-stacked">
+                                            <span class="avatar avatar-sm avatar-rounded"
+                                                data-bs-toggle="tooltip"
+                                                tooltipClass="tooltip-primary"
+                                                ngbTooltip="Simon">
+                                                <img src="./assets/images/faces/2.jpg" alt="img">
+                                            </span>
+                                            <span class="avatar avatar-sm avatar-rounded"
+                                                data-bs-toggle="tooltip"
+                                                tooltipClass="tooltip-primary"
+                                                ngbTooltip="Sasha">
+                                                <img src="./assets/images/faces/8.jpg" alt="img">
+                                            </span>
+                                            <span class="avatar avatar-sm avatar-rounded"
+                                                data-bs-toggle="tooltip"
+                                                tooltipClass="tooltip-primary"
+                                                ngbTooltip="Anagha">
+                                                <img src="./assets/images/faces/5.jpg" alt="img">
+                                            </span>
+                                            <span class="avatar avatar-sm avatar-rounded"
+                                                data-bs-toggle="tooltip"
+                                                tooltipClass="tooltip-primary"
+                                                ngbTooltip="Hishen">
+                                                <img src="./assets/images/faces/10.jpg" alt="img">
+                                            </span>
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><i
+                                            class="ri-calendar-line fs-15 lh-1 p-1 text-success bg-success-transparent rounded-pill me-2"></i>Timeline</span>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <span>22,Dec 2024 - 10,Feb 2024</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><i class="ri-briefcase-line fs-15 lh-1 p-1 text-info bg-info-transparent rounded-pill me-2"></i>Project
+                                        Type</span>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <span class="badge bg-secondary-transparent">Dashboard</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span><i class="ri-user-3-line fs-15 lh-1 p-1 text-warning bg-warning-transparent rounded-pill me-2"></i>Project
+                                        Manager</span>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2 lh-1">
+                                            <span class="avatar avatar-sm avatar-rounded">
+                                                <img src="./assets/images/faces/13.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <span class="d-block fs-14 fw-medium">S.K.Jacob</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border-bottom-0 rounded">
+                                    <span><i class="ri-price-tag-3-line fs-15 lh-1 p-1 text-danger bg-danger-transparent rounded-pill me-2"></i>Tags</span>
+                                </td>
+                                <td class="border-bottom-0 rounded">:</td>
+                                <td class="border-bottom-0 rounded">
+                                    @for (badge of TagsData; track $index) {
+                                        <span  class="badge bg-light text-default border mb-1 me-1">
+                                          {{ badge }}
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Project Discussions</div>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled profile-timeline">
+                    <li>
+                        <div>
+                            <span
+                                class="avatar avatar-md bg-primary-transparent avatar-rounded profile-timeline-avatar">
+                                <span class="avatar avatar-sm bg-primary avatar-rounded"><i class="ri-slideshow-4-line fs-16"></i></span>
+                            </span>
+                            <p class="mb-2">
+                                <span class="fw-medium">Project Kick-off Meeting To Ui developers.</span>
+                                <span class="float-end fs-11 text-muted">15,Nov
+                                    2024 - 12:15</span>
+                            </p>
+                            <p class="text-muted mb-0">
+                                Discuss project scope, objectives, timelines and important Design elements.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span
+                            class="avatar avatar-md bg-secondary-transparent avatar-rounded profile-timeline-avatar">
+                            <span class="avatar avatar-sm bg-secondary avatar-rounded"><i class="ri-file-image-line fs-16"></i></span>
+                        </span>
+                            <p class="text-muted mb-2">
+                                <span class="text-default"><b>Alicia Keys</b> shared a Releted Images of Project.
+                                    </span><span class="float-sm-end fs-11 text-muted">21,Dec
+                                    2024 - 15:32</span>
+                            </p>
+                            <div class="p-2 rounded bg-light border mt-4">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <div class="flex-grow-1">
+                                        <div class="card custom-card border shadow-none mb-0">
+                                            <div class="card-body">
+                                                <div class="mb-0 folder-svg-container d-flex align-items-center">
+                                                    <div class="svg-warning text-warning me-3 bg-light avatar avatar-md border">
+                                                       <img src="./assets/images/media/file-manager/3.png" alt="img">
+                                                    </div>
+                                                    <div>
+                                                        <p class="fs-14 fw-medium mb-1 lh-1">
+                                                            <a href="javascript:void(0);">Zip File</a>
+                                                        </p>
+                                                        <span class="text-muted fs-12">
+                                                            246 Files
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end ms-auto">
+                                                        <div ngbDropdown class="dropdown custom-dropdown-end">
+                                                            <a ngbDropdownToggle class="no-caret" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="ri-more-2-fill fw-semibold text-muted"></i>
+                                                            </a>
+                                                            <ul ngbDropdownMenu class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Rename</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Hide
+                                                                        Folder</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="card custom-card border shadow-none mb-0">
+                                            <div class="card-body">
+                                                <div class="mb-0 folder-svg-container d-flex align-items-center">
+                                                    <div class="svg-warning text-warning me-3 bg-light avatar avatar-md border p-1">
+                                                       <img src="./assets/images/media/file-manager/1.png" alt="img">
+                                                    </div>
+                                                    <div>
+                                                        <p class="fs-14 fw-medium mb-1 lh-1">
+                                                            <a href="javascript:void(0);">Images</a>
+                                                        </p>
+                                                        <span class="text-muted fs-12">
+                                                            246 Files
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end ms-auto">
+                                                        <div ngbDropdown class="dropdown custom-dropdown-end">
+                                                            <a ngbDropdownToggle class="no-caret" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="ri-more-2-fill fw-semibold text-muted"></i>
+                                                            </a>
+                                                            <ul ngbDropdownMenu class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Rename</a>
+                                                                </li>
+                                                                <li><a class="dropdown-item" href="javascript:void(0);">Hide
+                                                                        Folder</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span
+                            class="avatar avatar-md bg-success-transparent avatar-rounded profile-timeline-avatar">
+                            <span class="avatar avatar-sm bg-success avatar-rounded"><i class="ri-database-2-line fs-16"></i></span>
+                        </span>
+                            <p class="mb-1">
+                               The list of technolgies used in this Project.<span
+                                    class="float-end fs-11 text-muted">24,Dec 2024 - 14:34</span>
+                            </p>
+                            <p class="text-muted">Technology id developing rapidly keep up your work.
+                               </p>
+                                <div class="popular-tags gap-2 d-flex flex-wrap">
+                                    <a href="javascript:void(0);" class="badge border bg-light text-default fs-12 align-middle"><span class="avatar avatar-sm align-middle me-2 bg-primary-transparent"><i class="ri-html5-line fs-16"></i></span>HTML</a>
+                                    <a href="javascript:void(0);" class="badge border bg-light text-default fs-12 align-middle"><span class="avatar avatar-sm align-middle me-2 bg-secondary-transparent"><i class="ri-css3-line fs-16"></i></span>CSS</a>
+                                    <a href="javascript:void(0);" class="badge border bg-light text-default fs-12 align-middle"><span class="avatar avatar-sm align-middle me-2 bg-success-transparent"><i class="ri-nodejs-line fs-16"></i></span>Javascript</a>
+                                </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span
+                            class="avatar avatar-md bg-info-transparent avatar-rounded profile-timeline-avatar">
+                            <span class="avatar avatar-sm bg-info avatar-rounded"><i class="ri-file-list-3-line fs-16"></i></span>
+                        </span>
+                        <p class="mb-2">
+                            <span class="text-default"><b>
+                                Meisha Kerr</b> plans for ongoing support, updates.
+                            </span>
+                            <span class="float-end fs-11 text-muted">05,Jan
+                                2024 - 09:17</span>
+                        </p>
+                        <p class="text-muted mb-3">
+                            We set up a dedicated team to handle ongoing support and maintenance, with plans to release regular update.
+                        </p>
+                        <p class="text-muted mb-0">
+                            Future updates will include support for additional wearable devices.
+                        </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <div class="d-sm-flex align-items-center lh-1 bg-light p-2 rounded">
+                    <div class="me-sm-3 mb-2 mb-sm-0">
+                        <img src="./assets/images/faces/1.jpg" alt=""
+                            class="avatar avatar-md avatar-rounded">
+                    </div>
+                    <div class="flex-fill me-sm-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control w-sm-50 border shadow-none"
+                                placeholder="Post Anything"
+                                aria-label="Recipient's username with two button addons">
+                            <button class="btn border bg-white text-default btn-wave waves-effect waves-light"
+                                type="button"><i class="bi bi-emoji-smile"></i></button>
+                            <button class="btn border bg-white text-default btn-wave waves-effect waves-light"
+                                type="button"><i class="bi bi-paperclip"></i></button>
+                            <button class="btn border bg-white text-default btn-wave waves-effect waves-light"
+                                type="button"><i class="bi bi-camera"></i></button>
+                            <button class="btn btn-primary btn-wave waves-effect waves-light"
+                                type="button">Post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

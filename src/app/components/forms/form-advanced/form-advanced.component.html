@@ -1,0 +1,236 @@
+ 
+ <!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    TELEPHONE INPUT
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-4">
+                    <div class="col-xl-3">
+                        <label for="phone" class="form-label d-block">Basic Telephone Input</label>
+                        <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
+                            <div class="form-width">
+                              <mat-form-field appearance="outline">
+                                <ngx-mat-intl-tel-input id="phone"
+                                  formControlName="phone"
+                                  [preferredCountries]="['de', 'us']"
+                                  [enablePlaceholder]="true"
+                                  [enableSearch]="true"
+                                  name="phone"
+                                  #phone
+                                >
+                                </ngx-mat-intl-tel-input>
+                              </mat-form-field>
+                            </div>
+                          </form>
+                    </div>
+                    <div class="col-xl-5">
+                        <label for="phone-validation" class="form-label d-block">Telephone Input with valdation</label>
+                        <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
+                            <mat-form-field appearance="outline">
+                              <ngx-mat-intl-tel-input
+                                formControlName="phone"
+                                id="phone-validation"
+                                [preferredCountries]="['de', 'us']"
+                                class=""
+                                [enablePlaceholder]="true"
+                                [enableSearch]="true"
+                                name="phone"
+                                #phone
+                              >
+                              </ngx-mat-intl-tel-input>
+                            </mat-form-field>
+                            <div class="m-t-10">
+                              <button
+                                mat-raised-button
+                                id="btn"
+                                type="button"
+                                class="btn btn-primary btn-wave telephone-input-btn"
+                              >
+                                Validate
+                              </button>
+                            </div>
+                            @if(phoneNumber){
+                            <div class="m-t-10">Entered Phone number : {{ phoneNumber }}</div>
+                            } @if(phoneValue.touched &&phoneValue.invalid){
+                            <div id="error-msg" class="m-t-10 error">
+                              phone number invalid
+                            </div>
+                            }
+                          </form>
+                    </div>
+                    <div class="col-xl-4">
+                        <label for="phone-only-countries" class="form-label d-block">Telephone Input With Only Countries</label>
+                        <form [formGroup]="myForm">
+                            <div class="form-width">
+                              <mat-form-field appearance="outline">
+                                <ngx-mat-intl-tel-input
+                                  id="phone-existing-number"
+                                  formControlName="phone"
+                                  [enablePlaceholder]="true"
+                                  [enableSearch]="true"
+                                  name="phone"
+                                  #phone
+                                >
+                                </ngx-mat-intl-tel-input>
+                              </mat-form-field>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-2 -->
+ <!-- Start::row-1 -->
+ <div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">AUTO COMPLETE</div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-3">
+                    <div class="col-xl-4">
+                        <label for="autoComplete" class="form-label">Search Results Of Food & Drinks Combo</label>
+                        <spk-ng-select 
+                        [options]="Food"
+                        [mainClass]="'form-control'"
+                        [clearable]="true"
+                        [multi]="true"
+                        [searchable]="true"
+                        [placeholder]="'Search for Food & Drinks Combo'"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                     
+                    </div>
+                    <div class="col-xl-4">
+                        <label for="autoComplete-color" class="form-label custom-border">Advanced Search Results For Colors</label>
+                        <spk-ng-select 
+                        [options]="cities"
+                        [mainClass]="'form-control'"
+                        [clearable]="true"
+                        [multi]="true"
+                        [searchable]="true"
+                        [placeholder]="'Lavender'"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    TAGIFY JS
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-3">
+                    <div class="col-xl-6">
+                      <label class="form-label d-block">Basic Tagify</label>
+                      <spk-ng-select 
+                      [options]="Tagify"
+                      [id]="'choices-multiple-groups'"
+                      [selectClass]="''"
+                      [defaultValue]="selected"
+                      [multiple]="true"
+                      [clearable]="true"
+                      [searchable]="true"
+                      [hideSelected]="true"
+                      [additionalProperties]="{}">
+                      </spk-ng-select>
+                  
+                    </div>
+                    <div class="col-xl-6">
+                      <label class="form-label d-block"
+                        >Tagify With Custom Suggestions</label>
+                        <spk-ng-select 
+                        [options]="companiesNames"
+                        [id]="'choices-multiple-groups'"
+                        [selectClass]="''"
+                        [defaultValue]="selectedCompanies"
+                        [multiple]="true"
+                        [clearable]="true"
+                        [searchable]="true"
+                        [hideSelected]="true"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                    </div>
+                    <div class="col-xl-6">
+                      <label class="form-label d-block">Diasbled User Input</label>
+                      <spk-ng-select 
+                      [options]="accounts"
+                      [id]="'choices-multiple-groups'"
+                      [selectClass]="''"
+                      [defaultValue]="selectedAccounts1"
+                      [multiple]="true"
+                      [clearable]="true"
+                      [searchable]="true"
+                      [hideSelected]="true"
+                      [additionalProperties]="{}">
+                      </spk-ng-select>
+                     
+                    </div>
+                    <div class="col-xl-6">
+                      <label class="form-label d-block">Tagify Single-Value Select</label>
+                      <spk-ng-select 
+                      [options]="singleselect"
+                      [id]="'choices-multiple-groups'"
+                      [selectClass]="''"
+                      [multiple]="true"
+                      [clearable]="true"
+                      [searchable]="true"
+                      [hideSelected]="true"
+                      [placeholder]="'Please Select'"
+                      [additionalProperties]="{}">
+                      </spk-ng-select>
+                   
+                    </div>
+                    
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->
+
+<!-- Start:: row-4 -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">DUAL LIST BOX</div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-4">
+                    <dual-list
+                    [sort]="keepSorted"
+                    [source]="source"
+                    [key]="key"
+                    [display]="display"
+                    [filter]="filter"
+                    [(destination)]="confirmed"
+                    height="265px"
+                    [format]="format"
+                    [disabled]="disabled"
+                  ></dual-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-4 -->

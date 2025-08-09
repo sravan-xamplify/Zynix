@@ -1,0 +1,209 @@
+ <!-- Start:: row-1 -->
+ <div class="row">
+    <div class="col-xxl-3 col-xl-5">
+        <div class="card custom-card products-navigation-card">
+            <div class="card-body p-0">
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-2">Industry Type</h6>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                    <div class="px-2 py-3 pb-0">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-1">
+                            <label class="form-check-label" for="c-1">
+                                Research & Developement
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-2">
+                            <label class="form-check-label" for="c-2">
+                                Accounting
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-3">
+                            <label class="form-check-label" for="c-3">
+                                Accounting
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-4">
+                            <label class="form-check-label" for="c-4">
+                                Administrative Support
+                            </label>
+                        </div>
+                        <a href="javascript:void(0);" class="text-decoration-underline text-primary">View All</a>
+                    </div>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-3">Location</h6>
+                    <spk-ng-select 
+                    [options]="Location"
+                    [selectClass]="''"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [placeholder]="'Select Location'"
+                    [hideSelected]="true"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                 
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-0">Company Size Range</h6>
+                    <div class="px-2 py-3 pb-0">
+                        <div id="nonlinear"></div>
+                        <div class="d-flex mt-4 flex-wrap gap-2">
+                          <div class="fw-semibold px-3 py-1 border rounded">
+                            $<span id="lower-value">{{ lowerValue }}</span>
+                          </div>
+                          <span class="fw-semibold px-2 py-1">-</span>
+                          <div class="fw-semibold px-3 py-1 border rounded">
+                            $<span id="upper-value">{{ upperValue }}</span>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-3">Type of Employement</h6>
+                    <spk-ng-select 
+                    [options]="Employement"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="p-4">
+                    <h6 class="fw-semibold mb-3">Recruiter Type</h6>
+                    <spk-ng-select 
+                    [options]="Recruiter"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="px-4 py-3 border-top text-center">
+                    <button class="btn btn-primary-light me-2">Clear All</button>
+                    <button class="btn btn-primary">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-9 col-xl-7">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-12">
+                <div class="input-group companies-search-input">
+                    <input type="text" class="form-control form-control-lg w-25" aria-label="Text input with segmented dropdown button" placeholder="Enter your keyword here">
+                    <spk-ng-select 
+                    [options]="Categories"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                    <input type="text" class="form-control form-control-lg w-25" aria-label="Text input with segmented dropdown button" placeholder="Search by location">
+                    <button type="button" class="btn btn-primary"><i class="ri-search-line"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center flex-wrap gap-2">
+                            <h5 class="fw-medium mb-0 flex-grow-1">1287 <span class="fw-normal fs-18">Companies match for your search</span> </h5>
+                            <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+            [class]="'btn btn-outline-light border dropdown-toggle no-caret'" [Icon]="true"
+            [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Premium</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Newest</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Most Relevant</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Fresher</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Experienced</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Bond Agreement</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Flexible Shift</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);">Day Shift</a></li>
+                            </spk-dropdowns>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          @for (company of companies; track $index) {
+                <div class="col-xl-6" >
+                  <div class="card custom-card">
+                    <div class="card-body">
+                      <div class="btn-list float-end">
+                        <a href="javascript:void(0);" class="avatar avatar-rounded bg-light text-default avatar-sm"
+                           data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Add to Wishlist" ngbTooltip="Add to Wishlist">
+                          <span><i class="ri-heart-3-{{company.heartBg}} fs-14 text-primary"></i></span>
+                        </a>
+                      </div>
+                      <div class="d-flex align-items-center flex-wrap gap-2">
+                        <span class="avatar avatar-xl bg-light avatar-rounded">
+                          <span class="avatar avatar-lg bg-white avatar-rounded">
+                            <img [src]="company.logo" alt="">
+                          </span>
+                        </span>
+                        <div class="ms-2">
+                          <h5 class="fw-medium mb-0 d-flex align-items-center">
+                            <a href="javascript:void(0);">{{ company.name }}
+                                @if (company.verified) {
+                              <i class="bi bi-check-circle-fill text-success fs-16" data-bs-toggle="tooltip"
+                                 ngbTooltip="Verified company"></i>
+                                }
+                            </a>
+                          </h5>
+                          <div class="d-flex gap-2">
+                            <a href="javascript:void(0);"><i class="bi bi-geo-alt fs-11"></i> {{ company.location }}</a>
+                            <p class="mb-0 text-muted">Establishment year - {{ company.establishmentYear }}</p>
+                          </div>
+                          <a href="javascript:void(0);" class="text-primary text-decoration-underline">{{ company.website }}</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-flex align-items-center flex-wrap gap-2">
+                        <div class="flex-grow-1">
+                          <a href="javascript:void(0);" class="badge badge-md bg-primary-transparent me-1" data-bs-toggle="tooltip"
+                             ngbTooltip="No of employees"><i class="bi bi-people me-1"></i>No. of Emp: {{ company.employees }}</a>
+                          <a href="javascript:void(0);" class="badge badge-md bg-secondary-transparent me-1"><i class="bi bi-briefcase me-1"></i>Vacancies: {{ company.vacancies }}</a>
+                        </div>
+                        <a href="javascript:void(0);" class="btn btn-wave btn-primary btn-sm">
+                          View Profile <i class="ri-arrow-right-line align-middle"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            }
+        </div>
+        <ul class="pagination mb-4 justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0);">
+                    Prev
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+            <li class="page-item">
+                <a class="page-link text-primary" href="javascript:void(0);">
+                    next
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End:: row-1 -->

@@ -1,0 +1,99 @@
+   <!-- Start::row-1 -->
+   <div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    All Jobs List
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <a [routerLink]="['/apps/jobs/job-post']" class="btn btn-primary btn-wave">
+                        <i class="ri-add-line me-1 align-middle"></i>Post Job
+                    </a>
+                    <div>
+                        <input class="form-control" type="text" placeholder="Search Here" aria-label=".form-control-sm example">
+                    </div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                    [class]="'btn btn-primary btn-wave no-caret'" [Icon]="true"
+                    [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Posted Date</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Status</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Department</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Job Type</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Newest</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Oldest</a></li>
+                </spk-dropdowns>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables  [columns]="cartColumn" tableClass=" text-nowrap table-hover" [showCheckbox]="true"> 
+                            @for (job of jobData; track $index) {
+                                <tr>
+                                    <td>
+                                      <input class="form-check-input" type="checkbox" id="checkboxNoLabeljob33" [checked]="job.checked" id="{{job.id}}" value="" aria-label="..." checked="">
+                                    </td>
+                                    <td>
+                                      <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-rounded bg-{{job.avatarColor}}-transparent border border-{{job.avatarColor}} border-opacity-25">
+                                          <i class="{{job.icon}} fs-25"></i>
+                                        </span>
+                                        <div class="ms-2">
+                                          <p class="fw-medium mb-0"><a [routerLink]="['/apps/jobs/job-details']">{{ job.title }}</a></p>
+                                          <p class="fs-12 text-muted mb-0">{{ job.location }}</p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="d-flex align-items-center">
+                                        <span class="avatar avatar-sm p-1 me-1 bg-light avatar-rounded">
+                                          <img [src]="job.companyLogo" alt="Company Logo">
+                                        </span>
+                                        <a [routerLink]="['/apps/jobs/job-details']" class="fw-medium mb-0">{{ job.companyName }}</a>
+                                      </div>
+                                    </td>
+                                    <td>{{ job.department }}</td>
+                                    <td>{{ job.applied }}</td>
+                                    <td>{{ job.hired }}</td>
+                                    <td>
+                                      <span class="badge rounded-pill bg-{{job.statusColor}}-transparent">{{ job.status }}</span>
+                                    </td>
+                                    <td>{{ job.jobType }}</td>
+                                    <td>{{ job.startDate }}</td>
+                                    <td><span class="badge bg-{{job.statusColor}}-transparent"><i class="{{job.statusIcon}} me-1"></i>{{ job.endDate }}</span></td>
+                                    <td> <a [routerLink]="['/apps/jobs/job-details']" class="btn btn-icon btn-sm btn-primary-light btn-wave waves-effect waves-light me-1"> <i class="ri-eye-line"></i> </a> 
+                                      <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-info-light btn-wave waves-effect waves-light me-1"> <i class="ri-edit-line"></i> </a>
+                                       <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-danger-light btn-wave waves-effect waves-light me-1"> <i class="ri-delete-bin-line"></i> </a> 
+                                    </td>
+                                  </tr>
+                                }
+                                </spk-reusable-tables>
+            </div>
+            <div class="card-footer border-top-0">
+                <div class="d-flex align-items-center flex-wrap overflow-auto">
+                    <div class="mb-2 mb-sm-0">
+                        Showing <b>1</b> to <b>10</b> of <b>10</b> entries <i class="bi bi-arrow-right ms-2 fw-medium"></i>
+                    </div>
+                    <div class="ms-auto">
+                        <ul class="pagination mb-0 overflow-auto">
+                            <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                            </li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="javascript:void(0);">1</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0);">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0);">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

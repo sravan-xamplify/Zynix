@@ -1,0 +1,468 @@
+       <!-- Start:: row-1 -->
+       <div class="row">
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <div>
+                            <span class="avatar avatar-md bg-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="40" width="176" height="176" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M57.78,216a72,72,0,0,1,140.44,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-start justify-content-between flex-fill flex-wrap">
+                            <div>
+                                <span class="d-block mb-1 fw-medium">Total Employees</span>
+                                <h3 class="fw-semibold mb-2">12,116</h3>
+                                <div class="fs-13">
+                                    <span class="text-success me-1 d-inline-flex align-items-center"><i class="ti ti-arrow-up me-1"></i>2.45%</span>
+                                    <span class="text-muted fs-13">Increased this year</span>
+                                </div>
+                            </div>
+                            <div class="position-relative">
+                                <div id="total-employees">
+                                  <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+
+                                </div>
+                                <h5 class="fw-semibold mb-0 chart-value text-primary">40%</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <div>
+                            <span class="avatar avatar-md bg-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="56" x2="224" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="200" y1="32" x2="200" y2="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M222.67,112A95.92,95.92,0,1,1,144,33.33" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-start justify-content-between flex-fill flex-wrap">
+                            <div>
+                                <span class="d-block mb-1 fw-medium">New Employees</span>
+                                <h3 class="fw-semibold mb-2">1,116</h3>
+                                <div class="fs-13">
+                                    <span class="text-danger me-1 d-inline-flex align-items-center"><i class="ti ti-arrow-down me-1"></i>1.95%</span>
+                                    <span class="text-muted fs-13">Decreased this year</span>
+                                </div>
+                            </div>
+                            <div class="position-relative">
+                                <div id="new-employees"><spk-apexcharts [chartOptions]="chartOptions2"></spk-apexcharts></div>
+                                <h5 class="fw-semibold mb-0 chart-value text-secondary">20%</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <div>
+                            <span class="avatar avatar-md bg-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="56" x2="224" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M218.54,96A95.93,95.93,0,1,1,144,33.33" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-start justify-content-between flex-fill flex-wrap">
+                            <div>
+                                <span class="d-block mb-1 fw-medium">Resigned Employees</span>
+                                <h3 class="fw-semibold mb-2">102</h3>
+                                <div class="fs-13">
+                                    <span class="text-danger me-1 d-inline-flex align-items-center"><i class="ti ti-arrow-down me-1"></i>2.5%</span>
+                                    <span class="text-muted fs-13">Decreased this year</span>
+                                </div>
+                            </div>
+                            <div class="position-relative">
+                                <div id="resigned-employees"><spk-apexcharts [chartOptions]="chartOptions3"></spk-apexcharts></div>
+                                <h5 class="fw-semibold mb-0 chart-value text-success">50%</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start gap-3">
+                        <div>
+                            <span class="avatar avatar-md bg-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="136" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,192a60,60,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="64" x2="160" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-start justify-content-between flex-fill flex-wrap">
+                            <div>
+                                <span class="d-block mb-1 fw-medium">Employees On Leave</span>
+                                <h3 class="fw-semibold mb-2">212</h3>
+                                <div class="fs-13">
+                                    <span class="text-success me-1 d-inline-flex align-items-center"><i class="ti ti-arrow-up me-1"></i>1.32%</span>
+                                    <span class="text-muted fs-13">Increased this year</span>
+                                </div>
+                            </div>
+                            <div class="position-relative">
+                                <div id="employees-on-leave"><spk-apexcharts [chartOptions]="chartOptions4"></spk-apexcharts></div>
+                                <h5 class="fw-semibold mb-0 chart-value text-info">60%</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: row-1 -->
+
+    <!-- Start:: row-2 -->
+    <div class="row">
+        <div class="col-xxl-6">
+            <div class="card custom-card">
+                <div class="card-header">
+                    <div class="card-title">Attendance Overview</div>
+                </div>
+                <div class="card-body">
+                    <div id="attendance-overview">
+                        <spk-apexcharts [chartOptions]="chartOptions5"></spk-apexcharts>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Upcoming Events</div>
+                    <a aria-label="anchor" href="javascript:void(0);" class="btn btn-sm btn-primary-light">
+                        View All
+                    </a>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0 timeline-widget1">
+                        @for (event of timelineEvents; track $index) {
+                        <li class="timeline-widget-list" >
+                          <div class="d-flex align-items-top">
+                            <div class="me-5 text-center">
+                              <span class="d-block fw-semibold">{{ event.day }}</span>
+                              <span class="d-block fs-12 text-muted">{{ event.month }}</span>
+                            </div>
+                            <div class="d-flex flex-wrap flex-fill align-items-top justify-content-between">
+                              <div>
+                                <p class="mb-1 text-truncate timeline-widget-content">{{ event.title }}</p>
+                                <p class="mb-0 fs-12 lh-1 text-muted">
+                                  {{ event.time }} <span class="badge" [ngClass]="{'bg-secondary-transparent': event.type === 'Birthday', 'bg-primary-transparent': event.type === 'Holiday', 'bg-success-transparent': event.type === 'Picnic', 'bg-info-transparent': event.type === 'Announcement'}">{{ event.type }}</span>
+                                </p>
+                              </div>
+                              <spk-dropdowns [Customclass]="'dropdown'" 
+                              [class]="'p-2 fs-16 text-muted no-caret'" [Icon]="true"
+                              [IconClass]="'fe fe-more-vertical'" [Menuclass]="'dropdown-menu'">
+                              <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+                                  <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                                  <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+                          </spk-dropdowns>
+                            </div>
+                          </div>
+                        </li>
+                    }
+                      </ul>
+                      
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-header">
+                    <div class="card-title">Employee Work Format</div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="leads-source-chart d-flex align-items-center justify-content-center p-3 border-bottom border-block-end-dashed">
+                        <div id="work-format">
+                            <spk-apexcharts [chartOptions]="chartOptions6"></spk-apexcharts>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush employee-work-format-list">
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="fw-semibold">Remote</div>
+                                <h6 class="fw-semibold mb-0"><span class="fs-13 me-2 d-inline-flex align-items-center text-success"><i class="ti ti-arrow-up"></i>4.26%</span>230</h6>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="fw-semibold">On Site</div>
+                                <h6 class="fw-semibold mb-0"><span class="fs-13 me-2 d-inline-flex align-items-center text-success"><i class="ti ti-arrow-up"></i>2.43%</span>200</h6>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="fw-semibold">Hybrid</div>
+                                <h6 class="fw-semibold mb-0"><span class="fs-13 me-2 d-inline-flex align-items-center text-danger"><i class="ti ti-arrow-down"></i>0.93%</span>178</h6>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="fw-semibold">Shift Work</div>
+                                <h6 class="fw-semibold mb-0"><span class="fs-13 me-2 d-inline-flex align-items-center text-success"><i class="ti ti-arrow-up"></i>8.84%</span>153</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: row-2 -->
+
+    <!-- Start:: row-3 -->
+    <div class="row">
+        <div class="col-xxl-3">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">
+                        Meetings Schedule
+                    </div>
+                    <button class="btn btn-sm btn-wave btn-primary-light">View All</button>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0 schedule-list">
+                        @for(meeting of meetings;track $index){
+                            <spk-school-card 
+                                        [title]="meeting.title" 
+                                        [description]="meeting.date" 
+                                        [fontIcon]="meeting.icon" 
+                                        [svgBg]="meeting.bgClass"
+                                        [button]="meeting.button"
+                                        [btnTitle]="meeting.btnTitle"
+                                        [buttonType]="meeting.buttonType"
+                                        ></spk-school-card>
+                        }
+                      </ul>
+                      
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-6">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Leave Request</div>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-light border">View All</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <spk-reusable-tables [columns]="LeaveColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                            @for(record of leaveRecords;track $index){
+                                <tr >
+                                    <td>
+                                      <div class="d-flex">
+                                        <span class="avatar avatar-sm">
+                                          <img [src]="record.avatar" alt="img">
+                                        </span>
+                                        <div class="flex-1 ms-2">
+                                          <p class="mb-0 fs-14">{{ record.name }}</p>
+                                          <a href="javascript:void(0);">{{ record.position }}</a>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>{{ record.leaveType }}</td>
+                                    <td>{{ record.duration }}</td>
+                                    <td>
+                                        <span
+                                          class="badge"
+                                          [ngClass]="{
+                                            'bg-success-transparent': record.status === 'Approved',
+                                            'bg-warning-transparent': record.status === 'Pending',
+                                            'bg-danger-transparent': record.status === 'Rejected'
+                                          }"
+                                        >
+                                          {{ record.status }}
+                                        </span>
+                                      </td>
+                                    <td>
+                                      <div class="btn-list">
+                                            <a aria-label="anchor" href="javascript:void(0);" placement="top" ngbTooltip="View" class="btn btn-icon btn-sm rounded-pill btn-primary-light"><i class="ti ti-eye"></i></a>
+                                            <a aria-label="anchor" href="javascript:void(0);" placement="top" ngbTooltip="Edit" class="btn btn-icon btn-sm rounded-pill btn-success-light"><i class="ti ti-pencil"></i></a>
+                                            <a aria-label="anchor" href="javascript:void(0);" placement="top" ngbTooltip="Delete" class="btn btn-icon btn-sm rounded-pill  btn-danger-light"><i class="ti ti-trash"></i></a>
+                                        </div>
+                                    </td>
+                                  </tr>
+                            }
+                            </spk-reusable-tables>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3">
+            <div class="card custom-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        Recruitment Pipeline
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled recruitment-pipeline-list">
+                        @for ( item of pipelineItems; track $index) {
+                            <spk-school-card
+                            [title]="item.title"
+                            [fontIcon]="item.icon"
+                            [svgBg]="item.bgClass"
+                            [rightTitle]="item.count"
+                            [textColor]="item.countBg"
+                            ></spk-school-card>
+                    }
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: row-3 -->
+
+    <!-- Start:: row-4 -->
+    <div class="row">
+        <div class="col-xxl-3">
+            <div class="card custom-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        Leave Requests
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled hrm-leave-requests-list">
+                        @for (request of leaveRequests; track $index) {
+                        <li>
+                          <div class="d-flex align-items-center flex-wrap gap-3">
+                            <div>
+                              <span class="avatar avatar-sm">
+                                <img [src]="request.avatar" [alt]="request.name" />
+                              </span>
+                            </div>
+                            <div class="flex-fill">
+                              <span class="fw-medium">{{ request.name }}</span>
+                              <span class="d-block text-muted fs-13">{{ request.leaveType }}</span>
+                            </div>
+                            <div class="btn-list">
+                              <button
+                                class="btn btn-sm btn-outline-success btn-icon btn-wave"
+                                data-bs-toggle="tooltip"
+                                data-bs-custom-class="tooltip-dark"
+                                aria-label="Accept"
+                                ngbTooltip="Accept"
+                              >
+                                <i class="ri-check-line"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-danger-light btn-icon btn-wave"
+                                data-bs-toggle="tooltip"
+                                data-bs-custom-class="tooltip-dark"
+                                aria-label="Reject"
+                                ngbTooltip="Reject"
+                              >
+                                <i class="ri-close-fill"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </li>
+                    }
+                      </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-9">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">
+                       Employees List
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div>
+                            <input class="form-control form-control-sm" type="text" placeholder="Search Here" aria-label=" example">
+                        </div>
+                        <div ngbDropdown class="dropdown">
+                            <a ngbDropdownToggle href="javascript:void(0);" class="btn btn-sm btn-primary no-caret" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort By<i class="ri-arrow-down-s-line align-middle ms-1"></i>
+                            </a>
+                            <ul ngbDropdownMenu class="dropdown-menu" role="menu">
+                                <li><a class="dropdown-item" href="javascript:void(0);">New</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);">Popular</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);">Relevant</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <spk-reusable-tables [columns]="tableDataColumn " tableClass="table text-nowrap"  [showCheckbox]="false">
+                            @for(record of tableData ;track $index){
+                                <tr>
+                                    <td class="text-center">{{ record.id }}</td>
+                                    <td>
+                                      <div class="d-flex align-items-center">
+                                        <img [src]="record.avatar" class="avatar avatar-sm" alt="Employee Avatar" />
+                                        <div class="ms-2">
+                                          <a href="javascript:void(0);" class="fs-13 fw-medium">{{ record.name }}</a>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <span class="text-primary fs-14">{{ record.employeeId }}</span>
+                                    </td>
+                                    <td>
+                                      <span>{{ record.position }}</span>
+                                    </td>
+                                    <td>{{ record.email }}</td>
+                                    <td>{{ record.phone }}</td>
+                                    <td>
+                                      <span class="fw-medium">{{ record.salary }}</span>
+                                    </td>
+                                    <td>
+                                      <span class="badge"
+                                        [ngClass]="{
+                                          'bg-success-transparent': record.status === 'Active',
+                                          'bg-warning-transparent': record.status === 'Pending',
+                                          'bg-danger-transparent': record.status === 'Inactive'
+                                        }"
+                                      >
+                                        {{ record.status }}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <div class="g-2">
+                                        <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" ngbTooltip="Edit">
+                                            <span class="ri-pencil-line fs-14"></span>
+                                        </a>
+                                        <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" ngbTooltip="Delete">
+                                            <span class="ri-delete-bin-7-line fs-14"></span>
+                                        </a>
+                                        </div>
+                                    </td>
+                                  </tr>
+                            }
+                            </spk-reusable-tables>
+                    </div>
+                </div>
+                <div class="card-footer border-top-0">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            Showing 5 Entries <i class="bi bi-arrow-right ms-2 fw-medium"></i>
+                        </div>
+                        <div class="ms-auto">
+                            <nav aria-label="Page navigation" class="pagination-style-4">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript:void(0);">
+                                            Prev
+                                        </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link text-primary" href="javascript:void(0);">
+                                            next
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: row-4 -->

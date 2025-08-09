@@ -1,0 +1,179 @@
+ <!-- Start::row-1 -->
+ <div class="row">
+    @for ( wallet of Wallet; track $index) {
+        <div class="col-xxl-3 col-xl-6">
+          <div class="card custom-card">
+            <div class="card-header">
+              <div class="card-title">
+                {{ wallet.walletType }}
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="p-3 bg-light border rounded">
+                <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="lh-1">
+                      <span class="avatar avatar-rounded">
+                        <img [src]="wallet.avatarUrl" alt="">
+                      </span>
+                    </div>
+                    <div>
+                      <span class="d-block text-muted fs-12 fw-normal">Available {{ wallet.balanceCurrency }}</span>
+                      <span class="fw-semibold">{{ wallet.availableBalance }}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span class="fw-semibold">{{ wallet.usdBalance }}</span>
+                    <span class="d-block text-muted fs-12 fw-normal">In USD</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <span class="d-block text-muted">Profit Today</span>
+                  <span class="{{ wallet.profitStatus }} fw-semibold fs-12 d-inline-flex align-items-center">
+                    <span class="me-1"><i class="{{ wallet.profitDirection }} align-middle"></i></span>
+                    <span>{{ wallet.profitToday }}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer border-top-0 pt-0">
+              <div class="btn-list text-center d-flex flex-wrap">
+                <button class="btn btn-primary flex-fill btn-wave">Swap</button>
+                <button class="btn btn-secondary flex-fill btn-wave">Deposit</button>
+                <button class="btn btn-success flex-fill btn-wave">Withdraw</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    }
+    <div class="col-xxl-3 col-xl-6">
+            <div class="card custom-card">
+                <div class="card-body">  
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="avatar avatar-sm bg-primary"><i class="ri-wallet-2-line fs-14"></i></span>
+                            <h6 class="mb-0 text-muted">Balance</h6>
+                        </div>
+                        <spk-dropdowns [Customclass]="'dropdown'" [title]="'BTC'" [class]="'btn btn-outline-light border btn-sm dropdown-toggle no-caret'" [Imagetag]="true" [Imageclass]="'avatar avatar-xs avatar-rounded me-2 align-middle'" [Imagesrc]="'./assets/images/crypto-currencies/crypto-icons/bitcoin-btc-logo.svg'" [Icon]="true" [IconClass]="'ri-arrow-down-s-line align-middle ms-1'" 
+                                   [Menuclass]="'dropdown-menu'">
+                                <li><a class="dropdown-item" href="javascript:void(0);"><span class="avatar avatar-xs avatar-rounded me-2 align-middle"><img src="./assets/images/crypto-currencies/crypto-icons/ethereum-eth-logo.svg" alt=""></span>Etherium</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);"><span class="avatar avatar-xs avatar-rounded me-2 align-middle"><img src="./assets/images/crypto-currencies/crypto-icons/tether-usdt-logo.svg" alt=""></span>Tether</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);"><span class="avatar avatar-xs avatar-rounded me-2 align-middle"><img src="./assets/images/crypto-currencies/crypto-icons/xrp-xrp-logo.svg" alt=""></span>XRP</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0);"><span class="avatar avatar-xs avatar-rounded me-2 align-middle"><img src="./assets/images/crypto-currencies/crypto-icons/tron-trx-logo.svg" alt=""></span>TRON</a></li>
+                        </spk-dropdowns>
+                    </div>
+                    <p class="fs-25 mb-3 fw-semibold">$1,280,577.856</p>
+                    <div class="progress-stacked progress-sm mb-3">
+                        <div class="progress-bar rounded" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-secondary rounded" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info rounded" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <span class="d-block text-muted">Profit Today</span>
+                        <span class="text-danger fw-semibold fs-12">
+                            <span class="me-1"><i class="ti ti-trending-down align-middle"></i></span>
+                            <span class="">-29.76%</span>
+                        </span>
+                    </div>
+                    <div class="row gy-3">
+                        <div class="col-xl-6">
+                            <span class="mb-0 me-1 project-category category1">BTC <span class="text-muted fs-12 ms-2">($12,474)</span></span>
+                        </div>
+                        <div class="col-xl-6">
+                            <span class="mb-0 me-1 project-category category2">ETH <span class="text-muted fs-12 ms-2">($11,485)</span></span>
+                        </div>
+                        <div class="col-xl-6">
+                            <span class="mb-0 me-1 project-category category3">USDT <span class="text-muted fs-12 ms-2">($9,756)</span></span>
+                        </div>
+                        <div class="col-xl-6">
+                            <span class="mb-0 me-1 project-category category4">Other <span class="text-muted fs-12 ms-2">($123,575)</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<!--End::row-1 -->
+<div class="row">
+<div class="col-xl-12">
+    <div class="row">
+       @for (wallet of WalletData; track $index) {
+            <div class="col-xxl-6 col-xl-12">
+              <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                  <div class="card-title">{{ wallet.walletType }}</div>
+                  <div>
+                    <button class="btn btn-primary btn-wave">Connect</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex align-items-center flex-wrap justify-content-between gap-4 mb-3">
+                    <div class="flex-fill">
+                      <label for="wallet-address" class="form-label">Wallet Address</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" [value]="wallet.walletAddress">
+                        <button class="btn btn-primary">Copy</button>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="avatar avatar-xxl border">
+                        <img [src]="wallet.qrImage" class="p-1 qr-image" alt="QR Code">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row gy-3">
+                    <div class="col-xl-4">
+                      <div class="rounded p-3 bg-light">
+                        <div class="d-flex align-items-center gap-3 flex-wrap">
+                          <div class="lh-1">
+                            <span class="avatar bg-success-transparent">
+                              <i class="ti ti-arrow-narrow-down fs-20"></i>
+                            </span>
+                          </div>
+                          <div>
+                            <span class="d-block text-muted">Received</span>
+                            <span class="d-block fw-semibold">{{ wallet.receivedAmount }} <span class="fs-12 text-muted fw-normal">{{ wallet.receivedCurrency }}</span></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4">
+                      <div class="rounded p-3 bg-light">
+                        <div class="d-flex align-items-center gap-3 flex-wrap">
+                          <div class="lh-1">
+                            <span class="avatar bg-secondary-transparent">
+                              <i class="ti ti-caret-up fs-20"></i>
+                            </span>
+                          </div>
+                          <div>
+                            <span class="d-block text-muted">Sent</span>
+                            <span class="d-block fw-semibold">{{ wallet.sentAmount }} <span class="fs-12 text-muted fw-normal">{{ wallet.sentCurrency }}</span></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4">
+                      <div class="rounded p-3 bg-light">
+                        <div class="d-flex align-items-center gap-3 flex-wrap">
+                          <div class="lh-1">
+                            <span class="avatar bg-info-transparent">
+                              <i class="ti ti-wallet fs-20"></i>
+                            </span>
+                          </div>
+                          <div>
+                            <span class="d-block text-muted">Wallet Balance</span>
+                            <span class="d-block fw-semibold">{{ wallet.walletBalance }} <span class="fs-12 text-muted fw-normal">{{ wallet.walletBalanceCurrency }}</span></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        }
+                    
+  </div>
+</div>
+</div>

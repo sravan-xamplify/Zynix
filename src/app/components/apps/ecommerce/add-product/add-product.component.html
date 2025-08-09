@@ -1,0 +1,427 @@
+  <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-xl-3">
+        <div class="card custom-card">
+            <div class="card-body">
+                <ul ngbNav #nav="ngbNav" class="nav flex-column nav-pills tab-style-7" role="tablist">
+                    <li [ngbNavItem]="1" class="nav-item m-1" role="presentation">
+                        <a ngbNavLink class="nav-link d-inline-flex w-100 mb-0 bg-light " id="account"  role="tab">Basic Information</a>
+                        <ng-template ngbNavContent>
+                            <div class="show p-0 border-0" id="account-pane" role="tabpanel" aria-labelledby="account" tabindex="0">
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1">
+                                    <div class="fw-semibold d-block fs-15">General Information :</div>
+                                    <button class="btn btn-secondary">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                                </div>
+                                <div class="row gy-3">
+                                    <div class="col-xl-12">
+                                        <label for="product-name-add" class="form-label">Product Name</label>
+                                        <input type="text" class="form-control" id="product-name-add" placeholder="Name">
+                                        <label for="product-name-add" class="form-label mt-1 fs-12 op-5 text-muted mb-0">*Product Name should not exceed 30 characters</label>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-size-add" class="form-label">Size</label>
+                                        <spk-ng-select 
+                                        [options]="simpleItems"
+                                        [selectClass]="'rounded w-full'"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [placeholder]="'Select'"
+                                        [hideSelected]="true"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-brand-add" class="form-label">Brand</label>
+                                        <spk-ng-select 
+                                        [options]="simpleItems1"
+                                        [selectClass]="'rounded w-full'"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [placeholder]="'Select'"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                       
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-category-add"  class="form-label">Category</label>
+                                        <spk-ng-select 
+                                        [options]="simpleItems2"
+                                        [selectClass]="''"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [placeholder]="'Select'"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                      
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-category-add1" class="form-label">Sub Category</label>
+                                        <spk-ng-select 
+                                        [options]="simpleItems7"
+                                        [selectClass]="''"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [placeholder]="'Sub Category'"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                     
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-gender-add" class="form-label">Gender</label>
+                                        <spk-ng-select 
+                                            [options]="simpleItems3"
+                                            [selectClass]="''"
+                                            [clearable]="true"
+                                            [searchable]="true"
+                                            [placeholder]="'Select'"
+                                            [additionalProperties]="{}">
+                                            </spk-ng-select>
+                                    </div>
+                                    <div class="col-xl-6 color-selection">
+                                        <label for="product-color-add" class="form-label">Colors</label>
+                                        <spk-ng-select 
+                                        [options]="simpleItems4"
+                                        [selectClass]="''"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [multiple]="true"
+                                        [placeholder]="'Select'"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label for="product-description-add1" class="form-label">Product Description</label>
+                                        <textarea class="form-control" id="product-description-add1" rows="2"></textarea>
+                                        <label for="product-description-add1" class="form-label mt-1 fs-12 op-5 text-muted mb-0">*Description should not exceed 500 letters</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2" class="nav-item m-1" role="presentation">
+                        <a ngbNavLink class="nav-link d-inline-flex w-100 mb-0 bg-light" id="notification-tab">Pricing</a>
+                        <ng-template ngbNavContent>
+                            <div class="p-0 border-0" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1">
+                                    <div class="fw-semibold d-block fs-15">Pricing Details:</div>
+                                    <button class="btn btn-secondary">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                                </div>
+                                <div class="row gy-3">
+                                    <div class="col-xl-6">
+                                        <label for="product-cost-add" class="form-label">Enter Actual Price</label>
+                                        <input type="text" class="form-control" id="product-cost-add" placeholder="Cost">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-cost-add1" class="form-label">Enter Dealer Price</label>
+                                        <input type="text" class="form-control" id="product-cost-add1" placeholder="Cost">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label">Discount Type</label>
+                                            <div class="row gy-2">
+                                                <div class="col-xxl-4">
+                                                    <div class="card custom-card mb-0 border card-style-6">
+                                                        <div class="card-body px-3 py-2">
+                                                            <div class="d-flex align-items-center justify-content-between mb-0">
+                                                                <div class="flex-grow-1">
+                                                                  No Discount
+                                                                </div>
+                                                                <div class="min-w-fit-content">
+                                                                    <div class="d-flex gap-2">
+                                                                        <input class="form-check-input m-0" type="radio" id="address1" name="default-address" checked="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-4">
+                                                    <div class="card custom-card border mb-0 card-style-6">
+                                                        <div class="card-body px-3 py-2">
+                                                            <div class="d-flex align-items-center justify-content-between mb-0 text-break">
+                                                                <div class="flex-grow-1 me-1">
+                                                                    Percentage %
+                                                                </div>
+                                                                <div class="min-w-fit-content">
+                                                                    <div class="d-flex gap-2">
+                                                                        <input class="form-check-input m-0" type="radio" id="address5" name="default-address">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-4">
+                                                    <div class="card custom-card border mb-0 card-style-6">
+                                                        <div class="card-body px-3 py-2">
+                                                            <div class="d-flex align-items-center justify-content-between mb-0">
+                                                                <div class="flex-grow-1">
+                                                                    Fixed Price
+                                                                </div>
+                                                                <div class="min-w-fit-content">
+                                                                    <div class="d-flex gap-2">
+                                                                        <input class="form-check-input m-0" type="radio" id="address3" name="default-address">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-discount" class="form-label">Discount Percentage</label>
+                                        <input type="text" class="form-control" id="product-discount" placeholder="Discount in %">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="Stock-quantity" class="form-label">Stock Quantity</label>
+                                        <input type="text" class="form-control" id="Stock-quantity" placeholder="Enter Quanity">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="shiping-cost" class="form-label">Shipping Cost</label>
+                                        <input type="text" class="form-control" id="shiping-cost" placeholder="Enter Shipping Cost">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label for="product-avaialability" class="form-label">Availability Status</label>
+                                        <spk-ng-select 
+                                        [options]="Avaliability"
+                                        [selectClass]="'rounded w-full'"
+                                        [clearable]="true"
+                                        [searchable]="true"
+                                        [placeholder]="'Select'"
+                                        [hideSelected]="true"
+                                        [additionalProperties]="{}">
+                                        </spk-ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="3" class="nav-item m-1" role="presentation">
+                        <a ngbNavLink class="nav-link d-inline-flex w-100 mb-0 bg-light" id="security-tab" >Specification</a>
+                        <ng-template ngbNavContent>
+                            <div class="p-0 border-0" id="security-tab-pane" role="tabpanel" aria-labelledby="security-tab" tabindex="0">
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1">
+                                    <div class="fw-semibold d-block fs-15">Product Specification :</div>
+                                    <button class="btn btn-secondary">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                                </div>
+                                <div class="row gy-3">
+                                    <div class="col-xl-6">
+                                        <label for="product-type" class="form-label">Packaging Type</label>
+                                        <input type="text" class="form-control" id="product-type" placeholder="Type">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-discount" class="form-label">Item Weight</label>
+                                        <input type="text" class="form-control" id="product-discount1" placeholder="Weight in gms">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label class="form-label">Product Features</label>
+                                        <div id="product-features">
+                                        <form [formGroup]="form">
+                                            <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                                            </ngx-editor-menu>
+                                            <ngx-editor [editor]="editor">
+                                            </ngx-editor>
+                                    </form>
+                                </div>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <label for="publish-date" class="form-label">Publish Date</label>
+                                        <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                        [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="false"
+                                        [dateFormat]="'Y-m-d'"></spk-flatpickr>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <label for="publish-time" class="form-label">Publish Time</label>
+                                        <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control" [noCalendar]="true"
+                                            [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="true"
+                                            [dateFormat]="'H:i'"></spk-flatpickr>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <label for="product-status-add" class="form-label">Published Status</label>
+                                        <spk-ng-select 
+                                            [options]="simpleItems5"
+                                            [selectClass]="'w-full rounded'"
+                                            [clearable]="true"
+                                            [searchable]="true"
+                                            [placeholder]="'Select'"
+                                            [hideSelected]="true"
+                                            [additionalProperties]="{}">
+                                            </spk-ng-select>
+                                     
+                                    </div>
+                                    <div class="col-xl-12 product-documents-container">
+                                        <p class="fw-medium mb-2 fs-14">Warrenty Documents :</p>
+                                        <file-pond #myPond [options]="pondOptions" class="product-documents" [files]="pondFiles"
+                                        (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event)"
+                                        (onactivatefile)="pondHandleActivateFile($event)">
+                                      </file-pond>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="4" class="nav-item m-1" role="presentation">
+                        <a ngbNavLink class="nav-link d-inline-flex w-100 mb-0 bg-light" id="otherinfo-tab">Other Information</a>
+                        <ng-template ngbNavContent>
+                            <div class="p-0 border-0" id="otherinfo-tab-pane" role="tabpanel" >
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1">
+                                    <div class="fw-semibold d-block fs-15">Product Shipping & Handling :</div>
+                                    <button class="btn btn-secondary">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                                </div>
+                                <div class="row gy-3">
+                                    <div class="col-xl-6">
+                                        <label for="product-type1" class="form-label">Product Type</label>
+                                        <input type="text" class="form-control" id="product-type1" placeholder="Type">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label for="product-discount" class="form-label">Packaging Details</label>
+                                        <input type="text" class="form-control" id="Packaging-Details" placeholder="Enter Packaging Details">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label class="form-label">Handling Instructions</label>
+                                        <textarea class="form-control" id="product-description-add" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-xl-7 product-documents-container">
+                                        <p class="fw-medium mb-2 fs-14">Shipping Methods :</p>
+                                        <div class="row gy-2">
+                                            <div class="col-xxl-4">
+                                                <div class="card custom-card mb-0 border card-style-6">
+                                                    <div class="card-body px-3 py-2">
+                                                        <div class="d-flex align-items-center justify-content-between mb-0">
+                                                            <div class="flex-grow-1">
+                                                                Standard Shipping
+                                                            </div>
+                                                            <div class="min-w-fit-content">
+                                                                <div class="d-flex gap-2">
+                                                                    <input class="form-check-input m-0" type="radio" id="address2" name="default-address1" checked="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-4">
+                                                <div class="card custom-card border mb-0 card-style-6">
+                                                    <div class="card-body px-3 py-2">
+                                                        <div class="d-flex align-items-center justify-content-between mb-0">
+                                                            <div class="flex-grow-1">
+                                                                Expedited Shipping
+                                                            </div>
+                                                            <div class="min-w-fit-content">
+                                                                <div class="d-flex gap-2">
+                                                                    <input class="form-check-input m-0" type="radio" id="address4" name="default-address1">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-4">
+                                                <div class="card custom-card border mb-0 card-style-6">
+                                                    <div class="card-body px-3 py-2">
+                                                        <div class="d-flex align-items-center justify-content-between mb-0">
+                                                            <div class="flex-grow-1">
+                                                                Overnight Shipping
+                                                            </div>
+                                                            <div class="min-w-fit-content">
+                                                                <div class="d-flex gap-2">
+                                                                    <input class="form-check-input m-0" type="radio" id="address6" name="default-address1">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5 product-documents-container">
+                                        <label class="form-label">Shipping Restrictions</label>
+                                        <input type="text" class="form-control" id="product-shipping" placeholder="Enter Shipping Restrictions">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-1 mt-4">
+                                    <div class="fw-semibold d-block fs-15">Compliance and Legal :</div>
+                                </div>
+                                <div class="row gy-3">  
+                                    <div class="col-xl-12">
+                                        <label for="Return-Policy" class="form-label">Return Policy</label>
+                                        <input type="text" class="form-control" id="Return-Policy" placeholder="Enter Return Policy">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label class="form-label">Safety Information</label>
+                                        <textarea class="form-control" id="product-description-add5" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label class="form-label">Certifications</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card custom-card">
+            <div class="card-header">
+                 <div class="card-title">Product Images</div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-3">
+                    <div class="col-xl-12">
+                        <label for="product-tags" class="form-label">Product Tags</label>
+                        <spk-ng-select 
+                        [options]="Tags"
+                        [selectClass]="''"
+                        [clearable]="true"
+                        [multiple]="true"
+                        [searchable]="true"
+                        [placeholder]="'Select'"
+                        [hideSelected]="true"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="product-dropzone">
+                            <p class="fw-medium mb-3 fs-14">Select Images :</p>
+                            <div class="mb-3">
+                                <span class="avatar avatar-xl border me-2 bg-light">
+                                    <img src="./assets/images/ecommerce/png/1.png" alt="" class="w-100 h-100">
+                                    <a href="javascript:void(0);" class="badge rounded-pill bg-danger avatar-badge"><i class="fe fe-x"></i></a>
+                                </span>
+                                <span class="avatar avatar-xl border me-2 bg-light">
+                                    <img src="./assets/images/ecommerce/png/14.png" alt="" class="w-100 h-100">
+                                    <a href="javascript:void(0);" class="badge rounded-pill bg-danger avatar-badge"><i class="fe fe-x"></i></a>
+                                </span>
+                                <span class="avatar avatar-xl border me-2 bg-light">
+                                    <img src="./assets/images/ecommerce/png/31.png" alt="" class="w-100 h-100">
+                                    <a href="javascript:void(0);" class="badge rounded-pill bg-danger avatar-badge"><i class="fe fe-x"></i></a>
+                                </span>
+                                <span class="avatar avatar-xl border me-2 bg-light">
+                                    <img src="./assets/images/ecommerce/png/36.png" alt="" class="w-100 h-100">
+                                    <a href="javascript:void(0);" class="badge rounded-pill bg-danger avatar-badge"><i class="fe fe-x"></i></a>
+                                </span>
+                            </div>
+                            <file-pond multiple class="product-Images" data-allow-reorder="true" data-max-file-size="3MB" data-max-files="6" [options]="pondOptions" [files]="pondFiles"
+                            (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event)"
+                            (onactivatefile)="pondHandleActivateFile($event)">
+                        </file-pond>
+                        </div>
+                   </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div class="col-xl-9">
+        <div class="card custom-card">
+            <div class="p-3 border-bottom border-top border-block-end-dashed tab-content" [ngbNavOutlet]="nav">
+            </div>
+            <div class="card-footer border-top-0">
+                <div class="btn-list float-end">
+                    <button class="btn btn-primary">Save Product<i class="bi bi-download ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!--End::row-1 -->

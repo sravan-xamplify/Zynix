@@ -1,0 +1,356 @@
+
+                <!-- Start:: row-1 -->
+                <div class="row">
+                    <div class="col-xxl-4">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card custom-card ecommerce-banner-card overflow-hidden">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <h4 class="fw-semibold">
+                                                    Welcome to our Store!
+                                                </h4>
+                                                <p class="fs-14">Discover the latest trends, shop our curated collections, and enjoy exclusive discounts.</p>
+                                                <button class="btn btn-primary btn-wave mt-1">Start shopping now<i class="ti ti-arrow-narrow-right align-middle mx-1"></i></button>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <img src="./assets/images/ecommerce/png/42.png" alt="" class="d-sm-block d-none">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @for(data of cardData;track $index){
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-body">
+                                        <div class="">
+                                            <spk-dashboard-card 
+                            [title]="data.title"
+                            [value]="data.value"
+                            [linkText]="data.footerTitle"
+                            [percentageChange]="data.percentageChange"
+                            [textcolor]="data.textcolor"
+                            [Bgcolor]="data.Bgcolor"
+                            [icon]="sanitizeIcon(data.icon)"> <!-- Pass sanitized icon -->
+                          </spk-dashboard-card>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        </div>
+                    </div>
+                    <div class="col-xxl-5">
+                        <div class="card custom-card">
+                            <div class="card-header justify-content-between">
+                                <div class="card-title">
+                                    Revenue Overview
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="btn btn-sm btn-outline-primary btn-wave">Today</div>
+                                    <div class="btn btn-sm btn-outline-primary btn-wave">Weakly</div>
+                                    <div class="btn btn-sm btn-primary btn-wave">Yearly</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mx-3 gy-3">
+                                    <div class="col-xl-4 col-sm-4 col-12">
+                                        <div class="text-center p-3 bg-light rounded border border-dashed">
+                                            <span class="mb-0 d-block">Total Orders</span>
+                                            <div class="mt-1">
+                                                <span class="mb-0 fw-semibold h5">684
+                                            </span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-sm-4 col-12">
+                                        <div class="text-center p-3 bg-light rounded border border-dashed">
+                                            <span class="mb-0 d-block">Total Sales</span>
+                                            <div class="mt-1">
+                                                <span class="mb-0 fw-semibold h5">1,284
+                                            </span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-sm-4 col-12">
+                                        <div class="text-center p-3 bg-light rounded border border-dashed">
+                                            <span class="mb-0 d-block">Profit Per Sale :</span>
+                                            <div class="mt-1">
+                                                <span class="fw-semibold text-success h5 mb-0"><i class="ti ti-arrow-narrow-up align-middle"></i>+5.64%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="revenue-overview">
+                                    <spk-apexcharts [chartOptions]="chartOptions"></spk-apexcharts>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3">
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Top Selling Products
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled ecommerce-top-selling-list">
+                                    @for (product of ecommerceTopSellingList; track $index) {
+                                    <spk-school-card 
+                                    [title]="product.name" 
+                                    [description]="product.category" 
+                                    [imageSrc]="product.imageUrl" 
+                                    [rightTitle]="product.price"
+                                    [value]="product.sales"
+                                    [bgValue]="product.bgValue"
+                                    ></spk-school-card>
+                                }
+                                  </ul>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End:: row-1 -->
+
+                <!-- Start:: row-2 -->
+                <div class="row">
+                    <div class="col-xxl-3">
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Orders Summary
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="orders-summary">
+                                    <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row gy-3">
+                                    @for (item of orderSummary; track $index) {
+                                    <div class="col-xl-12">
+                                      <div class="d-flex align-items-center gap-2">
+                                        <div>
+                                          <!-- Avatar Icon -->
+                                          <span class="avatar avatar-sm" [ngClass]="item.color">
+                                            <i [ngClass]="item.icon" class="fs-17"></i>
+                                          </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between flex-fill">
+                                          <!-- Status Text -->
+                                          <span class="d-block flex-fill">{{ item.status }}</span>
+                                          <span class="d-block fw-semibold h6 mb-0">
+                                            <span
+                                              [ngClass]="item.changeColor"
+                                              class="me-2 fs-13 d-inline-flex align-items-center"
+                                            >
+                                              <!-- Change Percentage -->
+                                              <i [ngClass]="item.changeType === 'up' ? 'ti ti-arrow-narrow-up' : 'ti ti-arrow-narrow-down'" align="middle"></i>
+                                              {{ item.percentageChange }}%
+                                            </span>
+                                            <!-- Count -->
+                                            {{ item.count }}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                }
+                                  </div>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6">
+                        <div class="card custom-card overflow-hidden">
+                            <div class="card-header justify-content-between">
+                                <div class="card-title">Recent Orders</div>
+                                <a href="javascript:void(0);" class="btn btn-outline-light border d-flex align-items-center text-muted btn-sm">
+                                    View All
+                                </a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <spk-reusable-tables [columns]="transactionsColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                                        @for(transaction of transactions;track $index){
+                                            <tr>
+                                                <td><a href="javascript:void(0);" class="text-primary">{{ transaction.id }}</a></td>
+                                                <td>
+                                                  <div class="d-flex align-items-center">
+                                                    <div class="me-2 lh-1">
+                                                      <span class="avatar avatar-md">
+                                                        <img [src]="transaction.avatar" alt="">
+                                                      </span>
+                                                    </div>
+                                                    <div>
+                                                      <a href="javascript:void(0)" class="fs-14 fw-medium">{{ transaction.name }}</a>
+                                                      <span class="fs-13 text-muted d-block">{{ transaction.email }}</span>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <span class="d-block text-muted">{{ transaction.date }}</span>
+                                                </td>
+                                                <td>
+                                                  <span class="d-block mb-0 fw-semibold">{{ transaction.amount }}</span>
+                                                </td>
+                                                <td><span class=" badge {{ transaction.statusClass}}">{{ transaction.status }}</span></td>
+                                              </tr>
+                                        }
+                                        </spk-reusable-tables>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3">
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Visitors By Country
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <div class="lh-1">
+                                        <span class="avatar avatar-md bg-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="96" r="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,216c19.37-33.47,54.55-56,96-56s76.63,22.53,96,56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="flex-fill">
+                                        <span class="d-block mb-1">Total Visitors</span>
+                                        <h5 class="mb-0 fw-semibold text-default">1,739k</h5>
+                                    </div>
+                                    <div class="text-muted text-end">
+                                        <span class="badge bg-success-transparent text-success d-inline-flex align-items-center"><i class="ti ti-trending-up text-success me-1"></i>+4.2%</span>
+                                        <span class="fs-13 d-block mt-1">This month</span>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled ecommerce-visitors-country-list">
+                                    @for (countryData of ecommerceVisitorsCountryList; track $index) {
+                                    <li >
+                                      <div>
+                                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                                          <span class="d-block">{{ countryData.country }}</span>
+                                          <span class="h6 mb-0 fw-semibold">{{ countryData.visitors }}</span>
+                                        </div>
+                                        <div
+                                          class="progress progress-animate progress-xs"
+                                          role="progressbar"
+                                          [attr.aria-valuenow]="countryData.progress"
+                                          aria-valuemin="0"
+                                          aria-valuemax="100"
+                                        >
+                                          <div
+                                            class="progress-bar"
+                                            [ngClass]="countryData.progressBarClass"
+                                            [style.width.%]="countryData.progress"
+                                          ></div>
+                                        </div>
+                                      </div>
+                                    </li>
+                                }
+                                  </ul>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End:: row-2 -->
+                <!-- Start:: row-3 -->
+                <div class="row">
+                    <div class="col-xxl-9">
+                        <div class="card custom-card">
+                            <div class="card-header justify-content-between">
+                                <div class="card-title">
+                                    Products Summary
+                                </div>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <div>
+                                        <input class="form-control form-control-sm" type="text" placeholder="Search Here" aria-label=".form-control-sm example"> 
+                                    </div>
+                                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                                    [class]="'btn btn-primary btn-sm btn-wave waves-effect waves-light no-caret'" [Icon]="true"
+                                    [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                                    <li><a class="dropdown-item" href="javascript:void(0);">New</a></li> 
+                                            <li><a class="dropdown-item" href="javascript:void(0);">Popular</a></li> 
+                                            <li><a class="dropdown-item" href="javascript:void(0);">Relevant</a></li> 
+                                </spk-dropdowns>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <spk-reusable-tables [columns]="ordersColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                                        @for(order of Order;track $index){
+                                            <tr>
+                                                <td>{{ order.date }}</td>
+                                                <td><a href="javascript:void(0);">{{ order.customerName }}</a></td>
+                                                <td>
+                                                  <div class="d-flex align-items-center">
+                                                    <div class="avatar avatar-sm me-2">
+                                                      <img [src]="order.customerAvatar" alt="avatar" class="">
+                                                    </div>
+                                                    <a href="javascript:void(0);">{{ order.description }}</a>
+                                                  </div>
+                                                </td>
+                                                <td><a href="javascript:void(0);">{{ order.orderId }}</a></td>
+                                                <td><span class="badge {{order.statusClass}}">{{ order.status }}</span></td>
+                                                <td>{{ order.amount }}</td>
+                                                <td>{{ order.paymentMethod }}</td>
+                                                <td>
+                                                  <div class="btn-list">
+                                                    <a href="javascript:void(0)" class="btn btn-icon btn-sm btn-primary-light"><i class="ti ti-edit"></i></a>
+                                                    <a href="javascript:void(0)" class="btn btn-icon btn-sm btn-secondary-light"><i class="ti ti-trash"></i></a>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                        }
+                                        </spk-reusable-tables>
+                                </div>
+                            </div>
+                            <div class="card-footer"> 
+                                <div class="d-flex align-items-center"> 
+                                    <div> Showing 5 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i> </div>
+                                    <div class="ms-auto"> 
+                                    <nav aria-label="Page navigation" class="pagination-style-4"> 
+                                        <ul class="pagination mb-0"> 
+                                            <li class="page-item disabled"> <a class="page-link" href="javascript:void(0);"> Prev </a> </li>
+                                                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li> 
+                                                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li> 
+                                                <li class="page-item"> <a class="page-link text-primary" href="javascript:void(0);"> next </a> </li> 
+                                            </ul> 
+                                        </nav> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3">
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Top Customers
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-0 ecommerce-top-customers-list">
+                                    @for ( customer of ecommerceTopCustomersList; track $index) {
+                                        <spk-school-card [svgBg]="customer.badgeClass"
+                                        [textTitle]="customer.initials"
+                                        [title]="customer.name" 
+                                        [description]="customer.purchases"
+                                        [rightTitle]="customer.title"
+                                        [value]="customer.saleValue "
+                                        [textColor]="customer.textColor"
+                                        [bgValue]="customer.bgValue"
+                                        [Verified]="customer.Verified"
+                                        ></spk-school-card>
+                                }
+                                  </ul>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End:: row-3 -->

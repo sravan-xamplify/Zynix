@@ -1,0 +1,222 @@
+  <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-xl-8">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card job-profile-card">
+                    <div class="profile-banner-img">
+                        <img src="./assets/images/media/media-3.jpg" class="rounded w-100" alt="...">
+                    </div>
+                    <div class="card-body p-4 pb-0 position-relative">
+                        <span class="avatar avatar-xxl avatar-rounded bg-gray-300 border">
+                            <span class="avatar avatar-xl avatar-rounded bg-white p-2">
+                                <img src="./assets/images/company-logos/8.png" alt="">
+                            </span>
+                        </span>
+                        <div
+                            class="mt-5 mb-3 d-flex align-items-center flex-wrap gap-3 justify-content-between">
+                            <div>
+                                <h5 class="fw-semibold mb-1">Full Time Ui Developer</h5>
+                                <a href="javascript:void(0);" class="fw-medium text-muted"><i
+                                        class="bi bi-building"></i> Spruko Technologies PRIVATE
+                                    LIMITED</a>
+                                <div class="d-flex fs-14 mt-3">
+                                    <div>
+                                        <p class="mb-1"><i class="bi bi-geo-alt me-1"></i>Banglore,
+                                            Karnataka</p>
+                                        <p class="mb-0"><i class="bi bi-briefcase me-1"></i>1 - 3+ years
+                                            Experience</p>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-1"><i class="bi bi-coin me-1"></i><span
+                                                class="fw-medium">10,000 - 20,000</span> / per month
+                                            (+incentives)</p>
+                                        <p class="mb-0"><i class="bi bi-mortarboard  me-1"></i>Graduate
+                                            and Above</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-0 flex-wrap gap-4">
+                                <div class="btn-list mb-2"> <a href="javascript:void(0);"
+                                        class="btn btn-primary"> Apply Now</a> <a
+                                        href="javascript:void(0);"
+                                        class="btn btn-icon btn-primary-light btn-wave waves-effect waves-light">
+                                        <i class="ri-heart-line"></i> </a> <a href="javascript:void(0);"
+                                        class="btn btn-icon btn-primary-light btn-wave waves-effect waves-light">
+                                        <i class="ri-share-line"></i> </a> </div>
+                            </div>
+                        </div>
+                           <div class="row row-cols-xxl-5 row-cols-xl-3 row-cols-md-2 row-cols-1">
+                            @for ( card of infoCards; track $index) {
+                            <div class="col">
+                                <spk-team-card
+                                  [icon]="card.icon"
+                                  [iconBackground]="card.iconBackground"
+                                  [label]="card.label"
+                                  [value]="card.value"
+                                ></spk-team-card>
+                              </div>
+                            }
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card custom-card">
+            <div class="card-body">
+                <div class="card-body">
+                    <h5 class="fw-medium">Job Description</h5>
+                    <p class="op-9">Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit
+                        ipsum sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labore no sed ipsum ipsum nonumy vero
+                        sanctus labore.A officiis optio temporibus minima facilis...</p>
+                    <p class="mb-4 op-9">Sit ipsum sanctus ea magna est. Aliquyam sed amet. Kasd diam
+                        rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labore no sed ipsum
+                        ipsum nonumy vero sanctus labore..</p>
+                    <h5 class="fw-medium">Key Responsibilities</h5>
+                    <ol class="list-group border-0 list-unstyled list-group-numbered mb-3">
+                        <li class="list-group-item border-0 py-1">Design thoughtful, beautiful, and
+                            useful software user interfaces and experiences in a team environment..</li>
+                        <li class="list-group-item border-0 py-1">Create user-centered designs by
+                            considering market analysis, customer feedback, site metrics, and usability
+                            findings.</li>
+                        <li class="list-group-item border-0 py-1">Work with stakeholders to plan
+                            projects for effective delivery while maintaining high standards for
+                            design..</li>
+                        <li class="list-group-item border-0 py-1">Be a passionate and effective advocate
+                            for design with non-design audiences..</li>
+                        <li class="list-group-item border-0 py-1">Use business requirements, user and
+                            market research to assist in developing scenarios, use cases, and high-level
+                            requirements..</li>
+                    </ol>
+                    <h5 class="fw-medium">Requirements</h5>
+                    <ol class="list-group border-0 list-unstyled list-group-numbered mb-3">
+                        <li class="list-group-item border-0 py-1">Design thoughtful, beautiful, and
+                            useful software user interfaces and experiences in a team environment..</li>
+                        <li class="list-group-item border-0 py-1">Create user-centered designs by
+                            considering market analysis, customer feedback, site metrics, and usability
+                            findings.</li>
+                        <li class="list-group-item border-0 py-1">Work with stakeholders to plan
+                            projects for effective delivery while maintaining high standards for
+                            design..</li>
+                        <li class="list-group-item border-0 py-1">Be a passionate and effective advocate
+                            for design with non-design audiences..</li>
+                        <li class="list-group-item border-0 py-1">Use business requirements, user and
+                            market research to assist in developing scenarios, use cases, and high-level
+                            requirements..</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="card custom-card shadow-none bg-primary-transparent border border-primary border-opacity-10"> <div class="card-body"> <div class="row align-items-center"> <div class="col-lg-6"> <h5 class="fw-medium mb-3"><i class="ri-briefcase-line me-2 p-2 bg-primary text-fixed-white fs-15 lh-1 align-middle rounded-circle"></i>Explore Job Opportunities</h5> <span class="text-muted mb-0 fs-14">Find exciting job opportunities that match your skills and interests. Join us to make a difference!</span> </div> <div class="col-lg-6 text-end"> <a href="javascript:void(0);" class="btn btn-primary btn-lg" role="button"> <i class="ri-share-line me-2 align-middle d-inline-block"></i>Sign up Now </a> </div> </div> </div> </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card custom-card border overflow-hidden">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Similar Jobs
+                </div>
+                <a href="javascript:void(0);" class="text-primary fw-medium fs-13">
+                    View All <i class="fe fe-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body p-0">
+                <spk-jobs-card [jobs]="jobsData" [showApplyButton]="true"></spk-jobs-card>
+            </div>
+        </div>
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title"> Popular Tags </div>
+            </div>
+            <div class="card-body py-4">
+                <spk-tags [tags]="tags"></spk-tags>
+            </div>
+        </div>
+        <div class="card custom-card border">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Featured Companies
+                </div>
+                <a href="javascript:void(0);" class="text-primary fw-medium fs-14">
+                    View All <i class="fe fe-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body p-0">
+                <spk-jobs-card [jobs]="CompaniesData" [showApplyButton]="false"></spk-jobs-card>
+            </div>
+        </div>
+        <div>
+            <h4 class="fw-medium mb-0">Related Jobs</h4>
+            <p class="">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <div class="swiper swiper-related-jobs">
+                <div class="swiper-wrapper">
+                    <swiper-container
+                    #swiperContainer
+                    loop="true"
+                    class="swiper mySwiper"
+                    space-between="2"
+                    slides-per-view="1"
+                    slides-per-group="1"
+                    autoplay-delay="1000" navigation="true" pagination="false" autoplay-disable-on-interaction="false"
+                  >
+                  @for(job of jobs;track $index){
+                    <swiper-slide >
+                    <div class="swiper-slide">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div class="card custom-card featured-jobs">
+                                <div class="card-body">
+                                  <div class="bg-light p-3 border border-bottom-0">
+                                    <div class="btn-list float-end">
+                                      <a href="javascript:void(0);"
+                                         class="avatar avatar-rounded avatar-sm bg-primary-transparent text-primary"
+                                         data-bs-toggle="tooltip" 
+                                         data-bs-placement="top"
+                                         aria-label="Add to wishlist"
+                                         ngbTooltip="Add to wishlist">
+                                        <span><i [class]="job.wishlistIcon + ' fs-15'"></i></span>
+                                      </a>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3 align-items-center">
+                                      <span class="avatar avatar-lg bg-{{job.BgColor}}-transparent">
+                                        <i class="ri-{{job.icon}}-fill fs-30 text-{{job.BgColor}}"></i>
+                                      </span>
+                                      <div>
+                                        <h5 class="fw-medium mb-0 d-flex align-items-center">
+                                          <a href="javascript:void(0);">{{ job.title }}</a>
+                                        </h5>
+                                        <a href="javascript:void(0);">{{ job.company }}</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="border p-3">
+                                    <div class="popular-tags d-flex flex-wrap gap-2 mb-3">
+                                        @for (tag of job.tags; track $index) {
+                                      <ng-container>
+                                        <a href="javascript:void(0);" class="badge border bg-light text-default">
+                                          <i [class]="tag.icon + ' text-muted me-1'"></i>{{ tag.text }}
+                                        </a>
+                                      </ng-container>
+                                    }
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                      <h5 class="fw-medium mb-0">{{ job.salary }}/<span class="text-muted fs-12">{{ job.salaryLabel }}</span></h5>
+                                      <a href="javascript:void(0);" class="btn btn-primary btn-sm fw-medium fs-14 d-inline-flex">
+                                        Apply Now <i class="fe fe-arrow-right transform-arrow ms-2 lh-base"></i>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    </swiper-slide>
+                }
+                    </swiper-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-1 -->

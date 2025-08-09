@@ -1,0 +1,858 @@
+<!-- Start:: row-1 -->
+<div class="row">
+  <div class="col-xxl-2 mb-2">
+    <!-- <div class="swiper swiper-basic swiper-vertical w-100 swiper-initialized swiper-backface-hidden">
+      <div class="swiper-wrapper"> -->
+        <swiper-container
+          #swiperContainer
+          class="swiper swiper-basic swiper-vertical stocks-vertical w-100 swiper-initialized swiper-backface-hidden"
+          spaceBetween="4"
+          slidesPerView="7"
+          [mousewheel]="true"
+          direction="vertical"
+          autoplay-delay="1000" navigation="false" pagination="false" autoplay-disable-on-interaction="false"
+        >
+        @for(item of swiperData;track $index){
+       
+            <swiper-slide>
+              <div class="card custom-card overflow-hidden">
+                <div class="card-body">
+                  <div class="d-flex gap-2 align-items-center flex-wrap">
+                    <div>
+                      <span
+                        [ngClass]="
+                          item.colorClass + ' avatar avatar-rounded p-2'
+                        "
+                      >
+                        <i  class="{{item.iconClass}} text{{item.iconColor}}-white fs-18"></i>
+                      </span>
+                    </div>
+                    <div class="flex-fill">
+                      <span class="d-block text-default fw-semibold">{{
+                        item.name
+                      }}</span>
+                      <span class="d-block text-muted fs-13">{{
+                        item.value
+                      }}</span>
+                    </div>
+                    <div class="text-end">
+                      <span
+                        [ngClass]="
+                          item.changeDirection === 'up'
+                            ? 'text-success'
+                            : 'text-danger'
+                        "
+                        class="d-block d-inline-flex align-items-center"
+                      >
+                        {{ item.change
+                        }}<i
+                          [ngClass]="
+                            item.changeDirection === 'up'
+                              ? 'ti ti-arrow-up'
+                              : 'ti ti-arrow-down'
+                          "
+                        ></i>
+                      </span>
+                      <span class="d-block fw-semibold"
+                        >+{{
+                          item.changeDirection === "up" ? "1,780.80" : "0"
+                        }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          
+        }
+        </swiper-container>
+      <!-- </div>
+    </div> -->
+  </div>
+  <div class="col-xxl-7">
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header justify-content-between">
+        <h6 class="card-title">Total Investments</h6>
+        <div class="d-flex gap-2">
+          <div class="btn btn-outline-primary border btn-full btn-sm">
+            Today
+          </div>
+          <div class="btn btn-outline-primary border btn-full btn-sm">
+            Weakly
+          </div>
+          <div class="btn btn-primary border btn-full btn-sm">Yearly</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div
+          class="d-sm-flex align-items-center justify-content-between p-3 bg-light"
+        >
+          <div class="min-w-fit-content">
+            <p class="mb-1">
+              <span class="h3 mb-0 text-primary fw-semibold">$12,390.02</span>
+              <span
+                class="text-danger ms-2 fs-13 d-inline-flex align-items-center"
+                ><i class="ti ti-trending-down me-1"></i>0.14%</span
+              >
+            </p>
+            <div class="d-flex align-items-center gap-2">
+              <p class="mb-0 fs-13 text-muted">
+                <span class="text-danger me-1">-89.75</span>
+                <i class="mdi mdi-circle-small"></i>
+                <span>Today,</span>
+              </p>
+              <p class="mb-0 fs-13 text-muted">
+                <span>Jun 17, 2024</span>
+                <i class="mdi mdi-circle-small"></i>
+                <span>11:25 AM</span>
+                <i class="mdi mdi-circle-small"></i>
+                <span>UTC +5:30</span>
+              </p>
+            </div>
+          </div>
+          <div class="flex-fill text-sm-end mt-2 mt-sm-0">
+            <p class="mb-1 fs-16">GITUHB</p>
+            <p class="mb-0 fs-13 text-muted">
+              <span>GTHB</span>
+              <i class="mdi mdi-circle-small"></i>
+              <span>INDEXNSE</span>
+            </p>
+          </div>
+        </div>
+        <div id="total-investments" class="">
+          <spk-apexcharts [chartOptions]="chartOptions"></spk-apexcharts>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxl-3">
+    <div class="row">
+      <div class="col-xxl-12 col-xl-4">
+        <div class="card custom-card">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+              <div class="lh-1">
+                <span class="avatar bg-primary-transparent">
+                  <i class="bi bi-apple fs-18"></i>
+                </span>
+              </div>
+              <div class="flex-fill">
+                <span class="d-block fw-semibold">Apple</span>
+                <span class="d-block text-muted fs-13">Apple Inc</span>
+              </div>
+              <div class="text-end">
+                <span class="fs-13 text-muted">Apple</span>
+                <span class="text-success fs-13 d-block">+0.28%</span>
+              </div>
+            </div>
+            <div
+              class="d-flex align-items-end justify-content-between flex-wrap"
+            >
+              <div>
+                <span class="fs-13 text-muted d-block mb-1">CURRENT VALUE</span>
+                <h3 class="fw-semibold mb-0 lh-1">$170.77</h3>
+              </div>
+              <div id="apple-stock">
+                <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-12 col-xl-4">
+        <div class="card custom-card">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+              <div class="lh-1">
+                <span class="avatar bg-secondary-transparent">
+                  <i class="bi bi-nvidia fs-18"></i>
+                </span>
+              </div>
+              <div class="flex-fill">
+                <span class="d-block fw-semibold">Nvidia</span>
+                <span class="d-block text-muted fs-13">NVIDIA Corp</span>
+              </div>
+              <div class="text-end">
+                <span class="fs-13 text-muted">Nvidia</span>
+                <span class="text-danger fs-13 d-block">-0.93%</span>
+              </div>
+            </div>
+            <div
+              class="d-flex align-items-end justify-content-between flex-wrap"
+            >
+              <div>
+                <span class="fs-13 text-muted d-block mb-1">CURRENT VALUE</span>
+                <h3 class="fw-semibold mb-0 lh-1">$124.65</h3>
+              </div>
+              <div id="nvidia-stock">
+                <spk-apexcharts [chartOptions]="chartOptions2"></spk-apexcharts>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-12 col-xl-4">
+        <div class="card custom-card">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+              <div class="lh-1">
+                <span class="avatar bg-success-transparent">
+                  <i class="bi bi-amazon fs-18"></i>
+                </span>
+              </div>
+              <div class="flex-fill">
+                <span class="d-block fw-semibold">Amazon</span>
+                <span class="d-block text-muted fs-13">Amazon.com, Inc.</span>
+              </div>
+              <div class="text-end">
+                <span class="fs-13 text-muted">Amazon</span>
+                <span class="text-success fs-13 d-block">+0.29%</span>
+              </div>
+            </div>
+            <div
+              class="d-flex align-items-end justify-content-between flex-wrap"
+            >
+              <div>
+                <span class="fs-13 text-muted d-block mb-1">CURRENT VALUE</span>
+                <h3 class="fw-semibold mb-0 lh-1">133.09</h3>
+              </div>
+              <div id="amazon-stock">
+                <spk-apexcharts [chartOptions]="chartOptions3"></spk-apexcharts>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start:: row-2 -->
+<div class="row">
+  <div class="col-xxl-3 col-xl-6">
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header justify-content-between">
+        <h6 class="card-title">Statistics</h6>
+        <div class="d-flex gap-2">
+          <div class="btn btn-outline-primary border btn-full btn-sm">
+            Today
+          </div>
+          <div class="btn btn-outline-primary border btn-full btn-sm">
+            Weakly
+          </div>
+          <div class="btn btn-primary border btn-full btn-sm">Yearly</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="statistics" class="">
+          <spk-apexcharts [chartOptions]="chartOptions4"></spk-apexcharts>
+        </div>
+      </div>
+      <div class="card-footer p-3 my-2">
+        <div class="row row-cols-12">
+          <div class="col">
+            <div class="text-center">
+              <span
+                class="text-muted fs-13 mb-1 rounded-dot dot-primary d-inline-block ms-2"
+                ><i class="bx bxs-circle text-primary fs-9 me-1"></i>Stocks
+              </span>
+              <div><span class="h6 mb-0 fw-semibold">1,624</span></div>
+            </div>
+          </div>
+          <div class="vr p-0"></div>
+          <div class="col">
+            <div class="text-center">
+              <span
+                class="text-muted fs-13 mb-1 rounded-dot dot-secondary d-inline-block ms-2"
+                ><i class="bx bxs-circle text-secondary fs-9 me-1"></i>Funds
+              </span>
+              <div><span class="h6 mb-0 fw-semibold">1,267</span></div>
+            </div>
+          </div>
+          <div class="vr p-0"></div>
+          <div class="col">
+            <div class="text-center">
+              <span
+                class="text-muted fs-13 mb-1 rounded-dot dot-success d-inline-block ms-2"
+                ><i class="bx bxs-circle text-success fs-9 me-1"></i>Bond
+              </span>
+              <div><span class="h6 mb-0 fw-semibold">1,153</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxl-3 col-xl-6">
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header justify-content-between">
+        <div class="card-title">Watchlist</div>
+        <button type="button" class="btn btn-sm btn-light border">
+          View All<i class="ti ti-arrow-narrow-right ms-1"></i>
+        </button>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled watchlist-list">
+          @for(stock of watchlist; track $index) {
+            <spk-school-card [imageSrc]="stock.avatar"
+             [title]="stock.name "
+             [description]="stock.symbol"
+             [rightTitle]="stock.price"
+             [value]="stock.change"
+             [bgValue]="stock.bgValue"
+             [avatarSize]="stock.avatarSize"
+             [avatarBg]="stock.avatarBg"
+              ></spk-school-card>
+        }
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxl-3 col-xl-6">
+    <div class="card custom-card">
+      <div class="card-header justify-content-between">
+        <div class="card-title">My Stocks</div>
+        <spk-dropdowns [Customclass]="'dropdown'" [title]="'All Stocks'"
+        [class]="'btn btn-light btn-sm border no-caret'" [Icon]="true"
+        [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+        <li><a class="dropdown-item" href="javascript:void(0);"> All Stocks</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Wishlist</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Stocks</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Crypto</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">ETFs</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0);">Bonds</a></li>
+    </spk-dropdowns>
+      </div>
+      <div class="card-body p-0">
+        <div 
+          class="accordion accordion-style2 my-stocks-container"
+          id="accordionStyle2"
+        >
+          <div
+            class="accordion-item stock-item border-0 border-bottom p-3 border-top-0 rounded-0"
+          >
+            <div
+              class="accordion-header d-flex align-items-center w-100"
+              id="stockHeading_1"
+            >
+              <a
+                href="javascript:void(0);"
+                class="p-0 flex-fill w-100 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#stockItem1"
+                aria-expanded="false"
+                aria-controls="stockItem1"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <span
+                      class="avatar rounded-circle avatar-md bg-primary-transparent svg-primary"
+                    >
+                      <i class="ri-github-line fs-20"></i>
+                    </span>
+                  </div>
+                  <div class="flex-fill w-100">
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-semibold">GTHB (Gituhb, Demo Inc.)</span>
+                      <span class="text-end">$12,390.02</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">12 shares</span>
+                      <span
+                        class="text-success d-inline-flex align-items-center"
+                        ><i class="ti ti-arrow-up me-1"></i>0.14%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              id="stockItem1"
+              class="accordion-collapse border-top-0 collapse"
+              aria-labelledby="stockHeading_1"
+              data-bs-parent="#accordionStyle2"
+            >
+              <div class="accordion-body px-0 pb-0">
+                <div class="justify-content-between d-block d-sm-flex">
+                  <div class="flex-fill d-flex align-items-center mb-sm-0 mb-2">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-primary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Buy"
+                      >B</a
+                    >
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-secondary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Sell"
+                      >S</a
+                    >
+                    <a
+                      aria-label="anchor"
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-light ht-25 wd-25"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Market Cap"
+                      ><i class="ti ti-chart-candle"></i
+                    ></a>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap">
+                    <p class="mb-0 me-3">
+                      <span class="text-muted me-1">High:</span>
+                      <span class="text-success">$20,399,08</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="text-muted me-1">Low:</span>
+                      <span class="text-danger">$11,021,36</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item stock-item border-0 border-bottom p-3">
+            <div
+              class="accordion-header d-flex align-items-center w-100"
+              id="stockHeading_2"
+            >
+              <a
+                href="javascript:void(0);"
+                class="p-0 flex-fill w-100 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#stockItem2"
+                aria-expanded="false"
+                aria-controls="stockItem2"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <span
+                      class="avatar rounded-circle avatar-md bg-secondary-transparent text-secondary"
+                      ><i class="ri ri-twitter-x-line fs-20"></i
+                    ></span>
+                  </div>
+                  <div class="flex-fill w-100">
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-semibold">TTR (Twiter.com, Inc.)</span>
+                      <span class="text-end">$15,526.01</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">1,290 shares</span>
+                      <span
+                        class="text-success d-inline-flex align-items-center"
+                        ><i class="ti ti-arrow-up me-1"></i>2.14%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              id="stockItem2"
+              class="accordion-collapse border-top-0 collapse"
+              aria-labelledby="stockHeading_2"
+              data-bs-parent="#accordionStyle2"
+            >
+              <div class="accordion-body px-0 pb-0">
+                <div class="justify-content-between d-block d-sm-flex">
+                  <div class="flex-fill d-flex align-items-center mb-sm-0 mb-2">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-primary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Buy"
+                      >B</a
+                    >
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-secondary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Sell"
+                      >S</a
+                    >
+                    <a
+                      aria-label="anchor"
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-light ht-25 wd-25"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Market Cap"
+                      ><i class="ti ti-chart-candle"></i
+                    ></a>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap">
+                    <p class="mb-0 me-3">
+                      <span class="text-muted me-1">High:</span>
+                      <span class="text-success">$20,399,08</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="text-muted me-1">Low:</span>
+                      <span class="text-danger">$11,021,36</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item stock-item border-0 border-bottom p-3">
+            <div
+              class="accordion-header d-flex align-items-center w-100"
+              id="stockHeading_3"
+            >
+              <a
+                href="javascript:void(0);"
+                class="p-0 flex-fill w-100 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#stockItem3"
+                aria-expanded="false"
+                aria-controls="stockItem3"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <span
+                      class="avatar rounded-circle avatar-md bg-warning-transparent border text-warning"
+                      ><i class="ri-netflix-line fs-20"></i
+                    ></span>
+                  </div>
+                  <div class="flex-fill w-100">
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-semibold">NTFX (Netfllx.com, Inc.)</span>
+                      <span class="text-end">$41,250.50</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">230 shares</span>
+                      <span class="text-danger d-inline-flex align-items-center"
+                        ><i class="ti ti-arrow-down me-1"></i>4.02%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              id="stockItem3"
+              class="accordion-collapse border-top-0 collapse"
+              aria-labelledby="stockHeading_3"
+              data-bs-parent="#accordionStyle2"
+            >
+              <div class="accordion-body px-0 pb-0">
+                <div class="justify-content-between d-block d-sm-flex">
+                  <div class="flex-fill d-flex align-items-center mb-sm-0 mb-2">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-primary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Buy"
+                      >B</a
+                    >
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-secondary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Sell"
+                      >S</a
+                    >
+                    <a
+                      aria-label="anchor"
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-light ht-25 wd-25"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Market Cap"
+                      ><i class="ti ti-chart-candle"></i
+                    ></a>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap">
+                    <p class="mb-0 me-3">
+                      <span class="text-muted me-1">High:</span>
+                      <span class="text-success">$20,399,08</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="text-muted me-1">Low:</span>
+                      <span class="text-danger">$11,021,36</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item stock-item border-0 border-bottom p-3">
+            <div
+              class="accordion-header d-flex align-items-center w-100"
+              id="stockHeading_4"
+            >
+              <a
+                href="javascript:void(0);"
+                class="collapsed p-0 flex-fill w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#stockItem4"
+                aria-expanded="false"
+                aria-controls="stockItem4"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <span
+                      class="avatar rounded-circle avatar-md bg-info-transparent border text-info"
+                      ><i class="ri-angularjs-line fs-20"></i
+                    ></span>
+                  </div>
+                  <div class="flex-fill w-100">
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-semibold">BS (Boostrap, Inc.)</span>
+                      <span class="text-end">$30,500.15</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">325 shares</span>
+                      <span class="text-danger d-inline-flex align-items-center"
+                        ><i class="ti ti-arrow-down me-1"></i>2.73%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              id="stockItem4"
+              class="accordion-collapse border-top-0 collapse"
+              aria-labelledby="stockHeading_4"
+              data-bs-parent="#accordionStyle2"
+            >
+              <div class="accordion-body px-0 pb-0">
+                <div class="justify-content-between d-block d-sm-flex">
+                  <div class="flex-fill d-flex align-items-center mb-sm-0 mb-2">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-primary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Buy"
+                      >B</a
+                    >
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-secondary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Sell"
+                      >S</a
+                    >
+                    <a
+                      aria-label="anchor"
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-light ht-25 wd-25"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Market Cap"
+                      ><i class="ti ti-chart-candle"></i
+                    ></a>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap">
+                    <p class="mb-0 me-3">
+                      <span class="text-muted me-1">High:</span>
+                      <span class="text-success">$20,399,08</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="text-muted me-1">Low:</span>
+                      <span class="text-danger">$11,021,36</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item stock-item border-0 p-3">
+            <div
+              class="accordion-header d-flex align-items-center w-100"
+              id="stockHeading_6"
+            >
+              <a
+                href="javascript:void(0);"
+                class="collapsed p-0 flex-fill w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#stockItem6"
+                aria-expanded="false"
+                aria-controls="stockItem6"
+              >
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <span
+                      class="avatar rounded-circle avatar-md bg-danger-transparent border text-danger"
+                      ><i class="ri-apple-line fs-20"></i
+                    ></span>
+                  </div>
+                  <div class="flex-fill w-100">
+                    <div class="d-flex justify-content-between">
+                      <span class="fw-semibold">AAPL (Appil, Inc.)</span>
+                      <span class="text-end">$21,093.20</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">30 shares</span>
+                      <span class="text-danger d-inline-flex align-items-center"
+                        ><i class="ti ti-arrow-down me-1"></i>4.10%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              id="stockItem6"
+              class="accordion-collapse border-top-0 collapse"
+              aria-labelledby="stockHeading_6"
+              data-bs-parent="#accordionStyle2"
+            >
+              <div class="accordion-body px-0 pb-0">
+                <div class="justify-content-between d-block d-sm-flex">
+                  <div class="flex-fill d-flex align-items-center mb-sm-0 mb-2">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-primary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Buy"
+                      >B</a
+                    >
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-secondary ht-25 wd-25 me-2"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Sell"
+                      >S</a
+                    >
+                    <a
+                      aria-label="anchor"
+                      href="javascript:void(0);"
+                      class="btn btn-icon btn-sm btn-light ht-25 wd-25"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Market Cap"
+                      ><i class="ti ti-chart-candle"></i
+                    ></a>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap">
+                    <p class="mb-0 me-3">
+                      <span class="text-muted me-1">High:</span>
+                      <span class="text-success">$20,399,08</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="text-muted me-1">Low:</span>
+                      <span class="text-danger">$11,021,36</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxl-3 col-xl-6">
+    <div class="card custom-card">
+      <div class="card-header">
+        <div class="card-title">Portfolio Value</div>
+      </div>
+      <div class="card-body pb-0">
+        <div class="d-flex align-items-start gap-3">
+          <div>
+            <span class="avatar avatar-md bg-primary-transparent">
+              <i class="ti ti-currency-dollar fs-4"></i>
+            </span>
+          </div>
+          <div>
+            <div class="text-muted fs-13">
+              Total Value
+              <span class="p-2 br-5 text-success"
+                ><i class="fe fe-arrow-up-right"></i
+              ></span>
+            </div>
+            <h3 class="fw-semibold">$6,31,262.25</h3>
+            <div class="fs-12">
+              <span class="text-success fs-13 me-1">45%</span>Increase Since
+              last Year
+            </div>
+          </div>
+        </div>
+        <div id="portfolio-value">
+          <spk-apexcharts [chartOptions]="chartOptions5"></spk-apexcharts>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+  <div class="col-xl-5">
+    <div class="card custom-card">
+      <div class="card-header justify-content-between">
+        <div class="card-title">Transaction History</div>
+        <spk-dropdowns [Customclass]="'dropdown'" [title]="'All'"
+                [class]="'btn btn-light btn-sm no-caret'" [Icon]="true"
+                [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                <li><a class="dropdown-item" href="javascript:void(0);">Buy</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Sell</a></li>
+            </spk-dropdowns>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <spk-reusable-tables [columns]="transactionColumn" tableClass=" table text-nowrap"  [showCheckbox]="false">
+            @for(transaction of Transaction;track $index){
+              <tr>
+                <th scope="row">{{ transaction.code }}</th>
+                <td>{{ transaction.date }}</td>
+                <td>
+                  <span class="badge" [ngClass]="transaction.typeClass">{{ transaction.type }}</span>
+                </td>
+                <td>
+                  <span [ngClass]="transaction.amountClass">{{ transaction.amount }}</span>
+                </td>
+                <td>
+                  <span [ngClass]="transaction.changeClass">{{ transaction.change }}</span>
+                </td>
+              </tr>
+            }
+            </spk-reusable-tables>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-7">
+    <div class="card custom-card">
+      <div class="card-header justify-content-between">
+        <div class="card-title">Market Movers</div>
+            <spk-dropdowns [Customclass]="'dropdown'" [title]="'All'"
+                [class]="'btn btn-light btn-sm no-caret'" [Icon]="true"
+                [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                <li><a class="dropdown-item" href="javascript:void(0);">Buy</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Sell</a></li>
+            </spk-dropdowns>
+      
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <spk-reusable-tables [columns]="stockColumn" tableClass=" table text-nowrap"  [showCheckbox]="false">
+            @for(stock of stocksData;track $index){
+              <tr>
+                <th scope="row">{{ stock.symbol }}</th>
+                <td>
+                  {{ stock.companyName }}
+                  <span class="fw-normal text-primary fs-10 ms-1">{{ stock.exchange }}</span>
+                </td>
+                <td><span>{{ stock.price }}</span></td>
+                <td>
+                  <span [ngClass]="stock.changeClass">
+                    {{ stock.change }}
+                    <i class="ti" [ngClass]="stock.changeClass.includes('success') ? 'ti-arrow-narrow-up' : 'ti-arrow-narrow-down'"></i>
+                  </span>
+                </td>
+                <td>
+                  <span [ngClass]="stock.percentageClass">{{ stock.percentage }}</span>
+                </td>
+                <td>{{ stock.volume }}</td>
+              </tr>
+            }
+            </spk-reusable-tables>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End:: row-3 -->

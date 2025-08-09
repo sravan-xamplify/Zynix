@@ -1,0 +1,446 @@
+  <!-- Start:: row-1 -->
+  <div class="row">
+    <div class="col-xxl-9">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-start flex-wrap gap-3 p-3 mb-1">
+                            <div>
+                                <span class="avatar avatar-md bg-primary svg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"></path></svg>
+                                </span>
+                            </div>
+                            <div class="flex-fill">
+                                <span class="d-block mb-1">Total Customers</span>
+                                <h3 class="fw-semibold mb-0 lh-1">2,54,244</h3>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success-transparent"><i class="ti ti-arrow-narrow-up me-1"></i>0.16%</span>
+                            </div>
+                        </div>
+                        <div id="total-customers">
+                            <spk-apexcharts [chartOptions]="chartOptions"></spk-apexcharts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-start flex-wrap gap-3 p-3 mb-1">
+                            <div>
+                                <span class="avatar avatar-md bg-secondary svg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M40,56V184a16,16,0,0,0,16,16H216a8,8,0,0,0,8-8V80a8,8,0,0,0-8-8H56A16,16,0,0,1,40,56h0A16,16,0,0,1,56,40H192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="180" cy="132" r="12"/></svg>
+                                </span>
+                            </div>
+                            <div class="flex-fill">
+                                <span class="d-block mb-1">Total Revenue</span>
+                                <h3 class="fw-semibold mb-0 lh-1">$1.465M</h3>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-danger-transparent"><i class="ti ti-arrow-narrow-down me-1"></i>0.16%</span>
+                            </div>
+                        </div>
+                        <div id="total-revenue">
+                            <spk-apexcharts [chartOptions]="chartOptions1"></spk-apexcharts>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="col-xl-3">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-start flex-wrap gap-3 p-3 mb-1">
+                            <div>
+                                <span class="avatar avatar-md bg-success svg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="232 128 232 184 128 184 128 72 24 72 24 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                                </span>
+                            </div>
+                            <div class="flex-fill">
+                                <span class="d-block mb-1">Conversion Ratio</span>
+                                <h3 class="fw-semibold mb-0 lh-1">26.97%</h3>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success-transparent"><i class="ti ti-arrow-narrow-up me-1"></i>2.98%</span>
+                            </div>
+                        </div>
+                        <div id="conversion-ratio">
+                            <spk-apexcharts [chartOptions]="chartOptions2"></spk-apexcharts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3">
+                <div class="card custom-card overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-start flex-wrap gap-3 p-3 mb-1">
+                            <div>
+                                <span class="avatar avatar-md bg-info svg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="32" y="64" width="192" height="144" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,64V48a16,16,0,0,0-16-16H104A16,16,0,0,0,88,48V64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M224,118.31A191.09,191.09,0,0,1,128,144a191.14,191.14,0,0,1-96-25.68" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="112" y1="112" x2="144" y2="112" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                                </span>
+                            </div>
+                            <div class="flex-fill">
+                                <span class="d-block mb-1">Total Deals</span>
+                                <h3 class="fw-semibold mb-0 lh-1">12,644</h3>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success-transparent"><i class="ti ti-arrow-narrow-up me-1"></i>1.34%</span>
+                            </div>
+                        </div>
+                        <div id="total-deals">
+                            <spk-apexcharts [chartOptions]="chartOptions3"></spk-apexcharts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="card custom-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Project Analysis
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="project-analysis">
+                            <spk-apexcharts [chartOptions]="chartOptions5"></spk-apexcharts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card custom-card">
+                    <div class="card-header justify-content-between">
+                        <div class="card-title">
+                            Tasks List
+                        </div>
+                        <div>
+                            <ul ngbNav #nav="ngbNav" class="nav nav-tabs justify-content-end nav-tabs-header" role="tablist">
+                                <li [ngbNavItem]="1" class="nav-item" role="presentation">
+                                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab" aria-current="page" aria-selected="true">Today</a>
+                                    <ng-template ngbNavContent>
+                                        <div class="border-0 show" id="orders" role="tabpanel">
+                                            <ul class="list-unstyled task-list-tab">
+                                                @for (task of tasksToday; track $index) {
+                                                <li >
+                                                    <div class="todolist d-flex">
+                                                        <div class="mb-3 form-check me-2">
+                                                            <input type="checkbox" class="form-check-input" [checked]="task.checked">
+                                                        </div>
+                                                        <div class="flex-fill w-100">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <span class="d-block fw-semibold">{{ task.title }}</span>
+                                                                <div>
+                                                                    <a href="javascript:void(0);" class="text-danger" data-bs-toggle="tooltip" title="" ngbTooltip="Delete" aria-label="Delete"><i class="ti ti-trash"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <p class="text-muted mb-0 fs-13">{{ task.description }}</p>
+                                                                <span class="badge" [ngClass]="task.badgeClass">{{ task.status }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            </ul>
+                                        </div>
+                                    </ng-template>
+                                </li>
+                            
+                                <li [ngbNavItem]="2" class="nav-item" role="presentation">
+                                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab" aria-current="page" aria-selected="false" tabindex="-1">Upcoming</a>
+                                    <ng-template ngbNavContent>
+                                        <div class="border-0" id="accepted" role="tabpanel">
+                                            <ul class="list-unstyled task-list-tab">
+                                                @for (task of tasksUpcoming; track $index) {
+                                                <li >
+                                                    <div class="todolist d-flex">
+                                                        <div class="mb-3 form-check me-2">
+                                                            <input type="checkbox" class="form-check-input" [checked]="task.checked">
+                                                        </div>
+                                                        <div class="flex-fill w-100">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <span class="d-block fw-semibold">{{ task.title }}</span>
+                                                                <div>
+                                                                  <a href="javascript:void(0);" class="text-danger" data-bs-toggle="tooltip" title="" ngbTooltip="Delete" aria-label="Delete"><i class="ti ti-trash"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <p class="text-muted mb-0 fs-13">{{ task.description }}</p>
+                                                                <span class="badge" [ngClass]="task.badgeClass">{{ task.status }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            </ul>
+                                        </div>
+                                    </ng-template>
+                                </li>
+                            
+                                <li [ngbNavItem]="3" class="nav-item" role="presentation">
+                                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab" aria-current="page" aria-selected="false" tabindex="-1">Completed</a>
+                                    <ng-template ngbNavContent>
+                                        <div class="border-0" id="declined" role="tabpanel">
+                                            <ul class="list-unstyled task-list-tab">
+                                                @for (task of tasksCompleted; track $index) {
+                                                <li>
+                                                    <div class="todolist d-flex">
+                                                        <div class="mb-3 form-check me-2">
+                                                            <input type="checkbox" class="form-check-input" [checked]="task.checked">
+                                                        </div>
+                                                        <div class="flex-fill w-100">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <span class="d-block fw-semibold">{{ task.title }}</span>
+                                                                <div>
+                                                                                                                                        <a href="javascript:void(0);" class="text-danger" data-bs-toggle="tooltip" title="" ngbTooltip="Delete" aria-label="Delete"><i class="ti ti-trash"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <p class="text-muted mb-0 fs-13">{{ task.description }}</p>
+                                                                <span class="badge" [ngClass]="task.badgeClass">{{ task.status }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            </ul>
+                                        </div>
+                                    </ng-template>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="card-body todo-tab p-0">
+                        <div class="tab-content" [ngbNavOutlet]="nav">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Leads Overview
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="leads-overview">
+                    <spk-apexcharts [chartOptions]="chartOptions4"></spk-apexcharts>
+                </div>
+            </div>
+            <div class="card-footer p-0">
+                <ul class="list-group list-group-flush top-categories">
+                    @for(category of categories;track $index){
+                        <li class="list-group-item" >
+                            <div class="d-flex align-items-center justify-content-between">
+                              <div class="lh-1">
+                                <div class="fw-semibold mb-1">{{ category.title }}</div>
+                                <div>
+                                  <span class="text-muted fs-13">
+                                    {{ category.change }}
+                                    <span [class]="category.changeClass + ' fw-medium ms-1 d-inline-flex align-items-center'">
+                                      {{ category.changePercentage }}
+                                      <i [class]="category.icon + ' ms-1'"></i>
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="lh-1 text-end">
+                                <span class="d-block fw-semibold h6 mb-0">{{ category.count }}</span>
+                                <span class="d-block fs-13 text-muted">{{ category.countLabel }}</span>
+                              </div>
+                            </div>
+                          </li>
+                    }
+                  </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start:: row-2 -->
+<div class="row">
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Top Leads
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled crm-top-deals mb-0">
+                    @for (instructor of crmTopDeals; track $index) {
+                        <spk-school-card 
+                        [title]="instructor.name" 
+                        [description]="instructor.email" 
+                        [imageSrc]="instructor.image" 
+                        [rightTitle]="instructor.amount"
+                        ></spk-school-card>
+                    }
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header">
+                <div class="card-title">
+                    Leads By channels
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="leads-channels">
+                    <spk-apexcharts [chartOptions]="chartOptions6"></spk-apexcharts>
+                </div>
+            </div>
+            <div class="card-footer p-0">
+                <spk-project-card [tasks]="taskActivities">
+                </spk-project-card>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-xxl-6">
+        <div class="card custom-card ">
+            <div class="card-header justify-content-between">
+                <div class="card-title">Deals Overview</div>
+                <div class="d-flex gap-2">
+                    <div class="btn btn-sm btn-outline-primary">Today</div>
+                    <div class="btn btn-sm btn-outline-primary">Weakly</div>
+                    <div class="btn btn-sm btn-primary">Yearly</div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="DealsColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                        @for(Deals  of DealsData;track $index){
+                            <tr>
+                                <td>
+                                  <div class="d-flex align-items-center">
+                                    <span class="avatar avatar-sm">
+                                      <img [src]="Deals.avatar" alt="">
+                                    </span>
+                                    <div class="flex-1 ms-2">
+                                      <p class="mb-0 fw-semibold lh-1">{{ Deals.name }}</p>
+                                      <a href="javascript:void(0);" class="text-muted fs-12">{{ Deals.email }}</a>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <span>{{ Deals.amount }}</span>
+                                </td>
+                                <td>
+                                  <span>{{ Deals.progress }}</span>
+                                </td>
+                                <td>
+                                  <span class="badge {{Deals.statusClass}} ">{{ Deals.status }}</span>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-2 -->
+
+<!-- Start:: row-3 -->
+<div class="row">
+    <div class="col-xxl-9">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Leads Report
+                </div>
+                <spk-dropdowns [Customclass]="'dropdown'" [title]="'View All'"
+                [class]="'btn btn-outline-light border btn-full btn-sm no-caret'" [Icon]="true"
+                [IconClass]="'ti ti-chevron-down ms-1'" [Menuclass]="'dropdown-menu'">
+                <li><a class="dropdown-item" href="javascript:void(0);">This Week</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">This Month</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">This Year</a></li>
+            </spk-dropdowns>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <spk-reusable-tables [columns]="LeadColumn" tableClass="text-nowrap table-hover"  [showCheckbox]="false">
+                        @for(lead of LeadData;track $index){
+                            <tr>
+                                <td><span>{{ lead.id }}</span></td>
+                                <td>
+                                  <div class="d-flex">
+                                    <span class="avatar avatar-sm">
+                                      <img [src]="lead.avatar" alt="">
+                                    </span>
+                                    <div class="flex-1 ms-2">
+                                      <span class="d-block fw-semibold lh-1">{{ lead.name }}</span>
+                                      <a href="javascript:void(0);" class="text-muted fs-12">{{ lead.email }}</a>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td><span>{{ lead.phone }}</span></td>
+                                <td><span>{{ lead.company }}</span></td>
+                                <td><span><i class="ri-map-pin-fill text-muted me-1"></i>{{ lead.location }}</span></td>
+                                <td><span class="badge {{lead.statusClass}}">{{ lead.status }}</span></td>
+                                <td><span>{{ lead.date }}</span></td>
+                                <td><span>{{ lead.amount }}</span></td>
+                                <td>
+                                  <div class="btn-list">
+                                    <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="View" class="btn btn-sm btn-icon btn-primary-light"><i class="ti ti-eye"></i></a>
+                                        <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="Edit" class="btn btn-sm btn-icon btn-success-light"><i class="ti ti-pencil"></i></a>
+                                        <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="Delete" class="btn btn-sm btn-icon  btn-danger-light"><i class="ti ti-trash"></i></a>
+                                    </div>
+                                </td>
+                              </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+            <div class="card-footer border-top-0">
+                <div class="d-flex align-items-center">
+                    <div>Showing 5 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i></div>
+                    <div class="ms-auto">
+                        <nav aria-label="Page navigation" class="pagination-style-4">
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Prev</a></li>
+                                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                <li class="page-item"><a class="page-link text-primary" href="javascript:void(0);">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Recent Activity
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled crm-recent-activity-list">
+                    @for (activity of crmRecentActivities; track $index) {
+                    <li>
+                      <div>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div class="fw-semibold mb-0">{{ activity.title }}</div>
+                          <span class="badge bg-light text-default border">{{ activity.date }}</span>
+                        </div>
+                        <div class="text-muted fs-13 w-75">{{ activity.description }}</div>
+                      </div>
+                    </li>
+                }
+                  </ul>
+                  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-3 -->

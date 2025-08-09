@@ -1,0 +1,201 @@
+ <!-- Start::row-1 -->
+ <div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-body p-3">
+                <div class="row align-items-center">
+                    <div class="col-sm-8">
+                        <div class="d-flex">
+                            <h5 class="fw-medium mb-0"><span class="fw-normal">Showing</span> 3456 Jobs
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-sm-end mt-3 mt-sm-0">
+                        <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                        [class]="'btn btn-outline-light border dropdown-toggle'" [Icon]="true"
+                         [Menuclass]="'dropdown-menu'">
+                         <li><a class="dropdown-item" href="javascript:void(0);">Featured</a>
+                         </li>
+                         <li><a class="dropdown-item" href="javascript:void(0);">Newest</a></li>
+                         <li><a class="dropdown-item" href="javascript:void(0);">Most
+                                 Relevant</a></li>
+                         <li><a class="dropdown-item" href="javascript:void(0);">Best Rated</a>
+                    </spk-dropdowns>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
+
+<!-- Start::row-2 -->
+<div class="row">
+    <div class="col-xxl-3 col-xl-4">
+        <div class="card custom-card products-navigation-card">
+            <div class="card-body p-0">
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-2">Categories</h6>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" placeholder="Select " placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                    <div class="px-2 py-3 pb-0">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-1">
+                            <label class="form-check-label" for="c-1">
+                                Research & Developement
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-2">
+                            <label class="form-check-label" for="c-2">
+                                Accounting
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-3">
+                            <label class="form-check-label" for="c-3">
+                              Business Process
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="c-4">
+                            <label class="form-check-label" for="c-4">
+                                Administrative Support
+                            </label>
+                        </div>
+                        <a href="javascript:void(0);" class="text-decoration-underline text-primary">View All</a>
+                    </div>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-3">Qualification</h6>
+                    <spk-ng-select 
+                    [options]="Qualification"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-3">Experience</h6>
+                      <spk-ng-select 
+                    [options]="Experience"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-0">Company Size Range</h6>
+                    <div class="px-2 py-3 pb-0">
+                        <div id="nonlinear"></div>
+                        <div class="d-flex flex-wrap mt-4">
+                            <div class="fw-semibold px-3 mb-1 py-1 border rounded"><span id="lower-value">{{ lowerValue }}</span></div>
+                           <span class="fw-semibold px-2 mb-1 py-1">-</span>
+                            <div class="fw-semibold px-3 mb-1 py-1 border rounded"><span id="upper-value">{{ upperValue }}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border-bottom">
+                    <h6 class="fw-semibold mb-3">Job Type</h6>
+                    <spk-ng-select 
+                    [options]="Employement"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="p-4">
+                    <h6 class="fw-semibold mb-3">Skills</h6>
+                    <spk-ng-select 
+                    [options]="Skills"
+                    [id]="'choices-single-default'"
+                    [selectClass]="'seach-category'"
+                    [clearable]="true"
+                    [searchable]="true"
+                    [hideSelected]="true"
+                    [placeholder]="'All Categories'"
+                    [additionalProperties]="{}">
+                    </spk-ng-select>
+                </div>
+                <div class="px-4 py-3 border-top text-center">
+                    <button class="btn btn-primary-light me-2 mb-1">Clear All</button>
+                    <button class="btn btn-primary mb-1">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-9 col-xl-8">
+        <div class="row">
+            @for (company of jobAlerts; track $index) {
+                <div class="col-xl-6">
+                  <spk-jobsearch-card
+                    [jobTitle]="company.title"
+                    [companyName]="company.company"
+                    [salary]="company.salary"
+                    [wishlistIcon]="company.wishlistIcon"
+                    [avatarClass]="company.avatarColor"
+                    [iconClass]="company.avatarIcon"
+                    [iconColorClass]="company.avatarColor"
+                    [tags]="[
+                      { icon: 'bi bi-geo-alt', text: 'Hyderabad' },
+                      { icon: 'bi bi-briefcase', text: '13 Openings' },
+                      { icon: 'bi bi-mortarboard', text: 'Graduate' },
+                      { icon: 'bi bi-clock', text: 'Min - 2Years' },
+                      { icon: 'bi bi-moon-stars', text: 'flexible-shift' }
+                    ]">
+                  </spk-jobsearch-card>
+                </div>
+            }
+              
+            <div class="col-xl-12">
+                <div class="card custom-card shadow-none bg-primary-transparent border border-primary border-opacity-10">
+                    <div class="card-body p-4">
+                        <div class="">
+                            <h5 class="fw-medium mb-3 text-primary"><i class="ri-notification-3-line me-2 p-2 bg-primary text-fixed-white fs-15 lh-1 align-middle rounded-circle"></i>Get Latest Job Alerts</h5>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Email Here"
+                                    aria-label="blog-email" aria-describedby="blog-subscribe">
+                                <button class="btn btn-primary" type="button"
+                                    id="blog-subscribe">Subscribe</button>
+                            </div>
+                            <label class="form-check-label">
+                                By Subscribing you accept to <a href="javascript:void(0);"
+                                    class="text-success"><u>privacy policy</u></a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="pagination mb-4 justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0);">
+                    Prev
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+            <li class="page-item">
+                <a class="page-link text-primary" href="javascript:void(0);">
+                    next
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End::row-2 -->

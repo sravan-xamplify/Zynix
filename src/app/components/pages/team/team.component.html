@@ -1,0 +1,101 @@
+<!-- Start:: row-1 -->
+<div class="row justify-content-center">
+    <div class="col-xl-9">
+       <div class="row mb-4">
+        @for (member of teamMembers; track $index) {
+            <div class="col-xxl-3 col-xl-6 col-md-6 col-sm-6 col-12 mb-lg-0 mb-4">
+                <spk-team-card
+                [name]="member.name"
+                [role]="member.role"
+                [avatarClass]="member.avatarClass"
+                [image]="member.image"
+                [skills]="member.skills"
+                [socialLinks]="member.socialLinks"
+              ></spk-team-card>
+</div>
+                }
+       </div>
+    </div>
+</div>
+<!-- End:: row-1 -->
+         <!-- Start:: add-members modals -->
+
+            <!-- Start:: team ui modal -->
+            <div class="modal fade" id="create-teamui-mem" tabindex="-1" aria-labelledby="create-teamuiLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="create-teamuiLabel">Add Member</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <label for="team-name3" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="team-name3" placeholder="Enter Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-sm btn-primary">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- End:: team ui modal -->
+
+            <!-- Start:: team react modal -->
+            <div class="modal fade" id="create-teamreact-mem" tabindex="-1" aria-labelledby="create-teamreactLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="create-teamreactLabel">Add Member</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <label for="team-name1" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="team-name1" placeholder="Enter Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-sm btn-primary">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- End:: team react modal -->
+
+            <!-- Start:: team testing modal -->
+            <div class="modal fade" id="create-teamtesting-mem" tabindex="-1" aria-labelledby="create-teamtestingLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="create-teamtestingLabel">Add Member</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <label for="team-name2" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="team-name2" placeholder="Enter Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-sm btn-primary">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- End:: team testing modal -->
+
+        <!-- End:: add-members modals -->

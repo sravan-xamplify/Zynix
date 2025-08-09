@@ -1,0 +1,564 @@
+ <div class="main-chart-wrapper gap-lg-2 gap-0 mb-2 d-lg-flex">
+                    <div class="chat-info border">
+                        <div class="p-3 border-bottom">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span class="fs-14 fw-medium">Online</span>
+                                <a href="javascript:void(0);" class="text-primary text-decoration-underline">View All<i
+                                        class="ri-arrow-right-line"></i></a>
+                            </div>
+                            <div class="d-flex gap-2 mt-2 flex-wrap">
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/10.jpg" alt="img">
+                                </span>
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/1.jpg" alt="img">
+                                </span>
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/2.jpg" alt="img">
+                                </span>
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/4.jpg" alt="img">
+                                </span>
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/5.jpg" alt="img">
+                                </span>
+                                <span
+                                    class="avatar avatar-md avatar-rounded p-1 bg-light border border-primary border-opacity-25">
+                                    <img src="./assets/images/faces/7.jpg" alt="img"   >
+                                </span>
+                                <span class="avatar avatar-md avatar-rounded bg-light text-default border">
+                                    +5
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chat-search p-3 border-bottom">
+                            <div class="input-group"> <input type="text" class="form-control bg-light border-0"
+                                    placeholder="Search Chat" aria-describedby="button-addon8"> <button
+                                    aria-label="button" class="btn btn-light" type="button" id="button-addon8"><i
+                                        class="ri-search-line text-muted"></i></button> </div>
+                        </div>
+                        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav nav-tabs tab-style-8 scaleX nav-justified mb-0 border-bottom d-flex"
+                        id="myTab1" role="tablist">
+                        <li [ngbNavItem]="1" class="nav-item me-0" role="presentation">
+                            <button ngbNavLink class="nav-link" id="users-tab" data-bs-toggle="tab"
+                                data-bs-target="#users-tab-pane" type="button" role="tab"
+                                aria-controls="users-tab-pane" aria-selected="true">FRIENDS</button>
+                                <ng-template ngbNavContent>
+                                  <overlay-scrollbars>
+                                  <div class="show border-0 chat-users-tab" id="users-tab-pane"
+                                  role="tabpanel" aria-labelledby="users-tab" tabindex="0">
+                                  <ul class="list-unstyled mb-0 mt-2 chat-users-tab" id="chat-msg-scroll">
+                                      <li class="pb-0">
+                                          <p class="text-muted fs-11 fw-medium mb-2 op-7">ACTIVE CHATS</p>
+                                      </li>
+                                      @for(data of RecentData;track $index){
+                                      <li class="checkforactive "  [ngClass]="{ active: activeItemId === data.name }">
+                                          <a href="javascript:void(0);" (click)="handleClick(data)">
+                                              <div class="d-flex align-items-top">
+                                                  <div class="me-1 lh-1">
+                                                      <span class="avatar avatar-md {{data.status}} me-2 avatar-rounded">
+                                                          <img  src="{{ data.src }}" alt="img">
+                                                      </span>
+                                                  </div>
+                                                  <div class="flex-fill">
+                                                      <p class="mb-0 fw-medium">
+                                                        {{ data.name}}<span
+                                                              class="float-end text-muted fw-normal fs-11">{{data.time}}</span>
+                                                      </p>
+                                                      <p class="fs-12 mb-0 {{data.time}}">
+                                                          <span class="chat-msg text-truncate">{{data.message}}</span>
+                                                          <span class="chat-read-icon float-end align-middle"><i
+                                                                  class="ri-check-{{data.sent}}"></i></span>
+                                                                  <span class="badge bg-danger rounded-pill float-end">{{data.badge}}</span>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </li>
+                                    }
+                                      <li class="pb-0">
+                                          <p class="text-muted fs-11 fw-medium mb-2 op-7">ALL CHATS</p>
+                                      </li>
+                                      @for(data of RecentData1;track $index){
+                                      <li class="{{data.unread}}checkforactive" [ngClass]="{ active: activeItemId === data.name}">
+                                          <a href="javascript:void(0);"  (click)="handleClick(data)">
+                                              <div class="d-flex align-items-top">
+                                                  <div class="me-1 lh-1">
+                                                      <span class="avatar avatar-md {{data.status}} me-2 avatar-rounded" >
+                                                          <img  src="{{ data.src }}" alt="img">
+                                                      </span>
+                                                  </div>
+                                                  <div class="flex-fill">
+                                                      <p class="mb-0 fw-medium">
+                                                        {{data.name}}<span
+                                                              class="float-end text-muted fw-normal fs-11">{{data.time}}</span>
+                                                      </p>
+                                                      <p class="fs-12 mb-0">
+                                                          <span class="chat-msg text-truncate">{{data.message}}</span>
+                                                          <span class="chat-read-icon float-end align-middle"><i
+                                                                  class="ri-check-{{data.sent}}"></i></span>
+                                                                 
+                                                      </p>
+                                                      
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </li>
+                                    }
+                                  </ul>
+                                </div>
+                              </overlay-scrollbars>
+                                </ng-template>
+                        </li>
+                        <li [ngbNavItem]="2" class="nav-item me-0" role="presentation">
+                            <button ngbNavLink class="nav-link" id="groups-tab" data-bs-toggle="tab"
+                                data-bs-target="#groups-tab-pane" type="button" role="tab"
+                                aria-controls="groups-tab-pane" aria-selected="false">GROUPS</button>
+                                <ng-template ngbNavContent>
+                                  <overlay-scrollbars>
+                                  <div class="border-0 chat-groups-tab" id="groups-tab-pane"
+                                  role="tabpanel" aria-labelledby="groups-tab" tabindex="0">
+                                  <ul class="list-unstyled mb-0 mt-2 ">
+                                      <li class="pb-0">
+                                          <p class="text-muted fs-11 fw-medium mb-1 op-7">MY CHAT GROUPS</p>
+                                      </li>
+                                      @for(data1 of GroupData;track $index){
+                                      <li>
+                                          <div class="d-flex align-items-center justify-content-between">
+                                              <div>
+                                                  <p class="mb-0">{{ data1.name }}</p>
+                                                  <p class="mb-0"><span class="badge bg-{{ data1.bg }}">{{data1.status}}</span></p>
+                                              </div>
+                                              <div class="avatar-list-stacked my-auto">
+                                                  <span class="avatar avatar-sm avatar-rounded">
+                                                      <img src="{{ data1.src }}" alt="img">
+                                                  </span>
+                                                  <span class="avatar avatar-sm avatar-rounded">
+                                                      <img src="{{ data1.src1 }}" alt="img">
+                                                  </span>
+                                                  <span class="avatar avatar-sm avatar-rounded">
+                                                      <img src="{{ data1.src2 }}" alt="img">
+                                                  </span>
+                                                  <span class="avatar avatar-sm avatar-rounded">
+                                                      <img src="{{ data1.src3 }}" alt="img">
+                                                  </span>
+                                                  <a class="avatar avatar-sm bg-primary text-fixed-white avatar-rounded"
+                                                      href="javascript:void(0);">
+                                                      {{ data1.Qty }}
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </li>
+                                    }
+                                      
+                                  </ul>
+                                  <ul class="list-unstyled mb-0 mt-2 ">
+                                      <li class="pb-0">
+                                          <p class="text-muted fs-11 fw-medium mb-1 op-7">GROUP CHATS</p>
+                                      </li>
+                                      @for(data2 of GroupChatData;track $index){
+                                      <li class="checkforactive">
+                                          <a href="javascript:void(0);" (click)="handleClick(data2)">
+                                              <div class="d-flex align-items-top">
+                                                  <div class="me-1 lh-1">
+                                                      <span class="avatar avatar-md {{data2.status}} me-2 avatar-rounded">
+                                                          <img src="{{ data2.src }}" alt="img">
+                                                      </span>
+                                                  </div>
+                                                  <div class="flex-fill">
+                                                      <p class="mb-0 fw-medium" >
+                                                        {{ data2.name }}<span
+                                                              class="float-end text-muted fw-normal fs-11">{{ data2.time }}</span>
+                                                      </p>
+                                                      <p class="fs-12 mb-0 {{data2.msgBg}} ">
+                                                          <span class="chat-msg text-truncate"><span
+                                                            class="group-indivudial">{{data2.message1}}</span>{{data2.message}}</span>
+                                                          <span class="chat-read-icon float-end align-middle"><i
+                                                                  class="ri-check-{{data2.sent}}"></i></span>
+                                                          <span
+                                                              class="badge bg-{{ data2.bg }} rounded-circle float-end">{{ data2.badge }}</span>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </li>
+                                    }
+                                  </ul>
+                              </div>
+                            </overlay-scrollbars>
+                                </ng-template>
+                        </li>
+                        <li [ngbNavItem]="3" class="nav-item" role="presentation">
+                            <button ngbNavLink class="nav-link" id="contacts-tab" data-bs-toggle="tab"
+                                data-bs-target="#contacts-tab-pane" type="button" role="tab"
+                                aria-controls="contacts-tab-pane" aria-selected="false">CONTACTS</button>
+                                 <ng-template ngbNavContent>
+                                    <overlay-scrollbars>
+                                     <div class="border-0 chat-contacts-tab" id="contacts-tab-pane" role="tabpanel"
+                                     aria-labelledby="contacts-tab" tabindex="0">
+                                    
+                    <ul class="list-unstyled mb-0 chat-contacts-tab">
+                        <!-- Loop through contacts -->
+                         @for (contact of contacts; track $index;let i = $index) {
+                             <!-- Render the initial if it's the first of its group -->
+                           @if (i === 0 || contacts[i - 1].initial !== contact.initial) {
+                            <li>
+                          <span class="text-default fw-semibold">
+                            {{ contact.initial }}
+                          </span>
+                          </li>
+                        }
+                        <li>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="lh-1">
+
+                              <span
+                                *ngIf="contact.image; else initialsAvatar"
+                                class="avatar avatar-rounded avatar-sm"
+                              >
+                                <img [src]="contact.image" [alt]="contact.name" />
+                              </span>
+                              <!-- Show initials avatar if no image -->
+                              <ng-template #initialsAvatar>
+                                <span class="avatar avatar-rounded avatar-sm" [ngClass]="contact.bgClass">
+                                  {{ contact.initialsAvatar }}
+                                </span>
+                              </ng-template>
+                            </div>
+                            <div class="flex-fill">
+                              <span class="d-block fw-semibold">
+                                {{ contact.name }}
+                              </span>
+                            </div>
+                            <spk-dropdowns [Customclass]="'dropdown custom-dropdown-end'" [class]="'btn btn-icon btn-sm btn-outline-light no-caret'" [Icon]="true"
+                               [IconClass]="'ri-more-2-fill'" [Menuclass]="'dropdown-menu'">
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-message-2-line me-2"></i>Chat</a></li>
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-phone-line me-2"></i>Audio Call</a></li>
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-live-line me-2"></i>Video Call</a></li>
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-edit-line me-2"></i>Edit</a></li>
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-spam-2-line me-2"></i>Block</a></li>
+                               <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-line me-2"></i>Delete</a></li>
+                            </spk-dropdowns>
+                          </div>
+                        </li>
+                    }
+                      </ul>
+                    </div>
+                </overlay-scrollbars>
+                  </ng-template>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent" [ngbNavOutlet]="nav">
+                    </div>
+                    </div>
+                    <div class="main-chat-area border">
+                        <div class="d-flex align-items-center main-chat-head flex-wrap">
+                            <div class="me-2 lh-1">
+                                <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
+                                    <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                                </span>
+                            </div>
+                            <div class="flex-fill">
+                                <p class="mb-0 fw-medium fs-14 lh-1">
+                                    <a (click)="openEnd(content)" href="javascript:void(0);" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="chatnameperson responsive-userinfo-open">{{activeUser.name}}</a>
+                                </p>
+                                <p class="text-muted mb-0 chatpersonstatus">{{activeUser.status}}</p>
+                            </div>
+                            <div class="d-flex flex-wrap rightIcons">
+                                <button aria-label="button" type="button" class="btn btn-icon btn-primary-light my-1 ms-2 btn-sm">
+                                    <i class="ti ti-phone"></i>
+                                </button>
+                                <button aria-label="button" type="button" class="btn btn-icon btn-secondary-light my-1 ms-2 btn-sm me-2">
+                                    <i class="ti ti-video"></i>
+                                </button>
+                                <button aria-label="button" type="button" class="btn btn-icon btn-outline-light my-1 ms-2 responsive-userinfo-open btn-sm">
+                                    <i class="ti ti-user-circle" id="responsive-chat-close"></i>
+                                </button>
+                                <spk-dropdowns [Customclass]="'dropdown'"
+        [class]="'btn btn-icon btn-success-light my-1 btn-wave waves-light btn-sm no-caret'" [Icon]="true"
+        [IconClass]="'ti ti-dots-vertical'" [Menuclass]="'dropdown-menu'">
+        <li><a class="dropdown-item" href="javascript:void(0);">
+            <i class="ri-user-3-line me-1"></i>Profile</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-format-clear me-1"></i>Clear Chat</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-user-unfollow-line me-1"></i>Delete User</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-user-forbid-line me-1"></i>Block User</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-error-warning-line me-1"></i>Report</a></li>
+    </spk-dropdowns>
+                                <button  (click)="removedetails()" aria-label="button" type="button" class="btn btn-icon btn-outline-light my-1 ms-2 responsive-chat-close btn-sm">
+                                    <i class="ri-close-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <overlay-scrollbars>
+                                <div class="chat-content p-0" id="main-chat-content">
+                                    <div class="chat-content1 border p-3 bg-light rounded">
+                                        <ul class="list-unstyled">
+                                            <li class="chat-day-label">
+                                                <span>Today</span>
+                                            </li>
+                                            <li class="chat-item-start">
+                                                <div class="chat-list-inner">
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
+                                                            <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                                                        </span>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="chatnameperson">{{activeUser.name}}</span> <span class="msg-sent-time">11:48PM</span>
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">Hey there! 😊 How's it going?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-end">
+                                                <div class="chat-list-inner">
+                                                    <div class="me-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="msg-sent-time"><span class="chat-read-mark align-middle d-inline-flex"><i
+                                                                        class="ri-check-double-line"></i></span>11:50PM</span> You
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">Hey! I'm good, thanks. Just finished some work. How about you?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md online avatar-rounded">
+                                                            <img src="./assets/images/faces/15.jpg" alt="img">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-start">
+                                                <div class="chat-list-inner">
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
+                                                            <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                                                        </span>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="chatnameperson">{{activeUser.name}}</span> <span class="msg-sent-time">11:51PM</span>
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">Not too bad, just chilling. Have any exciting plans for the weekend?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-end">
+                                                <div class="chat-list-inner">
+                                                    <div class="me-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="msg-sent-time"><span class="chat-read-mark align-middle d-inline-flex"><i
+                                                                        class="ri-check-double-line"></i></span>11:52PM</span> You
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">Not really, just relaxing. Maybe catch up on some movies. You?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md online avatar-rounded">
+                                                            <img src="./assets/images/faces/15.jpg" alt="img">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-start">
+                                                <div class="chat-list-inner">
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md {{activeUser.status}} avatar-rounded chatstatusperson">
+                                                            <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                                                        </span>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="chatnameperson">{{activeUser.name}}</span> <span class="msg-sent-time">11:55PM</span>
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">Same here. Thinking of trying out that new cafe downtown. Heard they have amazing coffee.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-end">
+                                                <div class="chat-list-inner">
+                                                    <div class="me-3">
+                                                        <span class="chatting-user-info">
+                                                            <span class="msg-sent-time"><span class="chat-read-mark align-middle d-inline-flex"><i
+                                                                        class="ri-check-double-line"></i></span>11:52PM</span> You
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div class="">
+                                                                <p class="mb-0">Oh, nice! Let me know how it is. I might check it out too.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md online avatar-rounded">
+                                                            <img src="./assets/images/faces/15.jpg" alt="img">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="chat-item-start">
+                                                <div class="chat-list-inner">
+                                                    <div class="chat-user-profile">
+                                                        <span class="avatar avatar-md {{activeUser.status}} avatar-rounded">
+                                                            <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                                                        </span>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <span class="chatting-user-info chatnameperson">
+                                                            {{activeUser.name}} <span class="msg-sent-time">11:45PM</span>
+                                                        </span>
+                                                        <div class="main-chat-msg">
+                                                            <div>
+                                                                <p class="mb-0">No spoilers, promise! Enjoy the binge-watching session. 😄</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </overlay-scrollbars>
+                        </div>
+                        <div class="chat-footer">
+                            <a aria-label="anchor" class="btn btn-icon me-2 btn-success emoji-picker"
+                                href="javascript:void(0)">
+                                <i class="ri-emotion-line"></i>
+                            </a>
+                            <input class="form-control chat-message-space" placeholder="Type your message here..."
+                                type="text">
+                            <a aria-label="anchor" class="btn btn-primary ms-2 btn-icon btn-send"
+                                href="javascript:void(0)">
+                                <i class="ri-send-plane-2-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+       <!-- Start::chat user details offcanvas -->
+ <ng-template #content let-offcanvas>
+    <div class="offcanvas-body">
+        <button (click)="offcanvas.close('Close click')" type="button" class="btn-close btn btn-sm btn-icon border" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        <div class="chat-user-details" id="chat-user-details">
+            <div class="text-center mb-5">
+                <span class="avatar avatar-rounded {{activeUser.status}} avatar-xxl me-2 mb-3 chatstatusperson">
+                    <img class="chatimageperson" [src]="activeUser.src" alt="img">
+                </span>
+                <p class="mb-1 fs-15 fw-medium text-dark lh-1 chatnameperson">{{activeUser.name}}</p>
+                <p class="fs-12 text-muted"><span class="chatnameperson">{{activeUser.name}}</span>&#64;gmail.com</p>
+                <p class="text-center mb-0">
+                    <button type="button" aria-label="button" class="btn btn-icon rounded-pill btn-primary-light btn-wave"><i
+                            class="ri-phone-line"></i></button>
+                    <button type="button" aria-label="button" class="btn btn-icon rounded-pill btn-secondary-light ms-2 btn-wave"><i
+                            class="ri-video-add-line"></i></button>
+                    <button type="button" aria-label="button" class="btn btn-icon rounded-pill btn-success-light ms-2 btn-wave"><i
+                            class="ri-chat-1-line"></i></button>
+                </p>
+            </div>
+          <div class="mb-4"> <div class="fw-medium mb-4">Shared Files <span class="badge bg-secondary rounded-pill ms-1">04</span> 
+            <span class="float-end fs-11">
+                <a href="javascript:void(0);" class="fs-13 text-muted"> View All<i class="ti ti-arrow-narrow-right ms-1"></i> </a>
+            </span> 
+        </div> <ul class="shared-files list-group list-unstyled"> 
+            <li class="list-group-item"> 
+                <div class="d-flex align-items-center"> 
+                    <div class="me-2 bg-primary-transparent rounded"> 
+                        <span class="shared-file-icon"> <i class="ti ti-file-text text-primary"></i>
+                         </span> 
+                        </div> 
+                        <div class="flex-fill"> 
+                            <p class="fs-14 fw-medium mb-0">Project Details.pdf</p>
+                            <p class="mb-0 text-muted fs-11">24,Oct 2024 - 14:24PM</p>
+                        </div> 
+                        <div class="fs-18"> 
+                            <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-muted"></i>
+                            </a> 
+                        </div> 
+                    </div> 
+                </li> 
+                <li class="list-group-item"> 
+                    <div class="d-flex align-items-center"> 
+                        <div class="me-2 bg-secondary-transparent rounded"> 
+                            <span class="shared-file-icon"> <i class="ri-image-line text-secondary"></i> 
+                            </span> 
+                        </div> 
+                        <div class="flex-fill"> 
+                                <p class="fs-14 fw-medium mb-0">Img_02.Jpg</p>
+                                <p class="mb-0 text-muted fs-11">22,Oct 2024 - 10:19AM</p>
+                            </div> 
+                            <div class="fs-18"> 
+                                <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-muted"></i>
+                                </a> 
+                            </div> 
+                        </div> 
+                    </li> 
+                    <li class="list-group-item"> 
+                        <div class="d-flex align-items-center"> 
+                            <div class="me-2 bg-success-transparent rounded"> 
+                                <span class="shared-file-icon"> <i class="ri-image-line text-success"></i> </span> 
+                            </div> 
+                            <div class="flex-fill"> 
+                                <p class="fs-14 fw-medium mb-0">Img_15.Jpg</p>
+                                <p class="mb-0 text-muted fs-11">22,Oct 2024 - 10:18AM</p>
+                            </div> 
+                            <div class="fs-18"> <a aria-label="anchor" href="javascript:void(0)"><i class="ri-download-2-line text-muted"></i></a> 
+                            </div> 
+                        </div> 
+                    </li> 
+                    <li class="list-group-item"> 
+                        <div class="d-flex align-items-center"> 
+                            <div class="me-2 bg-info-transparent rounded"> 
+                                <span class="shared-file-icon"> <i class="ri-video-line text-info"></i> </span> </div>
+                                 <div class="flex-fill"> <p class="fs-14 fw-medium mb-0">Video_15_02_2022.MP4</p>
+                                    <p class="mb-0 text-muted fs-11">22,Oct 2024 - 10:18AM</p></div> <div class="fs-18"> 
+                                        <a href="javascript:void(0)"><i class="ri-download-2-line text-muted"></i>
+                                        </a>
+                                     </div> 
+                                    </div> 
+                                </li>
+                             </ul> 
+                            </div>
+            <div class="mb-0">
+                <div class="fw-medium mb-4">Photos & Media
+                    <span class="badge bg-primary-transparent rounded-circle ms-1">22</span>
+                    <span class="float-end fs-11"><a href="javascript:void(0);" class="fs-12 text-muted"> View All<i class="ti ti-arrow-narrow-right ms-1"></i> </a></span>
+                </div>
+                <div class="row gy-3" gallerize>
+                  @for(img of imageData;track $index){
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                      <a aria-label="anchor"  class="glightbox card mb-0" data-gallery="gallery1">
+                          <img  [src]="img.srcUrl"  alt="">
+                      </a>
+                  </div>
+              }
+              </div>
+            </div>
+        </div>
+    </div>
+  </ng-template>
+  <!-- End::chat user details offcanvas -->

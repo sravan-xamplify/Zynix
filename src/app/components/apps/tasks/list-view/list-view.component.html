@@ -1,0 +1,197 @@
+ <!-- Start::row-2 -->
+ <div class="row">
+    <div class="col-xl-12">
+        <!-- task-cards.component.html -->
+<div class="row row-cols-xxl-5 row-col-xl-3 row-cols-md-2 row-cols-1 gy-3">
+    @for (card of taskCards; track $index) {
+    <div class="col">
+      <spk-listview-card
+      [badgeClass]="card.badgeClass"
+      [chartId]="card.chartId"
+      [chartOptions]="card.chartOptions"
+      [title]="card.title"
+      [count]="card.count"
+      [countClass]="card.countClass"
+      [total]="card.total"
+      [percentage]="card.percentage"
+      [changeDirection]="card.changeDirection"
+      [icon]="sanitizeIcon(card.icon)"
+    ></spk-listview-card>
+    </div>
+}
+  </div>
+  
+    </div>
+    <div class="col-xxl-12 col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">
+                    Total Tasks
+                </div>
+                <div class="d-flex">
+                    <button (click)="creatModel(content)" class="btn btn-sm btn-primary btn-wave waves-light" data-bs-toggle="modal" data-bs-target="#create-task"><i class="ri-add-line fw-medium align-middle me-1"></i> Create Task</button>
+                   <!-- Start::add task modal -->
+                   <ng-template #content let-modal>
+                    <div class="modal-header">
+                        <h6 class="modal-title">Add Task</h6>
+                        <a type="button" [class]="'btn-close'" 
+                        (click)="modal.dismiss('Cross click')" ></a>
+                    </div>
+                    <div class="modal-body px-4">
+                        <div class="row gy-2">
+                            <div class="col-xl-6">
+                                <label for="task-name" class="form-label">Task Name</label>
+                                <input type="text" class="form-control" id="task-name" placeholder="Task Name">
+                            </div>
+                            <div class="col-xl-6">
+                                <label for="task-id" class="form-label">Task ID</label>
+                                <input type="text" class="form-control" id="task-id" placeholder="Task ID">
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label">Assigned Date</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
+                                                <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                                                [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="true"
+                                                                [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label">Due Date</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
+                                        <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                        [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="true"
+                                        [dateFormat]="'Y-m-d H:i'"></spk-flatpickr>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label">Status</label>
+                                <spk-ng-select 
+                                            [options]="Status"
+                                            [id]="'choices-single-default'"
+                                            [selectClass]="''"
+                                            [clearable]="true"
+                                            [searchable]="true"
+                                            [hideSelected]="true"
+                                            [placeholder]="'Select'"
+                                            [additionalProperties]="{}">
+                                            </spk-ng-select>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label">Priority</label>
+                                <spk-ng-select 
+                                            [options]="Priority"
+                                            [id]="'choices-single-default'"
+                                            [selectClass]="''"
+                                            [clearable]="true"
+                                            [searchable]="true"
+                                            [hideSelected]="true"
+                                            [placeholder]="'Select'"
+                                            [additionalProperties]="{}">
+                                            </spk-ng-select>
+                            </div>
+                            <div class="col-xl-12">
+                                <label class="form-label">Assigned To</label>
+                                <spk-ng-select 
+                                [options]="tags"
+                                [id]="'choices-multiple-remove-button1'"
+                                [selectClass]="''"
+                                [multiple]="true"
+                                [defaultValue]="selectedChoices"
+                                [clearable]="true"
+                                [searchable]="true"
+                                [hideSelected]="true"
+                                [additionalProperties]="{}">
+                                </spk-ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a (click)="modal.dismiss('Cross click')" type="button" class="btn btn-light"
+                            >Cancel</a>
+                        <button type="button" class="btn btn-primary">Add Task</button>
+                    </div>
+        </ng-template>
+        <!-- End::add task modal -->
+        <spk-dropdowns [Customclass]="'dropdown ms-2'"
+                        [class]="'btn btn-icon btn-secondary-light btn-sm btn-wave waves-light no-caret'" [Icon]="true"
+                        [IconClass]="'ti ti-dots-vertical'" [Menuclass]="'dropdown-menu'">
+                        <li><a class="dropdown-item" href="javascript:void(0);">New Tasks</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Pending Tasks</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Completed Tasks</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Inprogress Tasks</a></li>
+                    </spk-dropdowns>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                  <spk-reusable-tables  tableClass=" text-nowrap" [columns]="listColumns"
+                  [showCheckbox]="true" >
+                            @for (task of tasks; track $index;let  i = $index) {
+                        <tr>
+                            <td>
+                              <input class="form-check-input" [(ngModel)]="task.checked"  type="checkbox">
+                            </td>
+                            <td>{{ task.taskName }}</td>
+                            <td>{{ task.taskID }}</td>
+                            <td>
+                              <span class="badge" [ngClass]="task.priority === 'High' ? 'bg-danger' : task.priority === 'Medium' ? 'bg-primary' : 'bg-success'">{{ task.priority }}</span>
+                            </td>
+                            <td>{{ task.startDate }}</td>
+                            <td>{{ task.endDate }}</td>
+                            <td>
+                              <span [ngClass]="task.statusClass"><i class="ri-circle-fill fs-8 me-1"></i>{{ task.status }}</span>
+                            </td>
+                            <td>
+                              <div class="avatar-list-stacked">
+                                @for (avatar of task.avatars; track $index) {
+                                <ng-container >
+                                    @if (avatar.img) {
+                                  <span  class="avatar avatar-sm avatar-rounded">
+                                    <img [src]="avatar.img" alt="img">
+                                  </span>
+                                }
+                                @if (avatar.additional) {
+                                  <a  class="avatar avatar-sm bg-primary avatar-rounded text-fixed-white">
+                                    {{ avatar.additional }}
+                                  </a>
+                                }
+                                </ng-container>
+                            }
+                              </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary-light btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" ngbTooltip="Edit"><i class="ri-edit-line"></i></button>
+                                <button (click)="deleteTask(i)" class="btn btn-danger-light btn-icon ms-1 btn-sm task-delete-btn" data-bs-toggle="tooltip" data-bs-placement="top" ngbTooltip="Delete"><i class="ri-delete-bin-5-line"></i></button>
+                            </td>
+                          </tr>
+                        }
+                        </spk-reusable-tables>
+                </div>
+            </div>
+            <div class="card-footer border-top-0">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0 float-end">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="javascript:void(0);">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0);">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-2 -->

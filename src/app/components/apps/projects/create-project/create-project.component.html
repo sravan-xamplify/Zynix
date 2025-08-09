@@ -1,0 +1,138 @@
+ <!-- Start::row-1 -->
+ <div class="row">
+    <div class="col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Create Project
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row gy-3">
+                    <div class="col-xl-4">
+                        <label for="input-label" class="form-label">Project Name :</label>
+                        <input type="text" class="form-control" id="input-label" placeholder="Enter Project Name">
+                    </div>
+                    <div class="col-xl-4">
+                        <label for="input-label11" class="form-label">Project Manager :</label>
+                        <input type="text" class="form-control" id="input-label11" placeholder="Project Manager Name">
+                    </div>
+                    <div class="col-xl-4">
+                        <label for="input-label1" class="form-label">Client / Stakeholder :</label>
+                        <input type="text" class="form-control" id="input-label1" placeholder="Enter Client Name">
+                    </div>
+                    <div class="col-xl-12">
+                        <label class="form-label">Project Description :</label>
+                        <form [formGroup]="form">
+                            <div class="NgxEditor__Wrapper">
+                              <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+                              <ngx-editor [editor]="editor" formControlName="editorContent"> </ngx-editor>
+                            </div>
+                          </form>
+                                           </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">Start Date :</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
+                                <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="false"
+                                [dateFormat]="'Y-m-d'"></spk-flatpickr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">End Date :</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
+                                <spk-flatpickr [placeholder]="'Choose date and time'" class="form-control"
+                                [mode]="'single'" [altInput]="false" [convertModelValue]="true" [enableTime]="false"
+                                [dateFormat]="'Y-m-d'"></spk-flatpickr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">Status :</label>
+                        <spk-ng-select 
+                        [options]="simpleItems"
+                        [selectClass]="''"
+                        [defaultValue]="selectedSimpleItem"
+                        [multiple]="true"
+                        [clearable]="true"
+                        [searchable]="true"
+                        [placeholder]="'Select'"
+                        [hideSelected]="true"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                      
+                    </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">Priority :</label>
+                        <spk-ng-select 
+                        [options]="simpleItems1"
+                        [selectClass]="''"
+                        [defaultValue]="selectedSimpleItem1"
+                        [multiple]="true"
+                        [clearable]="true"
+                        [searchable]="true"
+                        [placeholder]="'Select'"
+                        [hideSelected]="true"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                        
+                    </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">Assigned To</label>
+                        <spk-ng-select 
+                        [options]="tags"
+                        [id]="'assigned-team-members'"
+                        [selectClass]="''"
+                        [clearable]="true"
+                        [defaultValue]="selectedTags"
+                        [multiple]="true"
+                        [searchable]="true"
+                        [hideSelected]="true"
+                        [placeholder]="'Medium'"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                    
+                    </div>
+                    <div class="col-xl-6">
+                        <label class="form-label">Tags</label>
+                        <spk-ng-select 
+                        [options]="selectedTags1"
+                        [id]="'assigned-team-members'"
+                        [selectClass]="''"
+                        [clearable]="true"
+                        [defaultValue]="selected"
+                        [multiple]="true"
+                        [searchable]="true"
+                        [hideSelected]="true"
+                        [placeholder]="'Medium'"
+                        [additionalProperties]="{}">
+                        </spk-ng-select>
+                    </div>
+                    <div class="col-xl-12">
+                        <label class="form-label">Attachments</label>
+                        @if(type === 'component'){
+                            <dropzone
+                              class="multiple-filepond"
+                              [config]="config"
+                              [disabled]="disabled"
+                              [message]="'Click or drag images here to upload'"
+                              (init)="onUploadInit($event)"
+                              (error)="onUploadError($event)"
+                              (success)="onUploadSuccess($event)"
+                            ></dropzone>
+                            }
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary-light btn-wave ms-auto float-end">Create Project</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->
