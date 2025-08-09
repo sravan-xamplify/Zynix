@@ -5,7 +5,7 @@
       <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
         <div class="my-4 d-flex justify-content-center">
           <a  [routerLink]="['/sales']"> 
-            <img src="./assets/images/brand-logos/desktop-dark.png" alt="logo" class="desktop-dark"> 
+            <img src="assets/images/brand-logos/desktop-dark.png" alt="logo" class="desktop-dark"> 
         </a> 
         </div>
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
@@ -13,7 +13,7 @@
             <a ngbNavLink>
               <img
                 class="firebase"
-                src="./assets/images/firebase.svg"
+                src="assets/images/firebase.svg"
                 alt=""
               />
             </a>
@@ -107,7 +107,7 @@
           </li>
           <li ngbNavItem="Angular">
             <a ngbNavLink >
-              <img class="firebase" src="./assets/images/angular.svg" alt="" />
+              <img class="firebase" src="assets/images/angular.svg" alt="" />
             </a>
             <ng-template ngbNavContent class="mt-2">
               <form [formGroup]="loginForm" (ngSubmit)="Submit()">
