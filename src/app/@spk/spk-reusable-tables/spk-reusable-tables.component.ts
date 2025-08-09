@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'spk-reusable-tables',
+    standalone: true,
     imports: [FormsModule, ReactiveFormsModule, CommonModule],
     templateUrl: './spk-reusable-tables.component.html',
     styleUrl: './spk-reusable-tables.component.scss'

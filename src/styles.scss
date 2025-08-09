@@ -1,49 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 // @import url('../public/assets/scss/bootstrap.scss');
 
+// Sass packages must be loaded before any other CSS rules
+@use "ngx-owl-carousel-o/lib/styles/scss/owl.carousel" as *;
+@use "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default" as *;
+@use "swiper/scss" as *;
+@use "swiper/scss/navigation" as *;
+@use "swiper/scss/pagination" as *;
+
 @import url("../public/assets/css/styles.css");
 // -- Icons Css --
 @import url("../public/assets/css/icons.css");
 
 
 //flatepicker
-@import "flatpickr/dist/flatpickr.css";
+@import url("flatpickr/dist/flatpickr.css");
 
-@import "@ng-select/ng-select/themes/default.theme.css";
+@import url("@ng-select/ng-select/themes/default.theme.css");
 
 //ng2-nouislider
-@import "nouislider/dist/nouislider.css";
+@import url("nouislider/dist/nouislider.css");
 
-@import "@angular/cdk/overlay-prebuilt.css";
+@import url("@angular/cdk/overlay-prebuilt.css");
 
 // angular-calendar styles moved to angular.json styles array
 
-@import "ngx-toastr/toastr";
+/* moved ngx-toastr CSS to angular.json styles to avoid Sass @import deprecation */
 
 /* ngx-easy-table style moved to angular.json styles array */
 
-@import 'overlayscrollbars/overlayscrollbars.css';
-
-@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
-
-@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+@import url('overlayscrollbars/overlayscrollbars.css');
 
 // font awesome
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 // angular material
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+/* Angular Material theme moved to angular.json styles */
 
 /* duplicate import removed: 'overlayscrollbars/overlayscrollbars.css' already imported above */
  
-@import 'dropzone/dist/min/dropzone.min.css';
+@import url('dropzone/dist/min/dropzone.min.css');
 
-@import 'shepherd.js/dist/css/shepherd.css';
+@import url('shepherd.js/dist/css/shepherd.css');
  
-@import "swiper/scss";
-@import "swiper/scss/navigation";
-@import "swiper/scss/pagination"; 
+/* intl-tel-input phone input styles */
+@import url('intl-tel-input/build/css/intlTelInput.css');
 
 
 .swiper-view-details {

@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { SpkTeamCardComponent } from '../../../../@spk/reusable-apps/spk-team-card/spk-team-card.component';
 import { SpkTagsComponent } from '../../../../@spk/reusable-apps/spk-tags/spk-tags.component';
 import { SpkDropdownsComponent } from '../../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 @Component({
     selector: 'app-task-details',
-    imports: [NgbDropdownModule, CommonModule, SpkTeamCardComponent, SpkTagsComponent, SpkDropdownsComponent, NgbTooltipModule],
+  imports: [NgbDropdownModule, CommonModule, SpkTagsComponent, SpkDropdownsComponent, NgbTooltipModule],
     templateUrl: './task-details.component.html',
     styleUrl: './task-details.component.scss'
 })

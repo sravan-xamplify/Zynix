@@ -1,24 +1,21 @@
 import { Component} from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../../shared/shared.module';
+import { CommonModule } from '@angular/common';
 import { ChannelsChartData, ConversionChartData, CustomersChartData, DealsChartData, LeadsOverviewData, ProjectAnalysisChartData, RevenueChartData } from '../../../shared/data/dashboard_chartData/crmcharts.data';
 import { SpkApexchartsComponent } from '../../../@spk/spk-apexcharts/apexcharts.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CommonModule } from '@angular/common';
 import { SpkProjectCardComponent } from '../../../@spk/reusable-dashboard/spk-project-card/spk-project-card.component';
-import { SpkSalesCardsComponent } from '../../../@spk/reusable-dashboard/spk-sales-cards/spk-sales-cards.component';
 import { SpkSchoolCardComponent } from '../../../@spk/reusable-dashboard/spk-school-card/spk-school-card.component';
 import { SpkReusableTablesComponent } from '../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
-import { SpkTooltipComponent } from '../../../@spk/reusable-ui-elements/spk-tooltip/spk-tooltip.component';
 import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 @Component({
-    selector: 'app-crm',
-    imports: [RouterModule, SharedModule, SpkApexchartsComponent, SpkTooltipComponent, SpkDropdownsComponent,
-        NgbModule, SpkReusableTablesComponent, SpkProjectCardComponent, CommonModule, SpkSalesCardsComponent, SpkSchoolCardComponent],
-    templateUrl: './crm.component.html',
-    styleUrl: './crm.component.scss'
+  selector: 'app-crm',
+  standalone: true,
+  imports: [CommonModule, SharedModule, NgbModule, NgbNavModule, NgbTooltipModule, SpkApexchartsComponent, SpkProjectCardComponent, SpkSchoolCardComponent, SpkReusableTablesComponent, SpkDropdownsComponent],
+  templateUrl: './crm.component.html',
+  styleUrl: './crm.component.scss'
 })
 export class CrmComponent {
   public chartOptions = CustomersChartData;

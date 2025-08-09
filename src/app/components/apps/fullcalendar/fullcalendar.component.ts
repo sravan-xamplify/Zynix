@@ -1,5 +1,5 @@
-import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
-import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarModule, CalendarView, DateAdapter, } from 'angular-calendar';
+import { Component, ElementRef, TemplateRef, ViewChild, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// angular-calendar removed
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../shared/shared.module';
@@ -8,8 +8,8 @@ import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
 import moment from 'moment';
+import { FullCalendarElement } from '@fullcalendar/web-component';
 import { EventInput, CalendarOptions } from '@fullcalendar/core';
-import { FullCalendarModule } from '@fullcalendar/angular';
 
 const colors = {
   red: {
@@ -25,11 +25,15 @@ const colors = {
     secondary: '#f3a403',
   },
 };
+customElements.define('full-calendar', FullCalendarElement);
+
 @Component({
-    selector: 'app-fullcalendar',
-    imports: [SharedModule, FormsModule, ReactiveFormsModule, NgbModule, CalendarModule, SpkFlatpickrComponent, FullCalendarModule],
-    templateUrl: './fullcalendar.component.html',
-    styleUrl: './fullcalendar.component.scss'
+  selector: 'app-fullcalendar',
+  standalone: true,
+    imports: [SharedModule, FormsModule, ReactiveFormsModule, NgbModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  templateUrl: './fullcalendar.component.html',
+  styleUrl: './fullcalendar.component.scss'
 })
 export class FullcalendarComponent {
   @ViewChild('external', { static: false }) external!: ElementRef;

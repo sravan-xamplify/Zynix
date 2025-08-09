@@ -6,12 +6,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import * as noUiSlider from 'nouislider';
 import { SpkProductCardComponent } from '../../../../@spk/reusable-apps/spk-product-card/spk-product-card.component';
 import { SpkNgSelectComponent } from '../../../../@spk/spk-ng-select/spk-ng-select.component';
-import { SpkDropdownsComponent } from '../../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 
 @Component({
     selector: 'app-products',
-    imports: [NgbDropdownModule, RouterModule, CommonModule, NgSelectModule, SpkProductCardComponent, SpkNgSelectComponent, SpkDropdownsComponent],
+  imports: [NgbDropdownModule, RouterModule, CommonModule, NgSelectModule, SpkProductCardComponent, SpkNgSelectComponent],
     templateUrl: './products.component.html',
     styleUrl: './products.component.scss'
 })

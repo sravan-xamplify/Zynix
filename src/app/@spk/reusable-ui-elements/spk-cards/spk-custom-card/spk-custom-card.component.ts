@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SpkDropdownsComponent } from '../../spk-dropdowns/spk-dropdowns.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'spk-custom-card',
-    imports: [CommonModule, SpkDropdownsComponent, NgbDropdownModule],
+  imports: [CommonModule, NgbDropdownModule],
     templateUrl: './spk-custom-card.component.html',
     styleUrl: './spk-custom-card.component.scss'
 })

@@ -3,10 +3,11 @@ import { SpkBadgesComponent } from '../spk-badges/spk-badges.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector: 'spk-dropdowns',
-    imports: [SpkBadgesComponent, NgbModule],
-    templateUrl: './spk-dropdowns.component.html',
-    styleUrl: './spk-dropdowns.component.scss'
+  selector: 'spk-dropdowns',
+  standalone: true,
+  imports: [SpkBadgesComponent, NgbModule],
+  templateUrl: './spk-dropdowns.component.html',
+  styleUrl: './spk-dropdowns.component.scss'
 })
 export class SpkDropdownsComponent {
   @Input() bsPrefix?: string;

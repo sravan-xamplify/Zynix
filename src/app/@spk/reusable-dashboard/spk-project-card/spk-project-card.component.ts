@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'spk-project-card',
-    imports: [CommonModule],
-    templateUrl: './spk-project-card.component.html',
-    styleUrl: './spk-project-card.component.scss'
+  selector: 'spk-project-card',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './spk-project-card.component.html',
+  styleUrl: './spk-project-card.component.scss'
 })
 export class SpkProjectCardComponent {
   @Input() tasks: Array<{

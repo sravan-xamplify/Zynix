@@ -1,10 +1,9 @@
 import { Component, ElementRef, Input, SimpleChanges } from '@angular/core';
 import L, { Map, tileLayer,marker, MarkerOptions } from 'leaflet';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { CommonModule } from '@angular/common';
 @Component({
     selector: 'spk-leaflet-map',
-    imports: [LeafletModule, CommonModule],
+  imports: [CommonModule],
     templateUrl: './spk-leaflet-map.component.html',
     styleUrl: './spk-leaflet-map.component.scss'
 })

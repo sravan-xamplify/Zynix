@@ -15,15 +15,14 @@
                         <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
                             <div class="form-width">
                               <mat-form-field appearance="outline">
-                                <ngx-mat-intl-tel-input id="phone"
+                                <ngx-intl-tel-input
+                                  id="phone"
+                                  name="phone"
                                   formControlName="phone"
                                   [preferredCountries]="['de', 'us']"
                                   [enablePlaceholder]="true"
-                                  [enableSearch]="true"
-                                  name="phone"
-                                  #phone
-                                >
-                                </ngx-mat-intl-tel-input>
+                                  [separateDialCode]="true"
+                                ></ngx-intl-tel-input>
                               </mat-form-field>
                             </div>
                           </form>
@@ -32,17 +31,14 @@
                         <label for="phone-validation" class="form-label d-block">Telephone Input with valdation</label>
                         <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
                             <mat-form-field appearance="outline">
-                              <ngx-mat-intl-tel-input
-                                formControlName="phone"
+                              <ngx-intl-tel-input
                                 id="phone-validation"
-                                [preferredCountries]="['de', 'us']"
-                                class=""
-                                [enablePlaceholder]="true"
-                                [enableSearch]="true"
                                 name="phone"
-                                #phone
-                              >
-                              </ngx-mat-intl-tel-input>
+                                formControlName="phone"
+                                [preferredCountries]="['de', 'us']"
+                                [enablePlaceholder]="true"
+                                [separateDialCode]="true"
+                              ></ngx-intl-tel-input>
                             </mat-form-field>
                             <div class="m-t-10">
                               <button
@@ -68,15 +64,13 @@
                         <form [formGroup]="myForm">
                             <div class="form-width">
                               <mat-form-field appearance="outline">
-                                <ngx-mat-intl-tel-input
+                                <ngx-intl-tel-input
                                   id="phone-existing-number"
+                                  name="phone"
                                   formControlName="phone"
                                   [enablePlaceholder]="true"
-                                  [enableSearch]="true"
-                                  name="phone"
-                                  #phone
-                                >
-                                </ngx-mat-intl-tel-input>
+                                  [separateDialCode]="true"
+                                ></ngx-intl-tel-input>
                               </mat-form-field>
                             </div>
                           </form>

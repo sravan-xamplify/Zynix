@@ -2,17 +2,16 @@ import { Component } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { Validators } from 'ngx-editor';
 import { AngularDualListBoxModule, DualListComponent } from 'angular-dual-listbox';
-import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { SpkNgSelectComponent } from '../../../@spk/spk-ng-select/spk-ng-select.component';
 
 @Component({
     selector: 'app-form-advanced',
-    imports: [SharedModule, NgSelectModule, NgSelectModule, NgxMatIntlTelInputComponent, MatFormFieldModule, SpkNgSelectComponent,
+	imports: [SharedModule, NgSelectModule, NgxIntlTelInputModule, MatFormFieldModule, SpkNgSelectComponent,
         MatButtonModule, MatInputModule, FormsModule, ReactiveFormsModule, AngularDualListBoxModule],
     templateUrl: './form-advanced.component.html',
     styleUrl: './form-advanced.component.scss'

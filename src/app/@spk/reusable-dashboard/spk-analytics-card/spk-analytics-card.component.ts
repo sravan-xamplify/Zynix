@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { SpkApexchartsComponent } from '../../spk-apexcharts/apexcharts.component';
 
 @Component({
     selector: 'spk-analytics-card',
-    imports: [NgApexchartsModule, CommonModule, SpkApexchartsComponent],
+  imports: [NgApexchartsModule, CommonModule],
     templateUrl: './spk-analytics-card.component.html',
     styleUrl: './spk-analytics-card.component.scss'
 })

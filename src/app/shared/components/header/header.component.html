@@ -99,7 +99,7 @@
                                 <i class="bi bi-search"></i>
                             </a>
                             <!-- End::header-link -->
-                             @if(menuItems?.length && menuItems.length > 0){
+                             @if(menuItems.length > 0){
                                 <div class="search_drop list-group" (click)="clearSearch()">
                                 @for(menuItem of menuItems | slice:0:5;track $index){
                       

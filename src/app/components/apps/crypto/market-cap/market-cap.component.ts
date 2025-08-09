@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SharedModule } from '../../../../shared/shared.module';
-import { SpkApexchartsComponent } from '../../../../@spk/spk-apexcharts/apexcharts.component';
 import { BitcoinData, BitSendData, DashData, EthereumData } from '../../../../shared/data/charts/marketcap_chart';
 import { SpkCryptoMarketcapCardComponent } from '../../../../@spk/reusable-apps/spk-crypto-marketcap-card/spk-crypto-marketcap-card.component';
 import { SpkReusableTablesComponent } from '../../../../@spk/spk-reusable-tables/spk-reusable-tables.component';
@@ -11,7 +10,7 @@ import { SpkDropdownsComponent } from '../../../../@spk/reusable-ui-elements/spk
 
 @Component({
     selector: 'app-market-cap',
-    imports: [SharedModule, NgSelectModule, FormsModule, NgbModule, SpkApexchartsComponent, SpkCryptoMarketcapCardComponent, SpkReusableTablesComponent, SpkDropdownsComponent],
+  imports: [SharedModule, NgSelectModule, FormsModule, NgbModule, SpkCryptoMarketcapCardComponent, SpkReusableTablesComponent, SpkDropdownsComponent],
     templateUrl: './market-cap.component.html',
     styleUrl: './market-cap.component.scss'
 })

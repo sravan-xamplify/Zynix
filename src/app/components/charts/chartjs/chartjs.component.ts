@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import * as chartData from './chartjs';
 import { SharedModule } from '../../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BaseChartDirective  } from 'ng2-charts';
 import { SpkChartjsComponent } from '../../../@spk/spk-chartjs/spk-chartjs.component';
 
 @Component({
     selector: 'app-chartjs',
-    imports: [SharedModule, FormsModule, ReactiveFormsModule, BaseChartDirective, SpkChartjsComponent],
+  imports: [SharedModule, FormsModule, ReactiveFormsModule, SpkChartjsComponent],
     templateUrl: './chartjs.component.html',
     styleUrl: './chartjs.component.scss'
 })

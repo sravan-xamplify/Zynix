@@ -4,10 +4,11 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpkDropdownsComponent } from '../../reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 
 @Component({
-    selector: 'spk-school-card',
-    imports: [NgbDropdownModule, SpkDropdownsComponent],
-    templateUrl: './spk-school-card.component.html',
-    styleUrl: './spk-school-card.component.scss'
+  selector: 'spk-school-card',
+  standalone: true,
+  imports: [NgbDropdownModule, SpkDropdownsComponent],
+  templateUrl: './spk-school-card.component.html',
+  styleUrl: './spk-school-card.component.scss'
 })
 export class SpkSchoolCardComponent {
   @Input() svgBg : string = ''

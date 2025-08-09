@@ -260,7 +260,7 @@ export class HeaderComponent {
 
 
   // Search
-  public menuItems!: Menu[];
+  public menuItems: Menu[] = [];
   public items!: Menu[];
   public text!: string;
   public SearchResultEmpty: boolean = false;

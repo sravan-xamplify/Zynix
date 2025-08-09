@@ -4,10 +4,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowcodeCardComponent } from '../../../shared/components/showcode-card/showcode-card.component';
 import { SpkButtongroupComponent } from '../../../@spk/reusable-ui-elements/spk-buttongroup/spk-buttongroup.component';
 import * as PrismCode from '../../../shared/data/prismData/buttongroup';
-import { SpkDropdownsComponent } from '../../../@spk/reusable-ui-elements/spk-dropdowns/spk-dropdowns.component';
 @Component({
     selector: 'app-buttongroup',
-    imports: [SharedModule, NgbModule, ShowcodeCardComponent, SpkButtongroupComponent, SpkDropdownsComponent],
+  imports: [SharedModule, NgbModule, ShowcodeCardComponent, SpkButtongroupComponent],
     templateUrl: './buttongroup.component.html',
     styleUrls: ['./buttongroup.component.scss']
 })
