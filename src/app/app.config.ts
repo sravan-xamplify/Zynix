@@ -1,6 +1,6 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { provideRouter, RouterOutlet } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
@@ -19,23 +19,21 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    RouterOutlet,
     provideHttpClient(withInterceptors([errorInterceptor])),
     provideCharts(withDefaultRegisterables()),
-    MaterialModuleModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireDatabaseModule,
-    AngularFireModule,
     importProvidersFrom(
       BrowserAnimationsModule,
       FlatpickrModule.forRoot(),
+      MaterialModuleModule,
       AngularFireModule.initializeApp(environment.firebase),
+      AngularFireAuthModule,
+      AngularFirestoreModule,
+      AngularFireDatabaseModule,
       ToastrModule.forRoot({
         timeOut: 15000, // 15 seconds
-        closeButton: true,  
+        closeButton: true,
         progressBar: true,
-      }),
+      })
     ),
    
   ]

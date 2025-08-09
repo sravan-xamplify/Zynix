@@ -1,148 +1,99 @@
-import { Injectable,NgZone } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
+import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
-import { AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
-export interface User {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  authState: any;
-  afAuth: any;
-  afs: any;
-  public showLoader:boolean=false;
+  private authState: any;
+  public showLoader = false;
+  private readonly TOKEN_KEY = 'authToken';
 
-  constructor(private afu: AngularFireAuth, private router: Router,public ngZone: NgZone) {
-    this.afu.authState.subscribe((auth: any) => {
-      this.authState = auth;
-    });
-
+  constructor(private afAuth: AngularFireAuth, private router: Router, private ngZone: NgZone) {
+    this.afAuth.authState.subscribe((auth) => (this.authState = auth));
   }
 
-  // all firebase getdata functions
-
+  // Session state helpers
   get isUserAnonymousLoggedIn(): boolean {
-    return this.authState !== null ? this.authState.isAnonymous : false;
+    return this.authState ? !!this.authState.isAnonymous : false;
   }
-
   get currentUserId(): string {
-    return this.authState !== null ? this.authState.uid : '';
+    return this.authState ? this.authState.uid : '';
   }
-
   get currentUserName(): string {
-    return this.authState['email'];
+    return this.authState?.email ?? '';
   }
-
   get currentUser(): any {
-    return this.authState !== null ? this.authState : null;
+    return this.authState ?? null;
   }
-
-  get isUserEmailLoggedIn(): boolean {
-    if (this.authState !== null && !this.isUserAnonymousLoggedIn) {
-      return true;
-    } else {
+  get hasToken(): boolean {
+    try {
+      return !!localStorage.getItem(this.TOKEN_KEY);
+    } catch {
       return false;
     }
   }
+  get isUserEmailLoggedIn(): boolean {
+    if (this.authState && !this.isUserAnonymousLoggedIn) return true;
+    return this.hasToken;
+  }
+  setLocalSession(token?: string): void {
+    try {
+      localStorage.setItem(this.TOKEN_KEY, token || 'local');
+    } catch {}
+  }
 
+  // Firebase email/password APIs
   registerWithEmail(email: string, password: string) {
-    return this.afu
+    return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((user: any) => {
-        this.authState = user;
-      })
-      .catch((_error: any) => {
-        console.log(_error);
-        throw _error;
+      .then((cred) => {
+        this.authState = cred?.user ?? null;
       });
   }
 
   loginWithEmail(email: string, password: string) {
-    return this.afu
+    return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((user: any) => {
-        this.authState = user;
-      })
-      .catch((_error: any) => {
-        console.log(_error);
-        throw _error;
+      .then(async (cred) => {
+        this.authState = cred?.user ?? null;
+        try {
+          const token = await cred?.user?.getIdToken?.();
+          localStorage.setItem(this.TOKEN_KEY, token || 'firebase');
+        } catch {
+          localStorage.setItem(this.TOKEN_KEY, 'firebase');
+        }
       });
   }
 
+  SignIn(email: string, password: string) {
+    return this.loginWithEmail(email, password);
+  }
+
+  SignUp(email: string, password: string) {
+    return this.registerWithEmail(email, password).then(() => this.SendVerificationMail());
+  }
+
+  SendVerificationMail() {
+    return this.afAuth.currentUser
+      .then((u) => u?.sendEmailVerification?.())
+      .then(() => this.router.navigate(['/sales']));
+  }
+
+  ForgotPassword(passwordResetEmail: string) {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+  }
+
+  signOut(): void {
+    this.afAuth.signOut().finally(() => {
+      try {
+        localStorage.removeItem(this.TOKEN_KEY);
+      } catch {}
+      this.router.navigate(['/auth/login']);
+    });
+  }
+
+  // Backward compatible alias
   singout(): void {
-    this.afu.signOut();
-    this.router.navigate(['/login']);
+    this.signOut();
   }
-  
-
-    // Sign up with email/password
-    SignUp(email:any, password:any) {
-      return this.afAuth.createUserWithEmailAndPassword(email, password)
-        .then((result:any) => {
-          /* Call the SendVerificaitonMail() function when new user sign
-          up and returns promise */
-          this.SendVerificationMail();
-          this.SetUserData(result.user);
-        }).catch((error:any) => {
-          window.alert(error.message)
-        })
-    }
-
-    // main verification function
-    SendVerificationMail() {
-      return this.afAuth.currentUser.then((u:any) => u.sendEmailVerification()).then(() => {
-          this.router.navigate(['/sales']);
-        })
-    }
-      // Set user
-  SetUserData(user:any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
-      email: user.email,
-      displayName: user.displayName,
-      uid: user.uid,
-      photoURL: user.photoURL || 'src/favicon.ico',
-      emailVerified: user.emailVerified
-    };
-    userRef.delete().then(function () {})
-          .catch(function (error:any) {});
-    return userRef.set(userData, {
-      merge: true
-    });
-  }
- // sign in function
- SignIn(email:any, password:any) {
-  return this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((result:any) => {
-      if (result.user.emailVerified !== true) {
-        this.SetUserData(result.user);
-        this.SendVerificationMail();
-        this.showLoader = true;
-      } else {
-        this.showLoader = false;
-        this.ngZone.run(() => {
-          this.router.navigate(['/auth/login']);
-        });
-      }
-    }).catch((error:any) => {
-      throw error;
-    })
-}
-ForgotPassword(passwordResetEmail:any) {
-  return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
-    .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
-    }).catch((error:any) => {
-      window.alert(error);
-    });
-}
 }

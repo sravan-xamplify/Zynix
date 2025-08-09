@@ -1,11 +1,8 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { FirebaseService } from '../../shared/services/firebase.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../shared/services/auth.service';
@@ -13,8 +10,8 @@ import { AppStateService } from '../../shared/services/app-state.service';
 
 @Component({
     selector: 'app-login',
-    imports: [RouterModule, FormsModule, ReactiveFormsModule, NgbModule, AngularFireModule, AngularFireAuthModule, AngularFireDatabaseModule,
-        AngularFirestoreModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbModule, NgbNavModule],
     providers: [FirebaseService],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
@@ -133,6 +130,8 @@ Submit() {
     this.loginForm.controls['username'].value === 'spruko@admin.com' &&
     this.loginForm.controls['password'].value === 'sprukoadmin'
   ) {
+  // mark a local session so auth guard passes for demo login
+  this.authservice.setLocalSession('demo');
     this.router.navigate(['/sales']);
     this.toastr.success('login successful','Zynix', {
       timeOut: 3000,
