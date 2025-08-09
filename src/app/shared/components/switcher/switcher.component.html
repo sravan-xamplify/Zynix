@@ -86,6 +86,7 @@
                       name="theme-style"
                       id="switcher-neu-light"
                       (click)="updateTheme('neumorphism-light')"
+                      [checked]="localdata['theme'] == 'neumorphism-light'"
                     />
                   </div>
                 </div>
@@ -100,6 +101,7 @@
                       name="theme-style"
                       id="switcher-neu-dark"
                       (click)="updateTheme('neumorphism-dark')"
+                      [checked]="localdata['theme'] == 'neumorphism-dark'"
                     />
                   </div>
                 </div>
