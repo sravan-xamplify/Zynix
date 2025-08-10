@@ -1,5 +1,5 @@
-:root[data-theme=glassmorphism-light]{--glass-bg:linear-gradient(135deg,#e9eef5 0%,#f6f9ff 100%);--glass-surface:rgba(255,255,255,.18);--glass-border:rgba(255,255,255,.22);--glass-text:#1f2937;--glass-shadow:0 10px 30px rgba(31,41,55,.08);--glass-backdrop:blur(0px) saturate(150%)}
-:root[data-theme=glassmorphism-dark]{--glass-bg:linear-gradient(135deg,#0f172a 0%,#111827 100%);--glass-surface:rgba(17,24,39,.24);--glass-border:rgba(255,255,255,.16);--glass-text:#e5e7eb;--glass-shadow:0 10px 30px rgba(0,0,0,.25);--glass-backdrop:blur(0px) saturate(150%)}
+:root[data-theme=glassmorphism-light]{--glass-bg:linear-gradient(135deg,#e9eef5 0%,#f6f9ff 100%);--glass-surface:rgba(255,255,255,.18);--glass-border:rgba(255,255,255,.22);--glass-text:#1f2937;--glass-shadow:0 10px 30px rgba(31,41,55,.08);--glass-backdrop:blur(0px) saturate(150%);--glass-modal-surface:rgba(255,255,255,.9);--glass-form-surface:rgba(255,255,255,.65)}
+:root[data-theme=glassmorphism-dark]{--glass-bg:linear-gradient(135deg,#0f172a 0%,#111827 100%);--glass-surface:rgba(17,24,39,.24);--glass-border:rgba(255,255,255,.16);--glass-text:#e5e7eb;--glass-shadow:0 10px 30px rgba(0,0,0,.25);--glass-backdrop:blur(0px) saturate(150%);--glass-modal-surface:rgba(17,24,39,.88);--glass-form-surface:rgba(17,24,39,.6)}
 html[data-theme=glassmorphism-light]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img4.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
 /* Show the wallpaper without dark overlay in dark mode for maximum clarity */
 html[data-theme=glassmorphism-dark]{background-image:url("../images/menu-bg-images/bg-img5.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
@@ -18,6 +18,9 @@ html[data-theme=glassmorphism-dark][data-bg-img=bgimg2]{background-image:url("..
 html[data-theme=glassmorphism-dark][data-bg-img=bgimg3]{background-image:url("../images/menu-bg-images/bg-img3.jpg")}
 html[data-theme=glassmorphism-dark][data-bg-img=bgimg4]{background-image:url("../images/menu-bg-images/bg-img4.jpg")}
 html[data-theme=glassmorphism-dark][data-bg-img=bgimg5]{background-image:url("../images/menu-bg-images/bg-img5.jpg")}
+/* New image option */
+html[data-theme=glassmorphism-light][data-bg-img=bgimg6]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg6]{background-image:url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg")}
 .glass-surface{background:var(--glass-surface);color:var(--glass-text);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)}
 /* Ensure no blur is applied to the global page background */
 html[data-theme^=glassmorphism],
@@ -82,6 +85,49 @@ html[data-theme^=glassmorphism] .ng-dropdown-panel{background:var(--glass-surfac
 html[data-theme^=glassmorphism] .flatpickr-calendar{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
 html[data-theme^=glassmorphism] .flatpickr-day.selected,html[data-theme^=glassmorphism] .flatpickr-day.startRange,html[data-theme^=glassmorphism] .flatpickr-day.endRange{box-shadow:none!important}
 html[data-theme^=glassmorphism] .toast-container .ngx-toastr{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
+
+/* Modal readability improvements */
+html[data-theme^=glassmorphism] .modal-backdrop,
+html[data-theme^=glassmorphism] .modal-backdrop.show{background-color:rgba(0,0,0,.92)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:3000!important;position:fixed!important;inset:0!important;mix-blend-mode:normal}
+html[data-theme^=glassmorphism] .modal,
+html[data-theme^=glassmorphism] .modal-content, 
+html[data-theme^=glassmorphism] .modal-header,
+html[data-theme^=glassmorphism] .modal-footer{background:var(--glass-modal-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;backdrop-filter:blur(4px) saturate(120%);-webkit-backdrop-filter:blur(4px) saturate(120%);box-shadow:0 16px 48px rgba(0,0,0,.35)!important;z-index:3005!important}
+html[data-theme^=glassmorphism] .modal-content .form-control,
+html[data-theme^=glassmorphism] .modal-content .form-select,
+html[data-theme^=glassmorphism] .modal-content .input-group-text{background:var(--glass-form-surface)!important}
+html[data-theme^=glassmorphism] .modal-title,
+html[data-theme^=glassmorphism] .modal-content label,
+html[data-theme^=glassmorphism] .modal-content .form-label{color:var(--glass-text)!important}
+html[data-theme^=glassmorphism] .modal-content ::placeholder{color:color-mix(in srgb, var(--glass-text) 70%, transparent)}
+/* Additionally dim/blur page content while modal is open */
+html[data-theme^=glassmorphism] body.modal-open .page,
+html[data-theme^=glassmorphism] body.modal-open .app-content,
+html[data-theme^=glassmorphism] body.modal-open .app-sidebar{filter:blur(6px) brightness(.4)}
+
+/* Make modal surfaces fully opaque so no background text bleeds through */
+html[data-theme=glassmorphism-light] .modal-content,
+html[data-theme=glassmorphism-light] .modal-header,
+html[data-theme=glassmorphism-light] .modal-footer{background:rgba(255,255,255,0.98)!important}
+html[data-theme=glassmorphism-dark] .modal-content,
+html[data-theme=glassmorphism-dark] .modal-header,
+html[data-theme=glassmorphism-dark] .modal-footer{background:rgba(8,12,24,0.98)!important}
+
+/* Ensure backdrop sits above any side panels and covers viewport */
+html[data-theme^=glassmorphism] .modal-backdrop,
+html[data-theme^=glassmorphism] .modal-backdrop.show{position:fixed!important;inset:0!important;opacity:1!important;z-index:2000!important}
+html[data-theme^=glassmorphism] body.modal-open .offcanvas,
+html[data-theme^=glassmorphism] body.modal-open .switcher, 
+html[data-theme^=glassmorphism] body.modal-open #switcher-canvas,
+html[data-theme^=glassmorphism] body.modal-open .app-header{z-index:1000!important}
+html[data-theme^=glassmorphism] body.modal-open{overflow:hidden!important}
+
+/* Extra safety: full-viewport overlay while modal is open (covers any gaps) */
+html[data-theme^=glassmorphism] body.modal-open::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:2990}
+
+/* Angular Material overlays (if used) */
+html[data-theme^=glassmorphism] .cdk-overlay-backdrop{background:rgba(0,0,0,.92)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;opacity:1!important}
+html[data-theme^=glassmorphism] .cdk-overlay-container{z-index:3000!important}
 
 /* Unify wallpaper: remove sidebar-specific image layers and overlays */
 html[data-theme^=glassmorphism] .app-sidebar{background:transparent!important;background-image:none!important}

@@ -113,6 +113,13 @@ export class AppStateService {
       html?.setAttribute('data-theme-mode', baseMode);
       html?.setAttribute('data-header-styles', baseMode);
       html?.setAttribute('data-menu-styles', baseMode);
+      // Default background image for glassmorphism-dark if none chosen yet
+      if (theme === 'glassmorphism-dark') {
+        const current = html?.getAttribute('data-bg-img');
+        if (!current) {
+          this.applybackgroundImageSpecificChanges('bgimg6');
+        }
+      }
     } else {
       html?.removeAttribute('data-theme');
       html?.setAttribute('data-theme-mode', theme);  //setting theme style
@@ -262,6 +269,10 @@ export class AppStateService {
     // Conditional logic based on theme changes
     if (state['theme']) {
       this.applythemeSpecificChanges(state['theme']);
+      // Ensure default bg for glassmorphism-dark is persisted if missing
+      if (state['theme'] === 'glassmorphism-dark' && !state['backgroundImage']) {
+        state['backgroundImage'] = 'bgimg6';
+      }
     }
     if (state['direction']) {
       this.applyDirectionSpecificChanges(state['direction']);
@@ -301,7 +312,7 @@ export class AppStateService {
     if (state['menuColor']) {
       this.applymenuColorSpecificChanges(state['menuColor']);
     }
-    if (state['backgroundImage']) {
+  if (state['backgroundImage']) {
       this.applybackgroundImageSpecificChanges(state['backgroundImage']);
     }
 

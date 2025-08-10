@@ -23247,6 +23247,16 @@ button {
   background-color: none;
 }
 
+.menu-image .bgimage-input.bg-img6 {
+  background-image: url(https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.menu-image .bgimage-input.bg-img6.form-check-input:checked[type=radio] {
+  background-color: none;
+}
+
 .theme-colors.switcher-style {
   padding: 0.938rem 1.563rem;
 }
