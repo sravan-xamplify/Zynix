@@ -88,7 +88,8 @@ html[data-theme^=glassmorphism] .toast-container .ngx-toastr{background:var(--gl
 
 /* Modal readability improvements */
 html[data-theme^=glassmorphism] .modal-backdrop,
-html[data-theme^=glassmorphism] .modal-backdrop.show{background-color:rgba(0,0,0,.92)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:3000!important;position:fixed!important;inset:0!important;mix-blend-mode:normal}
+html[data-theme^=glassmorphism] .modal-backdrop.show{background-color:rgba(0,0,0,.92)!important;backdrop-filter:blur(20px) saturate(120%);-
+webkit-backdrop-filter:blur(20px) saturate(120%);z-index:3000!important;position:fixed!important;inset:0!important;mix-blend-mode:normal}
 html[data-theme^=glassmorphism] .modal,
 html[data-theme^=glassmorphism] .modal-content, 
 html[data-theme^=glassmorphism] .modal-header,
@@ -104,6 +105,9 @@ html[data-theme^=glassmorphism] .modal-content ::placeholder{color:color-mix(in 
 html[data-theme^=glassmorphism] body.modal-open .page,
 html[data-theme^=glassmorphism] body.modal-open .app-content,
 html[data-theme^=glassmorphism] body.modal-open .app-sidebar{filter:blur(6px) brightness(.4)}
+/* Strong, global blur to the entire app while modal is open */
+html[data-theme^=glassmorphism] body.modal-open app-root{filter:blur(12px) brightness(.45) saturate(110%)!important}
+html[data-theme^=glassmorphism] body.cdk-global-scrollblock app-root{filter:blur(12px) brightness(.45) saturate(110%)!important}
 
 /* Make modal surfaces fully opaque so no background text bleeds through */
 html[data-theme=glassmorphism-light] .modal-content,
@@ -128,6 +132,8 @@ html[data-theme^=glassmorphism] body.modal-open::before{content:"";position:fixe
 /* Angular Material overlays (if used) */
 html[data-theme^=glassmorphism] .cdk-overlay-backdrop{background:rgba(0,0,0,.92)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;opacity:1!important}
 html[data-theme^=glassmorphism] .cdk-overlay-container{z-index:3000!important}
+
+/* Offcanvas: baseline styles only */
 
 /* Unify wallpaper: remove sidebar-specific image layers and overlays */
 html[data-theme^=glassmorphism] .app-sidebar{background:transparent!important;background-image:none!important}
