@@ -116,8 +116,7 @@ export class HeaderComponent {
 	}
 
   updateTheme(theme: string) {
-    // Set theme first; menu/header colors will be set per-mode below
-    this.appStateService.updateState({ theme });
+    this.appStateService.updateState({ theme , menuColor:theme });
     if(theme=='light'){
       this.appStateService.updateState({ theme,themeBackground : '',headerColor:'light',menuColor:'light' });
       let html = document.querySelector('html');

@@ -125,16 +125,7 @@ export class SwitcherComponent {
     this.appStateService.updateState({ themePrimary });
   }
   updateBackground(themeBackground: any) {
-    const html = document.querySelector('html');
-    const currentTheme = html?.getAttribute('data-theme');
-    const isNeu = currentTheme === 'neumorphism-light' || currentTheme === 'neumorphism-dark';
-    if (isNeu) {
-      // Apply background variables and set base UI colors, but do not override Neumorphism theme
-      this.appStateService.updateState({ themeBackground, menuColor: 'dark', headerColor: 'dark' });
-    } else {
-      // In standard mode, Theme Background implies dark base
-      this.appStateService.updateState({ themeBackground, menuColor: 'dark', headerColor: 'dark', theme: 'dark' });
-    }
+    this.appStateService.updateState({ themeBackground, menuColor: 'dark',   headerColor: 'dark',theme:"dark" });
   }
   updateBgImage(backgroundImage: string) {
     this.appStateService.updateState({ backgroundImage, });
