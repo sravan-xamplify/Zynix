@@ -93,7 +93,7 @@ export class AppStateService {
     html?.style.setProperty('--input-border', background.overlay);
     html?.style.setProperty('--input-border', background.overlay);
     html?.style.setProperty('--gray-3', background.primary);
-    this.applythemeSpecificChanges(background.theme);
+  // Do not override explicit theme selection here; only set variables.
   }
 
 
@@ -112,6 +112,13 @@ export class AppStateService {
       html?.setAttribute('data-theme-mode', baseMode);
       html?.setAttribute('data-header-styles', baseMode);
       html?.setAttribute('data-menu-styles', baseMode);
+  // Neumorphism relies on its own variables; clear background overrides if present
+  html?.style.removeProperty('--body-bg-rgb');
+  html?.style.removeProperty('--body-bg-rgb2');
+  html?.style.removeProperty('--light-rgb');
+  html?.style.removeProperty('--gray-3');
+  html?.style.removeProperty('--form-control-bg');
+  html?.style.removeProperty('--input-border');
     } else {
       html?.removeAttribute('data-theme');
       html?.setAttribute('data-theme-mode', theme);  //setting theme style
