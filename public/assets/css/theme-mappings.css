@@ -1,10 +1,33 @@
 /* Light/Dark theme mappings to ensure all components reflect current theme */
 
-html[data-theme-mode="light"],
-html[data-theme-mode="dark"] {
-  /* Angular Material surfaces */
-  /* cards */
-  
+/* Base light/dark mappings */
+
+/* When glassmorphism is active, prefer transparent surfaces so wallpaper shows */
+html[data-theme^="glassmorphism"] {
+  /* Angular Material cards */
+  --glass-surface-fallback: rgba(255,255,255,0.55);
+}
+html[data-theme^="glassmorphism"] .mat-mdc-card, 
+html[data-theme^="glassmorphism"] .mdc-card,
+html[data-theme^="glassmorphism"] .mat-mdc-select-panel, 
+html[data-theme^="glassmorphism"] .mat-mdc-autocomplete-panel, 
+html[data-theme^="glassmorphism"] .mat-mdc-menu-panel, 
+html[data-theme^="glassmorphism"] .mdc-menu-surface,
+html[data-theme^="glassmorphism"] .mat-datepicker-content,
+html[data-theme^="glassmorphism"] .cdk-overlay-pane .mat-mdc-tooltip-panel,
+html[data-theme^="glassmorphism"] .mat-mdc-dialog-container .mdc-dialog__surface,
+html[data-theme^="glassmorphism"] .mat-mdc-snack-bar-container .mdc-snackbar__surface,
+html[data-theme^="glassmorphism"] .mat-mdc-table, 
+html[data-theme^="glassmorphism"] .mat-mdc-row, 
+html[data-theme^="glassmorphism"] .mat-mdc-header-row, 
+html[data-theme^="glassmorphism"] .mat-mdc-list-item,
+html[data-theme^="glassmorphism"] .ng-select .ng-select-container,
+html[data-theme^="glassmorphism"] .ng-dropdown-panel,
+html[data-theme^="glassmorphism"] .flatpickr-calendar,
+html[data-theme^="glassmorphism"] .toast-container .ngx-toastr {
+  background: var(--glass-surface, var(--glass-surface-fallback)) !important;
+  border-color: var(--glass-border) !important;
+  color: var(--glass-text) !important;
 }
 
 html[data-theme-mode="light"],

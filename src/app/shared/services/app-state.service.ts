@@ -226,6 +226,12 @@ export class AppStateService {
       html?.style.removeProperty( '--form-control-bg');
       html?.style.removeProperty( '--input-border' );
       html?.style.removeProperty('--primary-rgb');
+  // In case a glass background image was set, clear overrides
+  html?.style.removeProperty('background-image');
+  html?.style.removeProperty('background-size');
+  html?.style.removeProperty('background-attachment');
+  html?.style.removeProperty('background-position');
+  html?.style.removeProperty('background-repeat');
     }
     html?.removeAttribute('data-bg-img');
     html?.setAttribute('data-vertical-style','overlay');
