@@ -27,26 +27,14 @@ export class SwitcherComponent {
   }
 
   updateTheme(theme: string) {
-    const isNeu = theme === 'neumorphism-light' || theme === 'neumorphism-dark';
-    if (isNeu) {
-      // Only set theme; header/menu colors are mapped to base light/dark later
-      this.appStateService.updateState({ theme });
+    this.appStateService.updateState({ theme, menuColor: theme, headerColor: theme });
+    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
       const html = document.querySelector('html');
       html?.setAttribute('data-theme', theme);
       const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
-      // Ensure any prior background theme doesn't override Neumorphism
-      this.appStateService.updateState({ headerColor: header, menuColor: header, themeBackground: '' });
-      // Remove background CSS variables if previously set
-      html?.style.removeProperty('--body-bg-rgb');
-      html?.style.removeProperty('--body-bg-rgb2');
-      html?.style.removeProperty('--light-rgb');
-      html?.style.removeProperty('--gray-3');
-      html?.style.removeProperty('--form-control-bg');
-      html?.style.removeProperty('--input-border');
-      return;
+      this.appStateService.updateState({ headerColor: header, menuColor: header });
     }
     if (theme == 'light') {
-      this.appStateService.updateState({ theme, menuColor: 'light', headerColor: 'light' });
       this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'light', menuColor: 'light' });
       let html = document.querySelector('html');
       html?.style.removeProperty('--body-bg-rgb');
@@ -57,7 +45,6 @@ export class SwitcherComponent {
       html?.style.removeProperty('--input-border');
     }
   if (theme == 'dark') {
-      this.appStateService.updateState({ theme, menuColor: 'dark', headerColor: 'dark' });
       this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'dark', menuColor: 'dark' });
       let html = document.querySelector('html');
       html?.style.removeProperty('--body-bg-rgb');

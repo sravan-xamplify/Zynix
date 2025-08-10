@@ -150,14 +150,7 @@ export class HeaderComponent {
       html?.setAttribute('data-theme', theme);
       // also align header/menu colors for consistency
       const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
-  // Clear any prior background overrides so Neumorphism can take effect
-  this.appStateService.updateState({ theme, headerColor: header, menuColor: header, themeBackground: '' });
-  html?.style.removeProperty('--body-bg-rgb');
-  html?.style.removeProperty('--body-bg-rgb2');
-  html?.style.removeProperty('--light-rgb');
-  html?.style.removeProperty('--form-control-bg');
-  html?.style.removeProperty('--input-border');
-  html?.style.removeProperty('--gray-3');
+      this.appStateService.updateState({ theme, headerColor: header, menuColor: header });
     }
   }
  
