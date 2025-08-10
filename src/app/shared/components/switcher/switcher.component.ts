@@ -27,12 +27,12 @@ export class SwitcherComponent {
   }
 
   updateTheme(theme: string) {
-    this.appStateService.updateState({ theme, menuColor: theme, headerColor: theme });
+    this.appStateService.updateState({ theme });
     if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
-      const html = document.querySelector('html');
-      html?.setAttribute('data-theme', theme);
+      // Keep header/menu colors aligned to base mode visually but don't override theme mode
       const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
       this.appStateService.updateState({ headerColor: header, menuColor: header });
+      return;
     }
     if (theme == 'light') {
       this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'light', menuColor: 'light' });
@@ -125,7 +125,13 @@ export class SwitcherComponent {
     this.appStateService.updateState({ themePrimary });
   }
   updateBackground(themeBackground: any) {
-    this.appStateService.updateState({ themeBackground, menuColor: 'dark',   headerColor: 'dark',theme:"dark" });
+    // Only update background variables; do not force theme or header/menu unless user chooses
+    this.appStateService.updateState({ themeBackground });
+    const currentTheme = this.localdata?.theme;
+    if (currentTheme === 'neumorphism-light' || currentTheme === 'neumorphism-dark') {
+      const base = currentTheme === 'neumorphism-dark' ? 'dark' : 'light';
+      this.appStateService.updateState({ headerColor: base, menuColor: base });
+    }
   }
   updateBgImage(backgroundImage: string) {
     this.appStateService.updateState({ backgroundImage, });

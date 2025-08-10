@@ -93,7 +93,7 @@ export class AppStateService {
     html?.style.setProperty('--input-border', background.overlay);
     html?.style.setProperty('--input-border', background.overlay);
     html?.style.setProperty('--gray-3', background.primary);
-    this.applythemeSpecificChanges(background.theme);
+  // Do not change theme mode when background updates; theme changes only via explicit theme selection
   }
 
 
