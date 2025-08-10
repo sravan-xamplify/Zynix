@@ -1,17 +1,28 @@
 :root[data-theme=glassmorphism-light]{--glass-bg:linear-gradient(135deg,#e9eef5 0%,#f6f9ff 100%);--glass-surface:rgba(255,255,255,.18);--glass-border:rgba(255,255,255,.22);--glass-text:#1f2937;--glass-shadow:0 10px 30px rgba(31,41,55,.08);--glass-backdrop:blur(0px) saturate(150%)}
 :root[data-theme=glassmorphism-dark]{--glass-bg:linear-gradient(135deg,#0f172a 0%,#111827 100%);--glass-surface:rgba(17,24,39,.24);--glass-border:rgba(255,255,255,.16);--glass-text:#e5e7eb;--glass-shadow:0 10px 30px rgba(0,0,0,.25);--glass-backdrop:blur(0px) saturate(150%)}
-html[data-theme=glassmorphism-light]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("assets/images/menu-bg-images/bg-img4.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
+html[data-theme=glassmorphism-light]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img4.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
 /* Show the wallpaper without dark overlay in dark mode for maximum clarity */
-html[data-theme=glassmorphism-dark]{background-image:url("assets/images/menu-bg-images/bg-img5.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
-html[data-theme^=glassmorphism] body{background:transparent!important;color:var(--glass-text)!important}
+html[data-theme=glassmorphism-dark]{background-image:url("../images/menu-bg-images/bg-img5.jpg");background-size:cover;background-attachment:fixed;background-position:center;background-repeat:no-repeat}
+html[data-theme^=glassmorphism] body{background:inherit!important;background-color:transparent!important;color:var(--glass-text)!important}
 html[data-theme^=glassmorphism]{--bs-body-bg:transparent;--bs-body-color:var(--glass-text)}
 /* Make default white/controls translucent when glass is active */
 html[data-theme^=glassmorphism]{--custom-white: var(--glass-surface); --form-control-bg: rgba(255,255,255,0.18); --default-border: var(--glass-border)}
+/* Sync page wallpaper with sidebar selection when a background image is chosen */
+html[data-theme=glassmorphism-light][data-bg-img=bgimg1]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img1.jpg")}
+html[data-theme=glassmorphism-light][data-bg-img=bgimg2]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img2.jpg")}
+html[data-theme=glassmorphism-light][data-bg-img=bgimg3]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img3.jpg")}
+html[data-theme=glassmorphism-light][data-bg-img=bgimg4]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img4.jpg")}
+html[data-theme=glassmorphism-light][data-bg-img=bgimg5]{background-image:linear-gradient(135deg, rgba(233,238,245,0.25) 0%, rgba(246,249,255,0.2) 100%), url("../images/menu-bg-images/bg-img5.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg1]{background-image:url("../images/menu-bg-images/bg-img1.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg2]{background-image:url("../images/menu-bg-images/bg-img2.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg3]{background-image:url("../images/menu-bg-images/bg-img3.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg4]{background-image:url("../images/menu-bg-images/bg-img4.jpg")}
+html[data-theme=glassmorphism-dark][data-bg-img=bgimg5]{background-image:url("../images/menu-bg-images/bg-img5.jpg")}
 .glass-surface{background:var(--glass-surface);color:var(--glass-text);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)}
 /* Ensure no blur is applied to the global page background */
 html[data-theme^=glassmorphism],
 html[data-theme^=glassmorphism] body{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-html[data-theme^=glassmorphism] .card,html[data-theme^=glassmorphism] .dropdown-menu,html[data-theme^=glassmorphism] .modal-content,html[data-theme^=glassmorphism] .offcanvas,html[data-theme^=glassmorphism] .app-header,html[data-theme^=glassmorphism] .main-sidebar,html[data-theme^=glassmorphism] .main-sidebar-header,html[data-theme^=glassmorphism] .input-group-text,html[data-theme^=glassmorphism] .form-select,html[data-theme^=glassmorphism] .form-control{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;border-radius:14px;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
+html[data-theme^=glassmorphism] .card,html[data-theme^=glassmorphism] .dropdown-menu,html[data-theme^=glassmorphism] .modal-content,html[data-theme^=glassmorphism] .offcanvas,html[data-theme^=glassmorphism] .main-sidebar,html[data-theme^=glassmorphism] .main-sidebar-header,html[data-theme^=glassmorphism] .input-group-text,html[data-theme^=glassmorphism] .form-select,html[data-theme^=glassmorphism] .form-control{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;border-radius:14px;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
 html[data-theme^=glassmorphism] .main-content,html[data-theme^=glassmorphism] .app-content{background:transparent!important}
 /* Ensure common app containers are transparent */
 html[data-theme^=glassmorphism] .app-content,
@@ -31,6 +42,17 @@ html[data-theme^=glassmorphism] .card-header,
 html[data-theme^=glassmorphism] .card-footer{
 	background-color: transparent !important;
 }
+/* Force header and footer wrappers to be fully transparent and borderless */
+html[data-theme^=glassmorphism] .app-header,
+html[data-theme^=glassmorphism] .main-header-container,
+html[data-theme^=glassmorphism] .footer{
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
 /* Tables default backgrounds */
 html[data-theme^=glassmorphism] table,
 html[data-theme^=glassmorphism] .table,
@@ -42,7 +64,8 @@ html[data-theme^=glassmorphism] .table-hover>tbody>tr:hover{
 html[data-theme^=glassmorphism] .bg-white,
 html[data-theme^=glassmorphism] .bg-light,
 html[data-theme^=glassmorphism] .bg-body,
-html[data-theme^=glassmorphism] .bg-transparent{background-color:transparent!important}
+html[data-theme^=glassmorphism] .bg-transparent,
+html[data-theme^=glassmorphism] .bg-body-tertiary{background-color:transparent!important}
 /* Remove solid backgrounds from common sections */
 html[data-theme^=glassmorphism] section,
 html[data-theme^=glassmorphism] main{background-color:transparent!important}
@@ -59,3 +82,13 @@ html[data-theme^=glassmorphism] .ng-dropdown-panel{background:var(--glass-surfac
 html[data-theme^=glassmorphism] .flatpickr-calendar{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
 html[data-theme^=glassmorphism] .flatpickr-day.selected,html[data-theme^=glassmorphism] .flatpickr-day.startRange,html[data-theme^=glassmorphism] .flatpickr-day.endRange{box-shadow:none!important}
 html[data-theme^=glassmorphism] .toast-container .ngx-toastr{background:var(--glass-surface)!important;color:var(--glass-text)!important;border:1px solid var(--glass-border)!important;backdrop-filter:var(--glass-backdrop);-webkit-backdrop-filter:var(--glass-backdrop);box-shadow:var(--glass-shadow)!important}
+
+/* Unify wallpaper: remove sidebar-specific image layers and overlays */
+html[data-theme^=glassmorphism] .app-sidebar{background:transparent!important;background-image:none!important}
+html[data-theme^=glassmorphism] .app-sidebar:before{content:none!important;display:none!important;background:none!important}
+html[data-theme^=glassmorphism] .main-sidebar{background:var(--glass-surface)!important}
+html[data-theme^=glassmorphism] .main-sidebar-header{background:var(--glass-surface)!important}
+html[data-theme^=glassmorphism][data-nav-layout=horizontal] ul.slide-menu,
+html[data-theme^=glassmorphism] ul.slide-menu{background:transparent!important;background-image:none!important}
+html[data-theme^=glassmorphism][data-nav-layout=horizontal] ul.slide-menu:before,
+html[data-theme^=glassmorphism] ul.slide-menu:before{content:none!important;display:none!important}
