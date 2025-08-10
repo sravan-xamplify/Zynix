@@ -116,7 +116,7 @@ export class HeaderComponent {
 	}
 
   updateTheme(theme: string) {
-    this.appStateService.updateState({ theme , menuColor:theme });
+    this.appStateService.updateState({ theme });
     if(theme=='light'){
       this.appStateService.updateState({ theme,themeBackground : '',headerColor:'light',menuColor:'light' });
       let html = document.querySelector('html');
@@ -144,12 +144,9 @@ export class HeaderComponent {
         html?.setAttribute('data-toggled', 'close');
           html?.setAttribute('data-toggled', window.innerWidth <= 992 ? 'close' : '');
     }
-    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
-      const html = document.querySelector('html');
-      html?.setAttribute('data-theme', theme);
-      // also align header/menu colors for consistency
-      const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
-      this.appStateService.updateState({ theme, headerColor: header, menuColor: header });
+    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark' || theme === 'glassmorphism-light' || theme === 'glassmorphism-dark') {
+      const header = theme.endsWith('dark') ? 'dark' : 'light';
+      this.appStateService.updateState({ headerColor: header, menuColor: header });
     }
   }
  

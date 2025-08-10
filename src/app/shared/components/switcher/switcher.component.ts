@@ -28,9 +28,9 @@ export class SwitcherComponent {
 
   updateTheme(theme: string) {
     this.appStateService.updateState({ theme });
-    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark') {
+    if (theme === 'neumorphism-light' || theme === 'neumorphism-dark' || theme === 'glassmorphism-light' || theme === 'glassmorphism-dark') {
       // Keep header/menu colors aligned to base mode visually but don't override theme mode
-      const header = theme === 'neumorphism-dark' ? 'dark' : 'light';
+      const header = theme.endsWith('dark') ? 'dark' : 'light';
       this.appStateService.updateState({ headerColor: header, menuColor: header });
       return;
     }
@@ -127,9 +127,9 @@ export class SwitcherComponent {
   updateBackground(themeBackground: any) {
     // Only update background variables; do not force theme or header/menu unless user chooses
     this.appStateService.updateState({ themeBackground });
-    const currentTheme = this.localdata?.theme;
-    if (currentTheme === 'neumorphism-light' || currentTheme === 'neumorphism-dark') {
-      const base = currentTheme === 'neumorphism-dark' ? 'dark' : 'light';
+    const currentTheme = this.localdata?.theme as string;
+    if (currentTheme === 'neumorphism-light' || currentTheme === 'neumorphism-dark' || currentTheme === 'glassmorphism-light' || currentTheme === 'glassmorphism-dark') {
+      const base = currentTheme.endsWith('dark') ? 'dark' : 'light';
       this.appStateService.updateState({ headerColor: base, menuColor: base });
     }
   }

@@ -103,12 +103,13 @@ export class AppStateService {
   }
   private applythemeSpecificChanges(theme: string) {
     let html = document.querySelector('html');
-    // Support standard and neumorphism themes
+    // Support standard and neumorphism/glassmorphism themes with data-theme attribute
     const isNeu = theme === 'neumorphism-light' || theme === 'neumorphism-dark';
-    if (isNeu) {
+    const isGlass = theme === 'glassmorphism-light' || theme === 'glassmorphism-dark';
+    if (isNeu || isGlass) {
       html?.setAttribute('data-theme', theme);
       // Map to base mode for components that rely on data-theme-mode
-      const baseMode = theme === 'neumorphism-dark' ? 'dark' : 'light';
+      const baseMode = theme.endsWith('dark') ? 'dark' : 'light';
       html?.setAttribute('data-theme-mode', baseMode);
       html?.setAttribute('data-header-styles', baseMode);
       html?.setAttribute('data-menu-styles', baseMode);
