@@ -139,6 +139,227 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
   pointer-events: none; /* allow clicks to pass through if desired */
 }
 
+/* Glassmorphism: Switcher panel matches dropdown glass look */
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel {
+  --bs-offcanvas-bg: rgba(18, 16, 24, 0.72);
+  background: rgba(18, 16, 24, 0.72) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  /* round only exposed corners on the left for end-positioned offcanvas */
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-header,
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
+  background: transparent !important;
+}
+
+/* Glassmorphism: all modal popups across the app */
+html[data-theme^="glassmorphism-"] .modal-content {
+  background: rgba(18, 16, 24, 0.72) !important;
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+html[data-theme^="glassmorphism-"] .modal-header,
+html[data-theme^="glassmorphism-"] .modal-body,
+html[data-theme^="glassmorphism-"] .modal-footer {
+  background: transparent !important;
+  color: inherit;
+}
+html[data-theme^="glassmorphism-"] .btn-close {
+  filter: invert(1) grayscale(100%);
+}
+/* Blur the page behind the modal via the backdrop element */
+html[data-theme^="glassmorphism-"] .modal-backdrop.show {
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+}
+
+/* ========== Glassmorphism: Sidebar menu glass items ========== */
+/* Only apply when a Glassmorphism theme is active */
+html[data-theme^="glassmorphism-"] {
+  /* Tunable variables for the menu glass look */
+  --menu-glass-bg: rgba(18, 16, 24, 0.55);
+  --menu-glass-bg-hover: rgba(18, 16, 24, 0.7);
+  --menu-glass-border: rgba(255, 255, 255, 0.12);
+  --menu-glass-border-hover: rgba(255, 255, 255, 0.22);
+}
+
+/* Top-level and nested left sidebar items */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item {
+  background: var(--menu-glass-bg);
+  border: 1px solid var(--menu-glass-border);
+  color: var(--default-text-color, #fff);
+  border-radius: 12px;
+  margin: 6px 10px; /* breathing room to show the rounded border */
+  padding: 10px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden; /* clip inner highlights to rounded corners */
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+/* A subtle inner stroke to mimic the “frosted” edge */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item::before,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Hover and focus ring */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item:hover,
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item:focus,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item:hover,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item:focus {
+  background: var(--menu-glass-bg-hover);
+  border-color: var(--menu-glass-border-hover);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Active/selected state – subtle primary tint on the border */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item.active,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item.active {
+  background: linear-gradient(160deg, rgba(177, 36, 148, 0.18), var(--menu-glass-bg-hover));
+  border-color: color-mix(in srgb, var(--primary-color) 40%, var(--menu-glass-border-hover));
+}
+
+/* Keep submenu angle/icon visible on dark backgrounds */
+html[data-theme^="glassmorphism-"] .app-sidebar .side-menu__item .side-menu__angle,
+html[data-theme^="glassmorphism-"] .app-sidebar .side-menu__item .iconclick {
+  color: currentColor;
+  opacity: 0.9;
+}
+
+/* Glassmorphism: dropdown menus across the app */
+html[data-theme^="glassmorphism-"] .dropdown-menu {
+  background: rgba(18, 16, 24, 0.72) !important;
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  padding: 6px;
+  color: #fff;
+  overflow: auto;
+}
+
+/* Individual items as rounded glass chips like in the reference */
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item {
+  background: rgba(0, 0, 0, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: #fff;
+  margin: 4px 2px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icons inside items keep visibility */
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item i,
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item .ri,
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item .fe {
+  color: currentColor;
+  opacity: 0.95;
+}
+
+/* Hover/Focus and Active states */
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item:hover,
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item:focus {
+  background: rgba(0, 0, 0, 0.38);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item.active,
+html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item:active {
+  background: linear-gradient(160deg, rgba(177, 36, 148, 0.22), rgba(0, 0, 0, 0.42));
+  border-color: color-mix(in srgb, var(--primary-color, #b12494) 40%, rgba(255, 255, 255, 0.18));
+  color: #fff;
+}
+
+/* Divider and header visibility in glass */
+html[data-theme^="glassmorphism-"] .dropdown-divider {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+html[data-theme^="glassmorphism-"] .dropdown-header {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Thin modern scrollbar for tall menus (webkit-based browsers) */
+html[data-theme^="glassmorphism-"] .dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+html[data-theme^="glassmorphism-"] .dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+
+/* Glassmorphism: Flatpickr calendar styled like the dropdown */
+html[data-theme^="glassmorphism-"] .flatpickr-calendar {
+  background: rgba(18, 16, 24, 0.72) !important;
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45) !important;
+  padding: 6px !important;
+  color: #fff !important;
+}
+
+/* Keep inner sections transparent to let the parent glass show through */
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-months,
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-weekdays,
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-innerContainer {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+/* Month label and navigation arrows */
+html[data-theme^="glassmorphism-"] .flatpickr-current-month,
+html[data-theme^="glassmorphism-"] .flatpickr-months .flatpickr-month {
+  color: #fff !important;
+}
+html[data-theme^="glassmorphism-"] .flatpickr-current-month input.cur-year,
+html[data-theme^="glassmorphism-"] .flatpickr-current-month .numInputWrapper input {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+/* Weekday labels */
+html[data-theme^="glassmorphism-"] .flatpickr-weekday {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Day cells: soft rounded chip feel with hover/active similar to dropdown items */
+html[data-theme^="glassmorphism-"] .flatpickr-day {
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  color: #fff !important;
+}
+html[data-theme^="glassmorphism-"] .flatpickr-day:hover,
+html[data-theme^="glassmorphism-"] .flatpickr-day:focus {
+  background: rgba(0, 0, 0, 0.26) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+html[data-theme^="glassmorphism-"] .flatpickr-day.selected,
+html[data-theme^="glassmorphism-"] .flatpickr-day.startRange,
+html[data-theme^="glassmorphism-"] .flatpickr-day.endRange,
+html[data-theme^="glassmorphism-"] .flatpickr-day.inRange {
+  background: linear-gradient(160deg, rgba(177, 36, 148, 0.22), rgba(0, 0, 0, 0.42)) !important;
+  border-color: color-mix(in srgb, var(--primary-color, #b12494) 40%, rgba(255, 255, 255, 0.18)) !important;
+  color: #fff !important;
+}
+
 
 .swiper-view-details {
     height: 400px; /* Adjust thumbnail swiper height */
