@@ -5,8 +5,9 @@ import { AppComponent } from './app/app.component';
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
 
-// Overlay blur scrim: blur page content whenever an overlay is present
+// Overlay blur scrim: blur page content whenever an overlay is present (Glassmorphism only)
 (() => {
+  const isGlass = () => document.documentElement.getAttribute('data-theme')?.startsWith('glassmorphism-');
   const selectors = [
   // Only flatpickr calendar overlay
   '.flatpickr-calendar.open'
@@ -31,7 +32,7 @@ bootstrapApplication(AppComponent, appConfig)
   const ensureScrim = (active: boolean) => {
     const id = 'overlay-blur-scrim';
     const existing = document.getElementById(id);
-    if (active) {
+    if (active && isGlass()) {
       if (!existing) {
         const scrim = document.createElement('div');
         scrim.id = id;

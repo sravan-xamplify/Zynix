@@ -46,38 +46,26 @@
 /* intl-tel-input phone input styles */
 @import url('intl-tel-input/build/css/intlTelInput.css');
 
-/* Switcher Offcanvas: dark glass effect on the panel itself only */
+/* Switcher Offcanvas: baseline behavior (theme-specific looks added below) */
 .offcanvas.switcher-panel {
-  /* Near-opaque dark background to block any underlying text */
-  --bs-offcanvas-bg: rgba(18, 16, 24, 0.98);
-  background-color: rgba(18, 16, 24, 0.98) !important;
-  backdrop-filter: blur(10px) saturate(110%); /* blur only what's behind the panel */
-  -webkit-backdrop-filter: blur(10px) saturate(110%);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-  color: #fff;
-  z-index: 1200 !important; /* ensure above any chart/tool overlays */
-  isolation: isolate; /* start a new stacking context */
+  /* Keep above overlays; visual style comes from the active theme */
+  z-index: 1200 !important;
+  isolation: isolate;
 }
 
-/* Ensure inner sections also render over an opaque background */
-.offcanvas.switcher-panel .offcanvas-header,
-.offcanvas.switcher-panel .offcanvas-body {
-  background-color: transparent; /* inherit from offcanvas which is opaque */
-}
-
-/* Glassmorphism: apply a slightly thinner pink tint to header/body only in glass mode */
+/* In Glassmorphism we make inner sections transparent to show the glass */
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-header,
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
-  /* #b12494 with ~80% opacity */
-  background-color: #b12494cc;
+  background-color: transparent;
 }
+
+/* (removed) legacy pink tint for header/body to keep a consistent glass surface */
 
 /* Apply special header/body background only for Glassmorphism themes */
 /* removed glassmorphism-specific header/body background override */
 
-/* Blur the content region behind Switcher while open */
-.switcher-blur {
+/* Blur the content region behind Switcher while open (Glassmorphism only) */
+html[data-theme^="glassmorphism-"] .switcher-blur {
   filter: blur(8px) saturate(110%);
   transition: filter 120ms ease-in-out;
 }
@@ -90,8 +78,8 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
   --overlay-text-color: #fff;
 }
 
-/* Global scrim that sits under overlays but above content to blur it */
-#overlay-blur-scrim {
+/* Global scrim that sits under overlays but above content to blur it (Glassmorphism only) */
+html[data-theme^="glassmorphism-"] #overlay-blur-scrim {
   position: fixed;
   inset: 0;
   z-index: 1050; /* below cdk overlays (usually 1000+) adjust if needed */
@@ -102,8 +90,8 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
   -webkit-backdrop-filter: blur(10px) saturate(110%);
 }
 
-/* Apply only to flatpickr calendar overlay */
-.flatpickr-calendar {
+/* Apply only to flatpickr calendar overlay (Glassmorphism only) */
+html[data-theme^="glassmorphism-"] .flatpickr-calendar {
   background: var(--overlay-glass-bg) !important;
   /* no extra blur here; scrim provides background blur */
   color: var(--overlay-text-color) !important;
@@ -112,17 +100,17 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
   z-index: 1300; /* above scrim */
 }
 
-/* Ensure inner sections of popovers/flatpickr are transparent to show parent */
-.flatpickr-calendar .flatpickr-months,
-.flatpickr-calendar .flatpickr-innerContainer,
-.flatpickr-calendar .flatpickr-day,
-.flatpickr-calendar .flatpickr-weekdays {
+/* Ensure inner sections of popovers/flatpickr are transparent to show parent (Glassmorphism only) */
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-months,
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-innerContainer,
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-day,
+html[data-theme^="glassmorphism-"] .flatpickr-calendar .flatpickr-weekdays {
   background: transparent !important;
   color: var(--overlay-text-color) !important;
 }
 
-/* Global scrim that blurs the app when any overlay is open */
-#overlay-blur-scrim {
+/* Global scrim that blurs the app when any overlay is open (Glassmorphism only) */
+html[data-theme^="glassmorphism-"] #overlay-blur-scrim {
   position: fixed;
   inset: 0;
   z-index: 1050; /* under most overlays (CDK uses 1000+, pane ~1001-1003) */
@@ -148,6 +136,9 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel {
   /* round only exposed corners on the left for end-positioned offcanvas */
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
+  color: #fff;
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
 }
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-header,
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
