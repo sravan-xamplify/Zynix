@@ -46,6 +46,99 @@
 /* intl-tel-input phone input styles */
 @import url('intl-tel-input/build/css/intlTelInput.css');
 
+/* Switcher Offcanvas: dark glass effect on the panel itself only */
+.offcanvas.switcher-panel {
+  /* Near-opaque dark background to block any underlying text */
+  --bs-offcanvas-bg: rgba(18, 16, 24, 0.98);
+  background-color: rgba(18, 16, 24, 0.98) !important;
+  backdrop-filter: blur(10px) saturate(110%); /* blur only what's behind the panel */
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  z-index: 1200 !important; /* ensure above any chart/tool overlays */
+  isolation: isolate; /* start a new stacking context */
+}
+
+/* Ensure inner sections also render over an opaque background */
+.offcanvas.switcher-panel .offcanvas-header,
+.offcanvas.switcher-panel .offcanvas-body {
+  background-color: transparent; /* inherit from offcanvas which is opaque */
+}
+
+/* Glassmorphism: apply a slightly thinner pink tint to header/body only in glass mode */
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-header,
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
+  /* #b12494 with ~80% opacity */
+  background-color: #b12494cc;
+}
+
+/* Apply special header/body background only for Glassmorphism themes */
+/* removed glassmorphism-specific header/body background override */
+
+/* Blur the content region behind Switcher while open */
+.switcher-blur {
+  filter: blur(8px) saturate(110%);
+  transition: filter 120ms ease-in-out;
+}
+
+/* ========== Universal overlay glass styles ========== */
+/* Utility variables (fallbacks provided) */
+:root {
+  --overlay-glass-bg: rgba(18, 16, 24, 0.94);
+  --overlay-glass-border: rgba(255, 255, 255, 0.08);
+  --overlay-text-color: #fff;
+}
+
+/* Global scrim that sits under overlays but above content to blur it */
+#overlay-blur-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1050; /* below cdk overlays (usually 1000+) adjust if needed */
+  pointer-events: none;
+  /* subtle dark tint + blur */
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+}
+
+/* Apply only to flatpickr calendar overlay */
+.flatpickr-calendar {
+  background: var(--overlay-glass-bg) !important;
+  /* no extra blur here; scrim provides background blur */
+  color: var(--overlay-text-color) !important;
+  border: 1px solid var(--overlay-glass-border) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45) !important;
+  z-index: 1300; /* above scrim */
+}
+
+/* Ensure inner sections of popovers/flatpickr are transparent to show parent */
+.flatpickr-calendar .flatpickr-months,
+.flatpickr-calendar .flatpickr-innerContainer,
+.flatpickr-calendar .flatpickr-day,
+.flatpickr-calendar .flatpickr-weekdays {
+  background: transparent !important;
+  color: var(--overlay-text-color) !important;
+}
+
+/* Global scrim that blurs the app when any overlay is open */
+#overlay-blur-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1050; /* under most overlays (CDK uses 1000+, pane ~1001-1003) */
+  pointer-events: none; /* do not block clicks */
+  backdrop-filter: blur(12px) saturate(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(110%);
+}
+
+/* Dim only a region behind the Switcher (main-content) */
+.switcher-region-dim {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none; /* allow clicks to pass through if desired */
+}
+
 
 .swiper-view-details {
     height: 400px; /* Adjust thumbnail swiper height */

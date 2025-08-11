@@ -1,0 +1,26 @@
+.switcher-canvas {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: transparent; /* let panel gradient show */
+}
+
+/* Make the tab/content area scrollable and keep footer stuck to bottom */
+.customtab {
+	flex: 1 1 auto;
+	min-height: 0; /* allow flex child to shrink for scroll */
+}
+
+.canvas-footer {
+	background: transparent;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	padding: 0.75rem;
+}
+
+/* Rounded, full-width reset button akin to screenshot */
+#reset-all.btn {
+	border-radius: 20px;
+	background: rgba(34, 32, 54, 0.85);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}

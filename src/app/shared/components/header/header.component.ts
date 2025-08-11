@@ -258,10 +258,20 @@ export class HeaderComponent {
 
   private offcanvasService = inject(NgbOffcanvas);
   toggleSwitcher() {
-    this.offcanvasService.open(SwitcherComponent, {
+  const ref = this.offcanvasService.open(SwitcherComponent, {
       position: 'end',
+      // No global backdrop; keep rest of the page as is
+      backdrop: false,
       scroll: true,
+      panelClass: 'switcher-panel'
     });
+
+  // Blur the main content while the Switcher is open
+  const contentEl = document.querySelector('.main-content');
+  contentEl?.classList.add('switcher-blur');
+  const cleanup = () => contentEl?.classList.remove('switcher-blur');
+  ref.closed.subscribe(cleanup);
+  ref.dismissed.subscribe(cleanup);
   }
 
 
