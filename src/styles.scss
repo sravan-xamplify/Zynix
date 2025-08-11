@@ -140,6 +140,37 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel {
   backdrop-filter: blur(10px) saturate(110%);
   -webkit-backdrop-filter: blur(10px) saturate(110%);
 }
+
+/* Glass Light: bump contrast for better readability inside the Switcher */
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel {
+  --bs-offcanvas-bg: rgba(18, 16, 24, 0.82);
+  background: rgba(18, 16, 24, 0.82) !important;
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+}
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .offcanvas-title,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .nav-link,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel label,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .form-check-label,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel p,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel span,
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .side-menu__label {
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .nav-tabs .nav-link.active {
+  color: #fff !important;
+}
+/* Glassmorphism (all): active tab in Switcher should be white */
+html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .nav-tabs .nav-link.active {
+  color: #fff !important;
+}
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel .text-muted {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+html[data-theme="glassmorphism-light"] .offcanvas.switcher-panel ::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-header,
 html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
   background: transparent !important;
@@ -193,6 +224,7 @@ html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden; /* clip inner highlights to rounded corners */
+  background-clip: padding-box; /* avoid corner artifacts */
   transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
 }
 
@@ -204,7 +236,8 @@ html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item::be
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background: transparent !important;
 }
 
 /* Hover and focus ring */
@@ -231,6 +264,38 @@ html[data-theme^="glassmorphism-"] .app-sidebar .side-menu__item .iconclick {
   opacity: 0.9;
 }
 
+/* Remove any list markers/bullets that can peek in at rounded corners */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu {
+  list-style: none !important;
+  padding-left: 0;
+}
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu > li,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu > li {
+  list-style: none !important;
+}
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu > li::marker,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu > li::marker {
+  content: '';
+  display: none;
+}
+
+/* Remove theme's built-in submenu bullets/lines that peek through rounded corners (bubble fix) */
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu.child2 .side-menu__item::before,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu.child3 .side-menu__item::before {
+  content: none !important;
+  display: none !important;
+}
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu.child1:after {
+  content: none !important;
+  display: none !important;
+}
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu.child1 .side-menu__item::before,
+html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu.child1 .side-menu__item.active::before {
+  content: none !important;
+  display: none !important;
+}
+
 /* Glassmorphism: dropdown menus across the app */
 html[data-theme^="glassmorphism-"] .dropdown-menu {
   background: rgba(18, 16, 24, 0.72) !important;
@@ -243,6 +308,11 @@ html[data-theme^="glassmorphism-"] .dropdown-menu {
   color: #fff;
   overflow: auto;
 }
+/* Ensure dropdown list containers never show markers */
+html[data-theme^="glassmorphism-"] .dropdown-menu > li {
+  list-style: none !important;
+}
+html[data-theme^="glassmorphism-"] .dropdown-menu > li::marker { content: '' !important; display: none; }
 
 /* Individual items as rounded glass chips like in the reference */
 html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item {
@@ -255,6 +325,8 @@ html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item {
   display: flex;
   align-items: center;
   gap: 8px;
+  background-clip: padding-box; /* avoid corner artifacts */
+  overflow: hidden; /* clip inner highlights */
 }
 
 /* Icons inside items keep visibility */
@@ -278,6 +350,19 @@ html[data-theme^="glassmorphism-"] .dropdown-menu .dropdown-item:active {
   color: #fff;
 }
 
+/* Tabs/pills containers (like in Switcher) shouldn’t show markers either */
+html[data-theme^="glassmorphism-"] .nav,
+html[data-theme^="glassmorphism-"] .nav-tabs,
+html[data-theme^="glassmorphism-"] .nav-pills {
+  list-style: none !important;
+}
+html[data-theme^="glassmorphism-"] .nav > li,
+html[data-theme^="glassmorphism-"] .nav-tabs > li,
+html[data-theme^="glassmorphism-"] .nav-pills > li { list-style: none !important; }
+html[data-theme^="glassmorphism-"] .nav > li::marker,
+html[data-theme^="glassmorphism-"] .nav-tabs > li::marker,
+html[data-theme^="glassmorphism-"] .nav-pills > li::marker { content: '' !important; display: none; }
+
 /* Divider and header visibility in glass */
 html[data-theme^="glassmorphism-"] .dropdown-divider {
   border-top-color: rgba(255, 255, 255, 0.08);
@@ -293,6 +378,53 @@ html[data-theme^="glassmorphism-"] .dropdown-menu::-webkit-scrollbar {
 html[data-theme^="glassmorphism-"] .dropdown-menu::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.18);
   border-radius: 10px;
+}
+
+/* Glassmorphism: Breadcrumb readability on gradient headers */
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb {
+  color: #fff !important;
+}
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .page-title,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb h1,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb h2,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb h3,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb h4,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-item,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-item a,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-item.active,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-icon svg {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: currentColor;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+/* Ensure all link states in header remain white for contrast */
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb a:link,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb a:visited,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb a:hover,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb a:focus,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb a:active {
+  color: #fff !important;
+  text-decoration-color: rgba(255, 255, 255, 0.9);
+}
+/* Override vendor special active color */
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-item.active.custom-color a {
+  color: #fff !important;
+}
+/* Icon font classes inside header */
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb i,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .ri,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .fe,
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .ti {
+  color: #fff !important;
+}
+/* Muted text in header should still be readable */
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+html[data-theme^="glassmorphism-"] .page-header-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.95) !important;
+  opacity: 1 !important;
 }
 
 /* Glassmorphism: Flatpickr calendar styled like the dropdown */
@@ -349,6 +481,53 @@ html[data-theme^="glassmorphism-"] .flatpickr-day.inRange {
   background: linear-gradient(160deg, rgba(177, 36, 148, 0.22), rgba(0, 0, 0, 0.42)) !important;
   border-color: color-mix(in srgb, var(--primary-color, #b12494) 40%, rgba(255, 255, 255, 0.18)) !important;
   color: #fff !important;
+}
+
+/* ========== Glassmorphism: Analytics metric cards (e.g., "Total Followers") ========== */
+/* Ensure icons and texts are readable on glass/gradient backgrounds inside metrics cards */
+html[data-theme^="glassmorphism-"] spk-analytics-card {
+  /* Headline/value */
+  h3.fw-semibold { color: #fff !important; }
+  /* Small label to the right of the icon */
+  .fw-medium.fs-13.text-muted { color: rgba(255, 255, 255, 0.92) !important; text-shadow: 0 1px 1px rgba(0,0,0,0.4); }
+  /* Any muted copy within the card should remain legible */
+  .text-muted { color: rgba(255, 255, 255, 0.9) !important; }
+  /* Match dark theme exactly: rely on vendor bg-*-transparent & svg-* utilities */
+  .avatar.avatar-md.avatar-rounded {
+    width: 2.5rem; height: 2.5rem; min-width: 2.5rem; min-height: 2.5rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    /* Remove glass overrides to follow dark theme visuals */
+    background: unset !important;
+    border: unset !important;
+    backdrop-filter: unset !important;
+    -webkit-backdrop-filter: unset !important;
+    box-shadow: unset !important;
+  }
+  .avatar.avatar-md.avatar-rounded[class*="svg-"] {
+    background: unset !important;
+    border-color: unset !important;
+  }
+  .avatar i { line-height: 0; display: inline-flex; }
+  /* Let vendor styles size SVGs inside avatar (.avatar.avatar-md svg {1.5rem}) */
+  .avatar i svg { filter: none !important; }
+  /* ApexCharts within the card (the small sparkline area) */
+  #total-followers .apexcharts-text,
+  #total-followers .apexcharts-legend-text,
+  #total-followers .apexcharts-datalabel,
+  #total-followers .apexcharts-yaxis-label,
+  #total-followers .apexcharts-xaxis-label {
+    fill: rgba(255, 255, 255, 0.92) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+  }
+  #total-followers .apexcharts-tooltip {
+    background: rgba(18, 16, 24, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px) saturate(110%);
+    -webkit-backdrop-filter: blur(8px) saturate(110%);
+  }
+  #total-followers .apexcharts-tooltip-title { background: transparent !important; color: #fff !important; }
 }
 
 
