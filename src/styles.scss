@@ -1,10 +1,104 @@
 
-// Sass packages must be loaded before any other CSS rules
 @use "ngx-owl-carousel-o/lib/styles/scss/owl.carousel" as *;
 @use "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default" as *;
 @use "swiper/scss" as *;
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
+
+// Neu Light: Make card/div backgrounds distinct from main background
+html[data-theme="neumorphism-light"] {
+  background: #f5f8fd !important; /* slightly blue-tinted light background */
+}
+html[data-theme="neumorphism-light"] .card,
+html[data-theme="neumorphism-light"] .custom-card,
+html[data-theme="neumorphism-light"] .dashboard-card,
+html[data-theme="neumorphism-light"] .stat-card,
+html[data-theme="neumorphism-light"] .apexcharts-canvas,
+html[data-theme="neumorphism-light"] .mat-card,
+html[data-theme="neumorphism-light"] .main-content > div,
+html[data-theme="neumorphism-light"] .box,
+html[data-theme="neumorphism-light"] .widget,
+html[data-theme="neumorphism-light"] .order-statistics,
+html[data-theme="neumorphism-light"] .visitors-report,
+html[data-theme="neumorphism-light"] .top-selling-categories,
+html[data-theme="neumorphism-light"] .summary-card {
+  background: #fff !important;
+  box-shadow: 0 6px 32px 0 rgba(24,24,32,0.10), 0 2px 8px 0 rgba(24,24,32,0.06);
+  border-radius: 22px;
+  border: 1.5px solid #e3e8f7;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+html[data-theme="neumorphism-light"] .card:hover,
+html[data-theme="neumorphism-light"] .custom-card:hover {
+  box-shadow: 0 12px 36px 0 rgba(24,24,32,0.13), 0 4px 16px 0 rgba(24,24,32,0.09);
+  border: 1.5px solid #c7d0e6;
+}
+
+/* Transaction/row list improvements */
+html[data-theme="neumorphism-light"] .transaction-list,
+html[data-theme="neumorphism-light"] .recent-transactions,
+html[data-theme="neumorphism-light"] .table,
+html[data-theme="neumorphism-light"] .payment-list {
+  background: #fff !important;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(24,24,32,0.06);
+  border: 1.5px solid #e3e8f7;
+  overflow: hidden;
+}
+html[data-theme="neumorphism-light"] .transaction-list tr:nth-child(even),
+html[data-theme="neumorphism-light"] .recent-transactions .row:nth-child(even),
+html[data-theme="neumorphism-light"] .table tr:nth-child(even),
+html[data-theme="neumorphism-light"] .payment-list .row:nth-child(even) {
+  background: #f5f8fd !important;
+}
+html[data-theme="neumorphism-light"] .transaction-list tr,
+html[data-theme="neumorphism-light"] .recent-transactions .row,
+html[data-theme="neumorphism-light"] .table tr,
+html[data-theme="neumorphism-light"] .payment-list .row {
+  border-bottom: 1px solid #e3e8f7;
+}
+html[data-theme="neumorphism-light"] .transaction-list tr:last-child,
+html[data-theme="neumorphism-light"] .recent-transactions .row:last-child,
+html[data-theme="neumorphism-light"] .table tr:last-child,
+html[data-theme="neumorphism-light"] .payment-list .row:last-child {
+  border-bottom: none;
+}
+
+/* Neu Light: Ensure all sidebar/menu text is dark and readable, including hover */
+html[data-theme="neumorphism-light"] .app-sidebar,
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu,
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu .side-menu__item,
+html[data-theme="neumorphism-light"] .app-sidebar .slide-menu .side-menu__item,
+html[data-theme="neumorphism-light"] .app-sidebar .side-menu__label,
+html[data-theme="neumorphism-light"] .app-sidebar .category-name,
+html[data-theme="neumorphism-light"] .app-sidebar .side-menu__item .iconclick,
+html[data-theme="neumorphism-light"] .app-sidebar .side-menu__item .side-menu__icon,
+html[data-theme="neumorphism-light"] .app-sidebar .side-menu__item .menu-icon {
+  color: #222 !important;
+  fill: #222 !important;
+}
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu .side-menu__item:hover,
+html[data-theme="neumorphism-light"] .app-sidebar .slide-menu .side-menu__item:hover,
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu .side-menu__item.active,
+html[data-theme="neumorphism-light"] .app-sidebar .slide-menu .side-menu__item.active {
+  color: #111 !important;
+  fill: #111 !important;
+  background: rgba(17,17,17,0.07) !important;
+}
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu .side-menu__item:hover .side-menu__label,
+html[data-theme="neumorphism-light"] .app-sidebar .slide-menu .side-menu__item:hover .side-menu__label,
+html[data-theme="neumorphism-light"] .app-sidebar .main-menu .side-menu__item.active .side-menu__label,
+html[data-theme="neumorphism-light"] .app-sidebar .slide-menu .side-menu__item.active .side-menu__label {
+  color: #111 !important;
+  fill: #111 !important;
+}
+html[data-theme="neumorphism-light"] .app-sidebar .category-name,
+html[data-theme="neumorphism-light"] .app-sidebar .side-menu__label1,
+html[data-theme="neumorphism-light"] .app-sidebar .menu-label,
+html[data-theme="neumorphism-light"] .app-sidebar .category-title,
+html[data-theme="neumorphism-light"] .app-sidebar .menu-category {
+  color: #222 !important;
+}
 
 /* Neu-morphism themes: match Glass menu item style */
 html[data-theme="neumorphism-dark"] .app-sidebar .main-menu .side-menu__item,

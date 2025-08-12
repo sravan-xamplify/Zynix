@@ -14,32 +14,28 @@
                         <label for="phone" class="form-label d-block">Basic Telephone Input</label>
                         <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
                             <div class="form-width">
-                              <mat-form-field appearance="outline">
-                                <ngx-intl-tel-input
-                                  id="phone"
-                                  name="phone"
-                                  formControlName="phone"
-                                  [preferredCountries]="['de', 'us']"
-                                  [enablePlaceholder]="true"
-                                  [separateDialCode]="true"
-                                ></ngx-intl-tel-input>
-                              </mat-form-field>
-                            </div>
-                          </form>
-                    </div>
-                    <div class="col-xl-5">
-                        <label for="phone-validation" class="form-label d-block">Telephone Input with valdation</label>
-                        <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
-                            <mat-form-field appearance="outline">
                               <ngx-intl-tel-input
-                                id="phone-validation"
+                                id="phone"
                                 name="phone"
                                 formControlName="phone"
                                 [preferredCountries]="['de', 'us']"
                                 [enablePlaceholder]="true"
                                 [separateDialCode]="true"
                               ></ngx-intl-tel-input>
-                            </mat-form-field>
+                            </div>
+                          </form>
+                    </div>
+                    <div class="col-xl-5">
+                        <label for="phone-validation" class="form-label d-block">Telephone Input with valdation</label>
+                        <form [formGroup]="myForm" (ngSubmit)="submitPhone()">
+                            <ngx-intl-tel-input
+                              id="phone-validation"
+                              name="phone"
+                              formControlName="phone"
+                              [preferredCountries]="['de', 'us']"
+                              [enablePlaceholder]="true"
+                              [separateDialCode]="true"
+                            ></ngx-intl-tel-input>
                             <div class="m-t-10">
                               <button
                                 mat-raised-button
@@ -63,15 +59,13 @@
                         <label for="phone-only-countries" class="form-label d-block">Telephone Input With Only Countries</label>
                         <form [formGroup]="myForm">
                             <div class="form-width">
-                              <mat-form-field appearance="outline">
-                                <ngx-intl-tel-input
-                                  id="phone-existing-number"
-                                  name="phone"
-                                  formControlName="phone"
-                                  [enablePlaceholder]="true"
-                                  [separateDialCode]="true"
-                                ></ngx-intl-tel-input>
-                              </mat-form-field>
+                              <ngx-intl-tel-input
+                                id="phone-existing-number"
+                                name="phone"
+                                formControlName="phone"
+                                [enablePlaceholder]="true"
+                                [separateDialCode]="true"
+                              ></ngx-intl-tel-input>
                             </div>
                           </form>
                     </div>

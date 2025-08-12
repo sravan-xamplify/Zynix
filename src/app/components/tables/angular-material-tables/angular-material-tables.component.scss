@@ -6,4 +6,22 @@ table {
     height: 400px;
     overflow: auto;
   }
+
+// Neu Light theme: match global card/table style
+html[data-theme="neumorphism-light"] table.mat-table {
+  background: #fff !important;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(24,24,32,0.06);
+  border: 1.5px solid #e3e8f7;
+  overflow: hidden;
+}
+html[data-theme="neumorphism-light"] table.mat-table tr:nth-child(even) {
+  background: #f5f8fd !important;
+}
+html[data-theme="neumorphism-light"] table.mat-table tr {
+  border-bottom: 1px solid #e3e8f7;
+}
+html[data-theme="neumorphism-light"] table.mat-table tr:last-child {
+  border-bottom: none;
+}
   
