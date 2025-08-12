@@ -36,7 +36,7 @@ export class AppStateService {
     headerColor: 'light',                // light, dark, color, gradient, transparent
     themePrimary: '',          // '58, 88, 146', '92, 144, 163', '161, 90, 223', '78, 172, 76', '223, 90, 90'
     themeBackground: '',
-    backgroundImage: '',         // bgimg1, bgimg2, bgimg3, bgimg4, bgimg5
+  backgroundImage: '',         // bgimg1, bgimg2, bgimg3, bgimg4, bgimg5, bgimg6, bgimg7
   } // Store initial state
   private stateSubject = new BehaviorSubject<StateType>(this.initialState); // Use any for initial null value
   state$ = this.stateSubject.asObservable();
@@ -113,11 +113,12 @@ export class AppStateService {
       html?.setAttribute('data-theme-mode', baseMode);
       html?.setAttribute('data-header-styles', baseMode);
       html?.setAttribute('data-menu-styles', baseMode);
-      // Default background image for glassmorphism-dark if none chosen yet
-      if (theme === 'glassmorphism-dark') {
+      // Default background image for glass themes if none chosen yet
+      if (theme === 'glassmorphism-dark' || theme === 'glassmorphism-light') {
         const current = html?.getAttribute('data-bg-img');
         if (!current) {
-          this.applybackgroundImageSpecificChanges('bgimg6');
+          // dark keeps 6, light uses newly added 7
+          this.applybackgroundImageSpecificChanges(theme === 'glassmorphism-dark' ? 'bgimg6' : 'bgimg7');
         }
       }
     } else {
@@ -270,8 +271,9 @@ export class AppStateService {
     if (state['theme']) {
       this.applythemeSpecificChanges(state['theme']);
       // Ensure default bg for glassmorphism-dark is persisted if missing
-      if (state['theme'] === 'glassmorphism-dark' && !state['backgroundImage']) {
-        state['backgroundImage'] = 'bgimg6';
+      if (!state['backgroundImage']) {
+        if (state['theme'] === 'glassmorphism-dark') state['backgroundImage'] = 'bgimg6';
+        if (state['theme'] === 'glassmorphism-light') state['backgroundImage'] = 'bgimg7';
       }
     }
     if (state['direction']) {

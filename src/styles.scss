@@ -55,6 +55,24 @@ html[data-theme="glassmorphism-light"] body:not([data-bg-img]) {
   background-attachment: fixed;
 }
 
+/* Explicit selection via switcher: bgimg7 (Glass Light dedicated) */
+html[data-bg-img="bgimg7"],
+html[data-theme="glassmorphism-light"][data-bg-img="bgimg7"] body {
+  background-image: url('https://xamplify.co/assets/images/glassmorphism-images/glassmorphism.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* Thumbnail preview for bg-img7 radio (match others' sizing assumptions) */
+.bg-img7 + label,
+input.bg-img7.form-check-input { /* allow existing form-check styling */
+  background-image: url('https://xamplify.co/assets/images/glassmorphism-images/glassmorphism.png');
+  background-size: cover;
+  background-position: center;
+}
+
 /* Switcher Offcanvas: baseline behavior (theme-specific looks added below) */
 .offcanvas.switcher-panel {
   /* Keep above overlays; visual style comes from the active theme */
