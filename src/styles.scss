@@ -834,6 +834,53 @@ html[data-theme^="glassmorphism-"] spk-analytics-card {
   #total-followers .apexcharts-tooltip-title { background: transparent !important; color: #fff !important; }
 }
 
+/* ========== Glass Light: ApexCharts readability on bright backgrounds ========== */
+html[data-theme="glassmorphism-light"] {
+  /* All chart texts should be dark for contrast */
+  .apexcharts-text,
+  .apexcharts-title-text,
+  .apexcharts-subtitle-text,
+  .apexcharts-legend-text,
+  .apexcharts-xaxis-label,
+  .apexcharts-yaxis-label,
+  .apexcharts-datalabel {
+    color: rgba(17, 17, 17, 0.92) !important;
+    fill: rgba(17, 17, 17, 0.92) !important;
+  }
+  /* Explicit axis label/title text nodes */
+  .apexcharts-xaxis text,
+  .apexcharts-yaxis text,
+  .apexcharts-xaxis-title-text,
+  .apexcharts-yaxis-title-text {
+    color: rgba(17, 17, 17, 0.92) !important;
+    fill: rgba(17, 17, 17, 0.92) !important;
+  }
+  /* Grid and axis strokes tuned for light-on-bright backgrounds */
+  .apexcharts-grid line,
+  .apexcharts-grid path,
+  .apexcharts-grid polygon,
+  .apexcharts-xaxis line,
+  .apexcharts-yaxis line {
+    stroke: rgba(17, 17, 17, 0.12) !important;
+  }
+  /* Tooltip: light frosted card with dark text */
+  .apexcharts-tooltip {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid rgba(17, 17, 17, 0.14) !important;
+    color: #111 !important;
+    backdrop-filter: blur(6px) saturate(110%);
+    -webkit-backdrop-filter: blur(6px) saturate(110%);
+  }
+  .apexcharts-tooltip-title { background: transparent !important; color: #111 !important; }
+  .apexcharts-tooltip-text,
+  .apexcharts-tooltip-series-group,
+  .apexcharts-tooltip-y-group,
+  .apexcharts-tooltip-goals-group,
+  .apexcharts-tooltip-marker { color: #111 !important; fill: #111 !important; }
+  /* Toolbar icons readable */
+  .apexcharts-toolbar svg { fill: #111 !important; color: #111 !important; }
+}
+
 
 .swiper-view-details {
     height: 400px; /* Adjust thumbnail swiper height */
