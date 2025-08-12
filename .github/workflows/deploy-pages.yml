@@ -24,11 +24,14 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      - run: npm run build -- --configuration production --base-href "/Zynix/" --output-path dist
-      - run: cp dist/index.html dist/404.html
+      - run: npm run build -- --configuration production --base-href "/Zynix/"
+      - name: Find build output
+        id: builddir
+        run: echo "dir=$(ls -d dist/**/browser dist/** dist preview/**/browser preview/** preview 2>/dev/null | head -n 1)" >> $GITHUB_OUTPUT
+      - run: cp ${{ steps.builddir.outputs.dir }}/index.html ${{ steps.builddir.outputs.dir }}/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ${{ steps.builddir.outputs.dir }}
 
   deploy:
     needs: build
