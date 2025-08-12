@@ -5,6 +5,24 @@
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
 
+// Glass Light: Ensure switcher modal section labels are visible
+html[data-theme="glassmorphism-light"] .switcher-modal,
+html[data-theme="glassmorphism-light"] .switcher-modal .section-label,
+html[data-theme="glassmorphism-light"] .switcher-modal .switcher-section-label,
+html[data-theme="glassmorphism-light"] .switcher-modal .switcher-label,
+html[data-theme="glassmorphism-light"] .switcher-modal .form-label,
+html[data-theme="glassmorphism-light"] .switcher-modal .label,
+html[data-theme="glassmorphism-light"] .switcher-modal .title,
+html[data-theme="glassmorphism-light"] .switcher-modal .subtitle {
+  color: #2a2340 !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+html[data-theme="glassmorphism-light"] .switcher-modal .mat-divider,
+html[data-theme="glassmorphism-light"] .switcher-modal .divider {
+  background: #e3e8f7 !important;
+}
+
 // Glass Light/Dark: Add left indicator for selected child menu item
 html[data-theme="glassmorphism-light"] .app-sidebar .main-menu .side-menu__item.active,
 html[data-theme="glassmorphism-light"] .app-sidebar .slide-menu .side-menu__item.active {
