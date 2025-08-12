@@ -5,6 +5,41 @@
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
 
+// Glass Light/Dark: Add left indicator for selected child menu item
+html[data-theme="glassmorphism-light"] .app-sidebar .main-menu .side-menu__item.active,
+html[data-theme="glassmorphism-light"] .app-sidebar .slide-menu .side-menu__item.active {
+  position: relative;
+  background: #f5f8fd !important;
+}
+html[data-theme="glassmorphism-light"] .app-sidebar .main-menu .side-menu__item.active::before,
+html[data-theme="glassmorphism-light"] .app-sidebar .slide-menu .side-menu__item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 4px;
+  border-radius: 4px;
+  background: #a259ff;
+}
+
+html[data-theme="glassmorphism-dark"] .app-sidebar .main-menu .side-menu__item.active,
+html[data-theme="glassmorphism-dark"] .app-sidebar .slide-menu .side-menu__item.active {
+  position: relative;
+  background: #23243a !important;
+}
+html[data-theme="glassmorphism-dark"] .app-sidebar .main-menu .side-menu__item.active::before,
+html[data-theme="glassmorphism-dark"] .app-sidebar .slide-menu .side-menu__item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 4px;
+  border-radius: 4px;
+  background: #a259ff;
+}
+
 // Neu Light: Make card/div backgrounds distinct from main background
 html[data-theme="neumorphism-light"] {
   background: #f5f8fd !important; /* slightly blue-tinted light background */
