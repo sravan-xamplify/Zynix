@@ -383,6 +383,10 @@ html[data-theme="glassmorphism-light"] .app-sidebar .menu-category {
   letter-spacing: 0.04em;
 }
 
+/* Spacing between logo/header block and first menu section (applies to all glass themes) */
+html[data-theme^="glassmorphism-"] .app-sidebar .main-sidebar-header { margin-bottom: 12px; }
+html[data-theme^="glassmorphism-"] .app-sidebar .main-menu { padding-top: 2px; }
+
 /* Active/selected state – subtle primary tint on the border */
 html[data-theme^="glassmorphism-"] .app-sidebar .main-menu .side-menu__item.active,
 html[data-theme^="glassmorphism-"] .app-sidebar .slide-menu .side-menu__item.active {
