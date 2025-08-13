@@ -418,10 +418,6 @@ html[data-theme^="glassmorphism-"] .offcanvas.switcher-panel .offcanvas-body {
 /* removed glassmorphism-specific header/body background override */
 
 /* Blur the content region behind Switcher while open (Glassmorphism only) */
-html[data-theme^="glassmorphism-"] .switcher-blur {
-  filter: blur(8px) saturate(110%);
-  transition: filter 120ms ease-in-out;
-}
 
 /* ========== Universal overlay glass styles ========== */
 /* Utility variables (fallbacks provided) */

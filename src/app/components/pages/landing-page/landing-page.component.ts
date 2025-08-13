@@ -57,12 +57,8 @@ export class LandingPageComponent {
   }
   private offcanvasService = inject(NgbOffcanvas);
   openSwitcher(content:any) {
-    const ref = this.offcanvasService.open(content, { position: 'end', scroll: true, backdrop: false, panelClass: 'switcher-panel' });
-    const contentEl = document.querySelector('.main-content');
-    contentEl?.classList.add('switcher-blur');
-    const cleanup = () => contentEl?.classList.remove('switcher-blur');
-    ref.closed.subscribe(cleanup);
-    ref.dismissed.subscribe(cleanup);
+  const ref = this.offcanvasService.open(content, { position: 'end', scroll: true, backdrop: false, panelClass: 'switcher-panel' });
+  // Removed switcher-blur logic
 	}
   
   input1: string = "#00897B";

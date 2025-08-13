@@ -27,7 +27,7 @@ export class SwitcherComponent {
   }
 
   updateTheme(theme: string) {
-    this.appStateService.updateState({ theme });
+  this.appStateService.updateState({ theme });
     if (theme === 'neumorphism-light' || theme === 'neumorphism-dark' || theme === 'glassmorphism-light' || theme === 'glassmorphism-dark') {
       // Keep header/menu colors aligned to base mode visually but don't override theme mode
       const header = theme.endsWith('dark') ? 'dark' : 'light';
