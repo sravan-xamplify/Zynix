@@ -4,6 +4,29 @@
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
 
+// Glassmorphism: Style switcher section headers for visual parity
+html[data-theme^="glassmorphism"] .switcher-style-head {
+  background: var(--glass-surface, rgba(255,255,255,0.13)) !important;
+  color: var(--glass-text, #222) !important;
+  font-weight: 500 !important;
+  font-size: 1.05em !important;
+  border-radius: 0.75em 0.75em 0 0 !important;
+  padding: 0.85em 1.2em 0.85em 1.2em !important;
+  margin-bottom: 0.7em !important;
+  margin-top: 0.5em !important;
+  letter-spacing: 0.01em !important;
+  border: none !important;
+  box-shadow: 0 8px 32px 0 rgba(162,89,255,0.10), 0 1.5px 4px 0 rgba(24,24,32,0.04) !important;
+  display: block !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+  position: relative !important;
+  pointer-events: auto !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transition: background 0.2s, border 0.2s;
+}
+
 // Neu Dark: Style switcher section headers for visual parity
 html[data-theme^="neumorphism"] .switcher-style-head {
   box-shadow: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light) !important;
