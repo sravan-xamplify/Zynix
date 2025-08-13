@@ -4,6 +4,29 @@
 @use "swiper/scss/navigation" as *;
 @use "swiper/scss/pagination" as *;
 
+// Neu Dark: Style switcher section headers for visual parity
+html[data-theme="neumorphism-dark"] .switcher-style-head {
+  color: #fff !important;
+  background: #29293a !important; /* lighter, modern dark */
+  font-weight: 600 !important;
+  font-size: 1.08em !important;
+  border-radius: 0.5em !important;
+  padding: 0.45em 1.1em 0.45em 1.1em !important;
+  margin-bottom: 0.7em !important;
+  margin-top: 1.2em !important;
+  letter-spacing: 0.01em !important;
+  border: 1.5px solid #35354a !important; /* subtle border for separation */
+  box-shadow: 0 2px 8px 0 rgba(20,20,30,0.08) !important;
+  display: block !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+  position: relative !important;
+  pointer-events: auto !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transition: background 0.2s, border 0.2s;
+}
+
 // Glass Light: Fallback for switcher section label text visibility
 html[data-theme="glassmorphism-light"] .switcher-modal .switcher-style-head,
 html[data-theme="glassmorphism-light"] .switcher-style-head {
