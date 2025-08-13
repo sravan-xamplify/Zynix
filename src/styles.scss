@@ -53,67 +53,30 @@ html[data-theme^="neumorphism"] .switcher-style-head {
 // Glass Light: Fallback for switcher section label text visibility
 html[data-theme="glassmorphism-light"] .switcher-modal .switcher-style-head,
 html[data-theme="glassmorphism-light"] .switcher-style-head {
-  color: #000 !important;
-  background: #fff !important;
+  color: #222 !important;
+  background: transparent !important;
   font-weight: 700 !important;
-  font-size: 1.12em !important;
-  border: 1.5px solid #000 !important;
-  padding: 0.45em 1.1em 0.45em 1.1em !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  display: block !important;
-  margin-bottom: 0.7em !important;
-  opacity: 1 !important;
-  z-index: 10000 !important;
-  position: relative !important;
-  pointer-events: auto !important;
-  text-shadow: none !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-}
-
-// Glass Light: Force switcher section label text to be visible
-html[data-theme="glassmorphism-light"] .switcher-modal .switcher-style-head,
-html[data-theme="glassmorphism-light"] .switcher-style-head {
-  color: #000 !important;
-  background: #fff !important;
-  font-weight: 700 !important;
-  font-size: 1.12em !important;
+  font-size: 1.1em !important;
   letter-spacing: 0.01em !important;
-  padding: 0.45em 1.1em 0.45em 1.1em !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  padding: 0.85em 1.2em 0.85em 1.2em !important;
+  border-radius: 0.75em 0.75em 0 0 !important;
+  box-shadow: 0 8px 32px 0 rgba(162,89,255,0.10), 0 1.5px 4px 0 rgba(24,24,32,0.04) !important;
   display: block !important;
   margin-bottom: 0.7em !important;
+  margin-top: 0.5em !important;
   border: none !important;
   opacity: 1 !important;
-  z-index: 10000 !important;
+  z-index: 2 !important;
   position: relative !important;
   pointer-events: auto !important;
-  text-shadow: none !important;
+  text-shadow: 0 1px 8px #fff, 0 0px 2px #fff, 0 0 1px #fff !important;
   filter: none !important;
+  transition: background 0.2s, border 0.2s;
 }
-
-// Glass Light: Force switcher section label text to be visible
-html[data-theme="glassmorphism-light"] .switcher-modal .switcher-style-head,
-html[data-theme="glassmorphism-light"] .switcher-style-head {
-  color: #000 !important;
-  background: #fff !important;
-  font-weight: 700 !important;
-  font-size: 1.12em !important;
-  letter-spacing: 0.01em !important;
-  padding: 0.45em 1.1em 0.45em 1.1em !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  display: block !important;
-  margin-bottom: 0.7em !important;
-  border: none !important;
-  opacity: 1 !important;
-  z-index: 10000 !important;
-  position: relative !important;
-  pointer-events: auto !important;
-  text-shadow: none !important;
-  filter: none !important;
+html[data-theme="glassmorphism-light"] .switcher-modal .switcher-style-head span,
+html[data-theme="glassmorphism-light"] .switcher-style-head span {
+  color: #222 !important;
+  text-shadow: 0 1px 8px #fff, 0 0px 2px #fff, 0 0 1px #fff !important;
 }
 // Glass Light: Ensure switcher modal section labels are visible
 html[data-theme="glassmorphism-light"] .switcher-modal .section-label,
