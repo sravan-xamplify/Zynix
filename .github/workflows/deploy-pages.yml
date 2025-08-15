@@ -32,10 +32,7 @@ jobs:
 
       - name: Build Angular (production)
         run: |
-          npm run build -- \
-            --configuration production \
-            --base-href "/Zynix-Multi-Theme/" \
-            --deploy-url "/Zynix-Multi-Theme/"
+          npm run ng -- build zynix-multi-theme --configuration production --base-href "/Zynix-Multi-Theme/" --deploy-url "/Zynix-Multi-Theme/"
 
       - name: List dist directory
         run: ls -lR dist || true
