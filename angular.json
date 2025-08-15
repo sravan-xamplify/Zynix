@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "zynix": {
+  "zynix-multi-theme": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -28,7 +28,7 @@
             "allowedCommonJsDependencies": [
               "leaflet","apexcharts","sweetalert","sweetalert2","inputmask","filepond","moment","can-use-dom","dropzone","google-libphonenumber","cleave.js"
               ],
-            "outputPath": "preview",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -101,10 +101,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "zynix:build:production"
+              "buildTarget": "zynix-multi-theme:build:production"
             },
             "development": {
-              "buildTarget": "zynix:build:development"  
+              "buildTarget": "zynix-multi-theme:build:development"  
             }
           },
           "defaultConfiguration": "development"
