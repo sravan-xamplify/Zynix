@@ -35,8 +35,7 @@ jobs:
           npm run build -- \
             --configuration production \
             --base-href "/Zynix-Multi-Theme/" \
-            --deploy-url "/Zynix-Multi-Theme/" \
-            --output-path dist
+            --deploy-url "/Zynix-Multi-Theme/"
 
       - name: List dist directory
         run: ls -lR dist || true
