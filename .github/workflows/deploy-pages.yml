@@ -39,12 +39,12 @@ jobs:
             --output-path dist
 
       - name: Add 404.html fallback
-        run: cp dist/index.html dist/404.html
+        run: cp dist/zynix-multi-theme/index.html dist/zynix-multi-theme/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/zynix-multi-theme
 
   deploy:
     needs: build
