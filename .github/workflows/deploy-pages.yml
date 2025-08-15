@@ -5,13 +5,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-# Required for Pages deployments
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Only one pages deploy at a time
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -29,13 +27,10 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
-      # Important:
-      # 1) Update base-href & deploy-url to the *repo name* after the rename
-      # 2) Force a flat output path so we can upload without guessing
-      - name: Build Angular (prod)
+      - name: Build Angular (production)
         run: |
           npm run build -- \
             --configuration production \
@@ -43,7 +38,6 @@ jobs:
             --deploy-url "/Zynix-Multi-Theme/" \
             --output-path dist
 
-      # Single Page App fallback for client-side routing
       - name: Add 404.html fallback
         run: cp dist/index.html dist/404.html
 
